@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        ndk { abiFilters "armeabi-v7a" }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        maxProcessCount 4
+        javaMaxHeapSize "8g"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //support基本库依赖
+    compile rootProject.ext.deps["design"]
+    compile rootProject.ext.deps["support-v4"]
+    compile rootProject.ext.deps["appcompat-v7"]
+    compile rootProject.ext.deps["constraint-layout"]
+    compile rootProject.ext.deps["multidex"]
+    compile rootProject.ext.deps["recyclerview-v7"]
+    compile rootProject.ext.deps["cardview-v7"]
+
+    //stetho
+    compile rootProject.ext.deps["stetho"]
+    compile rootProject.ext.deps["stetho-okhttp3"]
+    //logger
+    compile rootProject.ext.deps["logger"]
+
+
+}
