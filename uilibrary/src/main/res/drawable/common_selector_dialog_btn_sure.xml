@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/common_dialog_btn_sure_dis" android:state_enabled="false" />
+    <item android:drawable="@mipmap/common_dialog_btn_sure_hl" android:state_pressed="true" />
+    <item android:drawable="@mipmap/common_dialog_btn_sure_hl" android:state_selected="true" />
+    <item android:drawable="@mipmap/common_dialog_btn_sure_nor" />
+</selector>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_actionbar_size">44dp</dimen>
+    <dimen name="bottom_navigate_bar_height">48dp</dimen>
+    <dimen name="common_refreshProgressBarWH">22dp</dimen>
+    <dimen name="common_dip10">10dip</dimen>
+    <dimen name="common_dip12">12dip</dimen>
+    <dimen name="common_dip14">14dip</dimen>
+    <dimen name="common_dip15">15dip</dimen>
+    <dimen name="common_dip16">16dip</dimen>
+    <dimen name="common_dip18">18dip</dimen>
+    <dimen name="common_dip20">20dip</dimen>
+    <dimen name="common_dip40">40dip</dimen>
+    <dimen name="common_dip8">8dp</dimen>
+    <dimen name="common_dip6">6dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="common_activity_horizontal_margin">16dp</dimen>
+    <dimen name="common_activity_vertical_margin">16dp</dimen>
+    <dimen name="common_cornerRadius_size">3dip</dimen>
+
+    <dimen name="common_customrefreshProgressBarWH">14.2dp</dimen>
+
+    <dimen name="common_sp12">12sp</dimen>
+    <dimen name="common_sp13">13sp</dimen>
+    <dimen name="common_sp15">15sp</dimen>
+    <dimen name="common_sp16">16sp</dimen>
+
+    <dimen name="suspension_height">30dp</dimen>
+    <dimen name="tablayout_height">44dp</dimen>
+</resources>

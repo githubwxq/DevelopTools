@@ -1,13 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
         applicationId "com.wxq.developtools"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        ndk { abiFilters "armeabi-v7a" }
 
     }
     buildTypes {
@@ -19,6 +22,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //butterknife
+    compile rootProject.ext.deps["butterknife"]
+    annotationProcessor rootProject.ext.deps["butterknife-compiler"]
+    //glide
+    annotationProcessor rootProject.ext.deps["glide-compiler"]
     implementation project(':commonlibrary')
+    implementation 'com.google.guava:guava:23.0-android'
 }

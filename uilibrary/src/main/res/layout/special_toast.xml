@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+   android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="25dp"
+    android:background="@drawable/toast_corner_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+  >
+
+    <!--<ProgressBar style="@style/common_customProgressBar"/>-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/gou" />
+
+    <TextView
+        android:id="@+id/message"
+        android:textColor="@color/common_white"
+        android:layout_width="wrap_content"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="教材切换成功" />
+
+
+</LinearLayout>

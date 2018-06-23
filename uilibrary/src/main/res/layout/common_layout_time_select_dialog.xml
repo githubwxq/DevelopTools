@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/common_course_count_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="选择时间"
+        android:textColor="@color/common_grey"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@mipmap/common_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.juziwl.uilibrary.PickerView
+            android:id="@+id/year"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="4" />
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="-"
+            android:textSize="15sp" />
+
+        <com.juziwl.uilibrary.PickerView
+            android:id="@+id/month"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="3" />
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="-"
+            android:textSize="15sp" />
+
+        <com.juziwl.uilibrary.PickerView
+            android:id="@+id/day"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="3" />
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="15sp" />
+
+        <com.juziwl.uilibrary.PickerView
+            android:id="@+id/hour"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="3" />
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text=":"
+            android:textSize="15sp" />
+
+        <com.juziwl.uilibrary.PickerView
+            android:id="@+id/minute"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="3" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@mipmap/common_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/common_selector_left_button"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/common_cancel"
+            android:textColor="@color/common_grey"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#d0cccc" />
+
+        <Button
+            android:id="@+id/make_sure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/common_makesure"
+            android:textColor="@color/color_0093e8"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

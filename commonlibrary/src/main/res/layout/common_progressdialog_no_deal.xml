@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_view"
+    android:layout_width="85dp"
+    android:layout_height="85dp"
+    android:background="@drawable/common_shape_nodeal_progressdialog"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="12dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="20dp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="35dp"
+        android:layout_height="35dp" />
+
+    <TextView
+        android:id="@+id/tipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="clip_horizontal"
+        android:layout_marginTop="6dp"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="27dp"
+    android:background="@drawable/common_search_bar_bg"
+    android:visibility="visible">
+    <!--tools:showIn="@layout/main_activity_ask_and_answer_detail"-->
+    <!--、、最多四行-->
+
+
+    <ImageView
+        android:id="@+id/iv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="11dp"
+        android:src="@mipmap/common_search_icon" />
+
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@+id/iv_delete"
+        android:layout_toRightOf="@+id/iv_search"
+        android:singleLine="true"
+        android:background="@null"
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:minHeight="20dp"
+        android:textColorHighlight="@color/common_white"
+        android:textColorHint="@color/common_aaffffff"
+        android:text=""
+        android:textColor="@color/common_white"
+        android:textSize="14sp"
+        android:focusable="true"
+        android:hint="搜索"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:visibility="gone"
+        android:src="@mipmap/common_search_del" />
+
+
+</RelativeLayout>
+
+
+    

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alertdialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/llSuccessBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_corner_btn_white_normal"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/common_dip20">
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_kindly_reminder"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/common_black"/>
+
+        <LinearLayout
+            android:id="@+id/llUpdateInfos"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tvPromptMsg"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_dip10"
+                android:layout_marginRight="@dimen/common_dip10"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/common_black_light"
+                android:textSize="14sp"
+
+                />
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/common_dip10"
+                android:layout_marginLeft="@dimen/common_dip10"
+                android:layout_marginBottom="@dimen/common_dip10"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@mipmap/common_line" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/common_dip14"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCancle"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:background="@drawable/common_selector_btn_gray"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dip8"
+                android:paddingLeft="@dimen/common_dip10"
+                android:paddingRight="@dimen/common_dip10"
+                android:paddingTop="@dimen/common_dip8"
+                android:text="@string/common_cancel"
+                android:textColor="@color/common_color_gray"
+                android:textSize="@dimen/common_sp16" />
+
+            <Button
+                android:id="@+id/btnSure"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:background="@drawable/common_selector_btn_blue"
+                android:gravity="center"
+                android:paddingBottom="@dimen/common_dip8"
+                android:paddingLeft="@dimen/common_dip10"
+                android:paddingRight="@dimen/common_dip10"
+                android:paddingTop="@dimen/common_dip8"
+                android:text="@string/common_makesure"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/common_sp16" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -9,7 +9,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
     }
 
@@ -30,8 +30,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //support基本库依赖
     compile rootProject.ext.deps["design"]
     compile rootProject.ext.deps["support-v4"]
@@ -40,12 +39,31 @@ dependencies {
     compile rootProject.ext.deps["multidex"]
     compile rootProject.ext.deps["recyclerview-v7"]
     compile rootProject.ext.deps["cardview-v7"]
+//    compile rootProject.ext.deps["guava"]
+
 
     //stetho
     compile rootProject.ext.deps["stetho"]
     compile rootProject.ext.deps["stetho-okhttp3"]
     //logger
     compile rootProject.ext.deps["logger"]
-
+    //glide
+    compile(rootProject.ext.deps["glide"]) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.ext.deps["glide-compiler"]
+    compile rootProject.ext.deps["glide-okhttp3-integration"]
+    compile rootProject.ext.deps["glide-annotations"]
+    compile rootProject.ext.deps["glide-transformations"]
+    //权限
+    //rxjava
+    compile rootProject.ext.deps["rxjava"]
+    compile rootProject.ext.deps["rxandroid"]
+    compile rootProject.ext.deps["rxpermissions"]
+    compile rootProject.ext.deps["rxbinding"]
+    compile rootProject.ext.deps["rxbinding-support-v4"]
+    compile rootProject.ext.deps["rxlifecycle"]
+    compile rootProject.ext.deps["rxlifecycle-android"]
+    compile rootProject.ext.deps["fastjson"]
 
 }

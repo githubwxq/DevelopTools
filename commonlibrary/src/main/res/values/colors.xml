@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="common_result_view">#b0000000</color>
+    <color name="common_add_title_text_color">#666666</color>
+    <color name="common_white">#ffffffff</color>
+    <color name="common_grey_cccccc">#CCCCCC</color>
+    <color name="common_333">#333</color>
+    <color name="common_ff5019">#ff5019</color>
+</resources>

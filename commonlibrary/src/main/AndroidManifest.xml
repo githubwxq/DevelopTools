@@ -87,6 +87,12 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/util_code_provider_paths" />
+
+
+            <meta-data
+                android:name="com.wxq.commonlibrary.glide.ProgressGlideModule"
+                android:value="GlideModule" />
+
         </provider>
     </application>
 

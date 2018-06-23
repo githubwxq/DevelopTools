@@ -1,5 +1,6 @@
 package com.wxq.commonlibrary.util;
 
+import android.content.Context;
 import android.support.annotation.RawRes;
 
 import java.io.BufferedOutputStream;
@@ -322,6 +323,14 @@ public final class ResourceUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * 根据名字获取资源的ID
+     */
+    public static int getResourceId(String resName, String resType) {
+        Context context = Utils.getApp();
+        return context.getResources().getIdentifier(resName, resType, context.getPackageName());
     }
 }
 

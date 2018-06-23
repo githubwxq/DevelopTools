@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_border_white">#e5e5e5</color>
+    <color name="common_colorPrimary">#3F51B5</color>
+    <color name="common_colorPrimaryDark">#303F9F</color>
+    <color name="common_colorAccent">#FF4081</color>
+    <color name="common_grey_bg">#dedede</color>
+    <color name="common_ask_jifenbg">#dddddd</color>
+    <color name="common_main_color">#f5734c</color>
+    <color name="common_main_huicolor">#787878</color>
+    <!--<color name="common_new_bg">#dde4ef</color>-->
+    <color name="common_recharge">#ff7474</color>
+    <color name="common_withdraw">#94c365</color>
+    <color name="translucent">#00000000</color>
+    <color name="gray_ee">#ffeeeeee</color>
+    <color name="common_e4e4e6">#e4e4e6</color>
+    <!--myself-->
+    <color name="common_menu_color">#585858</color>
+    <color name="common_myself_word">#323232</color>
+    <color name="common_myself_msgback_content">#a0a0a0</color>
+    <color name="common_myself_info_content">#969696</color>
+    <color name="common_myself_account_grey">#787878</color>
+    <color name="common_black_grey">#222222</color>
+    <color name="common_black">#000000</color>
+    <color name="common_transparent">#00000000</color>
+    <color name="common_black_light">#666666</color>
+    <color name="common_grey_line">#D9D9D9</color>
+    <color name="common_account_green">#739c4b</color>
+    <color name="common_account_red">#ef3030</color>
+    <color name="common_account_orange">#ff784f</color>
+    <color name="common_save_grey">#b4b4b4</color>
+    <color name="common_pay_btn_press">#cc603f</color>
+    <color name="common_pay_greybtn">#c8c8c8</color>
+    <color name="common_exit_pressbtn">#CC4343</color>
+    <color name="common_mall_red">#ef2f2f</color>
+    <color name="common_mall_blue">#0068b7</color>
+    <color name="common_mall_green">#4bba46</color>
+    <color name="common_ask_light">#bbbbbb</color>
+    <color name="common_grey_kuang">#e6e6e6</color>
+    <color name="color_f3f3f3">#f3f3f3</color>
+    <color name="common_menu">#ffffcc</color>
+
+    <color name="common_orange_lighted">#dc6744</color>
+    <color name="common_f5f5f5">#fff5f5f5</color>
+    <color name="common_gray_lighted">#efefef</color>
+    <color name="common_gray_lighted_dialog">#FEFFFF</color>
+    <color name="common_light_black">#444444</color>
+    <color name="common_dark_white">#eeeeee</color>
+    <color name="common_color_gray">#999999</color>
+    <color name="common_gray_line">#EEEEEE</color>
+    <color name="common_main_backcolor">#dde4ef</color>
+    <color name="common_dark_blue">#000000</color>
+    <color name="common_dialog_text_black">#353535</color>
+    <color name="common_grey">#828282</color>
+    <color name="common_huiwhite">#D6D6D6</color>
+    <color name="common_colora">#5e5e5e</color>
+    <color name="common_homeworkcolor">#fff5ed</color>
+    <color name="common_myself_color">#ff5454</color>
+    <color name="common_sign_in_bg">#fff13f44</color>
+    <color name="common_sign_in_btn_disable">#ffebebeb</color>
+    <color name="common_sign_in_btn_press">#ffe3cf29</color>
+    <color name="common_sign_in_btn_bg">#fffce946</color>
+    <color name="common_chinese">#f29d00</color>
+    <color name="common_math">#4fbafe</color>
+    <color name="common_english">#f57abb</color>
+    <color name="common_physics">#28bff2</color>
+    <color name="common_chemistry">#99cc33</color>
+    <color name="common_biology">#03d790</color>
+    <color name="common_geographical">#fb874e</color>
+    <color name="common_history">#c7c500</color>
+    <color name="common_politics">#01b5b5</color>
+    <color name="common_senior">#4683fd</color>
+    <color name="common_college">#c58401</color>
+    <color name="common_othersubject">#b3b3b3</color>
+    <color name="common_mancolor">#3399cc</color>
+
+    <color name="common_subscribe_item_selected_stroke">#ffcc3131</color>
+    <color name="common_subscribe_item_disabled_stroke">#ffd9d9d9</color>
+    <color name="common_subscribe_item_disabled_bg">#ffefefef</color>
+    <color name="common_subscribe_item_normal_stroke">#ffcdcdcd</color>
+    <color name="common_subscribe_item_normal_bg">#fff5f5f5</color>
+    <color name="common_ebebeb">#ebebeb</color>
+    <color name="common_light_black2">#ff394147</color>
+    <color name="common_light_grey">#ff8091a8</color>
+    <color name="common_light_white">#dddbdb</color>
+    <color name="common_light_white2">#f4f7f9</color>
+    <color name="color_bfbfbf">#bfbfbf</color>
+    <color name="common_light_white4">#E7E7E7</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="common_gray">#696969</color>
+    <color name="common_gray2">#666666</color>
+    <color name="common_gray3">#55ffffff</color>
+    <color name="common_grey2">#666D7D</color>
+
+    <color name="common_576b95">#576b95</color>
+    <color name="common_darkvlack">#969696</color>
+    <color name="common_light_green">#4bba46</color>
+    <color name="common_light_blue">#ff238dc9</color>
+    <color name="common_light_grey2">#e3e3e3</color>
+    <color name="common_line_color">#ddd7d1</color>
+    <color name="common_line_color2">#d4d4d4</color>
+    <color name="common_line_color3">#dcdcdc</color>
+    <color name="common_yellow_white">#fff5f0</color>
+    <color name="common_light_black1">#333333</color>
+    <color name="common_ask_grey">#7281A3</color>
+    <color name="common_number">#b5cdf9</color>
+
+    <color name="common_viewfinder_mask">#60000000</color>
+    <color name="common_result_view">#b0000000</color>
+    <color name="common_possible_result_points">#c0ffff00</color>
+    <color name="common_button_click">#e3e1e1</color>
+    <!-- 洋李色 -->
+    <color name="common_gainsboro">#dcdcdc</color>
+
+    <color name="common_light_grey3">#e6e6e6</color>
+    <color name="common_light_grey4">#8e8e8e</color>
+    <color name="common_light_grey5">#a6a6a6</color>
+    <color name="color_fafafa">#fafafa</color>
+    <color name="common_light_black3">#4d4d4d</color>
+    <color name="common_word_grey">#a0a3aa</color>
+    <color name="common_green">#7b96bd</color>
+    <color name="common_black_1">#404040</color>
+    <color name="common_pink">#FF6EB4</color>
+    <color name="common_red">#ff0000</color>
+    <color name="common_grey1">#898AA6</color>
+    <color name="color_646464">#646464</color>
+    <color name="common_light_green1">#94c365</color>
+    <color name="common_light_purple">#cc99cc</color>
+    <color name="common_light_red">#ff7474</color>
+    <color name="common_light_blue2">#74c6e8</color>
+    <color name="common_light_black4">#595959</color>
+    <color name="common_light_grey6">#8c8c8c</color>
+    <color name="common_blur_bg">#FFFAF0</color>
+    <color name="common_othet_award">#708caf</color>
+    <color name="common_mencolor">#ff6666</color>
+    <color name="common_datacolor">#f6bc57</color>
+    <color name="common_classhomework">#25338b</color>
+    <!-- 红色 选择城市那里 -->
+    <color name="common_select_city_red">#c53c3d</color>
+    <color name="common_popup_half_transparent_bg">#88000000</color>
+
+    <color name="common_popup_half_transparent_bg_4c000000">#4c000000</color>
+    <color name="common_circle_image_bg">#7f000000</color>
+    <color name="common_light_white7">#dadada</color>
+    <color name="common_light_grey7">#8f8f8f</color>
+    <color name="common_light_white8">#bababa</color>
+    <color name="common_light_grey8">#737373</color>
+    <color name="common_light_grey9">#ededed</color>
+    <color name="common_light_grey10">#b3b3b3</color>
+    <color name="common_light_grey17">#b4b4b4</color>
+    <color name="common_light_white9">#f7f7f7</color>
+    <color name="common_light_8">#888888</color>
+    <color name="common_light_black5">#565656</color>
+    <color name="common_light_grey11">#cccccc</color>
+    <color name="common_light_grey12">#dddddd</color>
+    <color name="common_light_grey13">#afbbcf</color>
+    <color name="common_light_grey14">#a2a2a2</color>
+    <color name="common_orange">#ff7a52</color>
+    <color name="common_default_line_color">#DCD6D0</color>
+    <color name="common_light_green2">#66cc99</color>
+    <color name="common_border_color">#959595</color>
+    <color name="common_onlinetitle">#969696</color>
+    <color name="common_onlinetitler">#323232</color>
+    <color name="common_online_recommend">#ff6e1b</color>
+    <color name="common_online_activity">#ff4f4f</color>
+    <color name="common_online_extension">#4f7dff</color>
+
+    <color name="common_delete_orange">#F4734C</color>
+    <color name="common_finish_grey">#BBC0CE</color>
+    <color name="common_grey4">#595c61</color>
+    <color name="common_light_white10">#f0f0f4</color>
+    <color name="common_light_grey15">#a3a3a3</color>
+    <color name="common_light_grey16">#ececec</color>
+    <color name="common_light_yellow">#ffede8</color>
+    <color name="common_light_green3">#45c01a</color>
+    <color name="common_light_blue1">#1caceb</color>
+    <color name="common_white3">#fffafa</color>
+    <color name="common_blue">#0000FF</color>
+
+    <!-- com.google.com.google.zxing -->
+    <color name="common_contents_text">#ff000000</color>
+    <color name="common_encode_view">#ffffffff</color>
+
+    <color name="common_result_minor_text">#ffc0c0c0</color>
+    <color name="common_result_points">#c099cc00</color>
+    <!-- Android standard ICS color -->
+    <color name="common_result_text">#ffffffff</color>
+
+    <color name="common_status_text">#ffffffff</color>
+
+    <color name="common_viewfinder_laser">#ffcc0000</color>
+    <!-- Android standard ICS color -->
+    <color name="common_jumpcolor">#ea5618</color>
+    <color name="common_ljqdno">#707070</color>
+    <color name="common_ljqdok">#f5734c</color>
+    <color name="common_searchresult">#9e9e9e</color>
+    <color name="common_classcolor">#fd784d</color>
+    <color name="common_babynamecolor">#343434</color>
+    <color name="common_classnamecolor">#808080</color>
+    <color name="common_unpaylight">#cda36a</color>
+    <color name="common_unpaydark">#bf9963</color>
+    <color name="common_vipred">#CC3333</color>
+    <!--  萤石开放平台  -->
+    <!-- common -->
+    <color name="common_mode_bg">#88000000</color>
+    <color name="common_black_bg">#000000</color>
+    <color name="common_shadow">#80000000</color>
+    <color name="common_dark_bg_70p">#bb000000</color>
+    <color name="common_dark_bg_20p">#33000000</color>
+    <color name="common_common_bg">#f0f0f3</color>
+    <color name="common_title_line">#b2b2b2</color>
+    <color name="common_common_line">#c8c7cc</color>
+    <color name="common_common_text_sel">#3aa3ee</color>
+    <color name="common_common_sub_text">#888888</color>
+    <color name="common_common_hint_text">#adadad</color>
+    <color name="common_setting_hint_text">#adadad</color>
+    <color name="common_state_normal_text">#71c211</color>
+    <color name="common_state_abnormal_text">#eb0303</color>
+    <color name="common_state_off_text">#adadad</color>
+    <color name="common_676767">#676767</color>
+    <color name="common_bar_text_sel">#3aa3ee</color>
+    <color name="common_page_bg_color">#f8f8f8</color>
+    <color name="common_pureblack">#ff000000</color>
+
+    <color name="common_cameralist_gray">#e3e3e3</color>
+    <color name="common_page_change_gray">#8f8f8f</color>
+    <color name="common_gray_text">#adadad</color>
+    <color name="common_translucent_black">#c0000000</color>
+    <color name="common_text_black">#353535</color>
+    <color name="common_yahei">#626262</color>
+    <color name="common_articletext_backcolor">#f7f7f7</color>
+    <color name="common_trans_bg_color">#c0ffffff</color>
+    <color name="common_gray_bg">#ffe5e7e9</color>
+    <color name="common_unopen">#748dac</color>
+    <!-- camera -->
+    <color name="common_transparent_bg">#00000000</color>
+    <!-- records -->
+    <color name="common_record_normal">#8cc6d7</color>
+    <color name="common_record_alarm">#ff7c59</color>
+    <color name="color_bbbbbb">#bbbbbb</color>
+    <color name="common_record_time">#919191</color>
+    <color name="common_record_osd">#ff4300</color>
+    <!-- background -->
+    <color name="common_application_bg">@color/common_common_bg</color>
+    <color name="common_table_value">#7f7f7f</color>
+    <color name="common_loading_text">#686868</color>
+    <color name="common_realplay_loading_text">#7d755d</color>
+    <!-- 橘色字体 -->
+    <color name="common_orange_text">#df2d10</color>
+    <color name="common_yellow_text">#ff6600</color>
+    <color name="common_blue_text">#39a4cb</color>
+    <color name="common_green_text">#3fb895</color>
+    <!-- tab页面 -->
+    <color name="common_tab_color">#f9f9f9</color>
+    <color name="common_tab_sel_color">#1e1e1e</color>
+    <color name="common_tip_bg">#fff7e0</color>
+    <color name="common_tip_color">#a85f03</color>
+    <color name="common_event_message_from_tv">#818181</color>
+    <color name="common_event_message_play_btn">#eeeeee</color>
+    <!-- 画的线框的颜色 -->
+    <color name="common_fragment_line_color">#e6e7e8</color>
+    <color name="common_upgrade_orange">#fd8f06</color>
+    <color name="common_upgrade_green">#71c211</color>
+    <color name="common_upgrade_red">#ff2222</color>
+    <color name="common_upgrade_gray">#888888</color>
+    <color name="common_version_gray">#b4b4b4</color>
+    <color name="common_reg_deal_text_bule">#007aff</color>
+    <color name="common_share_green">#6ac949</color>
+    <color name="common_share_bule">#56abff</color>
+    <color name="common_share_red">#fc6969</color>
+    <color name="common_share_tip_red">#fe4343</color>
+
+    <drawable name="common_translucent">#00000000</drawable>
+
+    <!-- wifi一键配置 -->
+    <color name="common_auto_wifi_red">#fe4343</color>
+    <color name="common_auto_wifi_blue">#40a2ee</color>
+    <color name="common_auto_tip_text">#888888</color>
+    <color name="common_auto_blue_text">#2554bd</color>
+
+    <!-- R1文件上传 -->
+    <color name="common_active_color">#f08300</color>
+    <color name="common_normal_color">#6c6b6b</color>
+    <color name="common_upload_sel_count">#ff6c00</color>
+    <color name="common_progress_back">#646669</color>
+    <color name="common_progress_select">#58c01f</color>
+    <color name="common_r1_item_bg">#dddddd</color>
+    <color name="common_r1_cancel_color">#ff6969</color>
+    <color name="common_divider">#c7c7c7</color>
+    <color name="common_online_school_text">#010101</color>
+    <!-- 消息 -->
+    <color name="common_message_bg">#fff</color>
+    <color name="common_message_button_text">#555</color>
+    <color name="common_play_translucent_bg">#c0000000</color>
+    <color name="common_channel_item_bg">#47a3ff</color>
+    <color name="common_leavemessage_text_color">#3aa3ee</color>
+    <color name="common_leavemessage_time_text_color">#adadad</color>
+    <color name="common_leavemessage_gray">#888888</color>
+    <!-- 我的 -->
+
+    <color name="common_remotefile_timebar_color">#39a3ed</color>
+    <color name="common_remotefile_timebar_alarm_color">#ff8261</color>
+    <color name="common_remotefile_line_color">#fe2b2b</color>
+
+    <!-- 回放列表 -->
+    <color name="common_remotelist_item_select">#249bff</color>
+    <color name="common_remotelist_item_duration_text_color">#c6c6c6</color>
+
+    <!-- 引导和登录 -->
+    <color name="common_login_line_color">#e0e0e3</color>
+    <color name="common_a1_blue_color">#1ea1ff</color>
+    <color name="common_a1_orange_color">#ff7e00</color>
+    <color name="common_my_list_deviver">#b2b2b2</color>
+    <color name="common_corsor_color">#adadad</color>
+    <color name="common_quality_focused_color">#448cf3</color>
+    <color name="common_source_detection_btn_color">#48a9fb</color>
+    <color name="common_preview_quality_color">#3eaefa</color>
+
+    <color name="common_more_color">#3ea6ef</color>
+    <color name="common_scan_yellow">#e56b19</color>
+    <color name="common_tv_my_blue">#1b9ee2</color>
+    <color name="common_auto_wifi_tip_red">#FF4000</color>
+    <color name="common_add_title_text_color">#666666</color>
+    <color name="common_help_link">#527ddb</color>
+    <color name="common_opensdk_cameralist_bg">#f0f0f1</color>
+    <color name="common_on_off_text_selector">#3ea6ef</color>
+    <color name="common_grouplayout_item_bg_sel">#f3f4f5</color>
+    <color name="common_viewfinder_frame">#929292</color>
+    <color name="common_billselecte">#ea5618</color>
+    <color name="common_dotask">#fffffe</color>
+    <color name="common_paybill">#ea571a</color>
+    <color name="common_online_text">#ea5719</color>
+    <color name="common_message_nor">#999999</color>
+    <color name="common_message_sel">#ff784f</color>
+    <color name="common_circlegreycolor">#808080</color>
+
+    <!---->
+    <!--//圈子相关属性-->
+    <!---->
+    <color name="common_new_bg">#dde4ef</color>
+    <color name="common_circlesearch">#8b8b8b</color>
+
+    <color name="common_blue_desc">#1e43ff</color>
+    <color name="common_orange_author">#ff5b23</color>
+    <color name="common_orange_exchange">#ff6834</color>
+    <color name="common_light_blue3">#edeefa</color>
+    <color name="common_rewarreddbg">#f1bc78</color>
+    <color name="common_video_gray">#aadddddd</color>
+    <color name="common_light_white11">#f6f6f6</color>
+    <color name="common_blue1">#157efb</color>
+    <color name="common_blue2">#527ead</color>
+    <color name="common_light_green4">#28bf3c</color>
+
+    <color name="background">#F9F7F8</color>
+    <!--exue2.0新添加的颜色-->
+    <color name="common_00af5b">#00af5b</color>
+    <color name="common_00c063">#00c063</color>
+    <color name="common_new_main_color_light">#00a551</color>
+
+    <color name="common_drakgreen">#047331</color>
+    <color name="common_color_gray_normal">#f5f5f5</color>
+    <color name="common_color_gray_lighted">#efefef</color>
+    <color name="common_color_border_white">#e5e5e5</color>
+
+    <color name="common_333333">#333333</color>
+
+    <color name="common_666666">#666666</color>
+    <color name="common_999999">#999999</color>
+    <color name="common_dddddd">#dddddd</color>
+    <color name="common_D6D6D6">#D6D6D6</color>
+    <color name="color_0093e8">#0093e8</color>
+    <color name="color_4d0093e8">#4d0093e8</color>
+    <color name="common_fb5e80">#fb5e80</color>
+    <color name="common_c5f5fd">#c5f5fd</color>
+    <color name="common_eb4e3d">#eb4e3d</color>
+    <color name="common_f0f2f5">#f0f2f5</color>
+    <color name="common_ffe5e7e9">#ffe5e7e9</color>
+    <color name="common_f7f7f8">#f7f7f8</color>
+    <color name="common_aaffffff">#aaffffff</color>
+    <color name="common_7F7F7F">#7F7F7F</color>
+    <color name="common_ff6500">#ff6500</color>
+    <color name="common_fbb000">#fbb000</color>
+    <color name="common_ff5e2c">#ff5e2c</color>
+    <color name="common_edf1f5">#edf1f5</color>
+    <color name="common_ffab67">#ffab67</color>
+    <color name="common_ff8830">#ff8830</color>
+    <color name="common_22e486">#22e486</color>
+    <color name="common_4680B8">#4680B8</color>
+    <color name="common_99d4f6">#99d4f6</color>
+
+
+    <!--Zxing-->
+
+    <!-- com.google.com.google.zxing -->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="result_points">#c099cc00</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_color">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="color_orange_lighted">#dc6744</color>
+
+    <color name="color_f7f7f9">#f7f7f9</color>
+    <color name="color_efefef">#efefef</color>
+    <color name="color_ff6f26">#ff6f26</color>
+    <color name="color_fa6232">#fa6232</color>
+    <color name="color_ff6e40">#ff6e40</color>
+    <color name="color_ff7c53">#ff7c53</color>
+    <color name="color_FFF7F2">#FFF7F2</color>
+    <color name="color_fb5956">#fb5956</color>
+    <color name="color_EBF8FF">#EBF8FF</color>
+
+    <color name="color_4dff6f26">#4dff6f26</color>
+    <color name="color_F2F2F2">#F2F2F2</color>
+    <color name="color_fb7034">#fb7034</color>
+
+    <!-- 钱包 -->
+    <color name="myself_word">#323232</color>
+    <color name="myself_msgback_content">#a0a0a0</color>
+    <color name="myself_info_content">#969696</color>
+    <color name="myself_account_grey">#787878</color>
+    <color name="myself_white">#ffffff</color>
+    <color name="bank_name">#333333</color>
+    <color name="bank_number">#999999</color>
+    <color name="bank_reason">#9a9a9a</color>
+    <color name="color_ff7c62">#ff7c62</color>
+    <color name="color_ff7a7a">#ff7a7a</color>
+    <color name="color_ff8e8e">#ff8e8e</color>
+    <color name="color_f4f4f4">#f4f4f4</color>
+    <color name="color_ff6363">#ff6363</color>
+    <color name="color_fa6d6d">#fa6d6d</color>
+    <color name="color_4ea1ff">#4ea1ff</color>
+    <color name="color_66aeff">#66aeff</color>
+    <color name="color_666">#666</color>
+    <color name="color_333">#333</color>
+    <color name="color_9a9a9a">#9a9a9a</color>
+    <color name="color_80ffffff">#80ffffff</color>
+    <color name="color_ff9159">#ff9159</color>
+    <color name="color_5db5e8">#5db5e8</color>
+    <color name="color_179be8">#179be8</color>
+    <color name="color_3f3f3f">#3f3f3f</color>
+    <color name="color_444444">#444444</color>
+    <color name="color_f7f7f7">#f7f7f7</color>
+    <color name="color_fff1eb">#fff1eb</color>
+    <color name="color_ffb38c">#FFB38C</color>
+    <color name="color_FF6E26">#FF6E26</color>
+    <color name="color_f2faff">#f2faff</color>
+    <color name="color_ffe0d8">#ffe0d8</color>
+    <color name="color_ffa9a9">#ffa9a9</color>
+    <color name="color_ffebeb">#ffebeb</color>
+    <color name="color_fff8dd">#fff8dd</color>
+    <color name="color_ffa4a4">#ffa4a4</color>
+    <color name="color_ffe2a4">#ffe2a4</color>
+    <!--考勤颜色-->
+    <color name="color_7cb7ff">#7cb7ff</color>
+    <color name="color_f7a798">#f7a798</color>
+    <color name="color_fcde83">#fcde83</color>
+    <color name="color_6a7ef7">#6a7ef7</color>
+    <color name="color_7e65fc">#7e65fc</color>
+    <color name="color_74bee8">#74bee8</color>
+    <color name="color_2ea4e8">#2EA4E8</color>
+    <color name="color_66ff6f26">#66ff6f26</color>
+    <color name="color_660093e8">#660093e8</color>
+
+    <color name="color_f2f2f5">#f2f2f5</color>
+    <color name="color_3977b3">#3977b3</color>
+    <color name="color_8d9db7">#8d9db7</color>
+    <color name="color_e7433d">#E7433F</color>
+    <color name="color_ff3b30">#ff3b30</color>
+    <color name="color_ff5019">#ff5019</color>
+    <color name="color_8d8d8d">#8d8d8d</color>
+    <color name="color_0057e8">#0057e8</color>
+    <color name="color_ffb846">#ffb846</color>
+    <color name="color_ef5350">#ef5350</color>
+
+    <color name="nine_number_bg">#80000000</color>
+
+    <color name="color_61615F">#61615F</color>
+    <color name="color_383838">#383838</color>
+    <color name="color_F5F5F5">#F5F5F5</color>
+    <color name="color_625328">#625328</color>
+    <color name="color_F7ECBF">#F7ECBF</color>
+    <color name="color_EBEBEB">#EBEBEB</color>
+    <color name="color_F7ECC1">#F7ECC1</color>
+    <color name="color_E7D794">#E7D794</color>
+    <color name="color_363531">#363531</color>
+    <color name="color_6B6B69">#6B6B69</color>
+
+    <color name="color_777777">#777777</color>
+
+
+    <!--教学按钮不点击时候-->
+    <color name="color_tea_no_click">#800093E8</color>
+    <color name="color_tea_click">#FF0093E8</color>
+
+    <color name="color_323232">#323232</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+
+
+
+
+</resources>

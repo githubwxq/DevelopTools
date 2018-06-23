@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_view"
+    android:layout_width="match_parent"
+    android:background="@drawable/common_item_selector_color">
+
+    <ImageView
+        android:id="@+id/iv_pingbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:src="@mipmap/common_icon_lock"
+        android:scaleType="centerInside"
+        android:layout_alignTop="@+id/content"
+        android:layout_alignBottom="@+id/content"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/iv_pingbi"
+        android:text="姓名"
+        android:visibility="gone"
+        android:textSize="12sp" />
+
+    <com.juziwl.uilibrary.emoji.MTextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@id/tv_name"
+        android:textColor="@color/common_ljqdno"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/content" />
+</RelativeLayout>

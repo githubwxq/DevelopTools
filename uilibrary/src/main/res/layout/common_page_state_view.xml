@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/common_white_bg"
+    android:visibility="gone"
+    android:clickable="true"
+    >
+
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:src="@mipmap/common_state_1" />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_pic"
+        android:layout_centerHorizontal="true"
+        android:text="还没有人评论"
+        android:textColor="#cbcbcb"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_detail2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="还没有人评论"
+        android:textColor="#cbcbcb"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

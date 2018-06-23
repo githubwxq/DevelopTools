@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="common_baseStyle" parent="Theme.AppCompat.Light">
+        <!--隐藏原来的ActionBar，为了在本project中使用ToolBar-->
+        <item name="windowActionBar">false</item>
+        <!--隐藏ActionBar的标题-->
+        <item name="windowNoTitle">true</item>
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowAnimationStyle">@style/common_activityAnimation</item>
+
+        <item name="android:buttonStyle">@style/common_buttonStyle</item>
+        <item name="android:buttonStyleSmall">@style/common_buttonStyle</item>
+        <item name="dividerVertical">@android:color/transparent</item>
+        <item name="dividerHorizontal">@android:color/transparent</item>
+        <item name="actionBarDivider">@android:color/transparent</item>
+        <item name="editTextStyle">@android:style/Widget.EditText</item>
+        <item name="android:textCursorDrawable">@drawable/common_text_cursor</item>
+        <item name="android:textColor">@color/common_myself_word</item>
+        <item name="android:textColorHint">@color/common_grey</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:actionModeBackground">@color/common_myself_word</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="actionBarSize">@dimen/common_actionbar_size</item>
+    </style>
+
+    <style name="common_activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/common_slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/common_slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/common_slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/common_slide_right_out</item>
+    </style>
+
+    <style name="common_activityUpAndDownAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/common_side_dwon_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/common_side_up_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/common_side_up_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/common_side_dwon_out</item>
+    </style>
+
+    <style name="common_buttonStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:minHeight">0dip</item>
+        <item name="android:minWidth">0dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="common_loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/common_shape_nodeal_progressdialog</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="common_chooseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@style/common_popuStyle</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="common_textDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="common_selectDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@style/common_popuStyle</item>
+        <!-- 背景不变暗 -->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="common_ListViewCommon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:cacheColorHint">@color/common_transparent_bg</item>
+        <item name="android:listSelector">@color/common_transparent_bg</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <style name="common_refreshProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/common_refresh_progress_bar</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">@dimen/common_refreshProgressBarWH</item>
+        <item name="android:minHeight">@dimen/common_refreshProgressBarWH</item>
+        <item name="android:maxHeight">@dimen/common_refreshProgressBarWH</item>
+        <item name="android:maxWidth">@dimen/common_refreshProgressBarWH</item>
+    </style>
+
+    <style name="common_customProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/common_custom_progress_bar</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">@dimen/common_customrefreshProgressBarWH</item>
+        <item name="android:minHeight">@dimen/common_customrefreshProgressBarWH</item>
+        <item name="android:maxHeight">@dimen/common_customrefreshProgressBarWH</item>
+        <item name="android:maxWidth">@dimen/common_customrefreshProgressBarWH</item>
+    </style>
+
+    <style name="common_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/common_transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="common_window_bottom_in_bottom_out">
+        <item name="android:windowEnterAnimation">@anim/common_dialog_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/common_dialog_out_bottom</item>
+    </style>
+
+    <style name="common_dialog_scale_animstyle">
+        <item name="android:windowEnterAnimation">@anim/common_scale_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/common_scale_dialog_out_anim</item>
+    </style>
+
+    <style name="common_window_left_in_left_out">
+        <item name="android:windowEnterAnimation">@anim/common_dialog_in_left</item>
+        <item name="android:windowExitAnimation">@anim/common_dialog_out_left</item>
+    </style>
+
+    <style name="common_window_right_in_right_out">
+        <item name="android:windowEnterAnimation">@anim/common_dialog_in_right</item>
+        <item name="android:windowExitAnimation">@anim/common_dialog_out_right</item>
+    </style>
+
+    <style name="common_window_top_in_top_out">
+        <item name="android:windowEnterAnimation">@anim/common_dialog_in_top</item>
+        <item name="android:windowExitAnimation">@anim/common_dialog_out_top</item>
+    </style>
+
+    <style name="common__picker_textDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="commonDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="common_dialog_btn_sure">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/common_selector_dialog_btn_sure</item>
+    </style>
+
+    <style name="common_dialog_btn_cancel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/common_grey_cccccc</item>
+        <item name="android:background">@mipmap/common_dialog_btn_cancel</item>
+    </style>
+
+    <!--会员体系-->
+    <style name="vip_zhifu_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/bank_name</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="vip_zhifu_message">
+        <item name="android:textColor">@color/common_black_light</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="vip_select_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_E7D794</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

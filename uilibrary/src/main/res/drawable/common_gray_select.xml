@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@color/common_D6D6D6"></item>
+    <item android:state_pressed="true" android:drawable="@color/common_D6D6D6"></item>
+    <item android:drawable="@mipmap/common_white_bg"></item>
+
+</selector>
