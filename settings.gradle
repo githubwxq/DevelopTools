@@ -1,1 +1,1 @@
-include ':app', ':commonlibrary', ':uilibrary'
+include ':app', ':commonlibrary', ':uilibrary', ':X5WebDemo'

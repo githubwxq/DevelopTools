@@ -29,6 +29,16 @@
 
 
 
+    <com.juziwl.uilibrary.X5utils.X5WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    </com.juziwl.uilibrary.X5utils.X5WebView>
+
+
 
 
 </RelativeLayout>
