@@ -3,22 +3,39 @@ apply from : "config.gradle"
 buildscript {
     
     repositories {
-        google()
+//        google()
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' // add plugin
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        // tinkersupport插件
+        classpath "com.tencent.bugly:tinker-support:1.1.1"
     }
 }
 
 allprojects {
     repositories {
-        google()
+//        google()
         jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.google.com' }
+        mavenCentral()
+        mavenLocal()
+        maven { url 'http://developer.huawei.com/repo/' }
+    }
+    tasks.withType(Javadoc) {//兼容中文字符
+        options{
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
     }
 }
 

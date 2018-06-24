@@ -63,14 +63,14 @@ public final class PhoneUtils {
      */
     @SuppressLint("HardwareIds")
     @RequiresPermission(READ_PHONE_STATE)
-    public static String getIMEI() {
-        TelephonyManager tm =
-                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return tm != null ? tm.getImei() : "";
-        }
-        return tm != null ? tm.getDeviceId() : "";
-    }
+//    public static String getIMEI() {
+//        TelephonyManager tm =
+//                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            return tm != null ? tm.getImei() : "";
+//        }
+//        return tm != null ? tm.getDeviceId() : "";
+//    }
 
     /**
      * Return the MEID.
@@ -79,17 +79,17 @@ public final class PhoneUtils {
      *
      * @return the MEID
      */
-    @SuppressLint("HardwareIds")
-    @RequiresPermission(READ_PHONE_STATE)
-    public static String getMEID() {
-        TelephonyManager tm =
-                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return tm != null ? tm.getMeid() : "";
-        } else {
-            return tm != null ? tm.getDeviceId() : "";
-        }
-    }
+//    @SuppressLint("HardwareIds")
+//    @RequiresPermission(READ_PHONE_STATE)
+//    public static String getMEID() {
+//        TelephonyManager tm =
+//                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            return tm != null ? tm.getMeid() : "";
+//        } else {
+//            return tm != null ? tm.getDeviceId() : "";
+//        }
+//    }
 
     /**
      * Return the IMSI.
@@ -98,13 +98,13 @@ public final class PhoneUtils {
      *
      * @return the IMSI
      */
-    @SuppressLint("HardwareIds")
-    @RequiresPermission(READ_PHONE_STATE)
-    public static String getIMSI() {
-        TelephonyManager tm =
-                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        return tm != null ? tm.getSubscriberId() : "";
-    }
+//    @SuppressLint("HardwareIds")
+//    @RequiresPermission(READ_PHONE_STATE)
+//    public static String getIMSI() {
+//        TelephonyManager tm =
+//                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+//        return tm != null ? tm.getSubscriberId() : "";
+//    }
 
     /**
      * Returns the current phone type.
@@ -190,30 +190,30 @@ public final class PhoneUtils {
      * SubscriberId(IMSI) = 460030419724900<br>
      * VoiceMailNumber = *86<br>
      */
-    @SuppressLint("HardwareIds")
-    @RequiresPermission(READ_PHONE_STATE)
-    public static String getPhoneStatus() {
-        TelephonyManager tm =
-                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        if (tm == null) return "";
-        String str = "";
-        str += "DeviceId(IMEI) = " + tm.getDeviceId() + "\n";
-        str += "DeviceSoftwareVersion = " + tm.getDeviceSoftwareVersion() + "\n";
-        str += "Line1Number = " + tm.getLine1Number() + "\n";
-        str += "NetworkCountryIso = " + tm.getNetworkCountryIso() + "\n";
-        str += "NetworkOperator = " + tm.getNetworkOperator() + "\n";
-        str += "NetworkOperatorName = " + tm.getNetworkOperatorName() + "\n";
-        str += "NetworkType = " + tm.getNetworkType() + "\n";
-        str += "PhoneType = " + tm.getPhoneType() + "\n";
-        str += "SimCountryIso = " + tm.getSimCountryIso() + "\n";
-        str += "SimOperator = " + tm.getSimOperator() + "\n";
-        str += "SimOperatorName = " + tm.getSimOperatorName() + "\n";
-        str += "SimSerialNumber = " + tm.getSimSerialNumber() + "\n";
-        str += "SimState = " + tm.getSimState() + "\n";
-        str += "SubscriberId(IMSI) = " + tm.getSubscriberId() + "\n";
-        str += "VoiceMailNumber = " + tm.getVoiceMailNumber() + "\n";
-        return str;
-    }
+//    @SuppressLint("HardwareIds")
+//    @RequiresPermission(READ_PHONE_STATE)
+//    public static String getPhoneStatus() {
+//        TelephonyManager tm =
+//                (TelephonyManager) Utils.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+//        if (tm == null) return "";
+//        String str = "";
+//        str += "DeviceId(IMEI) = " + tm.getDeviceId() + "\n";
+//        str += "DeviceSoftwareVersion = " + tm.getDeviceSoftwareVersion() + "\n";
+//        str += "Line1Number = " + tm.getLine1Number() + "\n";
+//        str += "NetworkCountryIso = " + tm.getNetworkCountryIso() + "\n";
+//        str += "NetworkOperator = " + tm.getNetworkOperator() + "\n";
+//        str += "NetworkOperatorName = " + tm.getNetworkOperatorName() + "\n";
+//        str += "NetworkType = " + tm.getNetworkType() + "\n";
+//        str += "PhoneType = " + tm.getPhoneType() + "\n";
+//        str += "SimCountryIso = " + tm.getSimCountryIso() + "\n";
+//        str += "SimOperator = " + tm.getSimOperator() + "\n";
+//        str += "SimOperatorName = " + tm.getSimOperatorName() + "\n";
+//        str += "SimSerialNumber = " + tm.getSimSerialNumber() + "\n";
+//        str += "SimState = " + tm.getSimState() + "\n";
+//        str += "SubscriberId(IMSI) = " + tm.getSubscriberId() + "\n";
+//        str += "VoiceMailNumber = " + tm.getVoiceMailNumber() + "\n";
+//        return str;
+//    }
 
     /**
      * Skip to dial.

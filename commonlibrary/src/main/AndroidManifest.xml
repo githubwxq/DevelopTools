@@ -89,9 +89,9 @@
                 android:resource="@xml/util_code_provider_paths" />
 
 
-            <meta-data
-                android:name="com.wxq.commonlibrary.glide.ProgressGlideModule"
-                android:value="GlideModule" />
+            <!--<meta-data-->
+                <!--android:name="com.wxq.commonlibrary.glide.ProgressGlideModule"-->
+                <!--android:value="GlideModule" />-->
 
         </provider>
     </application>

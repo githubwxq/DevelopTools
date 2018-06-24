@@ -45,9 +45,11 @@ public final class PermissionConstants {
     private static final String[] GROUP_MICROPHONE = {
             permission.RECORD_AUDIO
     };
+//    permission.READ_PHONE_NUMBERS,
+//    permission.ANSWER_PHONE_CALLS,
     private static final String[] GROUP_PHONE      = {
-            permission.READ_PHONE_STATE, permission.READ_PHONE_NUMBERS, permission.CALL_PHONE,
-            permission.ANSWER_PHONE_CALLS, permission.READ_CALL_LOG, permission.WRITE_CALL_LOG,
+            permission.READ_PHONE_STATE,  permission.CALL_PHONE,
+           permission.READ_CALL_LOG, permission.WRITE_CALL_LOG,
             permission.ADD_VOICEMAIL, permission.USE_SIP, permission.PROCESS_OUTGOING_CALLS
     };
 

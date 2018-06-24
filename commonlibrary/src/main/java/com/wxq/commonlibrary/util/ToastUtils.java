@@ -244,7 +244,7 @@ public final class ToastUtils {
             public void run() {
                 cancel();
                 sToast = Toast.makeText(Utils.getApp(), text, duration);
-                final TextView tvMessage = sToast.getView().findViewById(android.R.id.message);
+                final TextView tvMessage = (TextView) sToast.getView().findViewById(android.R.id.message);
                 if (sMsgColor != COLOR_DEFAULT) {
                     tvMessage.setTextColor(sMsgColor);
                 }

@@ -5,14 +5,14 @@ ext {
      *
      */
     android = [
-            compileSdkVersion         : 27,
-            buildToolsVersion         : '27.0.2',
+            compileSdkVersion         : 25,
+            buildToolsVersion         : '25.0.2',
             parentApplicationId       : "com.juziwl.exuecloud.parent",
             comprehensiveApplicationId: "com.juziwl.exuecloud.teacher",
 //            parentApplicationId       : "com.juziwl.xiaoxin.test",
 //            comprehensiveApplicationId: "com.juziwl.exue_comprehensive",
             minSdkVersion             : 17,
-            targetSdkVersion          : 27,
+            targetSdkVersion          : 25,
             parentVersionCode         : 8,
             parentVersionName         : "1.2.2",
             comprehensiveVersionCode  : 8,
@@ -20,7 +20,7 @@ ext {
     ]
 
     def dependVersion = [
-            support    : "27.1.1",
+            support    : "25.1.1",
             retrofit   : "2.2.0",
             okhttp     : "3.7.0",
             dagger2    : "2.5",
