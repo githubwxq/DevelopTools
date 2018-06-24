@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
+import com.juziwl.uilibrary.niceplayer.NiceVideoPlayerManager;
+import com.juziwl.uilibrary.niceplayer.TxVideoPlayerController;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 
 import butterknife.BindView;
@@ -13,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_test_pic)
     ImageView ivTestPic;
+    @BindView(R.id.player)
+    NiceVideoPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +26,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        LoadingImgUtil.loadimg("http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg", ivTestPic ,false);
+        LoadingImgUtil.loadimg("http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg", ivTestPic, false);
 
+
+        init();
+
+    }
+
+    private void init() {
+
+        player.setPlayerType(NiceVideoPlayer.TYPE_IJK); // IjkPlayer or MediaPlayer
+        TxVideoPlayerController controller = new TxVideoPlayerController(this);
+        controller.setTitle("Beautiful China...");
+           String videoUrl = "http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-17_17-33-30.mp4";
+        controller.setLenght(117000);
+        player.setUp(videoUrl, null);
+
+        LoadingImgUtil.loadimg("http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg",controller.imageView(),false);
+
+
+        player.setController(controller);
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (NiceVideoPlayerManager.instance().onBackPressd()) return;
+        super.onBackPressed();
     }
 }

@@ -33,6 +33,14 @@ dependencies {
     compile rootProject.ext.deps["xrecyclerview"]
     //nineoldandroids
     compile rootProject.ext.deps["nineoldandroids"]
+    //ijack
+    compile rootProject.ext.deps["ijkplayer-x86"]
+    compile rootProject.ext.deps["ijkplayer-java"]
+    compile rootProject.ext.deps["ijkplayer-armv7a"]
+    compile rootProject.ext.deps["ijkplayer-armv5"]
+
+
+
     //    compile rootProject.ext.deps["SwipeDelMenuLayout"]
     //    compile 'com.juziwl.exue:pullrefreshlayout:0.0.5'
     //    compile project(':pullrefreshlayout')

@@ -21,6 +21,14 @@
 
 
 
+    <com.juziwl.uilibrary.niceplayer.NiceVideoPlayer
+        android:id="@+id/player"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></com.juziwl.uilibrary.niceplayer.NiceVideoPlayer>
+
+
+
 
 
 </RelativeLayout>

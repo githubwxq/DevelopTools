@@ -498,7 +498,7 @@
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
 
-
+    <color name="dialog_bg">#bc000000</color>
 
 
 </resources>
