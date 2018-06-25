@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply from: 'tinker-support.gradle'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -78,7 +78,6 @@ dependencies {
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
     //glide
     annotationProcessor rootProject.ext.deps["glide-compiler"]
-    compile project(':commonlibrary')
-    //    compile 'com.google.guava:guava:23.0-android'
-    compile project(':uilibrary')
+    //最顶层依赖activity已经封装过 整个架构模式确定结束
+    compile project(':mvplibrary')
 }

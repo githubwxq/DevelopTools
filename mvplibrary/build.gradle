@@ -45,7 +45,6 @@ android {
             android {
                 defaultPublishConfig "debug"
             }
-
         } else if (task.contains("Release")) {
             android {
                 defaultPublishConfig "release"
@@ -53,47 +52,10 @@ android {
         }
     }
 
+
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //support基本库依赖
-    compile rootProject.ext.deps["design"]
-    compile rootProject.ext.deps["support-v4"]
-    compile rootProject.ext.deps["appcompat-v7"]
-    compile rootProject.ext.deps["constraint-layout"]
-    compile rootProject.ext.deps["multidex"]
-    compile rootProject.ext.deps["recyclerview-v7"]
-    compile rootProject.ext.deps["cardview-v7"]
-//    compile rootProject.ext.deps["guava"]
-
-
-    //stetho
-    compile rootProject.ext.deps["stetho"]
-    compile rootProject.ext.deps["stetho-okhttp3"]
-    //logger
-    compile rootProject.ext.deps["logger"]
-    //glide
-    compile(rootProject.ext.deps["glide"]) {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor rootProject.ext.deps["glide-compiler"]
-    compile rootProject.ext.deps["glide-okhttp3-integration"]
-    compile rootProject.ext.deps["glide-annotations"]
-    compile rootProject.ext.deps["glide-transformations"]
-
-    //rxjava
-    compile rootProject.ext.deps["rxjava"]
-    compile rootProject.ext.deps["rxandroid"]
-    //权限
-    compile rootProject.ext.deps["rxpermissions"]
-    compile rootProject.ext.deps["rxbinding"]
-    compile rootProject.ext.deps["rxbinding-support-v4"]
-    compile rootProject.ext.deps["rxlifecycle"]
-    compile rootProject.ext.deps["rxlifecycle-android"]
-    compile rootProject.ext.deps["fastjson"]
-   //统计库 友盟 和bugly一起
-    compile rootProject.ext.deps["umeng-analytics"]
-    compile rootProject.ext.deps["bugly"]
-
+    compile project(':uilibrary')
 }

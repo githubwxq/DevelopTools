@@ -1,6 +1,9 @@
 package com.wxq.commonlibrary.util;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
+
+import com.orhanobut.logger.Logger;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -9,6 +12,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.RandomAccessFile;
+import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.DigestInputStream;
@@ -1204,6 +1210,91 @@ public final class FileUtils {
     public interface OnReplaceListener {
         boolean onReplace();
     }
+
+    /**
+     * 追加数据到当前指定的文件中
+     *
+     * @param filePath 目标文件路径
+     * @return true -> 写入成功； false -> 写入失败
+     */
+    public static boolean appendToFile(String content, String filePath) {
+
+        File f = new File(filePath);
+        if (!createOrExistsFile(filePath)) {
+            Logger.e("创建文件失败", filePath);
+            return false;
+        }
+
+        RandomAccessFile file;
+        try {
+            file = new RandomAccessFile(f, "rw");
+            long seekPosition = file.length();
+            file.seek(seekPosition);
+            int percount = 1000;
+            int count = (int) Math.ceil(content.length() * 1.0 / percount);
+            for (int i = 0; i < count; i++) {
+                if ((i + 1) * percount < content.length()) {
+                    file.write(content.substring(i * percount, (i + 1) * percount).getBytes("utf-8"));
+                    file.seek(seekPosition + (i + 1) * percount);
+                } else {
+                    file.write(content.substring(i * percount, content.length()).getBytes("utf-8"));
+                }
+            }
+            file.close();
+            return true;
+        } catch (Exception e) {
+            Logger.e("写入数据到", filePath, "异常", Log.getStackTraceString(e));
+            return false;
+        }
+    }
+
+
+    /**
+     * 将 byte 转化到 MB 显示
+     *
+     * @param size 单位为byte表示的大小
+     * @return
+     */
+    public static String byteSizetoMBSize(long size) {
+        if (size < 0) {
+            Logger.e("byteSize 大小需大于0", size);
+            return null;
+        }
+
+        BigDecimal unit = new BigDecimal(1024);
+        BigDecimal byteSize = new BigDecimal(size);
+        BigDecimal KBSize = byteSize.divide(unit);
+        BigDecimal MBSize = KBSize.divide(unit);
+        return Double.toString(MBSize.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
+    }
+
+
+    /**
+     * 获取指定目录下文件的总大小
+     *
+     * @param dirPath
+     * @return
+     */
+    public static long getDirFileLength(String dirPath) {
+        long size = 0;
+        File file = new File(dirPath);
+        if (file.isDirectory()) {
+            File[] subFiles = file.listFiles();
+            if (null != subFiles) {
+                for (File f : subFiles) {
+                    if (f.isDirectory()) {
+                        getDirFileLength(f.getAbsolutePath());
+                    } else {
+                        size += f.length();
+                    }
+                }
+            }
+        }
+        return size;
+    }
+
+
+
 }
 
 //        getFileByPath             : 根据文件路径获取文件

@@ -1,28 +1,51 @@
 package com.wxq.developtools;
 
+import android.app.ActivityManager;
 import android.app.Application;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Process;
 import android.support.multidex.MultiDex;
 
+import com.umeng.analytics.MobclickAgent;
+import com.wxq.commonlibrary.util.ActivityUtils;
+import com.wxq.commonlibrary.util.AppUtils;
+import com.wxq.commonlibrary.util.BuglyUtils;
+import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.Utils;
+import com.wxq.mvplibrary.base.BaseApp;
 
 /**
  * Created by Administrator on 2018/6/23 0023.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends BaseApp {
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-       Utils.init(this);
+        BuglyUtils.init(this,"bd7d7fa0c2",BuildConfig.DEBUG);
 
+    }
+
+    @Override
+    public boolean setIsDebug() {
+        return BuildConfig.DEBUG;
+    }
+
+    @Override
+    public void dealWithException(Thread thread, Throwable throwable, String error) {
+        final Intent intent2 = new Intent();
+
+        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent2.setClass(this,MainActivity.class);
+
+        startActivity(intent2);
+        MobclickAgent.onKillProcess(getApplicationContext());
+        ActivityUtils.finishAllActivitiesExceptNewest();
+        Process.killProcess(Process.myPid());
     }
 }
