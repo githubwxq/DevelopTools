@@ -17,12 +17,39 @@ android {
             enabled true
         }
     }
-    buildTypes {
+
+    signingConfigs {
+        debug {
+            keyAlias 'DevelopTools'
+            keyPassword '111111'
+            storeFile file('./keystore/DevelopTools.jks')
+            storePassword '111111'
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            keyAlias 'DevelopTools'
+            keyPassword '111111'
+            storeFile file('./keystore/DevelopTools.jks')
+            storePassword '111111'
         }
     }
+
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+
+
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

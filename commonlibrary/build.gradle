@@ -23,9 +23,34 @@ android {
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+
     dexOptions {
         maxProcessCount 4
         javaMaxHeapSize "8g"
+    }
+
+
+//、、在library中的buildconfig.debug 配置
+    gradle.startParameter.getTaskNames().each { task ->
+        println("task: " + task)
+        //library里 BuildConfig.DEBUG默认一直是flase;所以需要自定义
+        if (task.contains("Debug")) {
+            android {
+                defaultPublishConfig "debug"
+            }
+
+        } else if (task.contains("Release")) {
+            android {
+                defaultPublishConfig "release"
+            }
+        }
     }
 
 }
@@ -56,15 +81,18 @@ dependencies {
     compile rootProject.ext.deps["glide-okhttp3-integration"]
     compile rootProject.ext.deps["glide-annotations"]
     compile rootProject.ext.deps["glide-transformations"]
-    //权限
+
     //rxjava
     compile rootProject.ext.deps["rxjava"]
     compile rootProject.ext.deps["rxandroid"]
+    //权限
     compile rootProject.ext.deps["rxpermissions"]
     compile rootProject.ext.deps["rxbinding"]
     compile rootProject.ext.deps["rxbinding-support-v4"]
     compile rootProject.ext.deps["rxlifecycle"]
     compile rootProject.ext.deps["rxlifecycle-android"]
     compile rootProject.ext.deps["fastjson"]
+    //bugly
+    compile rootProject.ext.deps["bugly"]
 
 }
