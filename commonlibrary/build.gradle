@@ -65,8 +65,13 @@ dependencies {
     compile rootProject.ext.deps["multidex"]
     compile rootProject.ext.deps["recyclerview-v7"]
     compile rootProject.ext.deps["cardview-v7"]
-//    compile rootProject.ext.deps["guava"]
-
+    //dagger
+    provided rootProject.ext.deps["javax.annotation-api"]
+    compile rootProject.ext.deps["dagger"]
+    annotationProcessor rootProject.ext.deps["dagger-compiler"]
+    //butterknife
+    compile rootProject.ext.deps["butterknife"]
+    annotationProcessor rootProject.ext.deps["butterknife-compiler"]
 
     //stetho
     compile rootProject.ext.deps["stetho"]
@@ -91,9 +96,14 @@ dependencies {
     compile rootProject.ext.deps["rxbinding-support-v4"]
     compile rootProject.ext.deps["rxlifecycle"]
     compile rootProject.ext.deps["rxlifecycle-android"]
+    compile rootProject.ext.deps["rxlifecycle-components"]
     compile rootProject.ext.deps["fastjson"]
    //统计库 友盟 和bugly一起
     compile rootProject.ext.deps["umeng-analytics"]
     compile rootProject.ext.deps["bugly"]
+
+    //数据库调试
+//    debugCompile 'com.amitshekhar.android:debug
+// -db:1.0.0'
 
 }
