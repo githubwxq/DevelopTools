@@ -30,8 +30,9 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     @Override
     protected void initViews() {
 
-        BarUtils.setStatusBarColor(this,getResources().getColor(R.color.common_account_red),255);
+//        BarUtils.setStatusBarColor(this,getResources().getColor(R.color.common_account_red),255);
         tvHello.setText("000000000000000000000000");
+
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,10 +51,5 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         return new MvpMainPresent(this);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

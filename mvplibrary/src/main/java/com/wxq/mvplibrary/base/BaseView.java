@@ -29,6 +29,8 @@ public interface BaseView {
 //     */
     <T> LifecycleTransformer<T> bindToLife();
 
+  <T> LifecycleTransformer<T> bindDestory();
+
 
     //显示dialog
     void showLoadingDialog();

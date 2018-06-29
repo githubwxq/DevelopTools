@@ -137,7 +137,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
+        this.bindUntilEvent(ActivityEvent.DESTROY);
         return this.<T>bindToLifecycle();
+    }
+
+    @Override
+    public <T> LifecycleTransformer<T> bindDestory() {
+        return this.bindUntilEvent(ActivityEvent.DESTROY);
     }
 
     @Override
