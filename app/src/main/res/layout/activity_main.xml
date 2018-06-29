@@ -7,6 +7,7 @@
     tools:context="com.wxq.developtools.MainActivity">
 
     <TextView
+        android:id="@+id/tv_hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -30,15 +31,6 @@
 
 
 
-    <com.juziwl.uilibrary.X5utils.X5WebView
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-
-    </com.juziwl.uilibrary.X5utils.X5WebView>
 
 
 

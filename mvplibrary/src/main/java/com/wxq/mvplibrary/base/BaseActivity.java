@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
@@ -16,10 +15,10 @@ import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.mvplibrary.baserx.Event;
+import com.wxq.mvplibrary.baserx.RxBus;
 
 import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -32,8 +31,8 @@ import io.reactivex.subjects.BehaviorSubject;
 public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatActivity implements BaseView {
     public String token = "";
     private Unbinder unbinder;
-    @Inject
-    protected T mPresenter;
+
+    public T mPresenter;
     public Context context;
     private BroadcastReceiver broadcastReceiver = null;
     private BroadcastReceiver localBroadcastReceiver = null;
@@ -47,34 +46,38 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         unbinder = ButterKnife.bind(this);
         context = this;
         lifecycleSubject.onNext(ActivityEvent.CREATE);
-        inject();
         AppManager.getInstance().addActivity(this);
         rxPermissions = new RxPermissions(this);
+        mPresenter=  initPresent();
         initViews();
-        initEventAndData();
-        // 注册rxbus
-//        initRxBus();
         //注册广播
         initBroadcastAndLocalBroadcastAction();
+        // 注册rxbus
+        initRxBus();
     }
+
+    private void initRxBus() {
+        RxBus.getDefault().take().compose(this.bindUntilEvent(ActivityEvent.DESTROY)).subscribe(event -> {
+            dealWithRxEvent(event.action, event);
+        });
+    }
+
+
 
     protected abstract void initViews();
 
     protected abstract int attachLayoutRes();
 
-
-    protected abstract void initEventAndData();
-
-    protected abstract void inject();
+    protected abstract T initPresent();
 
     public void dealWithBroadcastAction(Context context, Intent intent) {
 
     }
 
-//    public void dealWithRxEvent(int action, Event event) {
-//
-//    }
-//
+    public void dealWithRxEvent(int action, Event event) {
+
+    }
+
 
 
     /**
@@ -124,6 +127,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         }
     }
 
+
+    @Override
+    protected void onDestroy() {
+        if (mPresenter != null)
+            mPresenter.detachView();
+        super.onDestroy();
+    }
 
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
