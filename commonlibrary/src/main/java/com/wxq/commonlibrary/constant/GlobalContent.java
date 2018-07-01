@@ -33,9 +33,6 @@ public class GlobalContent {
     public static String COURSEWARE = filePath + "courseware/";
 
 
-    public static String SAVE_PIC = filePath + "/savePic/";
-
-
     /**
      * 图片保存路径
      */

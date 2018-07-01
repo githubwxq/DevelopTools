@@ -2,6 +2,8 @@ package com.wxq.mvplibrary.base;
 
 
 
+import android.content.Context;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -26,19 +28,13 @@ public  abstract  class RxPresenter<T extends BaseView> implements BasePresenter
         }
     }
 
+    Context mContext;
+
     @Override
     public BasePresenter attachView(T view) {
         mView=view;
         return this;
     }
-
-    //    protected <U> void addRxBusSubscribe(Class<U> eventType, Consumer<U> act) {
-//        if (mCompositeDisposable == null) {
-//            mCompositeDisposable = new CompositeDisposable();
-//        }
-//        mCompositeDisposable.add(RxBus.getDefault().toDefaultFlowable(eventType, act));
-//    }
-
 
 
 
