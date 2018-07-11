@@ -12,7 +12,6 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.orhanobut.logger.Logger;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.CookieSyncManager;
@@ -23,7 +22,7 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-import com.wxq.commonlibrary.util.ToastUtils;
+
 
 import java.util.Stack;
 
@@ -48,7 +47,7 @@ public class X5WebView extends WebView {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Logger.d("shouldOverrideUrlLoading url = " + url);
+
             if (url.startsWith("tel:")) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(url));
@@ -72,7 +71,7 @@ public class X5WebView extends WebView {
         @Override
         public void onPageStarted(WebView webView, String url, Bitmap favicon) {
             super.onPageStarted(webView, url, favicon);
-            Logger.d("onPageStarted url = " + url);
+
             if (isLoading && !mUrls.empty()) {
                 beforeUrl = mUrls.pop();
             }
@@ -83,7 +82,7 @@ public class X5WebView extends WebView {
         @Override
         public void onPageFinished(WebView webView, String url) {
             super.onPageFinished(webView, url);
-            Logger.d("onPageFinished url = " + url);
+
             if (mOnpageFinishendListenter != null) {
                 mOnpageFinishendListenter.onPageFinish(url);
             }
@@ -278,7 +277,9 @@ public class X5WebView extends WebView {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
-            ToastUtils.showLong("请先安装QQ客户端");
+//            ToastUtils.showLong("请先安装QQ客户端");
+            //自定义一个toast！！！"请先安装QQ客户端"
+
             return false;
         }
     }

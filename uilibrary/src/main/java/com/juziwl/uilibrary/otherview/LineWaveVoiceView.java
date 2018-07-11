@@ -9,7 +9,8 @@ import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.wxq.commonlibrary.util.ConvertUtils;
+
+import com.juziwl.uilibrary.utils.ConvertUtils;
 
 import java.text.DecimalFormat;
 import java.util.LinkedList;
@@ -27,10 +28,10 @@ public class LineWaveVoiceView extends View {
      */
     private int lineColor = Color.parseColor("#ff6f26");
     /**
-     * 矩形波纹宽度
+     * 矩形波纹宽度 需要dp转sp todo！！
      */
-    private float lineWidth = ConvertUtils.dp2px(4f);
-    private float textSize = ConvertUtils.dp2px(16);
+    private float lineWidth = 4;
+    private float textSize = 16;
     private static final String DEFAULT_TEXT = "00:00";
     private String text = DEFAULT_TEXT;
     private int textColor = Color.parseColor("#999999");
@@ -60,7 +61,7 @@ public class LineWaveVoiceView extends View {
 
     private LinkedList<Integer> list = new LinkedList<>();
     public static final int MAX_RECT_NUM = 10;
-    public static final int SPACE_WIDTH = ConvertUtils.dp2px(4);
+    public static final int SPACE_WIDTH = 4;
     private boolean isDrawWave = true;
     private float lineWidthRadio = 0.8f;
     private float lineHeightRadio = 0.6f;

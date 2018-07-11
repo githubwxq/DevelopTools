@@ -19,15 +19,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(path: ':commonlibrary')
+//    compile project(path: ':commonlibrary')
     compile rootProject.ext.deps["flowlayout"]
     compile rootProject.ext.deps["photoview"]
     compile rootProject.ext.deps["xrecyclerview"]
@@ -39,7 +39,10 @@ dependencies {
     compile rootProject.ext.deps["ijkplayer-armv7a"]
     compile rootProject.ext.deps["ijkplayer-armv5"]
 
-
+    compile rootProject.ext.deps["recyclerview-v7"]
+    compile rootProject.ext.deps["cardview-v7"]
+    compile rootProject.ext.deps["constraint-layout"]
+    compile rootProject.ext.deps["design"]
 
     //    compile rootProject.ext.deps["SwipeDelMenuLayout"]
     //    compile 'com.juziwl.exue:pullrefreshlayout:0.0.5'
@@ -53,5 +56,5 @@ dependencies {
     //三方语音录制库
     //    compile 'com.juziwl.exue:speak:0.0.3'
     //    compile project(path: ':speexlib')
-    compile project(':commonlibrary')
+//    compile project(':commonlibrary')
 }

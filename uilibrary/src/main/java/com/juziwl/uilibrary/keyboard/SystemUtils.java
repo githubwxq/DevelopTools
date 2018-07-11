@@ -2,13 +2,13 @@ package com.juziwl.uilibrary.keyboard;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 
-import com.wxq.commonlibrary.util.BarUtils;
-import com.wxq.commonlibrary.util.ScreenUtils;
+import com.juziwl.uilibrary.utils.ScreenUtils;
 
 
 /**
@@ -59,10 +59,18 @@ public class SystemUtils {
      * 键盘是否在显示
      **/
     public static boolean isKeyBoardShow(Activity paramActivity) {
-        int height = ScreenUtils.getScreenHeight() - BarUtils.getStatusBarHeight()
+        int height = ScreenUtils.getScreenHeight(paramActivity) -getStatusBarHeight(paramActivity)
                 - getAppHeight(paramActivity);
         return height != 0;
     }
+
+
+    public static int getStatusBarHeight(Context context) {
+        Resources resources =context.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        return resources.getDimensionPixelSize(resourceId);
+    }
+
 
     /**
      * 显示键盘   必须得在edittext可见下才能操作

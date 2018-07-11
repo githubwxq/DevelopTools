@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.PopupWindow;
 
-import com.wxq.commonlibrary.util.ScreenUtils;
+import com.juziwl.uilibrary.utils.ScreenUtils;
 
 
 /**
@@ -90,7 +90,7 @@ public abstract class XXPopupWindow {
      * 全屏显示
      */
     public XXPopupWindow fullScreen() {
-        mPopupWindow.setWidth(ScreenUtils.getScreenWidth());
+        mPopupWindow.setWidth(ScreenUtils.getScreenWidth(mcontext));
         mPopupWindow.update();
         return this;
     }

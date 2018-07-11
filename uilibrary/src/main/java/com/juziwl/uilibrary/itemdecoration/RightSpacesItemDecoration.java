@@ -1,11 +1,7 @@
 package com.juziwl.uilibrary.itemdecoration;
-
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import com.wxq.commonlibrary.util.ConvertUtils;
-
 
 /**
  * 右边有 最后一项没有
@@ -22,10 +18,20 @@ public class RightSpacesItemDecoration extends RecyclerView.ItemDecoration {
         if (parent.getChildAdapterPosition(view) == 0) { //第一项左边的间距不需要
             outRect.left = 0;
         } else {
-            outRect.left = ConvertUtils.dp2px(space);
+            outRect.left = dp2px(space,view);
         }
     }
+
+    public  int dp2px(final float dpValue,View view) {
+        final float scale = view.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
 }
+
+
+
+
 //
 //最后在说下我理解的等间距的原理
 //        比如我想给间距设置成20

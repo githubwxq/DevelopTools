@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.wxq.commonlibrary.glide.LoadingImgUtil;
+
 
 
 public class ViewHolder extends RecyclerView.ViewHolder {
@@ -112,15 +112,15 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public ViewHolder setImagePath(int viewId,String path){
-        LoadingImgUtil.loadimg(path,getView(viewId),true);
-        return this;
-    }
-
-    public ViewHolder setImagePath(int viewId,String path,boolean isShowHead){
-        LoadingImgUtil.loadimg(path,getView(viewId),isShowHead);
-        return this;
-    }
+//    public ViewHolder setImagePath(int viewId,String path){
+//        LoadingImgUtil.loadimg(path,getView(viewId),true);
+//        return this;
+//    }
+//
+//    public ViewHolder setImagePath(int viewId,String path,boolean isShowHead){
+//        LoadingImgUtil.loadimg(path,getView(viewId),isShowHead);
+//        return this;
+//    }
 
 
 

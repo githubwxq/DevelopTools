@@ -22,11 +22,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
-
-
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.StringUtils;
-
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -380,9 +376,9 @@ public class MTextView extends AppCompatTextView {
 //                        if (!StringUtils.isEmpty(startStr)){
 //                            realDrawedWidth = (int) (realDrawedWidth - paint.measureText(startStr));
 //                        }
-                        int left = (int) (realDrawedWidth - (i!=0?0:(StringUtils.isEmpty(startStr) ? 0 : paint.measureText(startStr))));
+                        int left = (int) (realDrawedWidth - (i!=0?0:(TextUtils.isEmpty(startStr) ? 0 : paint.measureText(startStr))));
                         int top = (int) height;
-                        int right = (int) (realDrawedWidth - (i!=0?0:(StringUtils.isEmpty(startStr) ? 0 : paint.measureText(startStr))) + width);
+                        int right = (int) (realDrawedWidth - (i!=0?0:(TextUtils.isEmpty(startStr) ? 0 : paint.measureText(startStr))) + width);
                         int bottom = (int) (height + width);//表情是正方形的
 //                        int bottom = (int) (height + aContentList.height);
                         d.setBounds(left, top, right, bottom);
@@ -875,7 +871,7 @@ public class MTextView extends AppCompatTextView {
             atText = "";
         }
 
-        text = SmileyParser.getInstance().replace(cs, this);
+        text = SmileyParser.getInstance(this.getContext()).replace(cs, this);
         useDefault = false;
         obList.clear();
         if (getCachedData(cs + atText + (isExpandable ? ";getMaxLine=" + getMaxLine() : ""), 0) < 0) {

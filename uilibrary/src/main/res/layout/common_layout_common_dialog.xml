@@ -19,7 +19,7 @@
             android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/common_kindly_reminder"
+            android:text="温馨提示"
             android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/common_black"/>
@@ -78,7 +78,7 @@
                 android:paddingLeft="@dimen/common_dip10"
                 android:paddingRight="@dimen/common_dip10"
                 android:paddingTop="@dimen/common_dip8"
-                android:text="@string/common_cancel"
+                android:text="取消"
                 android:textColor="@color/common_color_gray"
                 android:textSize="@dimen/common_sp16" />
 
@@ -93,8 +93,8 @@
                 android:paddingLeft="@dimen/common_dip10"
                 android:paddingRight="@dimen/common_dip10"
                 android:paddingTop="@dimen/common_dip8"
-                android:text="@string/common_makesure"
-                android:textColor="@color/common_white"
+                android:text="确定"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/common_sp16" />
         </LinearLayout>
     </LinearLayout>

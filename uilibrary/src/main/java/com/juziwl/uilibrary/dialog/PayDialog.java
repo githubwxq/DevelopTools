@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -12,11 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ScreenUtils;
-import com.wxq.commonlibrary.util.StringUtils;
+import com.juziwl.uilibrary.utils.ScreenUtils;
 
 import java.util.ArrayList;
 
@@ -124,7 +122,7 @@ public class PayDialog extends Dialog implements View.OnClickListener {
 
         into_count_title_top.setText(title);
 
-        if (!StringUtils.isEmpty(money)) {
+        if (!TextUtils.isEmpty(money)) {
             setMoneyLayout(desc, money);
         }
 
@@ -133,7 +131,7 @@ public class PayDialog extends Dialog implements View.OnClickListener {
         Window window = getWindow();
         window.setGravity(Gravity.BOTTOM);
         WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = ScreenUtils.getScreenWidth();
+        lp.width = ScreenUtils.getScreenWidth(context);
         window.setAttributes(lp);
         if (viewInitFinish != null) {
             viewInitFinish.initFinish(tv_forget_password);

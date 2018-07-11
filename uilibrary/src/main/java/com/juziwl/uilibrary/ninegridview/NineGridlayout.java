@@ -8,16 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-//import com.juziwl.commonlibrary.config.Global;
-//import com.juziwl.commonlibrary.utils.DisplayUtils;
-//import com.juziwl.commonlibrary.utils.LoadingImgUtil;
-//import com.juziwl.commonlibrary.utils.StringUtils;
-
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.imageview.RectImageView;
-import com.wxq.commonlibrary.util.ConvertUtils;
-import com.wxq.commonlibrary.util.ScreenUtils;
-import com.wxq.commonlibrary.util.StringUtils;
+
 
 import java.util.List;
 
@@ -138,8 +131,8 @@ public class NineGridlayout extends ViewGroup {
             singleWidth = totalWidth;
             singleHeight = (totalWidth - NUMBER_10) / NUMBER_2;
         } else {
-            double maxWidth = ConvertUtils.dp2px(180);
-            double maxHeight = ConvertUtils.dp2px(180);
+            double maxWidth = dp2px(180);
+            double maxHeight = dp2px(180);
             if (oneWidth > oneHeight) {
 //                        ImageView img = (ImageView) getChildAt(0);
                 if (oneWidth / 3 >= oneHeight) {
@@ -201,7 +194,7 @@ public class NineGridlayout extends ViewGroup {
     public void setTotalWidth(int width) {
         totalWidth = width;
         //间距5dp
-        gap = ConvertUtils.dp2px(5);
+        gap = dp2px(5);
     }
 
     public void setImagesData(List<String> lists, boolean b, int width, int height) {
@@ -325,4 +318,10 @@ public class NineGridlayout extends ViewGroup {
             }
         }
     }
+
+    public  int dp2px(final float dpValue) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+    
 }

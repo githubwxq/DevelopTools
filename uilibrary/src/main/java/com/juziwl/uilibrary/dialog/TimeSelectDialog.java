@@ -9,7 +9,8 @@ import android.view.WindowManager;
 
 import com.juziwl.uilibrary.PickerView;
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ScreenUtils;
+import com.juziwl.uilibrary.utils.ScreenUtils;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -187,7 +188,7 @@ public class TimeSelectDialog extends Dialog {
         Window dialogWindow = getWindow();
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
         // 高度设置为屏幕的0.6
-        lp.width = (int) (ScreenUtils.getScreenWidth() * 0.8);
+        lp.width = (int) (ScreenUtils.getScreenWidth(context) * 0.8);
         dialogWindow.setAttributes(lp);
         view.findViewById(R.id.cancel).setOnClickListener((View v) -> {
             if (listener != null) {

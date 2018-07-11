@@ -41,7 +41,7 @@ public class NestFullViewHolder {
         mContext = context;
         this.mViews = new SparseArray<View>();
         mConvertView = view;
-        smileyParser = SmileyParser.getInstance();
+//        smileyParser = SmileyParser.getInstance();
 
     }
 

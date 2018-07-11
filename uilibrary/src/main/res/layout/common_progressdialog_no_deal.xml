@@ -2,7 +2,6 @@
     android:id="@+id/dialog_view"
     android:layout_width="85dp"
     android:layout_height="85dp"
-    android:background="@drawable/common_shape_nodeal_progressdialog"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="12dp"

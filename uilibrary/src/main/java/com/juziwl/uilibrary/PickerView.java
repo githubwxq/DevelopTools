@@ -13,8 +13,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.orhanobut.logger.Logger;
-import com.wxq.commonlibrary.util.ConvertUtils;
+import com.juziwl.uilibrary.utils.ConvertUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,8 +47,8 @@ public class PickerView extends View {
     private int mCurrentSelected;
     private Paint mPaint;
 
-    private float mMaxTextSize = ConvertUtils.dp2px(32);
-    private float mMinTextSize = ConvertUtils.dp2px(18);
+    private float mMaxTextSize = ConvertUtils.dp2px(32,getContext());
+    private float mMinTextSize = ConvertUtils.dp2px(18,getContext());
 
     private float mMaxTextAlpha = 255;
     private float mMinTextAlpha = 120;
@@ -210,7 +209,7 @@ public class PickerView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Style.FILL);
         mPaint.setTextAlign(Align.CENTER);
-        mPaint.setColor(ContextCompat.getColor(context, R.color.common_333));
+        mPaint.setColor(ContextCompat.getColor(context, R.color.common_333333));
     }
 
     private void drawData(Canvas canvas) {
@@ -218,7 +217,7 @@ public class PickerView extends View {
             // 先绘制选中的text再往上往下绘制其余的text
             float scale = parabola(mViewHeight / 4.0f, mMoveLen);
             float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
-            Logger.e("scale==" + scale + ";mMaxTextSize==" + mMaxTextSize + ";mMinTextSize==" + mMinTextSize + ";size==" + size);
+
             mPaint.setTextSize(size);
             mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
             // text居中绘制，注意baseline的计算才能达到居中，y值是text中心坐标

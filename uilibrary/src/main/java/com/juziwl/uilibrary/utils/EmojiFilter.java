@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.InputFilter;
 import android.text.Spanned;
 
-import com.orhanobut.logger.Logger;
 
 /**
  * @author Army
@@ -42,7 +41,7 @@ public class EmojiFilter implements InputFilter {
             if (!isEmojiCharacter(codePoint)) {
                 return true;
             }
-            Logger.d("codePoint = " + (int) codePoint);
+//            Logger.d("codePoint = " + (int) codePoint);
         }
         return false;
     }

@@ -10,11 +10,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-
-
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ScreenUtils;
-
+import com.juziwl.uilibrary.utils.ScreenUtils;
 
 /**
  * @author nat.xue
@@ -116,7 +113,7 @@ public class SingleDialog {
             dialog.show();
             WindowManager.LayoutParams wl = dialog.getWindow().getAttributes();
             wl.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            wl.width = ScreenUtils.getScreenWidth() * 4 / 5;
+            wl.width = ScreenUtils.getScreenWidth(dialog.getContext()) * 4 / 5;
             dialog.onWindowAttributesChanged(wl);
         }
     }

@@ -83,4 +83,6 @@ dependencies {
 
     //最顶层依赖activity已经封装过 整个架构模式确定结束
     compile project(':mvplibrary')
+
+
 }

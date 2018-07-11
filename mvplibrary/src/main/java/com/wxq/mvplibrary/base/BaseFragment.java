@@ -27,8 +27,6 @@ import com.wxq.mvplibrary.baserx.RxBus;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -70,16 +68,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         super.onCreate(savedInstanceState);
         mContext = getActivity();
 
-//        if (savedInstanceState != null) {
-//            boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
-//            ft = getFragmentManager().beginTransaction();
-//            if (isSupportHidden) {
-//                ft.hide(this);
-//            } else {
-//                ft.show(this);
-//            }
-//            ft.commit();
-//        }
+
 
     }
 

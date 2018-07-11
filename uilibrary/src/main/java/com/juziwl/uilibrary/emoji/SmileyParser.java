@@ -1,5 +1,6 @@
 package com.juziwl.uilibrary.emoji;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,9 +16,9 @@ import android.widget.TextView;
 //import com.juziwl.commonlibrary.utils.DisplayUtils;
 //import com.juziwl.commonlibrary.utils.LoadingImgUtil;
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.glide.LoadingImgUtil;
-import com.wxq.commonlibrary.util.ScreenUtils;
-import com.wxq.commonlibrary.util.Utils;
+//import com.wxq.commonlibrary.glide.LoadingImgUtil;
+//import com.wxq.commonlibrary.util.ScreenUtils;
+//import com.wxq.commonlibrary.util.Utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -163,12 +164,14 @@ public class SmileyParser {
         private static SmileyParser instance = new SmileyParser();
     }
 
-    public static SmileyParser getInstance() {
+    public  static Context mContext;
+    public static SmileyParser getInstance(Context context) {
+        mContext=context;
         return InstanceHolder.instance;
     }
 
     public SmileyParser() {
-        mSmileyTexts = Utils.getApp().getResources().getStringArray(DEFAULT_SMILEY_TEXTS);
+        mSmileyTexts = mContext.getResources().getStringArray(DEFAULT_SMILEY_TEXTS);
         mSmileyToRes = buildSmileyToRes();
         mPattern = buildPattern();
     }
@@ -265,48 +268,50 @@ public class SmileyParser {
                 drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
                 return drawable2;
             } else {
-                LoadingImgUtil.getCacheImageBitmap(source, null, null, new LoadingImgUtil.onLoadingImageListener() {
-                            @Override
-                            public void onLoadingComplete(Bitmap result) {
-                                if (result != null) {
-                                    Drawable bitmapDrawable = new BitmapDrawable(textView.getResources(), result);
-                                    drawable.addLevel(1, 1, bitmapDrawable);
-                                    int screenWidth = ScreenUtils.getScreenWidth();
-                                    double radio = 1;
-                                    if (screenWidth >= 1500) {
-                                        radio = 3.2;
-                                    } else if (screenWidth >= 1080) {
-                                        radio = 2.5;
-                                    } else if (screenWidth >= 720) {
-                                        radio = 1.8;
-                                    }
-                                    int width = textView.getWidth();
-                                    if (width == 0) {
-                                        Object tag = textView.getTag(R.id.common_id_width);
-                                        if (tag != null) {
-                                            width = (int) tag;
-                                        }
-                                    }
-                                    if (width > 0) {
-                                        double scaleWidth = result.getWidth() * radio;
-                                        if (scaleWidth > width) {
-                                            radio = width * 1.0 / result.getWidth();
-                                        }
-                                    }
-                                    drawable.setBounds(0, 0, (int) (result.getWidth() * radio), (int) (result.getHeight() * radio));
-                                    drawable.setLevel(1);
-                                    textView.setText(textView.getText());
-//                                    textView.measure(0,0);
-                                    textView.requestLayout();
-                                    textView.invalidateDrawable(drawable);
-                                }
-                            }
+                // TODO: 2018/7/12  不依赖具体的图片加载框架提供回调即可
+                //图片框架加载图片 可以向外面暴露方法给外面实现
 
-                            @Override
-                            public void onLoadingFailed() {
-                            }
-                        }
-                );
+//                LoadingImgUtil.getCacheImageBitmap(source, null, null, new LoadingImgUtil.onLoadingImageListener() {
+//                            @Override
+//                            public void onLoadingComplete(Bitmap result) {
+//                                if (result != null) {
+//                                    Drawable bitmapDrawable = new BitmapDrawable(textView.getResources(), result);
+//                                    drawable.addLevel(1, 1, bitmapDrawable);
+//                                    int screenWidth = ScreenUtils.getScreenWidth();
+//                                    double radio = 1;
+//                                    if (screenWidth >= 1500) {
+//                                        radio = 3.2;
+//                                    } else if (screenWidth >= 1080) {
+//                                        radio = 2.5;
+//                                    } else if (screenWidth >= 720) {
+//                                        radio = 1.8;
+//                                    }
+//                                    int width = textView.getWidth();
+//                                    if (width == 0) {
+//                                        Object tag = textView.getTag(R.id.common_id_width);
+//                                        if (tag != null) {
+//                                            width = (int) tag;
+//                                        }
+//                                    }
+//                                    if (width > 0) {
+//                                        double scaleWidth = result.getWidth() * radio;
+//                                        if (scaleWidth > width) {
+//                                            radio = width * 1.0 / result.getWidth();
+//                                        }
+//                                    }
+//                                    drawable.setBounds(0, 0, (int) (result.getWidth() * radio), (int) (result.getHeight() * radio));
+//                                    drawable.setLevel(1);
+//                                    textView.setText(textView.getText());
+//                                    textView.requestLayout();
+//                                    textView.invalidateDrawable(drawable);
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onLoadingFailed() {
+//                            }
+//                        }
+//                );
             }
             return drawable;
         };

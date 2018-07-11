@@ -12,11 +12,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ConvertUtils;
-
 import java.util.ArrayList;
 
 /**
@@ -98,14 +94,14 @@ public class ExpressionView extends LinearLayout implements AdapterView.OnItemCl
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
         int everyitem = screenWidth > 720 ? 23 : 20; // 如果框大于720 3倍的画就每行8个  否者 每行7个
         //表情间的间隔
-        int spacing = ConvertUtils.dp2px(8);
+        int spacing = dp2px(8);
         //表情的宽度（即高度）
         int itemWidth = screenWidth > 720 ? (screenWidth - spacing * 9) / 8 : (screenWidth - spacing * 8) / 7;
         //表情面板的高度
         int gvHeight = itemWidth * 3 + 4 * spacing;
         map = getFaceID();
         ArrayList<String> name = new ArrayList<>();
-        int margin = ConvertUtils.dp2px(5);
+        int margin = dp2px(5);
         for (int i = 0; i < s.length; i++) {
             name.add(s[i]);
             if (name.size() == everyitem) {
@@ -210,5 +206,10 @@ public class ExpressionView extends LinearLayout implements AdapterView.OnItemCl
                 }
             }
         }
+    }
+
+    public  int dp2px(final float dpValue) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }

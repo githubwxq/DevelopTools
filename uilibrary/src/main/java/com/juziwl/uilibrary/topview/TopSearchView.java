@@ -1,17 +1,19 @@
 package com.juziwl.uilibrary.topview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.KeyboardUtils;
+
 
 
 /**
@@ -64,7 +66,7 @@ public class TopSearchView extends LinearLayout implements View.OnClickListener 
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     // 先隐藏键盘
-                    KeyboardUtils.hideSoftInput(etCcontent);
+//                    hideSoftInput(etCcontent);
                     //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
                     if(searchListener!=null) {
                         searchListener.search(etCcontent.getText().toString());
@@ -149,5 +151,17 @@ public class TopSearchView extends LinearLayout implements View.OnClickListener 
 
 
 
-
+    /**
+     * Hide the soft input.
+     *
+     * @param activity The activity.
+     */
+    public  void hideSoftInput(final Activity activity) {
+        InputMethodManager imm =
+                (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm == null) return;
+        View view = activity.getCurrentFocus();
+        if (view == null) view = new View(activity);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 }

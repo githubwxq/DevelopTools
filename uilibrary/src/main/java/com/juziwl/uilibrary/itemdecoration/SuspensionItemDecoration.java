@@ -7,10 +7,8 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-
-
 import com.juziwl.uilibrary.itemdecoration.listener.OnSuspensionListener;
-import com.wxq.commonlibrary.util.ConvertUtils;
+import com.juziwl.uilibrary.utils.ConvertUtils;
 
 
 /**
@@ -86,10 +84,10 @@ public class SuspensionItemDecoration extends RecyclerView.ItemDecoration {
             c.drawRect(left, (bottom - groupHeight), right, bottom, paint);
             paint.setColor(textColor);
             paint.setStyle(Paint.Style.STROKE);
-            paint.setTextSize(ConvertUtils.sp2px(12));
+            paint.setTextSize(12);
             Paint.FontMetrics fm = paint.getFontMetrics();
             float baseLine = bottom - (groupHeight - (fm.bottom - fm.top)) / 2 - fm.bottom;
-            c.drawText(currentCityName, left + ConvertUtils.dp2px(12), baseLine + ConvertUtils.dp2px(5), paint);
+            c.drawText(currentCityName, left + ConvertUtils.dp2px(12,parent.getContext()), baseLine + ConvertUtils.dp2px(5,parent.getContext()), paint);
         }
     }
 

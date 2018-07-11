@@ -15,12 +15,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
-
-import com.facebook.stetho.common.LogUtil;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -597,7 +593,7 @@ public class SafeWebView extends WebView {
         }
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            LogUtil.e("onReceivedSslError = " + error.toString());
+
             injectJavascriptInterfaces(view);
             if(error.getCertificate().getIssuedTo().getCName().contains("imexue.com")||error.getCertificate().getIssuedTo().getCName().contains("juziwl.com")){
                 handler.proceed();

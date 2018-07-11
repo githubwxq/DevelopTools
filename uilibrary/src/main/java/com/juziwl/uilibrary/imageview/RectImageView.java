@@ -24,7 +24,6 @@ import android.util.TypedValue;
 
 
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ImageUtils;
 
 
 /**

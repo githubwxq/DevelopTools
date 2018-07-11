@@ -66,6 +66,7 @@ ext {
             "gson"                      : "com.google.code.gson:gson:2.4",
             "retrofit"                  : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             "retrofit-converter-scalars": "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
+            "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
             "retrofit-adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
             "okhttp"                    : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
             "okhttp-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
@@ -159,9 +160,15 @@ ext {
             //二维码
             "zxing"                     : "cn.yipianfengye.android:zxing-library:2.2",
             //数据库调试
-            "debug-db"                     : "debugCompile 'com.amitshekhar.android:debug-db:1.0.0'",
+            "debug-db"                     : "com.amitshekhar.android:debug-db:1.0.0",
 
+            "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
 
-            "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}"
+//            debugImplementation 'com.github.whataa:pandora:1.0.0'
+//            releaseImplementation 'com.github.whataa:pandora-no-op:v1.0.0'
+
+            //调试软件
+            "pandora"                     : "com.github.whataa:pandora:1.0.0",
+            "pandora-no-op"                     : "com.github.whataa:pandora-no-op:v1.0.0"
     ]
 }

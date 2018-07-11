@@ -7,10 +7,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.IntRange;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.wxq.commonlibrary.util.StringUtils;
+
 
 
 /**
@@ -117,8 +118,8 @@ public class CIrcleProgress extends View {
         canvas.drawText(bottomText, width / 2, width * 3 / 4, paint);
         paint.setTextSize(progressTextSize);
         paint.setColor(percentTextColor);
-        if (StringUtils.isEmpty(percent)) {
-            if(StringUtils.isEmpty(bottomText)){
+        if (TextUtils.isEmpty(percent)) {
+            if(TextUtils.isEmpty(bottomText)){
                 canvas.drawText(progress + "", width / 2 , width*6/10, paint);
             }else {
                 canvas.drawText(progress + "", width / 2, width / 2, paint);

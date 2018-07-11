@@ -176,6 +176,7 @@
     <color name="common_light_green3">#45c01a</color>
     <color name="common_light_blue1">#1caceb</color>
     <color name="common_white3">#fffafa</color>
+    <color name="common_white">#ffffff</color>
     <color name="common_blue">#0000FF</color>
 
     <!-- com.google.com.google.zxing -->
@@ -499,6 +500,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="dialog_bg">#bc000000</color>
+    <color name="common_grey_cccccc">#cccccc</color>
 
 
 </resources>

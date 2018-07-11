@@ -59,10 +59,7 @@ import com.juziwl.uilibrary.emoji.MTextView;
 import com.juziwl.uilibrary.emoji.SmileyParser;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
-import com.wxq.commonlibrary.glide.ImageSize;
-import com.wxq.commonlibrary.glide.LoadingImgUtil;
-import com.wxq.commonlibrary.util.StringUtils;
-import com.wxq.commonlibrary.util.TimeUtils;
+
 
 
 /**
@@ -98,7 +95,7 @@ public class BaseAdapterHelper {
                 null != com.juziwl.uilibrary.easycommonadapter.Adapter.singleton.getImageLoad()) {
             mImageLoad = com.juziwl.uilibrary.easycommonadapter.Adapter.singleton.getImageLoad();
         }
-        smileyParser = SmileyParser.getInstance();
+//        smileyParser = SmileyParser.getInstance();
 
 
     }
@@ -153,65 +150,65 @@ public class BaseAdapterHelper {
     }
 
     // 对控件的常见操作
-
-    /**
-     * 设置imagehead 头像
-     *
-     * @param viewId
-     * @param url
-     * @return
-     */
-    public BaseAdapterHelper setImageHead(@IdRes int viewId, String url) {
-        ImageView view = retrieveView(viewId);
-
-        if (StringUtils.isEmpty(url)) {
-            view.setImageResource(R.mipmap.common_default_head);
-        } else {
-            LoadingImgUtil.loadimg(url, view, true);
-        }
-        return this;
-    }
-
-    /**
-     * 设置imagehead 头像带有大小的
-     *
-     * @param viewId
-     * @param url
-     * @param width
-     * @param height
-     * @return
-     */
-    public BaseAdapterHelper setImageHeadWithSize(@IdRes int viewId, String url, int width, int height) {
-        ImageView view = retrieveView(viewId);
-        LoadingImgUtil.displayImageWithImageSize(url, view, new ImageSize(width, height), null, true);
-        return this;
-    }
-
-    /**
-     * 设置普通图片像
-     *
-     * @param viewId
-     * @param url
-     * @return
-     */
-    public BaseAdapterHelper setCommonImage(@IdRes int viewId, String url) {
-        ImageView view = retrieveView(viewId);
-        LoadingImgUtil.loadimg(url, view, false);
-        return this;
-    }
-
-    /**
-     * 设置普通图片像
-     *
-     * @param viewId
-     * @param url
-     * @return
-     */
-    public BaseAdapterHelper setImageCommon(@IdRes int viewId, String url) {
-        ImageView view = retrieveView(viewId);
-        LoadingImgUtil.loadimg(url, view, false);
-        return this;
-    }
+//
+//    /**
+//     * 设置imagehead 头像
+//     *
+//     * @param viewId
+//     * @param url
+//     * @return
+//     */
+//    public BaseAdapterHelper setImageHead(@IdRes int viewId, String url) {
+//        ImageView view = retrieveView(viewId);
+//
+//        if (StringUtils.isEmpty(url)) {
+//            view.setImageResource(R.mipmap.common_default_head);
+//        } else {
+//            LoadingImgUtil.loadimg(url, view, true);
+//        }
+//        return this;
+//    }
+//
+//    /**
+//     * 设置imagehead 头像带有大小的
+//     *
+//     * @param viewId
+//     * @param url
+//     * @param width
+//     * @param height
+//     * @return
+//     */
+//    public BaseAdapterHelper setImageHeadWithSize(@IdRes int viewId, String url, int width, int height) {
+//        ImageView view = retrieveView(viewId);
+//        LoadingImgUtil.displayImageWithImageSize(url, view, new ImageSize(width, height), null, true);
+//        return this;
+//    }
+//
+//    /**
+//     * 设置普通图片像
+//     *
+//     * @param viewId
+//     * @param url
+//     * @return
+//     */
+//    public BaseAdapterHelper setCommonImage(@IdRes int viewId, String url) {
+//        ImageView view = retrieveView(viewId);
+//        LoadingImgUtil.loadimg(url, view, false);
+//        return this;
+//    }
+//
+//    /**
+//     * 设置普通图片像
+//     *
+//     * @param viewId
+//     * @param url
+//     * @return
+//     */
+//    public BaseAdapterHelper setImageCommon(@IdRes int viewId, String url) {
+//        ImageView view = retrieveView(viewId);
+//        LoadingImgUtil.loadimg(url, view, false);
+//        return this;
+//    }
 
     /**
      * 设置表情文本
@@ -256,20 +253,20 @@ public class BaseAdapterHelper {
         nineGridlayout.showPic(nineGridViewWidth, imgs, listener);
     }
 
-
-    /**
-     * 其他控件组合在一起此处提供所有的控件设置方法
-     *
-     * @param iv_time
-     * @param time
-     * @return
-     */
-    public BaseAdapterHelper setTime(int iv_time, String time) {
-        TextView view = retrieveView(iv_time);
-        String value = TimeUtils.getFriendlyTimeSpanByNow(time);
-        view.setText(value);
-        return this;
-    }
+//
+//    /**
+//     * 其他控件组合在一起此处提供所有的控件设置方法
+//     *
+//     * @param iv_time
+//     * @param time
+//     * @return
+//     */
+//    public BaseAdapterHelper setTime(int iv_time, String time) {
+//        TextView view = retrieveView(iv_time);
+//        String value = TimeUtils.getFriendlyTimeSpanByNow(time);
+//        view.setText(value);
+//        return this;
+//    }
 
     public BaseAdapterHelper setImageIcon(@IdRes int viewId, @NonNull int id) {
         ImageView view = retrieveView(viewId);

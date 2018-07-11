@@ -241,4 +241,11 @@
 
 
 
+    <style name="common_popuStyle">
+        <item name="android:windowEnterAnimation">@anim/common_popup_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/common_popup_anim_out</item>
+    </style>
+
+
+
 </resources>

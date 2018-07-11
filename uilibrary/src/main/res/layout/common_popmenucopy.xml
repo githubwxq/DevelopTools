@@ -27,7 +27,7 @@
             android:background="@drawable/common_item_selector_color"
             android:textSize="18sp"
             android:textColor="@color/common_myself_word"
-            android:text="@string/common_copy"
+            android:text="复制"
             />
 
         <ImageView
@@ -44,7 +44,7 @@
             android:background="@drawable/common_item_selector_color"
             android:textSize="18sp"
             android:textColor="@color/common_main_color"
-            android:text="@string/common_cancel"
+            android:text="取消"
             />
     </LinearLayout>
 

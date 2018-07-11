@@ -1,6 +1,5 @@
 package com.juziwl.uilibrary.tools;
 
-import com.wxq.commonlibrary.util.StringUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,12 +16,23 @@ public class EncodingUtils {
 
     static final Pattern reUnicode = Pattern.compile("\\\\u([0-9a-zA-Z]{2,4})");
 
+
+    /**
+     * 是否正常的字符串
+     *
+     * @return
+     */
+    public static boolean isEmpty(String str) {
+        return (str == null || str.length() == 0);
+    }
+
+
     /**
      * unicode 转字符串
      */
     public static String unicode2String(String unicode) {
 
-        if (StringUtils.isEmpty(unicode)) {
+        if (isEmpty(unicode)) {
             return null;
         }
         Matcher m = reUnicode.matcher(unicode);

@@ -7,11 +7,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-
 import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ScreenUtils;
-import com.wxq.commonlibrary.util.SizeUtils;
+import com.juziwl.uilibrary.utils.ScreenUtils;
 
 
 /**
@@ -99,7 +96,7 @@ public class LearnOrErrorDialog {
                     }
                 });
             }
-        }.setWidthAndHeight(ScreenUtils.getScreenWidth() * 4 / 5, ViewGroup.LayoutParams.WRAP_CONTENT).showDialog();
+        }.setWidthAndHeight(ScreenUtils.getScreenWidth(context) * 4 / 5, ViewGroup.LayoutParams.WRAP_CONTENT).showDialog();
 
         return singleDialog;
     }
@@ -170,7 +167,7 @@ public class LearnOrErrorDialog {
                     }
                 });
             }
-        }.setWidthAndHeight(ScreenUtils.getScreenWidth() * 4 / 5, ViewGroup.LayoutParams.WRAP_CONTENT).showDialog();
+        }.setWidthAndHeight(ScreenUtils.getScreenWidth(context) * 4 / 5, ViewGroup.LayoutParams.WRAP_CONTENT).showDialog();
 
         return singleDialog;
     }

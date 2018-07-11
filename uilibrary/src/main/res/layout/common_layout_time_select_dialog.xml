@@ -104,7 +104,7 @@
             android:background="@drawable/common_selector_left_button"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="@string/common_cancel"
+            android:text="取消"
             android:textColor="@color/common_grey"
             android:textSize="20sp" />
 
@@ -120,7 +120,7 @@
             android:layout_weight="1"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="@string/common_makesure"
+            android:text="确定"
             android:textColor="@color/color_0093e8"
             android:textSize="20sp" />
     </LinearLayout>

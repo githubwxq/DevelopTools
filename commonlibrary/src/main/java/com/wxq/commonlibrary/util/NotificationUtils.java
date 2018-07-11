@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.utils;
+package com.wxq.commonlibrary.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -35,8 +35,8 @@ public class NotificationUtils {
             }
             String message = "检测到" + appName + "的通知权限没有打开，为了您能及时收到通知，" +
                     "请点击前往打开，然后点击通知或通知管理，打开允许通知的开关即可";
-            CommonDialog.getInstance().createDialog(activity, message, "前往打开",
-                    v ->openAppInfo(activity)).show();
+//            CommonDialog.getInstance().createDialog(activity, message, "前往打开",
+//                    v ->openAppInfo(activity)).show();
         }
     }
 

@@ -135,5 +135,11 @@
     <string name="expand_string">展开全部</string>
     <string name="collapsed_string">收起</string>
     <string name="input_six_verify_code">请输入6位验证码</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_accept_msg">取消</string>
+    <string name="common_refuse_msg">拒绝</string>
+    <string name="common_acceptnoremind_msg">拒绝</string>
+    <string name="common_close_see">拒绝</string>
+    <string name="common_save_pic">保存图片</string>
 
 </resources>
