@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
@@ -21,11 +22,14 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
 
     private static BaseApp mContext;
     public static boolean isDebug = false;
+    private ApplicationDelegate applicationDelegate;
 
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        applicationDelegate = new ApplicationDelegate();
+        applicationDelegate.attachBaseContext(base);
         MultiDex.install(this);
 //         安装tinker
         Beta.installTinker();
@@ -36,6 +40,12 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         super.onCreate();
         mContext = this;
         isDebug = setIsDebug();
+
+        ARouter.openLog();     // 打印日志
+        ARouter.openDebug();
+        ARouter.init(this);
+        initDagger();
+
         //工具初始化
         Utils.init(this);
         initLog();
@@ -44,6 +54,12 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         Thread.setDefaultUncaughtExceptionHandler(this);
 
         //setupInjector();
+    }
+
+    //初始化简单的app全局的dragger
+    private void initDagger() {
+
+
     }
 
     private void initX5WebView() {

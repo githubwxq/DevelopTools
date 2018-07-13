@@ -1,5 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+greendao{
+    schemaVersion 1
+    daoPackage 'com.wxq.mvplibrary.dao'
+    targetGenDir 'src/main/java'
+}
+
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -11,6 +20,13 @@ android {
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
 
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
     }
 
     buildTypes {
@@ -19,10 +35,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
+
 
     sourceSets {
         main {
@@ -63,4 +76,15 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':uilibrary')
     compile project(':commonlibrary')
+    //arouter
+    compile rootProject.ext.deps["arouter-api"]
+    annotationProcessor  rootProject.ext.deps["arouter-compiler"]
+    //dagger
+    provided rootProject.ext.deps["javax.annotation-api"]
+    compile rootProject.ext.deps["dagger"]
+    annotationProcessor rootProject.ext.deps["dagger-compiler"]
+    //greendao
+    compile rootProject.ext.deps["greendao"]
+    compile rootProject.ext.deps["GreenDaoUpgradeHelper"]
+
 }

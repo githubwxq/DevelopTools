@@ -8,6 +8,8 @@ import android.widget.TextView;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
+import com.wxq.mvplibrary.dbmanager.DbManager;
+import com.wxq.mvplibrary.model.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,8 +39,22 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
             @Override
             public void onClick(View view) {
                 mPresenter.getData(1);
+                User user=new User();
+                user.setUserName("wxq");
+                user.setFlag(0);
+                user.setAccessToken("token");
+                DbManager.getInstance().getDaoSession().getUserDao().save(user);
+
+                int size = DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list().size();
+
+                showToast(size+"数据裤中数据");
+
             }
         });
+
+
+
+
     }
 
     @Override
