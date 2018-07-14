@@ -1,4 +1,13 @@
 ext {
+
+//    isAlone = true;//false:作为Lib组件存在， true:作为application存在
+//    true表示作为模块 false表示作为应用
+    isNeedNetTestModule= true
+
+
+
+
+
     /**
      *   所有项目依赖库集合
      *   注意：需要统一所有库的依赖
@@ -9,14 +18,14 @@ ext {
             buildToolsVersion         : '25.0.2',
             parentApplicationId       : "com.juziwl.exuecloud.parent",
             comprehensiveApplicationId: "com.juziwl.exuecloud.teacher",
-//            parentApplicationId       : "com.juziwl.xiaoxin.test",
+            developtoolsApplicationId : "com.wxq.developtools",
+            nettestdemoApplicationId   : "com.example.nettestdemo",
 //            comprehensiveApplicationId: "com.juziwl.exue_comprehensive",
             minSdkVersion             : 17,
             targetSdkVersion          : 25,
-            parentVersionCode         : 8,
-            parentVersionName         : "1.2.2",
-            comprehensiveVersionCode  : 8,
-            comprehensiveVersionName  : "1.2.2"
+            versionCode               : 1,
+            versionName               : "1",
+
     ]
 
     def dependVersion = [

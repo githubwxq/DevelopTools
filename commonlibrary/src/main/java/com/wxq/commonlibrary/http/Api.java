@@ -1,5 +1,7 @@
 //package com.wxq.commonlibrary.http;
 //
+//import android.provider.Settings;
+//
 //import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 //import com.wxq.commonlibrary.http.converter.CustomGsonConverterFactory;
 //
@@ -17,7 +19,7 @@
 //
 //    private Api() {
 //        //token拦截器
-//        TokenInterceptor tokenInterceptor=new TokenInterceptor();
+////        TokenInterceptor tokenInterceptor=new TokenInterceptor();
 //
 //        //日志拦截器
 //        com.lzy.okgo.interceptor.HttpLoggingInterceptor ipadloggingInterceptor = new com.lzy.okgo.interceptor.HttpLoggingInterceptor("teacher_pad");
@@ -31,9 +33,9 @@
 //                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
 //                .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
 //                .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-//                .addNetworkInterceptor(new NetworkInterceptor())
+////                .addNetworkInterceptor(new NetworkInterceptor())
 //                .addInterceptor(ipadloggingInterceptor)
-//                .addInterceptor(tokenInterceptor)
+////                .addInterceptor(tokenInterceptor)
 //                .build();
 //        retrofit = new Retrofit.Builder()
 //                .baseUrl(Global.BASE_URL)

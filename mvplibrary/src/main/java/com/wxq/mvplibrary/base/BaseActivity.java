@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
 import com.juziwl.uilibrary.dialog.DialogManager;
+import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -17,11 +18,14 @@ import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.baserx.Event;
 import com.wxq.mvplibrary.baserx.RxBus;
+import com.wxq.mvplibrary.baserx.RxBusManager;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.subjects.BehaviorSubject;
 
 /**
@@ -31,7 +35,7 @@ import io.reactivex.subjects.BehaviorSubject;
 public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatActivity implements BaseView {
     public String token = "";
     private Unbinder unbinder;
-
+    Disposable disposable;
     public T mPresenter;
     public Context context;
     private BroadcastReceiver broadcastReceiver = null;
@@ -57,9 +61,24 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     }
 
     private void initRxBus() {
-        RxBus.getDefault().take().compose(this.bindUntilEvent(ActivityEvent.DESTROY)).subscribe(event -> {
-            dealWithRxEvent(event.action, event);
+//        RxBus.getDefault().take().compose(this.bindUntilEvent(ActivityEvent.DESTROY)).subscribe(event -> {
+//            dealWithRxEvent(event.action, event);
+//        });
+         disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {
+            @Override
+            public void accept(Event event) {
+                dealWithRxEvent(event.action, event);
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) {
+                Logger.e("rxbus传递出现异常");
+                if (throwable != null) {
+                    Logger.e(throwable.getMessage());
+                }
+            }
         });
+
     }
 
 
@@ -132,6 +151,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     protected void onDestroy() {
         if (mPresenter != null)
             mPresenter.detachView();
+
+        disposable.dispose();
         super.onDestroy();
     }
 

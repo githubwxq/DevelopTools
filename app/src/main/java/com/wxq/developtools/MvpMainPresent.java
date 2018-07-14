@@ -19,8 +19,8 @@ public class MvpMainPresent extends RxPresenter<MvpMainContract.View> implements
     @Override
     public void getData(int count) {
 
-        mView.showToast(count*3+"wawawawaa");
-
+       mView.showToast(count*3+"wawawawaa");
+       mView.showRx();
     }
 
 

@@ -5,9 +5,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
+import com.wxq.mvplibrary.baserx.Event;
+import com.wxq.mvplibrary.baserx.RxBus;
+import com.wxq.mvplibrary.baserx.RxBusManager;
 import com.wxq.mvplibrary.dbmanager.DbManager;
 import com.wxq.mvplibrary.model.User;
 
@@ -39,7 +43,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
             @Override
             public void onClick(View view) {
                 mPresenter.getData(1);
-                User user=new User();
+                User user = new User();
                 user.setUserName("wxq");
                 user.setFlag(0);
                 user.setAccessToken("token");
@@ -47,13 +51,31 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
                 int size = DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list().size();
 
-                showToast(size+"数据裤中数据");
+                showToast(size + "数据裤中数据");
+
+                Event event = new Event(2, "wxq");
+
+                RxBusManager.getInstance().post(event);
+
+//                nesttes
+
+                ARouter.getInstance().build("/nettest/main").navigation();
+
+
 
             }
         });
 
 
+    }
 
+    @Override
+    public void dealWithRxEvent(int action, Event event) {
+        super.dealWithRxEvent(action, event);
+        if (action == 2) {
+            showToast(event.getObject() + "rxgetsuccess");
+
+        }
 
     }
 
@@ -68,4 +90,8 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     }
 
 
+    @Override
+    public void showRx() {
+
+    }
 }

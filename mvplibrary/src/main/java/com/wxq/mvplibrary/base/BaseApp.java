@@ -104,4 +104,12 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
     }
 
     public abstract void dealWithException(Thread thread, Throwable throwable, String error);
+
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        applicationDelegate.onTerminate(this);
+    }
+
 }
