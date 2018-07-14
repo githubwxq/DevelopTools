@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.wxq.mvplibrary.router.RouterContent;
 
-@Route(path = "/nettest/main")
+@Route(path = RouterContent.NETTEST_MAIN)
 public class NetTestActivity extends AppCompatActivity {
 
     @Override

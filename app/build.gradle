@@ -17,6 +17,7 @@ android {
             enabled true
         }
 
+//       arouter需要配置
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
@@ -95,8 +96,8 @@ dependencies {
         compile project(':nettestdemo')
     }
 
-
-
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
+
+
 
 }
