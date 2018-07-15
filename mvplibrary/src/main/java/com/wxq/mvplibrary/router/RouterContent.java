@@ -11,6 +11,10 @@ public class RouterContent {
     public static final String NETTEST_MAIN = "/nettest/main";
 
 
+    //测试arouter
+    public static final String AROUTER_MAIN = "/main/main";
+
+
 
 
 

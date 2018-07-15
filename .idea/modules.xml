@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DevelopTools.iml" filepath="$PROJECT_DIR$/DevelopTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/X5WebDemo/X5WebDemo.iml" filepath="$PROJECT_DIR$/X5WebDemo/X5WebDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" filepath="$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonlibrary/commonlibrary.iml" filepath="$PROJECT_DIR$/commonlibrary/commonlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvplibrary/mvplibrary.iml" filepath="$PROJECT_DIR$/mvplibrary/mvplibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettestdemo/nettestdemo.iml" filepath="$PROJECT_DIR$/nettestdemo/nettestdemo.iml" />

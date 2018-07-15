@@ -1,1 +1,1 @@
-include ':app', ':commonlibrary', ':uilibrary', ':X5WebDemo', ':mvplibrary', ':nettestdemo'
+include ':app', ':commonlibrary', ':uilibrary', ':X5WebDemo', ':mvplibrary', ':nettestdemo', ':aroutertestdemo'

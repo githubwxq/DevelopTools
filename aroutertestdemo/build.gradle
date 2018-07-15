@@ -1,4 +1,4 @@
-if (!rootProject.ext.isNeedNetTestModule) {
+if (!rootProject.ext.isNeedArouterTestModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -10,8 +10,8 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        if (!rootProject.ext.isNeedNetTestModule) {
-            applicationId rootProject.ext.android.nettestdemoApplicationId
+        if (!rootProject.ext.isNeedArouterTestModule) {
+            applicationId rootProject.ext.android.aroutertestdemoApplicationId
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -20,12 +20,12 @@ android {
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
 
-            //arouter
-            javaCompileOptions {
-                annotationProcessorOptions {
-                    arguments = [moduleName: project.getName()]
-                }
+        //arouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
             }
+        }
 
 
     }
@@ -40,7 +40,7 @@ android {
     sourceSets {
         main {
             //单独的项目的话  添加单独的java 或者
-            if (!rootProject.ext.isNeedNetTestModule) {
+            if (!rootProject.ext.isNeedArouterTestModule) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java.srcDirs = ['src/main/java', 'src/main/module/java']
                 res.srcDirs = ['src/main/res', 'src/main/module/res']
@@ -57,5 +57,4 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':mvplibrary')
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
-
 }

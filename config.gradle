@@ -3,6 +3,7 @@ ext {
 //    isAlone = true;//false:作为Lib组件存在， true:作为application存在
 //    true表示作为模块 false表示作为应用
     isNeedNetTestModule= false
+    isNeedArouterTestModule= false
 
 
 
@@ -20,6 +21,7 @@ ext {
             comprehensiveApplicationId: "com.juziwl.exuecloud.teacher",
             developtoolsApplicationId : "com.wxq.developtools",
             nettestdemoApplicationId   : "com.example.nettestdemo",
+            aroutertestdemoApplicationId   : "com.example.aroutertestdemo",
 //            comprehensiveApplicationId: "com.juziwl.exue_comprehensive",
             minSdkVersion             : 17,
             targetSdkVersion          : 25,
