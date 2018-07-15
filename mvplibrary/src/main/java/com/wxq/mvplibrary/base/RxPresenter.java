@@ -18,7 +18,7 @@ public  abstract  class RxPresenter<T extends BaseView> implements BasePresenter
     protected CompositeDisposable mCompositeDisposable;
 
     public RxPresenter(T view) {
-        mView = view;
+        attachView(view);
     }
 
 
@@ -31,9 +31,9 @@ public  abstract  class RxPresenter<T extends BaseView> implements BasePresenter
     Context mContext;
 
     @Override
-    public BasePresenter attachView(T view) {
+    public void attachView(T view) {
         mView=view;
-        return this;
+
     }
 
 

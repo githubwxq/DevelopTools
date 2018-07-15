@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.itemdecoration;
+package com.juziwl.uilibrary.recycler.itemdecoration;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.http.converter;
+package com.wxq.commonlibrary.okgo.converter;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

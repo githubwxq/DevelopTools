@@ -9,9 +9,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
-//import com.juziwl.commonlibrary.utils.RxUtils;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper.get;
@@ -33,6 +30,7 @@ public abstract class CommonRecyclerAdapter<T>
 
     public Context mContext;
     public List<T> mData;
+
     private final int mLayoutResId;
     private OnItemClickListener mItemClickListener;
     private OnItemLongClickListener mItemLongClickListener;
@@ -42,7 +40,7 @@ public abstract class CommonRecyclerAdapter<T>
     }
 
     public CommonRecyclerAdapter(Context context, int layoutResId, List<T> data) {
-        this.mData = data == null ? new ArrayList<T>() : new ArrayList<>(data);
+        this.mData = data;
         this.mContext = context;
         this.mLayoutResId = layoutResId;
     }
@@ -163,7 +161,7 @@ public abstract class CommonRecyclerAdapter<T>
     }
 
     public void replaceAll(List<T> elem, boolean notifyDataSetChanged) {
-        mData.clear();
+        mData.clear();  //
         mData.addAll(elem);
         if (notifyDataSetChanged) {
             notifyDataSetChanged();
@@ -221,12 +219,14 @@ public abstract class CommonRecyclerAdapter<T>
         void onItemLongClick(RecyclerView.ViewHolder viewHolder, View view, int position);
     }
 
-    protected class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    private final class RecyclerViewHolder extends RecyclerView.ViewHolder {
         BaseAdapterHelper mAdapterHelper;
 
         public RecyclerViewHolder(View itemView, BaseAdapterHelper adapterHelper) {
             super(itemView);
             this.mAdapterHelper = adapterHelper;
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -236,8 +236,6 @@ public abstract class CommonRecyclerAdapter<T>
                     }
                 }
             });
-
-
             itemView.setOnLongClickListener(v -> {
                 if (null != mItemLongClickListener) {
                     mItemLongClickListener.onItemLongClick(RecyclerViewHolder.this, v,

@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.http.response;
+package com.wxq.commonlibrary.okgo.response;
 
 import java.io.Serializable;
 

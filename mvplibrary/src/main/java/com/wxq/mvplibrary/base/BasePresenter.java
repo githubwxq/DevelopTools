@@ -8,7 +8,7 @@ import io.reactivex.disposables.Disposable;
  */
 public interface BasePresenter<T extends BaseView>{
 
-    BasePresenter attachView(T view);
+    void attachView(T view);
 
     void initEventAndData();
 

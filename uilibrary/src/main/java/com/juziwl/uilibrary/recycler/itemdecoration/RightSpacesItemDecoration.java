@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.itemdecoration;
+package com.juziwl.uilibrary.recycler.itemdecoration;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

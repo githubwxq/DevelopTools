@@ -15,7 +15,7 @@
 //
 //import com.juziwl.uilibrary.R;
 //import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
-//import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerNewAdapter;
+//import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 //import com.yan.pullrefreshlayout.FootView2;
 //import com.yan.pullrefreshlayout.Header;
 //import com.yan.pullrefreshlayout.PullRefreshLayout;
@@ -62,7 +62,7 @@
 //
 //    PullRefreshListener pullRefrshListener;
 //
-//    CommonRecyclerNewAdapter adapter;
+//    CommonRecyclerAdapter adapter;
 //
 //
 //    boolean isRefrishAndLoadMoreEnable = true; // 默认下拉刷新和家长更多都有
@@ -137,7 +137,7 @@
 //            nest_nodata.setVisibility(VISIBLE);
 //        }
 //        if (adapter == null) {
-//            adapter = new CommonRecyclerNewAdapter<T>(this.getContext(), adapterLayoutId, list) {
+//            adapter = new CommonRecyclerAdapter<T>(this.getContext(), adapterLayoutId, list) {
 //                @Override
 //                public void onUpdate(BaseAdapterHelper helper, T item, int position) {
 //                    // 子类实现方法
@@ -218,7 +218,7 @@
 //    }
 //
 //
-//    public CommonRecyclerNewAdapter getAdapter() {
+//    public CommonRecyclerAdapter getAdapter() {
 //        return adapter;
 //    }
 //

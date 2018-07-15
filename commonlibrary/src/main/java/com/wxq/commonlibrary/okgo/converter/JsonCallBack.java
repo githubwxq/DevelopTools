@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.http.converter;
+package com.wxq.commonlibrary.okgo.converter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;

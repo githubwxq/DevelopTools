@@ -54,5 +54,9 @@ public class GlobalContent {
     public static String logPath=filePath + "log/";
 
 
+    /**
+     * baseurl
+     */
+    public static final String BASE_URL = "";
 
 }

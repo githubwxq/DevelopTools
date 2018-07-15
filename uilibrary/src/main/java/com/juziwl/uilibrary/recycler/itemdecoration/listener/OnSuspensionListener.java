@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.itemdecoration.listener;
+package com.juziwl.uilibrary.recycler.itemdecoration.listener;
 
 /**
  * @author Army
