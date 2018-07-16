@@ -10,29 +10,31 @@
         android:id="@+id/tv_hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-    />
+        android:text="前往arouterdemo" />
+
+
+    <TextView
+        android:id="@+id/tv_hello2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_hello"
+        android:layout_marginTop="30dp"
+        android:text="前往nettestdemo" />
+
 
     <ImageView
         android:id="@+id/iv_test_pic"
-        android:layout_centerInParent="true"
         android:layout_width="200dp"
-        android:layout_height="200dp" />
-
-
+        android:layout_height="200dp"
+        android:layout_centerInParent="true" />
 
 
     <com.juziwl.uilibrary.niceplayer.NiceVideoPlayer
         android:id="@+id/player"
-        android:visibility="gone"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="200dp"></com.juziwl.uilibrary.niceplayer.NiceVideoPlayer>
-
-
-
-
-
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"></com.juziwl.uilibrary.niceplayer.NiceVideoPlayer>
 
 
 </RelativeLayout>

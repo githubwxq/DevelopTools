@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.dialog.DialogManager;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -58,6 +59,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initBroadcastAndLocalBroadcastAction();
         // 注册rxbus
         initRxBus();
+        // arouter 依赖注入
+        ARouter.getInstance().inject(this);
     }
 
     private void initRxBus() {

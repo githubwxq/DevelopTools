@@ -14,6 +14,7 @@ import com.wxq.mvplibrary.baserx.RxBus;
 import com.wxq.mvplibrary.baserx.RxBusManager;
 import com.wxq.mvplibrary.dbmanager.DbManager;
 import com.wxq.mvplibrary.model.User;
+import com.wxq.mvplibrary.router.RouterContent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +32,9 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     NiceVideoPlayer player;
     @BindView(R.id.tv_hello)
     TextView tvHello;
+
+  @BindView(R.id.tv_hello2)
+    TextView tv_hello2;
 
 
     @Override
@@ -59,10 +63,23 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 //                nesttes
 
-                ARouter.getInstance().build("/nettest/main").navigation();
+                ARouter.getInstance()
+                        .build(RouterContent.AROUTER_MAIN)
+                        .withString("name","name")
+                        .withString("wxq","wxq")
+                        .navigation();
 
 
 
+            }
+        });
+
+
+
+        tv_hello2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
             }
         });
 
@@ -73,7 +90,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     public void dealWithRxEvent(int action, Event event) {
         super.dealWithRxEvent(action, event);
         if (action == 2) {
-            showToast(event.getObject() + "rxgetsuccess");
+//            showToast(event.getObject() + "rxgetsuccess");
 
         }
 
