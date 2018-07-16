@@ -2,6 +2,7 @@ package com.example.aroutertestdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -26,5 +27,17 @@ public class TestArouterMainActivity extends AppCompatActivity {
         tv_name.setText(name);
 
         ToastUtils.showLong(wxq + "");
+
+        tv_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //前往网络模块
+                ARouter.getInstance()
+                        .build(RouterContent.NETTEST_MAIN)
+                        .withString("from","testarouter")
+                        .navigation();
+            }
+        });
+
     }
 }
