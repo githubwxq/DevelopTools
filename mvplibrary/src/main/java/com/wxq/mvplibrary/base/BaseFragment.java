@@ -92,7 +92,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
             mRootView = inflater.inflate(attachLayoutRes(), null);
             unbinder = ButterKnife.bind(this, mRootView);
             mPresenter = initPresenter();
-            initViews();
             rxPermissions = new RxPermissions((Activity) mContext);
             initBroadcastAction();//初始化广播
             initRxBus();
@@ -128,6 +127,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initViews();
         isPrepared = true;
         commonLoad(mRootView);  //比initwidget后执行 initwidget初始化控件 实现类用butterknife实现
         lazyLoad(mRootView);
@@ -365,4 +365,9 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         ToastUtils.showShort(message);
     }
 
+
+    @Override
+    public <T> LifecycleTransformer<T> bindDestory() {
+        return this.bindToLife();
+    }
 }

@@ -2,8 +2,8 @@ ext {
 
 //    isAlone = true;//false:作为Lib组件存在， true:作为application存在
 //    true表示作为模块 false表示作为应用
-    isNeedNetTestModule= true
-    isNeedArouterTestModule= true
+    isNeedNetTestModule= false
+    isNeedArouterTestModule= false
 
 
 

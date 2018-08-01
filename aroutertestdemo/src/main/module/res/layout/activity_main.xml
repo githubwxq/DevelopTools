@@ -3,10 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
-
-
-
+>
 
     <TextView
         android:id="@+id/tv_goto"
@@ -15,5 +12,12 @@
         android:textSize="20dp"
         android:text="首页调整"
         />
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+
 
 </LinearLayout>

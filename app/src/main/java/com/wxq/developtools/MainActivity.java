@@ -1,6 +1,8 @@
 package com.wxq.developtools;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,10 @@ import com.juziwl.uilibrary.niceplayer.TxVideoPlayerController;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.BuglyUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void init() {
 
         player.setPlayerType(NiceVideoPlayer.TYPE_IJK); // IjkPlayer or MediaPlayer
@@ -55,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
+        });
+
+
+        List<String> list=new ArrayList<>();
+
+        list.forEach(s -> {
+
         });
 
     }

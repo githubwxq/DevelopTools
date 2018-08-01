@@ -63,12 +63,15 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 //                nesttes
 
-                ARouter.getInstance()
-                        .build(RouterContent.AROUTER_MAIN)
-                        .withString("name","name")
-                        .withString("wxq","wxq")
-                        .navigation();
-
+                try {
+                    ARouter.getInstance()
+                            .build(RouterContent.AROUTER_MAIN)
+                            .withString("name","name")
+                            .withString("wxq","wxq")
+                            .navigation();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
 
             }
@@ -79,7 +82,11 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         tv_hello2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
+                try {
+                    ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
