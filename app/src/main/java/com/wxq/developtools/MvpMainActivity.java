@@ -32,17 +32,13 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     NiceVideoPlayer player;
     @BindView(R.id.tv_hello)
     TextView tvHello;
-
-  @BindView(R.id.tv_hello2)
+    @BindView(R.id.tv_hello2)
     TextView tv_hello2;
 
 
     @Override
     protected void initViews() {
-
-//        BarUtils.setStatusBarColor(this,getResources().getColor(R.color.common_account_red),255);
         tvHello.setText("000000000000000000000000");
-
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

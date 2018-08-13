@@ -53,8 +53,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         lifecycleSubject.onNext(ActivityEvent.CREATE);
         AppManager.getInstance().addActivity(this);
         rxPermissions = new RxPermissions(this);
-        mPresenter=  initPresent();
         initViews();
+        mPresenter=  initPresent();
+        //数据初始化
+        mPresenter.initEventAndData();
         //注册广播
         initBroadcastAndLocalBroadcastAction();
         // 注册rxbus
@@ -64,9 +66,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     }
 
     private void initRxBus() {
-//        RxBus.getDefault().take().compose(this.bindUntilEvent(ActivityEvent.DESTROY)).subscribe(event -> {
-//            dealWithRxEvent(event.action, event);
-//        });
          disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {
             @Override
             public void accept(Event event) {
@@ -152,10 +151,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
     @Override
     protected void onDestroy() {
-        if (mPresenter != null)
+        if (mPresenter != null){
             mPresenter.detachView();
-
-        disposable.dispose();
+        }
+        if (disposable!=null) {
+            disposable.dispose();
+        }
         super.onDestroy();
     }
 

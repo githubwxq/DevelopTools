@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by COOTEK on 2017/8/29.
+ * 初始化的时候同时初始化各个module中的数据通过解析manifestparser
  */
 
 public class ApplicationDelegate implements IAppLife {

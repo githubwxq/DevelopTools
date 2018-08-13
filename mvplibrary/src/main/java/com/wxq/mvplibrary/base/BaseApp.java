@@ -40,20 +40,17 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         super.onCreate();
         mContext = this;
         isDebug = setIsDebug();
-
-        ARouter.openLog();     // 打印日志
+        // 打印日志
+        ARouter.openLog();
         ARouter.openDebug();
         ARouter.init(this);
         initDagger();
-
         //工具初始化
         Utils.init(this);
         initLog();
         initX5WebView();
         Stetho.initializeWithDefaults(this);
         Thread.setDefaultUncaughtExceptionHandler(this);
-
-        //setupInjector();
     }
 
     //初始化简单的app全局的dragger

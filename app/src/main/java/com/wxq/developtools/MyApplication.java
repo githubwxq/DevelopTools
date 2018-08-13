@@ -27,6 +27,7 @@ public class MyApplication extends BaseApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化bugly
         BuglyUtils.init(this,"bd7d7fa0c2",BuildConfig.DEBUG);
 
     }
@@ -39,10 +40,8 @@ public class MyApplication extends BaseApp {
     @Override
     public void dealWithException(Thread thread, Throwable throwable, String error) {
         final Intent intent2 = new Intent();
-
         intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent2.setClass(this,MainActivity.class);
-
         startActivity(intent2);
         MobclickAgent.onKillProcess(getApplicationContext());
         ActivityUtils.finishAllActivitiesExceptNewest();

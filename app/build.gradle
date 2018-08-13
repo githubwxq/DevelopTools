@@ -78,6 +78,9 @@ android {
     aaptOptions {
         cruncherEnabled false
     }
+
+    compileOptions.encoding="UTF-8"
+
 }
 
 dependencies {

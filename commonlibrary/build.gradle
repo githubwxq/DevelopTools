@@ -57,24 +57,12 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //support基本库依赖
-
     compile rootProject.ext.deps["support-v4"]
     compile rootProject.ext.deps["appcompat-v7"]
     compile rootProject.ext.deps["multidex"]
-
-//    compile rootProject.ext.deps["recyclerview-v7"]
-//    compile rootProject.ext.deps["cardview-v7"]
-//    compile rootProject.ext.deps["constraint-layout"]
-//    compile rootProject.ext.deps["design"]
-
-    //dagger
-//    provided rootProject.ext.deps["javax.annotation-api"]
-//    compile rootProject.ext.deps["dagger"]
-//    annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //butterknife
     compile rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
-
     //stetho
     compile rootProject.ext.deps["stetho"]
     compile rootProject.ext.deps["stetho-okhttp3"]
@@ -88,7 +76,6 @@ dependencies {
     compile rootProject.ext.deps["glide-okhttp3-integration"]
     compile rootProject.ext.deps["glide-annotations"]
     compile rootProject.ext.deps["glide-transformations"]
-
     //rxjava
     compile rootProject.ext.deps["rxjava"]
     compile rootProject.ext.deps["rxandroid"]
@@ -100,30 +87,32 @@ dependencies {
     compile rootProject.ext.deps["rxlifecycle-android"]
     compile rootProject.ext.deps["rxlifecycle-components"]
     compile rootProject.ext.deps["fastjson"]
-
     //    retrofit2
     compile rootProject.ext.deps["retrofit"]
     compile rootProject.ext.deps["retrofit-adapter-rxjava"]
     compile rootProject.ext.deps["retrofit-converter-gson"]
     compile rootProject.ext.deps["okhttp"]
     compile rootProject.ext.deps["okhttp-logging-interceptor"]
-
     compile rootProject.ext.deps["gson"]
-
-
     //统计库 友盟 和bugly一起
     compile rootProject.ext.deps["umeng-analytics"]
     compile rootProject.ext.deps["bugly"]
-
-
     //okgo
     compile rootProject.ext.deps["okgo"]
     compile rootProject.ext.deps["okrx2"]
 
-    //数据库调试
-//    debugCompile 'com.amitshekhar.android:debug
-// -db:1.0.0'
 
+//数据库调试
+//debugCompile 'com.amitshekhar.android:debug
+// -db:1.0.0'
+//    compile rootProject.ext.deps["recyclerview-v7"]
+//    compile rootProject.ext.deps["cardview-v7"]
+//    compile rootProject.ext.deps["constraint-layout"]
+//    compile rootProject.ext.deps["design"]
+//dagger
+//    provided rootProject.ext.deps["javax.annotation-api"]
+//    compile rootProject.ext.deps["dagger"]
+//    annotationProcessor rootProject.ext.deps["dagger-compiler"]
 
 
 
