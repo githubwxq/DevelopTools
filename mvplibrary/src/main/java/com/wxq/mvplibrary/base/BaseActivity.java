@@ -56,7 +56,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initViews();
         mPresenter=  initPresent();
         //数据初始化
-        mPresenter.initEventAndData();
+        if (mPresenter!=null) {
+            mPresenter.initEventAndData();
+        }
         //注册广播
         initBroadcastAndLocalBroadcastAction();
         // 注册rxbus

@@ -163,15 +163,12 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
         if (isVisibleToUser) {
             // 父Fragment还没显示，你着什么急
             Fragment parentFragment = getParentFragment();
             if (parentFragment != null && !parentFragment.getUserVisibleHint()) {
                 waitingShowToUser = true;
                 super.setUserVisibleHint(false);
-//                isVisible = false;
-//                onInvisible();
             } else {
                 isVisible = true;
                 onVisible();
@@ -207,7 +204,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
                     }
                 } else {
                     isVisible = false;
-
                 }
             }
         }
@@ -247,7 +243,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
      */
     private void lazyLoad(View view) {
         if (!isPrepared || !isVisible || !isFirstLoad) {
-            //if (!isAdded() || !isVisible || !isFirstLoad) {
             return;
         }
         isFirstLoad = false;

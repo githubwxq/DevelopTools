@@ -14,30 +14,43 @@ import com.juziwl.uilibrary.niceplayer.TxVideoPlayerController;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.BuglyUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.mvplibrary.base.BaseActivity;
+import com.wxq.mvplibrary.base.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.iv_test_pic)
     ImageView ivTestPic;
     @BindView(R.id.player)
     NiceVideoPlayer player;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        BuglyUtils.init(this,"bd7d7fa0c2",BuildConfig.DEBUG);
-        ButterKnife.bind(this);
-        LoadingImgUtil.loadimg("http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg", ivTestPic, false);
-        init();
 
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void initViews() {
+        LoadingImgUtil.loadimg("http://img17.3lian.com/201612/16/88dc7fcc74be4e24f1e0bacbd8bef48d.jpg", ivTestPic, false);
+//        init();
+        com.orhanobut.logger.Logger.e("text","text");
+
+    }
+
+    @Override
+    protected int attachLayoutRes() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected BasePresenter initPresent() {
+        return null;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

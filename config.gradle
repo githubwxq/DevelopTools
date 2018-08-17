@@ -2,12 +2,8 @@ ext {
 
 //    isAlone = true;//false:作为Lib组件存在， true:作为application存在
 //    true表示作为模块 false表示作为应用
-    isNeedNetTestModule= false
-    isNeedArouterTestModule= false
-
-
-
-
+    isNeedNetTestModule = false
+    isNeedArouterTestModule = false
 
     /**
      *   所有项目依赖库集合
@@ -15,18 +11,15 @@ ext {
      *
      */
     android = [
-            compileSdkVersion         : 25,
-            buildToolsVersion         : '25.0.2',
-            parentApplicationId       : "com.juziwl.exuecloud.parent",
-            comprehensiveApplicationId: "com.juziwl.exuecloud.teacher",
-            developtoolsApplicationId : "com.wxq.developtools",
-            nettestdemoApplicationId   : "com.example.nettestdemo",
-            aroutertestdemoApplicationId   : "com.example.aroutertestdemo",
-//            comprehensiveApplicationId: "com.juziwl.exue_comprehensive",
-            minSdkVersion             : 17,
-            targetSdkVersion          : 25,
-            versionCode               : 1,
-            versionName               : "1",
+            compileSdkVersion           : 25,
+            buildToolsVersion           : '25.0.2',
+            developtoolsApplicationId   : "com.wxq.developtools",
+            nettestdemoApplicationId    : "com.example.nettestdemo",
+            aroutertestdemoApplicationId: "com.example.aroutertestdemo",
+            minSdkVersion               : 17,
+            targetSdkVersion            : 25,
+            versionCode                 : 1,
+            versionName                 : "1",
 
     ]
 
@@ -171,7 +164,7 @@ ext {
             //二维码
             "zxing"                     : "cn.yipianfengye.android:zxing-library:2.2",
             //数据库调试
-            "debug-db"                     : "com.amitshekhar.android:debug-db:1.0.0",
+            "debug-db"                  : "com.amitshekhar.android:debug-db:1.0.0",
 
             "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
 
@@ -179,10 +172,10 @@ ext {
 //            releaseImplementation 'com.github.whataa:pandora-no-op:v1.0.0'
 
             //调试软件
-            "pandora"                     : "com.github.whataa:pandora:1.0.0",
-            "pandora-no-op"                     : "com.github.whataa:pandora-no-op:v1.0.0",
-            "arouter-api"                     : "com.alibaba:arouter-api:1.3.1",
-            "arouter-compiler"                     : "com.alibaba:arouter-compiler:1.1.4",
+            "pandora"                   : "com.github.whataa:pandora:1.0.0",
+            "pandora-no-op"             : "com.github.whataa:pandora-no-op:v1.0.0",
+            "arouter-api"               : "com.alibaba:arouter-api:1.3.1",
+            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4",
 
     ]
 }

@@ -90,7 +90,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
 
 
     public void initLog() {
-//        Logger.init("develop").logLevel(LogLevel.FULL).logAdapter(new FileLogAdapter()).hideThreadInfo().methodCount(0);
+        Logger.init("develop").logLevel(LogLevel.FULL).logAdapter(new FileLogAdapter()).hideThreadInfo().methodCount(0);
         Logger.init("develop").logLevel(LogLevel.FULL);
     }
 
