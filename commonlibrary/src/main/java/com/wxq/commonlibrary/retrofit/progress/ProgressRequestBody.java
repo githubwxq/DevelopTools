@@ -21,7 +21,6 @@ import android.os.SystemClock;
 import java.io.IOException;
 import java.util.List;
 
-import me.jessyan.progressmanager.ProgressListener;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.Buffer;

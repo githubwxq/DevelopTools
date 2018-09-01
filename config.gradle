@@ -1,9 +1,9 @@
 ext {
 
-//    isAlone = true;//false:作为Lib组件存在， true:作为application存在
 //    true表示作为模块 false表示作为应用
     isNeedNetTestModule = false
     isNeedArouterTestModule = false
+    isNeedUiTestModule = false
 
     /**
      *   所有项目依赖库集合
@@ -16,6 +16,7 @@ ext {
             developtoolsApplicationId   : "com.wxq.developtools",
             nettestdemoApplicationId    : "com.example.nettestdemo",
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",
+            uitestdemoApplicationId     : "com.example.uitestdemo",
             minSdkVersion               : 17,
             targetSdkVersion            : 25,
             versionCode                 : 1,

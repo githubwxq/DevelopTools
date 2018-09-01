@@ -15,7 +15,7 @@ import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
 
 
-/**
+/**基类app对象
  * @author wxq
  */
 public abstract class BaseApp extends Application implements Thread.UncaughtExceptionHandler {

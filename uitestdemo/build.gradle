@@ -1,16 +1,16 @@
-if (!rootProject.ext.isNeedNetTestModule) {
+if (!rootProject.ext.isNeedUiTestModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
 }
 
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
-
     defaultConfig {
-        if (!rootProject.ext.isNeedNetTestModule) {
-            applicationId rootProject.ext.android.nettestdemoApplicationId
+        if (!rootProject.ext.isNeedUiTestModule) {
+            applicationId rootProject.ext.android.uitestdemoApplicationId
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -19,13 +19,12 @@ android {
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
 
-            //arouter
-            javaCompileOptions {
-                annotationProcessorOptions {
-                    arguments = [moduleName: project.getName()]
-                }
+        //arouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
             }
-
+        }
 
     }
 
@@ -35,11 +34,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     sourceSets {
         main {
             //单独的项目的话  添加单独的java 或者
-            if (!rootProject.ext.isNeedNetTestModule) {
+            if (!rootProject.ext.isNeedUiTestModule) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java.srcDirs = ['src/main/java', 'src/main/module/java']
                 res.srcDirs = ['src/main/res', 'src/main/module/res']
@@ -50,13 +48,13 @@ android {
         }
     }
 
+
 }
-
-
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':mvplibrary')
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
-
 }
