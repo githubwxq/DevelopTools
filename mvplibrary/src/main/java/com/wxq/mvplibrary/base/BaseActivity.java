@@ -7,9 +7,12 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.dialog.DialogManager;
+import com.juziwl.uilibrary.topview.TopBarHeard;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
@@ -44,10 +47,28 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
     public RxPermissions rxPermissions;
 
+    public TopBarHeard topHeard;
+
+
+    /**
+     * 默认显示顶部top栏
+     */
+    public boolean needHeardLayout=true;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(attachLayoutRes());
+//        setContentView(attachLayoutRes());
+        if(isNeedHeardLayout()){
+            LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            topHeard=new TopBarHeard(this);
+            linearLayout.addView(topHeard);
+            linearLayout.addView(LayoutInflater.from(this).inflate(attachLayoutRes(), null), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            setContentView(linearLayout);
+        }else {
+            setContentView(attachLayoutRes());
+        }
         unbinder = ButterKnife.bind(this);
         context = this;
         lifecycleSubject.onNext(ActivityEvent.CREATE);
@@ -187,4 +208,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     public void showToast(String message) {
         ToastUtils.showShort(message);
     }
+
+    public boolean isNeedHeardLayout() {
+      return  true;
+    }
+
 }

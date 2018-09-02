@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.uitestdemo.MainUiTestActivity">
 <TextView
+    android:id="@+id/tv_test_ui"
     android:text="uilibrary模块"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />

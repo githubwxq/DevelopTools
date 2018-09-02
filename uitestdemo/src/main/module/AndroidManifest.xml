@@ -3,6 +3,7 @@
     package="com.example.uitestdemo">
 
     <application
+        android:name=".UIApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"

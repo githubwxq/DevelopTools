@@ -67,9 +67,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-
-
-
     }
 
     protected abstract T initPresenter();
@@ -250,6 +247,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     }
 
     public void lazyLoadData(View view) {
+
     }
 
     // 处理系统发出的广播
