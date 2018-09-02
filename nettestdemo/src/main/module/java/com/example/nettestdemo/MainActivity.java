@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.nettestdemo.R;
+import com.wxq.mvplibrary.router.RouterContent;
+
+import static com.wxq.mvplibrary.router.RouterContent.NETTEST_MAIN;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                startActivity(new Intent(MainActivity.this,NetTestActivity.class));
-                ARouter.getInstance().build("/nettest/main").navigation();
+                ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
             }
         });
 

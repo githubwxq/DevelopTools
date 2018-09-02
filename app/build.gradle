@@ -100,6 +100,12 @@ dependencies {
     if (rootProject.ext.isNeedArouterTestModule) {
         compile project(':aroutertestdemo')
     }
+
+      if (rootProject.ext.isNeedUiTestModule) {
+        compile project(':uitestdemo')
+    }
+
+
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
 
 }
