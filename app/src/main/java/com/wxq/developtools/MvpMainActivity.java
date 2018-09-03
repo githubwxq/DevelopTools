@@ -49,7 +49,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
     @Override
     protected void initViews() {
-        tvHello.setText("000000000000000000000000");
+        tvHello.setText("1111111111111111111");
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
