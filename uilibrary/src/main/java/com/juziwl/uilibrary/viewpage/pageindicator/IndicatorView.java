@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.viewpage;
+package com.juziwl.uilibrary.viewpage.pageindicator;
 
 import android.content.Context;
 import android.util.AttributeSet;
