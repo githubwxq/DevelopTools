@@ -29,6 +29,8 @@ public class UIMainActivity extends BaseActivity {
                 ARouter.getInstance()
                         .build(RouterContent.UI_MAIN)
                         .navigation();
+
+
             }
         });
     }
