@@ -1,5 +1,6 @@
 package com.example.uitestdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -26,10 +27,12 @@ public class UIMainActivity extends BaseActivity {
         tvTestUi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance()
-                        .build(RouterContent.UI_MAIN)
-                        .navigation();
+//                ARouter.getInstance()
+//                        .build(RouterContent.UI_MAIN)
+//                        .navigation();
 
+                Intent intent=new Intent(UIMainActivity.this,TestStepActivity.class);
+                startActivity(intent);
 
             }
         });
