@@ -11,21 +11,21 @@ ext {
      *
      */
     android = [
-            compileSdkVersion           : 25,
-            buildToolsVersion           : '25.0.2',
+            compileSdkVersion           : 26,
+            buildToolsVersion           : '26.0.3',
             developtoolsApplicationId   : "com.wxq.developtools",
             nettestdemoApplicationId    : "com.example.nettestdemo",
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",
             uitestdemoApplicationId     : "com.example.uitestdemo",
             minSdkVersion               : 17,
-            targetSdkVersion            : 25,
+            targetSdkVersion            : 26,
             versionCode                 : 1,
             versionName                 : "1",
 
     ]
 
     def dependVersion = [
-            support    : "25.1.1",
+            support    : "26.0.2",
             retrofit   : "2.2.0",
             okhttp     : "3.7.0",
             dagger2    : "2.5",

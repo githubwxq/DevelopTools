@@ -7,14 +7,20 @@
     tools:context="com.example.uitestdemo.SnapRecycleViewActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 
-
-    </android.support.v7.widget.RecyclerView>
-
+    <TextView
+        android:id="@+id/tv_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rv_list"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="点我跳转"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
