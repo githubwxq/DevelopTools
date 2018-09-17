@@ -8,17 +8,24 @@ import android.widget.TextView;
 
 import com.juziwl.uilibrary.multimedia.AudioPlayerUtil;
 import com.juziwl.uilibrary.multimedia.AudioRecorderUtil;
+import com.juziwl.uilibrary.multimedia.MediaUtils;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.TimeUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.functions.Consumer;
 
+/**
+ * 语音录制语音合成demo
+ */
 public class AudioTestActivity extends BaseActivity {
 
     @BindView(R.id.tv_start)
@@ -59,7 +66,7 @@ public class AudioTestActivity extends BaseActivity {
                     }
                 });
 
-        audioRecorderUtil = new AudioRecorderUtil(GlobalContent.VOICEPATH,"200");
+        audioRecorderUtil = new AudioRecorderUtil(GlobalContent.VOICEPATH,"700.mp4");
         audioRecorderUtil.setOnAudioStatusUpdateListener(new AudioRecorderUtil.OnAudioStatusUpdateListener() {
             @Override
             public void onStart() {
@@ -108,12 +115,21 @@ public class AudioTestActivity extends BaseActivity {
             case R.id.tv_start:
 
                 audioRecorderUtil.start();
-
-
+//                List<String> voces=new ArrayList<>();
+//
+//                MediaUtils.composeVoiceFile(this,)
 
                 break;
             case R.id.tv_loading:
 
+             List<String> voices=new ArrayList<>();
+                voices.add("/storage/emulated/0/DevelopTools/audio/600.mp4");
+                voices.add("/storage/emulated/0/DevelopTools/audio/700.mp4");
+
+//
+                audioFilePath= MediaUtils.composeVoiceFile(voices,"/storage/emulated/0/DevelopTools/audio/800.mp4");
+
+//                audioFilePath="/storage/emulated/0/DevelopTools/audio/400.mp4";
 
                 break;
             case R.id.tv_stop:

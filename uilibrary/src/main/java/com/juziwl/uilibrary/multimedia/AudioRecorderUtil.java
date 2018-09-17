@@ -55,13 +55,11 @@ public class AudioRecorderUtil {
         }
 
         this.mHandler.removeCallbacks(this.mUpdateMicStatusTimer);
-
         try {
-
             this.mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             this.mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
             this.mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-            this.filePath = this.folderPath + fileName + ".aac";
+            this.filePath = this.folderPath + fileName;
             this.mMediaRecorder.setOutputFile(this.filePath);
             this.mMediaRecorder.setMaxDuration(this.maxLength);
             this.mMediaRecorder.prepare();
