@@ -91,4 +91,10 @@ public class MySnapHelper extends LinearSnapHelper {
         return super.findSnapView(layoutManager);
     }
 
+    @Override
+    public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int velocityX, int velocityY) {
+        Log.e("wxq","findTargetSnapPosition"+super.findTargetSnapPosition(layoutManager, velocityX, velocityY));
+
+        return super.findTargetSnapPosition(layoutManager, velocityX, velocityY);
+    }
 }

@@ -5,6 +5,7 @@ ext {
     isNeedArouterTestModule = false
     isNeedUiTestModule = false
 
+
     /**
      *   所有项目依赖库集合
      *   注意：需要统一所有库的依赖

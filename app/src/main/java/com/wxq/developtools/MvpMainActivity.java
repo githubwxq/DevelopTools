@@ -75,12 +75,12 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 
                 try {
-//                    ARouter.getInstance()
-//                            .build(RouterContent.AROUTER_MAIN)
-//                            .withString("name","name")
-//                            .withString("wxq","wxq")
-//                            .navigation();
-                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
+                    ARouter.getInstance()
+                            .build(RouterContent.UI_MAIN)
+                            .withString("name","name")
+                            .withString("wxq","wxq")
+                            .navigation();
+//                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

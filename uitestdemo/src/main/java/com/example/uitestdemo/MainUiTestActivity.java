@@ -2,7 +2,6 @@ package com.example.uitestdemo;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -11,7 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.recycler.viewpagerecycle.MySnapHelper;
-import com.juziwl.uilibrary.recycler.viewpagerecycle.StartSnapHelper;
+import com.juziwl.uilibrary.viewpage.pageindicator.IndicatorView;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 import com.wxq.mvplibrary.router.RouterContent;
@@ -31,6 +30,8 @@ public class MainUiTestActivity extends BaseActivity {
     RecyclerView rvList;
 
     List<String> mlist = new ArrayList<>();
+    @BindView(R.id.indicate)
+    IndicatorView indicate;
 
     @Override
     protected void initViews() {
@@ -69,6 +70,8 @@ public class MainUiTestActivity extends BaseActivity {
             }
         });
 
+        indicate.initIndicator(mlist.size());
+//        mLinearSnapHelper.
 
     }
 
@@ -86,6 +89,13 @@ public class MainUiTestActivity extends BaseActivity {
     @Override
     protected BasePresenter initPresent() {
         return null;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 
 //    @Override
