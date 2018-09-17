@@ -13,9 +13,9 @@ android {
         ndk { abiFilters "armeabi-v7a" }
 
         //这句很关键
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
 
 //       arouter需要配置
         javaCompileOptions {
@@ -23,8 +23,6 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
-
-
     }
 
     signingConfigs {
@@ -59,10 +57,12 @@ android {
 
 
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//
+
     dexOptions {
         jumboMode = true
     }
@@ -84,7 +84,13 @@ android {
 }
 
 dependencies {
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    debugCompile (rootProject.ext.deps["debug-db"]){
+        exclude group: 'com.android.support'
+    }
+
     //butterknife
     compile rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]

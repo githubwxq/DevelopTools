@@ -1,17 +1,13 @@
 package com.example.uitestdemo;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
-import com.wxq.mvplibrary.router.RouterContent;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 public class UIMainActivity extends BaseActivity {
@@ -31,7 +27,7 @@ public class UIMainActivity extends BaseActivity {
 //                        .build(RouterContent.UI_MAIN)
 //                        .navigation();
 
-                Intent intent=new Intent(UIMainActivity.this,TestStepActivity.class);
+                Intent intent=new Intent(UIMainActivity.this,AudioTestActivity.class);
                 startActivity(intent);
 
             }

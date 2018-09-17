@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SnapRecycleViewActivity" />
-        <activity android:name=".TestStepActivity" />
+        <activity android:name=".AudioTestActivity" />
         <activity android:name=".TestSecondActivity" />
         <activity android:name=".TestThirdActivity"></activity>
     </application>

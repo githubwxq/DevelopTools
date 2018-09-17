@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
+import com.juziwl.uilibrary.tools.SharedPreferencesUtils;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.retrofit.download.DownloadHelper;
 import com.wxq.commonlibrary.retrofit.download.DownloadListener;
@@ -68,7 +69,10 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
                 RxBusManager.getInstance().post(event);
 
-//                nesttes
+
+                SharedPreferencesUtils.setStringContent(MvpMainActivity.this,"wxqshare","name","wxq");
+
+
 
                 try {
 //                    ARouter.getInstance()

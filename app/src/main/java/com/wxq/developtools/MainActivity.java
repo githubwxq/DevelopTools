@@ -80,9 +80,9 @@ public class MainActivity extends BaseActivity {
 
         List<String> list=new ArrayList<>();
 
-        list.forEach(s -> {
-
-        });
+//        list.forEach(s -> {
+//
+//        });
 
     }
 

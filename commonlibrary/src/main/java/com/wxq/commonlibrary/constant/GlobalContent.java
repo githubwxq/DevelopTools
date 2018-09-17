@@ -20,12 +20,12 @@ public class GlobalContent {
     /**
      * 语音存放路径
      */
-    public static String VOICEPATH;
+    public static String VOICEPATH=filePath+"audio/";
 
     /**
      * 视频存放路径
      */
-    public static String VIDEOPATH;
+    public static String VIDEOPATH=filePath+"video/";
 
     /**
      * 课件保存路径
