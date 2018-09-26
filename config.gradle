@@ -140,8 +140,8 @@ ext {
             "SwipeDelMenuLayout"        : "com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0",
 
             //极光推送
-            "jpush"                     : "cn.jiguang.sdk:jpush:3.1.0",
-            "jcore"                     : "cn.jiguang.sdk:jcore:1.1.8",
+            "jpush"                     : "cn.jiguang.sdk:jpush:3.1.6",
+            "jcore"                     : "cn.jiguang.sdk:jcore:1.2.5",
             "JPUSH_HUAWEI_PUSH"         : "cn.jiguang.sdk.plugin:huawei:3.0.9",
 
             //修改版本号记得修改项目级的build.gradle里的tinkersupport插件的版本号

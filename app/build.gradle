@@ -13,10 +13,11 @@ android {
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
 
-        //这句很关键
-//        jackOptions {
-//            enabled true
-//        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : rootProject.ext.android.developtoolsApplicationId,
+                JPUSH_APPKEY : "164fb03b070dc2577cc68e68", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
 
 //       arouter需要配置
         javaCompileOptions {
@@ -85,13 +86,10 @@ android {
 }
 
 dependencies {
-
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
-    debugCompile (rootProject.ext.deps["debug-db"]){
+    debugCompile(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
-
     //butterknife
     compile rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
@@ -107,12 +105,11 @@ dependencies {
     if (rootProject.ext.isNeedArouterTestModule) {
         compile project(':aroutertestdemo')
     }
-
-      if (rootProject.ext.isNeedUiTestModule) {
+    if (rootProject.ext.isNeedUiTestModule) {
         compile project(':uitestdemo')
     }
-
-
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
-
+    //集成推送
+    compile rootProject.ext.deps["jpush"]
+    compile rootProject.ext.deps["jcore"]
 }

@@ -17,6 +17,8 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.Utils;
 import com.wxq.mvplibrary.base.BaseApp;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by Administrator on 2018/6/23 0023.
  */
@@ -29,6 +31,10 @@ public class MyApplication extends BaseApp {
         super.onCreate();
         //初始化bugly
         BuglyUtils.init(this,"bd7d7fa0c2",BuildConfig.DEBUG);
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+
 
     }
 

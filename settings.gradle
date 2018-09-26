@@ -1,2 +1,3 @@
 include ':app', ':commonlibrary', ':uilibrary',':mvplibrary', ':nettestdemo', ':aroutertestdemo', ':uitestdemo'
 
+//,':jpushdemo'
