@@ -46,6 +46,9 @@ dependencies {
     compile rootProject.ext.deps["constraint-layout"]
     compile rootProject.ext.deps["design"]
 
+
+    //图片加载框架也属于ui方面
+
     //    compile rootProject.ext.deps["SwipeDelMenuLayout"]
     //    compile 'com.juziwl.exue:pullrefreshlayout:0.0.5'
     //    compile project(':pullrefreshlayout')
@@ -58,5 +61,12 @@ dependencies {
     //三方语音录制库
     //    compile 'com.juziwl.exue:speak:0.0.3'
     //    compile project(path: ':speexlib')
-//    compile project(':commonlibrary')
+    //compile project(':commonlibrary')
+
+
+
+
+
+
+
 }

@@ -17,6 +17,28 @@
         android:layout_height="wrap_content" />
 
 
+    <TextView
+        android:layout_below="@+id/tv_test"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/tv_test_clickManager"
+        android:text="测试复制文本测试复制文本"
+        android:gravity="center"
+
+        android:textIsSelectable="true"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+
 
 
 </RelativeLayout>
