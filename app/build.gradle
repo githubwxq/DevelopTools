@@ -110,7 +110,6 @@ dependencies {
     }
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
 
-
     //集成推送
     compile rootProject.ext.deps["jpush"]
     compile rootProject.ext.deps["jcore"]

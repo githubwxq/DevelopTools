@@ -160,7 +160,7 @@ public class AudioRecorderUtil {
     }
 
     /**
-     * postDelay100毫秒计时
+     * postDelay100毫秒计时 获取声音变化
      */
     private void updateMicStatus() {
         if(this.mMediaRecorder != null) {

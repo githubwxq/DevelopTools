@@ -13,5 +13,12 @@ public class ConvertUtils {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+    /**
+     * sp转px
+     */
+    public static int sp2px(float spValue,Context context) {
+        float scale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * scale + 0.5f);
+    }
 
 }

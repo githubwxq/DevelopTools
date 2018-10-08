@@ -2,22 +2,18 @@ package com.example.uitestdemo;
 
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-
 import com.juziwl.uilibrary.notification.NotificationUtils;
+import com.juziwl.uilibrary.progressbar.MyProgressBar;
+import com.juziwl.uilibrary.progressbar.MyProgressBarSecond;
 import com.wxq.commonlibrary.util.ClipboardUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 import com.wxq.mvplibrary.model.User;
-import com.wxq.mvplibrary.router.RouterContent;
-
-import org.w3c.dom.ls.LSInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +35,8 @@ public class UIMainActivity extends BaseActivity {
     int a = 0;
 
     User user;
+    @BindView(R.id.progress_bar)
+    MyProgressBarSecond progressBar;
 
     @Override
     protected void initViews() {
@@ -71,8 +69,8 @@ public class UIMainActivity extends BaseActivity {
 
                 //设置剪切板信息
 
-                ClipboardUtils.copyText(UIMainActivity.this,"wxwxqwxqwxqwxqwxqwxqwxqwxqwxqq");
-
+                ClipboardUtils.copyText(UIMainActivity.this, "wxwxqwxqwxqwxqwxqwxqwxqwxqwxqq");
+                progressBar.init();
             }
         });
 
@@ -81,7 +79,7 @@ public class UIMainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //点击 获取剪切板信息
-                ClipboardManager clipboardManager= (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
                 CharSequence sequence = clipboardManager.getPrimaryClip().getItemAt(0).getText();
 
@@ -104,4 +102,10 @@ public class UIMainActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

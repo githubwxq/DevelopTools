@@ -501,6 +501,7 @@
 
     <color name="dialog_bg">#bc000000</color>
     <color name="common_grey_cccccc">#cccccc</color>
+    <color name="color_609F18">#609F18</color>
 
 
 </resources>

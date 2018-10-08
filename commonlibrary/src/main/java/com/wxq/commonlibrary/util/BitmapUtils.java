@@ -41,7 +41,9 @@ public class BitmapUtils {
         RectF rectF = new RectF(rect);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(Color.BLACK);
+//      绘制圆角图
         canvas.drawRoundRect(rectF, raidus, raidus, paint);
+//      android.graphics.PorterDuff.Mode.SRC_IN:只在源图像srcBitmap和目标图像 相交的地方绘制源图像
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(srcBitmap, rect, rect, paint);
         return bitmap;

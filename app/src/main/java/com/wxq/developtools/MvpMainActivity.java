@@ -26,6 +26,7 @@ import com.wxq.mvplibrary.model.User;
 import com.wxq.mvplibrary.router.RouterContent;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +52,13 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     @Override
     protected void initViews() {
         tvHello.setText("1111111111111111111");
+
+
+        for (User user : DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list()) {
+
+            com.orhanobut.logger.Logger.e("token",user.getAccessToken());
+        }
+
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
