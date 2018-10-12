@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".TestThirdActivity">
 
+    <com.juziwl.uilibrary.nativewebview.NativeWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.juziwl.uilibrary.nativewebview.NativeWebView>
+
+
     <TextView
-        android:text="second"
+        android:id="@+id/tv_click"
+        android:text="123456"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

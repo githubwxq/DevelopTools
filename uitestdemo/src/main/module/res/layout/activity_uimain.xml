@@ -53,6 +53,13 @@
 
 
 
+    <com.juziwl.uilibrary.X5utils.X5WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
 
 
 

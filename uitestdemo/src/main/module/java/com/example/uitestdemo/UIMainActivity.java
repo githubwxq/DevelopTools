@@ -2,12 +2,13 @@ package com.example.uitestdemo;
 
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.juziwl.uilibrary.notification.NotificationUtils;
-import com.juziwl.uilibrary.progressbar.MyProgressBar;
 import com.juziwl.uilibrary.progressbar.MyProgressBarSecond;
 import com.wxq.commonlibrary.util.ClipboardUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
@@ -37,11 +38,16 @@ public class UIMainActivity extends BaseActivity {
     User user;
     @BindView(R.id.progress_bar)
     MyProgressBarSecond progressBar;
+    @BindView(R.id.webview)
+    X5WebView webview;
 
     @Override
     protected void initViews() {
         topHeard.setRightText("测试顶部栏目");
         tvTestUi.setText("点击进入ui模块");
+        webview.setVisibility(View.GONE);
+
+
         tvTestUi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +77,7 @@ public class UIMainActivity extends BaseActivity {
 
                 ClipboardUtils.copyText(UIMainActivity.this, "wxwxqwxqwxqwxqwxqwxqwxqwxqwxqq");
                 progressBar.init();
+                webview.setVisibility(View.GONE);
             }
         });
 
@@ -84,6 +91,13 @@ public class UIMainActivity extends BaseActivity {
                 CharSequence sequence = clipboardManager.getPrimaryClip().getItemAt(0).getText();
 
                 ToastUtils.showShort(sequence);
+//                webview.setVisibility(View.VISIBLE);
+//
+//                webview.loadUrl("https://github.com/YoKeyword/IndexableRecyclerView");
+
+                 Intent intent=new Intent(UIMainActivity.this,TestNativeWebViewActivity.class);
+                 startActivity(intent);
+
 
             }
         });
