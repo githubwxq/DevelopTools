@@ -49,14 +49,17 @@ android {
             assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':mvplibrary')
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':mvplibrary')
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
 
 }

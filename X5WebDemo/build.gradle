@@ -22,21 +22,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    //android studio默认so文件加载目录为:src/main/jniLibs
-    //如在module的build.gradle按照如下方式,自定义了so文件加载目录请确保对应目录下只有armeabi目录
-    //    sourceSets {
-    //        main{
-    //            jniLibs.srcDirs = ['libs']
-    //        }
-    //    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile rootProject.ext.deps["appcompat-v7"]
-    compile rootProject.ext.deps["constraint-layout"]
+    api rootProject.ext.deps["appcompat-v7"]
+    api rootProject.ext.deps["constraint-layout"]
 }
 
 

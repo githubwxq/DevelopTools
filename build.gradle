@@ -3,7 +3,7 @@ apply from : "config.gradle"
 buildscript {
     
     repositories {
-//        google()
+        google()
         jcenter()
         maven {
             url 'https://maven.google.com/'
@@ -11,8 +11,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'com.android.tools.build:gradle:3.1.2'
+//        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' // add plugin
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
         // tinkersupport插件
@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     repositories {
-//        google()
+        google()
         jcenter()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com' }

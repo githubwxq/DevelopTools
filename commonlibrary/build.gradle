@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -55,63 +55,63 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(include: ['*.jar'], dir: 'libs')
     //support基本库依赖
-    compile rootProject.ext.deps["support-v4"]
-    compile rootProject.ext.deps["appcompat-v7"]
-    compile rootProject.ext.deps["multidex"]
+    api rootProject.ext.deps["support-v4"]
+    api rootProject.ext.deps["appcompat-v7"]
+    api rootProject.ext.deps["multidex"]
     //butterknife
-    compile rootProject.ext.deps["butterknife"]
+    api rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
     //stetho
-    compile rootProject.ext.deps["stetho"]
-    compile rootProject.ext.deps["stetho-okhttp3"]
+    api rootProject.ext.deps["stetho"]
+    api rootProject.ext.deps["stetho-okhttp3"]
     //logger
-    compile rootProject.ext.deps["logger"]
+    api rootProject.ext.deps["logger"]
     //glide
-    compile(rootProject.ext.deps["glide"]) {
+    api(rootProject.ext.deps["glide"]) {
         exclude group: 'com.android.support'
     }
     annotationProcessor rootProject.ext.deps["glide-compiler"]
-    compile rootProject.ext.deps["glide-okhttp3-integration"]
-    compile rootProject.ext.deps["glide-annotations"]
-    compile rootProject.ext.deps["glide-transformations"]
+    api rootProject.ext.deps["glide-okhttp3-integration"]
+    api rootProject.ext.deps["glide-annotations"]
+    api rootProject.ext.deps["glide-transformations"]
     //rxjava
-    compile rootProject.ext.deps["rxjava"]
-    compile rootProject.ext.deps["rxandroid"]
+    api rootProject.ext.deps["rxjava"]
+    api rootProject.ext.deps["rxandroid"]
     //权限
-    compile rootProject.ext.deps["rxpermissions"]
-    compile rootProject.ext.deps["rxbinding"]
-    compile rootProject.ext.deps["rxbinding-support-v4"]
-    compile rootProject.ext.deps["rxlifecycle"]
-    compile rootProject.ext.deps["rxlifecycle-android"]
-    compile rootProject.ext.deps["rxlifecycle-components"]
-    compile rootProject.ext.deps["fastjson"]
+    api rootProject.ext.deps["rxpermissions"]
+    api rootProject.ext.deps["rxbinding"]
+    api rootProject.ext.deps["rxbinding-support-v4"]
+    api rootProject.ext.deps["rxlifecycle"]
+    api rootProject.ext.deps["rxlifecycle-android"]
+    api rootProject.ext.deps["rxlifecycle-components"]
+    api rootProject.ext.deps["fastjson"]
     //    retrofit2
-    compile rootProject.ext.deps["retrofit"]
-    compile rootProject.ext.deps["retrofit-adapter-rxjava"]
-    compile rootProject.ext.deps["retrofit-converter-gson"]
-    compile rootProject.ext.deps["okhttp"]
-    compile rootProject.ext.deps["okhttp-logging-interceptor"]
-    compile rootProject.ext.deps["gson"]
+    api rootProject.ext.deps["retrofit"]
+    api rootProject.ext.deps["retrofit-adapter-rxjava"]
+    api rootProject.ext.deps["retrofit-converter-gson"]
+    api rootProject.ext.deps["okhttp"]
+    api rootProject.ext.deps["okhttp-logging-interceptor"]
+    api rootProject.ext.deps["gson"]
     //统计库 友盟 和bugly一起
-    compile rootProject.ext.deps["umeng-analytics"]
-    compile rootProject.ext.deps["bugly"]
+    api rootProject.ext.deps["umeng-analytics"]
+    api rootProject.ext.deps["bugly"]
     //okgo
-    compile rootProject.ext.deps["okgo"]
-    compile rootProject.ext.deps["okrx2"]
+    api rootProject.ext.deps["okgo"]
+    api rootProject.ext.deps["okrx2"]
 
 
 //数据库调试
 //debugCompile 'com.amitshekhar.android:debug
 // -db:1.0.0'
-//    compile rootProject.ext.deps["recyclerview-v7"]
-//    compile rootProject.ext.deps["cardview-v7"]
-//    compile rootProject.ext.deps["constraint-layout"]
-//    compile rootProject.ext.deps["design"]
+//    api rootProject.ext.deps["recyclerview-v7"]
+//    api rootProject.ext.deps["cardview-v7"]
+//    api rootProject.ext.deps["constraint-layout"]
+//    api rootProject.ext.deps["design"]
 //dagger
 //    provided rootProject.ext.deps["javax.annotation-api"]
-//    compile rootProject.ext.deps["dagger"]
+//    api rootProject.ext.deps["dagger"]
 //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
 
 

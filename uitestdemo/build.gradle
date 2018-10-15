@@ -46,20 +46,23 @@ android {
             assets.srcDirs = ['src/main/assets', 'src/main/assets/']
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    debugCompile (rootProject.ext.deps["debug-db"]){
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    debugApi (rootProject.ext.deps["debug-db"]){
         exclude group: 'com.android.support'
     }
-    compile project(':mvplibrary')
+    api project(':mvplibrary')
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     //butterknife
     //butterknife
-    compile rootProject.ext.deps["butterknife"]
+    api rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
 
 }
