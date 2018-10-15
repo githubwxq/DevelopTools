@@ -26,9 +26,9 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.example.nettestdemo.NetTestApplication"
-            android:value="IModuleConfig" />
+        <!--<meta-data-->
+            <!--android:name="com.example.nettestdemo.NetTestApplication"-->
+            <!--android:value="IModuleConfig" />-->
 
         <activity android:name="com.example.aroutertestdemo.TestArouterMainActivity"></activity>
     </application>
