@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this,NetTestActivity.class));
+//                startActivity(new Intent(MainActivity.this,NewsActivity.class));
                 ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
             }
         });

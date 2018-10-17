@@ -1,92 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<com.juziwl.uilibrary.scrollview.SuperScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.uitestdemo.UIMainActivity">
+    android:fillViewport="true"
+    >
 
 
-  <TextView
-      android:padding="20dp"
-      android:text="1456465465456346546354563454654"
-      android:background="@mipmap/testnine"
-      android:layout_width="wrap_content"
-      android:layout_height="100dp" />
-
-
-
-
-  <TextView
-      android:layout_marginTop="100dp"
-      android:padding="20dp"
-      android:text="1456465465456346546354563454654"
-      android:background="@mipmap/testnine"
-      android:layout_width="100dp"
-      android:layout_height="wrap_content" />
-
-
-
-
-
-
-    <TextView
-           android:layout_centerInParent="true"
-        android:textSize="20sp"
-        android:id="@+id/tv_test"
-        android:text="测试UI空间"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
-        android:layout_below="@+id/tv_test"
-        android:layout_centerInParent="true"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"
-        android:id="@+id/tv_test_clickManager"
-        android:text="测试复制文本测试复制文本"
-        android:gravity="center"
-
-        android:textIsSelectable="true"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
-<com.juziwl.uilibrary.progressbar.MyProgressBar
-    android:id="@+id/progress_bar2"
-    android:layout_width="match_parent"
-    android:visibility="gone"
-    android:layout_alignParentBottom="true"
-    android:layout_height="100dp" />
-
-
-
-<com.juziwl.uilibrary.progressbar.MyProgressBarSecond
-    android:id="@+id/progress_bar"
-    android:layout_marginBottom="50dp"
-    android:layout_centerHorizontal="true"
-    android:background="@color/deep_orange_500"
-    android:layout_width="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_height="wrap_content" />
-
-
-
-    <com.juziwl.uilibrary.X5utils.X5WebView
-        android:id="@+id/webview"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        tools:context="com.example.uitestdemo.UIMainActivity">
+
+        <FrameLayout
+            android:id="@+id/fl_video_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/rl_video_play"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/orange_a700"
+                android:text="1111111111111111111111111111111111111111111122222222222222222222222222222222223333333333333333333333333333333333333333333333333333344444444444444444444444444444"></TextView>
+        </FrameLayout>
+
+
+        <RelativeLayout
+
+            android:id="@+id/rl"
+            android:layout_below="@+id/fl_video_play"
+             android:background="@color/orange_50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
 
 
 
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:background="@mipmap/testnine"
+            android:padding="20dp"
+            android:text="1456465465456346546354563454654" />
 
 
-</RelativeLayout>
+        <TextView
+            android:visibility="gone"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@mipmap/testnine"
+            android:padding="20dp"
+            android:text="1456465465456346546354563454654" />
+
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="测试UI空间"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/tv_test_clickManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_test"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="测试复制文本测试复制文本"
+            android:textIsSelectable="true"
+            android:textSize="20sp" />
+
+
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_superedit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_test_clickManager"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="190dp"
+            android:hint="测试edittext" />
+
+
+        <com.juziwl.uilibrary.progressbar.MyProgressBar
+
+            android:id="@+id/progress_bar2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone" />
+
+
+        <com.juziwl.uilibrary.progressbar.MyProgressBarSecond
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@color/deep_orange_500"
+            android:visibility="gone" />
+
+
+        <com.juziwl.uilibrary.X5utils.X5WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="212231211231321321"
+            android:textColor="@color/orange_a700"
+            android:textSize="25sp" />
+
+        </RelativeLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/myself_white"
+
+                android:paddingLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合计"
+                    android:textColor="@color/common_333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/sum_all_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="¥0.00"
+                    android:textColor="@color/color_ff6f26"
+                    android:textSize="21sp" />
+
+            </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</com.juziwl.uilibrary.scrollview.SuperScrollView>

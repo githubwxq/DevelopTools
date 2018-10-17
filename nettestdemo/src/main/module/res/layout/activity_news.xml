@@ -9,11 +9,11 @@
 
 
     <TextView
-        android:id="@+id/tv_goto"
+        android:id="@+id/tv_rx_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="新闻跳转"
+        android:text="rx测试分析"
        />
 
 </LinearLayout>

@@ -4,6 +4,9 @@ if (!rootProject.ext.isNeedUiTestModule) {
     apply plugin: 'com.android.library'
 }
 
+println csdn
+
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion

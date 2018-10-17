@@ -21,46 +21,16 @@ public class NewsActivity extends BaseActivity{
 
     @Override
     protected int attachLayoutRes() {
-        return 0;
+        return R.layout.activity_news;
     }
 
     @Override
     protected BasePresenter initPresent() {
         return null;
     }
-//    @Override
-//    public void updateData(Object o) {
-//
-//    }
-//
-//    @Override
-//    protected boolean isNeedHeadLayout() {
-//        return false;
-//    }
-//
-//    @Override
-//    protected boolean isNeedEmptyLayout() {
-//        return false;
-//    }
-//
-//    @Override
-//    protected int getContentLayout() {
-//        return R.layout.activity_news;
-//    }
-//
-//    @Override
-//    protected void initView() {
-//
-//    }
-//
-//    @Override
-//    protected void initData() {
-//
-//    }
-//
-//
-//    public void jump(View view){
-//        Intent intent=new Intent(this, MainActivity.class);
-//        startActivity(intent);
-//    }
+
+
+
+
+
 }
