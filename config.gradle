@@ -127,7 +127,8 @@ ext {
 
             "photoview"                 : "com.github.chrisbanes.photoview:library:1.2.4",
 
-            "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.3.2",
+            "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
+
 
             //高德地图
             "amp3d"                     : "com.amap.api:3dmap:5.0.0",

@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.juziwl.uilibrary.notification.NotificationUtils;
 import com.juziwl.uilibrary.progressbar.MyProgressBarSecond;
+import com.juziwl.uilibrary.recycler.xrecyclerview.SuperRecyclerView;
 import com.wxq.commonlibrary.util.ClipboardUtils;
-import com.wxq.commonlibrary.util.KeyboardUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
@@ -47,6 +46,10 @@ public class UIMainActivity extends BaseActivity {
     X5WebView webview;
     @BindView(R.id.et_superedit)
     SuperEditText etSuperedit;
+
+
+    SuperRecyclerView superRecyclerView;
+
 
     @Override
     protected void initViews() {

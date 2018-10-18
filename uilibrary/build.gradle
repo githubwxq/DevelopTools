@@ -35,7 +35,7 @@ dependencies {
 //    compile project(path: ':commonlibrary')
     api rootProject.ext.deps["flowlayout"]
     api rootProject.ext.deps["photoview"]
-    api rootProject.ext.deps["xrecyclerview"]
+//    api rootProject.ext.deps["xrecyclerview"]
     //nineoldandroids
     api rootProject.ext.deps["nineoldandroids"]
     //ijack
@@ -49,6 +49,7 @@ dependencies {
     api rootProject.ext.deps["constraint-layout"]
     api rootProject.ext.deps["design"]
 
+//    api rootProject.ext.deps["xrecyclerview"]
 
     //图片加载框架也属于ui方面
 

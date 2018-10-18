@@ -1,12 +1,11 @@
 package com.example.uitestdemo;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
+import com.juziwl.uilibrary.recycler.xrecyclerview.SuperRecyclerView;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 
 public class TestThirdActivity extends BaseActivity {
+SuperRecyclerView superRecyclerView;
 
     @Override
     protected void initViews() {

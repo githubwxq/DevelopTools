@@ -9,21 +9,26 @@
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
         <activity android:name=".MainUiTestActivity" />
-        <!--android:windowSoftInputMode="adjustResize"-->
-        <activity android:name=".UIMainActivity"
+        <!-- android:windowSoftInputMode="adjustResize" -->
+        <activity
+            android:name=".UIMainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
-        >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:windowSoftInputMode="adjustResize">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SnapRecycleViewActivity" />
         <activity android:name=".AudioTestActivity" />
         <activity android:name=".TestNativeWebViewActivity" />
-        <activity android:name=".TestThirdActivity"></activity>
+        <activity android:name=".TestThirdActivity" />
+        <activity android:name=".RecycleViewTestActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
     </application>
 
 </manifest>

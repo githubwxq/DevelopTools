@@ -27,4 +27,6 @@
 
     <dimen name="suspension_height">30dp</dimen>
     <dimen name="tablayout_height">44dp</dimen>
+
+    <dimen name="textandiconmargin">10dp</dimen>
 </resources>

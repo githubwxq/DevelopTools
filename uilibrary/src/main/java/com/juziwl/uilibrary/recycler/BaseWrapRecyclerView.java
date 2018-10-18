@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.juziwl.uilibrary.recycler.xrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * @description
  */
 
-public class BaseWrapRecyclerView extends XRecyclerView {
+public class BaseWrapRecyclerView extends SuperRecyclerView {
 
     private ArrayList<View> mHeaderViewInfos = new ArrayList<>();
     private ArrayList<View> mFooterViewInfos = new ArrayList<>();
