@@ -129,6 +129,12 @@ ext {
 
             "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
 
+            //recycleview动画
+            "recyclerview-animators"     : "jp.wasabeef:recyclerview-animators:2.3.0",
+
+
+
+
 
             //高德地图
             "amp3d"                     : "com.amap.api:3dmap:5.0.0",

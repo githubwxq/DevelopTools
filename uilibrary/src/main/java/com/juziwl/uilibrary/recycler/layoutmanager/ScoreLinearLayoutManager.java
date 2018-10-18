@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.recycler.LayoutManager;
+package com.juziwl.uilibrary.recycler.layoutmanager;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;

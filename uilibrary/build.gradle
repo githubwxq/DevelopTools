@@ -43,13 +43,13 @@ dependencies {
     api rootProject.ext.deps["ijkplayer-java"]
     api rootProject.ext.deps["ijkplayer-armv7a"]
     api rootProject.ext.deps["ijkplayer-armv5"]
-
     api rootProject.ext.deps["recyclerview-v7"]
     api rootProject.ext.deps["cardview-v7"]
     api rootProject.ext.deps["constraint-layout"]
     api rootProject.ext.deps["design"]
 
-//    api rootProject.ext.deps["xrecyclerview"]
+    api rootProject.ext.deps["recyclerview-animators"]
+
 
     //图片加载框架也属于ui方面
 

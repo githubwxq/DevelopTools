@@ -390,6 +390,9 @@ public class SuperRecyclerView extends RecyclerView {
         }
     }
 
+
+
+//    /手势判断
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (mLastY == -1) {
@@ -577,10 +580,13 @@ public class SuperRecyclerView extends RecyclerView {
             }
         }
 
+
+
         @Override
         public int getItemCount() {
             int adjLen = (loadingMoreEnabled?2:1);
             if (adapter != null) {
+//              投的数量
                 return getHeadersCount() + adapter.getItemCount() + adjLen;
             } else {
                 return getHeadersCount() + adjLen;
@@ -618,6 +624,7 @@ public class SuperRecyclerView extends RecyclerView {
         public long getItemId(int position) {
             if (adapter != null && position >= getHeadersCount() + 1) {
                 int adjPosition = position - (getHeadersCount() + 1);
+                //获取真正的itemid 当前适配器有头 有下拉刷新 需要移除这些
                 if (adjPosition < adapter.getItemCount()) {
                     return adapter.getItemId(adjPosition);
                 }
@@ -655,6 +662,8 @@ public class SuperRecyclerView extends RecyclerView {
                     && lp instanceof StaggeredGridLayoutManager.LayoutParams
                     && (isHeader(holder.getLayoutPosition()) ||isRefreshHeader(holder.getLayoutPosition()) || isFooter(holder.getLayoutPosition()))) {
                 StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
+
+             // 考虑瀑布流情况下加头加尾另起一行
                 p.setFullSpan(true);
             }
             adapter.onViewAttachedToWindow(holder);

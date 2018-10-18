@@ -8,4 +8,4 @@
           android:text="标清 270P"
 
           android:textColor="@color/common_orange_text"
-          android:textSize="15sp"/>
+          android:textSize="25sp"/>
