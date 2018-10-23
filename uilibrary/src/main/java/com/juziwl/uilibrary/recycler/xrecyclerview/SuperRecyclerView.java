@@ -40,8 +40,9 @@ public class SuperRecyclerView extends RecyclerView {
     private CustomFooterViewCallBack footerViewCallBack;
     private LoadingListener mLoadingListener;
     private ArrowRefreshHeader mRefreshHeader;
-    private boolean pullRefreshEnabled = true;
-    private boolean loadingMoreEnabled = true;
+    //默认加载更多下拉刷新不打开
+    private boolean pullRefreshEnabled = false;
+    private boolean loadingMoreEnabled = false;
     //下面的ItemViewType是保留值(ReservedItemViewType),如果用户的adapter与它们重复将会强制抛出异常。不过为了简化,我们检测到重复时对用户的提示是ItemViewType必须小于10000
     private static final int TYPE_REFRESH_HEADER = 10000;//设置一个很大的数字,尽可能避免和用户的adapter冲突
     private static final int TYPE_FOOTER = 10001;
@@ -898,3 +899,73 @@ public class SuperRecyclerView extends RecyclerView {
         int setLimitHeight(); /** set a height for the begging of the alpha start to change */
     }
 }
+
+
+
+
+//使用方法
+//  mRecyclerView.setLayoutManager(layoutManager);
+//
+//          mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+//          mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+//          mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
+//
+//          View header =   LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
+//          mRecyclerView.addHeaderView(header);
+//
+//          mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+//@Override
+//public void onRefresh() {
+//        refreshTime ++;
+//        times = 0;
+//        new Handler().postDelayed(new Runnable(){
+//public void run() {
+//        listData.clear();
+//        for(int i = 0; i < 25 ;i++){
+//        listData.add("item" + i + "after " + refreshTime + " times of refresh");
+//        }
+//        mAdapter.notifyDataSetChanged();
+//        mRecyclerView.refreshComplete();
+//        }
+//
+//        }, 1000);            //refresh data here
+//        }
+//
+//@Override
+//public void onLoadMore() {
+//        if(times < 2){
+//        new Handler().postDelayed(new Runnable(){
+//public void run() {
+//        mRecyclerView.loadMoreComplete();
+//        for(int i = 0; i < 25 ;i++){
+//        listData.add("item" + (i + listData.size()) );
+//        }
+//        mRecyclerView.loadMoreComplete();
+//        mAdapter.notifyDataSetChanged();
+//        }
+//        }, 1000);
+//        } else {
+//        new Handler().postDelayed(new Runnable() {
+//public void run() {
+//        for(int i = 0; i < 9 ;i++){
+//        listData.add("item" + (1 + listData.size() ) );
+//        }
+//        mRecyclerView.setNoMore(true);
+//        mAdapter.notifyDataSetChanged();
+//        }
+//        }, 1000);
+//        }
+//        times ++;
+//        }
+//        });
+//
+//        listData = new  ArrayList<String>();
+//        for(int i = 0; i < 25 ;i++){
+//        listData.add("item" + i);
+//        }
+//        mAdapter = new MyAdapter(listData);
+//
+//        mRecyclerView.setAdapter(mAdapter);
+//        }
+
+

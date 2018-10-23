@@ -1,12 +1,12 @@
 
-package com.wxq.commonlibrary.okgo;
+package com.wxq.commonlibrary.retrofit;
 
-import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.okgo.converter.CustomGsonConverterFactory;
+import com.wxq.commonlibrary.retrofit.Interceptor.MyHeardInterceptor;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -23,15 +23,15 @@ public class Api {
 //        TokenInterceptor tokenInterceptor=new TokenInterceptor();
 
         //日志拦截器
-        com.lzy.okgo.interceptor.HttpLoggingInterceptor ipadloggingInterceptor = new com.lzy.okgo.interceptor.HttpLoggingInterceptor("teacher_pad");
-        ipadloggingInterceptor.setColorLevel(Level.WARNING);
-        ipadloggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
+//        com.lzy.okgo.interceptor.HttpLoggingInterceptor ipadloggingInterceptor = new com.lzy.okgo.interceptor.HttpLoggingInterceptor("teacher_pad");
+//        ipadloggingInterceptor.setColorLevel(Level.WARNING);
+//        ipadloggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
 //                .addNetworkInterceptor(new NetworkInterceptor())
-                .addInterceptor(ipadloggingInterceptor)
+                .addInterceptor(new MyHeardInterceptor())
 //                .addInterceptor(tokenInterceptor)
                 .build();
         retrofit = new Retrofit.Builder()

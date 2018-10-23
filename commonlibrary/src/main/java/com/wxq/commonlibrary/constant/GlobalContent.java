@@ -53,10 +53,9 @@ public class GlobalContent {
      */
     public static String logPath=filePath + "log/";
 
-
     /**
      * baseurl
      */
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://www.wanandroid.com/tools/mockapi/2547/";
 
 }
