@@ -69,7 +69,7 @@ public class NetTestActivity extends BaseActivity {
 
                     @Override
                     public void onNext(ResponseData<List<User>> s) {
-                        Log.e("wxq",s.toString());
+                        Log.e("wxq","onNext"+s.toString());
                         ToastUtils.showShort(s.content.size()+"");
                     }
 

@@ -4,6 +4,10 @@ package com.wxq.commonlibrary.retrofit;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.okgo.converter.CustomGsonConverterFactory;
 import com.wxq.commonlibrary.retrofit.Interceptor.MyHeardInterceptor;
+import com.wxq.commonlibrary.retrofit.Interceptor.MyLogInterceptor;
+import com.wxq.commonlibrary.retrofit.Interceptor.MyTokenInterceptor;
+import com.wxq.commonlibrary.retrofit.Interceptor.RetryIntercepter;
+import com.wxq.commonlibrary.retrofit.Interceptor.TestNetInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +35,11 @@ public class Api {
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
 //                .addNetworkInterceptor(new NetworkInterceptor())
+                .addInterceptor(new RetryIntercepter(3))
                 .addInterceptor(new MyHeardInterceptor())
+                .addInterceptor(new MyLogInterceptor())
+                .addInterceptor(new TestNetInterceptor())
+//                .addInterceptor(new MyTokenInterceptor())
 //                .addInterceptor(tokenInterceptor)
                 .build();
         retrofit = new Retrofit.Builder()

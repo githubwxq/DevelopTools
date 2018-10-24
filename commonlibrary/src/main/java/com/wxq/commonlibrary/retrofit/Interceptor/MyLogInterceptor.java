@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 import okhttp3.Headers;
-import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -20,32 +19,30 @@ import okio.Buffer;
  * author:wxq
  * email:805380422@qq.com
  * time:2018/10/23
- * desc: 处理请求头
+ * desc: 处理打印请求日志
  * version:1.0
  */
-public class MyHeardInterceptor implements Interceptor {
+public class MyLogInterceptor implements Interceptor {
 
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        //请求前
-        Request oldRequest = chain.request();
-        Headers headers = oldRequest.headers();
-        String url = oldRequest.url().toString();
-        RequestBody body = oldRequest.body();
-        String json = bodyToString(oldRequest);
-        Request.Builder builder = oldRequest.newBuilder()
-                .header("name", "wxq")
-                .header("age", "100");
-        long startTime=TimeUtils.getNowMills();
-        //请求后
-        Log.e("wxq","myheard_startTime"+startTime);
-        Response response= chain.proceed(builder.build());
-        long endTime=TimeUtils.getNowMills();
-        Log.e("wxq","myheard_endTime"+(endTime-startTime));
-        Log.e("wxq","myheard_response.body"+response.body().toString());
+        //日志拦截
+        Request request = chain.request();
+        Headers headers = request.headers();
+        for (int i = 0, count = headers.size(); i < count; i++) {
+            String name = headers.name(i);
+            // Skip headers from the request body as they are explicitly logged above.
+            if (!"Content-Type".equalsIgnoreCase(name) && !"Content-Length".equalsIgnoreCase(name)) {
+                Log.e("wxq","\t" + name + ": " + headers.value(i));
+            }
+        }
+        Log.e("wxq","mylog_before_proceed");
+        Response response= chain.proceed(request);
 
+        Log.e("wxq","mylog_after_proceed");
+        Log.e("wxq","mylog_response.body"+response.body().toString());
         return response;
     }
 
