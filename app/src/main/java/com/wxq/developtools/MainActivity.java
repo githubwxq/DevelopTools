@@ -33,11 +33,6 @@ public class MainActivity extends BaseActivity {
     NiceVideoPlayer player;
 
 
-
-
-
-
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void initViews() {
