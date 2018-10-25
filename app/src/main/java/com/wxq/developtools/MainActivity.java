@@ -34,6 +34,10 @@ public class MainActivity extends BaseActivity {
 
 
 
+
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void initViews() {

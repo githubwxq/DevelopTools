@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_record_voice"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@mipmap/common_white_bg"
+    android:clickable="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/common_ebebeb" />
+
+    <TextView
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="重录"
+        android:textColor="@color/common_666666"
+        android:textSize="18sp"
+        android:visibility="visible" />
+
+    <com.juziwl.uilibrary.progressbar.RecordCircleProgressButton
+        android:id="@+id/progress"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp" />
+
+
+    <RelativeLayout
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="104dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@color/common_666666"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="65dp"
+            android:id="@+id/sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="完成"
+            android:textColor="@color/common_333333"
+            android:textSize="15sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="104dp"
+        android:layout_marginLeft="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@color/common_666666"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_try"
+            android:layout_marginTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="试听"
+            android:textColor="@color/common_333333"
+            android:textSize="15sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/tv_center_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/progress"
+        android:layout_alignRight="@id/progress"
+        android:layout_below="@+id/progress"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:text="点击录音"
+        android:textColor="@color/common_666666"
+        android:textSize="15sp" />
+
+    <com.juziwl.uilibrary.otherview.LineWaveVoiceView
+        android:id="@+id/line_wave_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_record_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="最长录音8分钟"
+        android:textColor="@color/common_grey_cccccc"
+        android:textSize="11sp"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
+
