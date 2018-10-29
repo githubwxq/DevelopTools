@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@mipmap/icon_shiting_nor" android:state_enabled="true" />
+    <!-- When not selected, use white -->
+    <item android:color="@mipmap/icon_dis" android:state_enabled="false" />
+
+</selector>

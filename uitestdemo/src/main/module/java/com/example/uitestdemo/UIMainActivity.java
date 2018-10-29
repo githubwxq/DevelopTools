@@ -1,5 +1,6 @@
 package com.example.uitestdemo;
 
+import android.Manifest;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.functions.Consumer;
 
 
 public class UIMainActivity extends BaseActivity {
@@ -51,8 +53,17 @@ public class UIMainActivity extends BaseActivity {
     SuperRecyclerView superRecyclerView;
 
 
+
+
+
+
     @Override
     protected void initViews() {
+
+
+
+
+
         topHeard.setRightText("测试顶部栏目");
         tvTestUi.setText("点击进入ui模块");
         webview.setVisibility(View.GONE);
@@ -113,6 +124,24 @@ public class UIMainActivity extends BaseActivity {
 
             }
         });
+
+
+        //请求权限全部结果
+        rxPermissions.request(
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean granted) throws Exception {
+                        if (!granted) {
+                            showToast("App未能获取全部需要的相关权限，部分功能可能不能正常使用.");
+                        }else {
+
+
+                        }
+                    }
+                });
+
 
 
     }

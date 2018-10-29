@@ -12,6 +12,15 @@
         android:layout_height="1px"
         android:background="@color/common_ebebeb" />
 
+
+
+    <com.juziwl.uilibrary.multimedia.NewRecordCircleProgressButton
+        android:id="@+id/progress"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp" />
+
     <TextView
         android:id="@+id/reset"
         android:layout_width="wrap_content"
@@ -22,29 +31,23 @@
         android:gravity="center"
         android:padding="5dp"
         android:text="重录"
-        android:textColor="@color/common_666666"
+        android:textColor="@drawable/record_text_selector_color"
         android:textSize="18sp"
         android:visibility="visible" />
-
-    <com.juziwl.uilibrary.progressbar.RecordCircleProgressButton
-        android:id="@+id/progress"
-        android:layout_width="83dp"
-        android:layout_height="83dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp" />
-
-
     <RelativeLayout
+
+        android:id="@+id/rl_finish"
         android:layout_alignParentRight="true"
         android:layout_marginTop="104dp"
         android:layout_marginRight="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:background="@color/common_666666"
+        <ImageView
+            android:id="@+id/finish_bg"
+
             android:layout_width="50dp"
             android:layout_height="50dp">
-        </RelativeLayout>
+        </ImageView>
 
         <TextView
             android:layout_marginTop="65dp"
@@ -54,7 +57,7 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="完成"
-            android:textColor="@color/common_333333"
+            android:textColor="@drawable/record_text_selector_color"
             android:textSize="15sp"
             android:visibility="visible" />
     </RelativeLayout>
@@ -63,15 +66,17 @@
 
 
     <RelativeLayout
+        android:id="@+id/rl_try"
         android:layout_marginTop="104dp"
         android:layout_marginLeft="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:background="@color/common_666666"
+        <ImageView
+            android:id="@+id/try_bg"
+
             android:layout_width="50dp"
             android:layout_height="50dp">
-        </RelativeLayout>
+        </ImageView>
 
         <TextView
             android:id="@+id/tv_try"
@@ -81,16 +86,10 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="试听"
-            android:textColor="@color/common_333333"
+            android:textColor="@drawable/record_text_selector_color"
             android:textSize="15sp"
             android:visibility="visible" />
     </RelativeLayout>
-
-
-
-
-
-
 
     <TextView
         android:id="@+id/tv_center_tip"
@@ -102,7 +101,8 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:text="点击录音"
-        android:textColor="@color/common_666666"
+        android:textColor="@drawable/record_text_selector_color"
+
         android:textSize="15sp" />
 
     <com.juziwl.uilibrary.otherview.LineWaveVoiceView

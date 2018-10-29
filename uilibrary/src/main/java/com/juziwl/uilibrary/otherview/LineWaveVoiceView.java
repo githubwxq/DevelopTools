@@ -90,7 +90,7 @@ public class LineWaveVoiceView extends View {
         //更新时间
         paint.setStrokeWidth(0);
         paint.setColor(textColor);
-        paint.setTextSize(textSize);
+        paint.setTextSize(48);
         paint.setStyle(Paint.Style.FILL);
         paint.setTextAlign(Paint.Align.CENTER);
         float textWidth = paint.measureText(text) + 2 * SPACE_WIDTH;

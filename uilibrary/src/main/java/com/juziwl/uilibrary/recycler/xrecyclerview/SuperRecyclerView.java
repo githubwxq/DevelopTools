@@ -41,8 +41,8 @@ public class SuperRecyclerView extends RecyclerView {
     private LoadingListener mLoadingListener;
     private ArrowRefreshHeader mRefreshHeader;
     //默认加载更多下拉刷新不打开
-    private boolean pullRefreshEnabled = false;
-    private boolean loadingMoreEnabled = false;
+    private boolean pullRefreshEnabled = true;
+    private boolean loadingMoreEnabled = true;
     //下面的ItemViewType是保留值(ReservedItemViewType),如果用户的adapter与它们重复将会强制抛出异常。不过为了简化,我们检测到重复时对用户的提示是ItemViewType必须小于10000
     private static final int TYPE_REFRESH_HEADER = 10000;//设置一个很大的数字,尽可能避免和用户的adapter冲突
     private static final int TYPE_FOOTER = 10001;

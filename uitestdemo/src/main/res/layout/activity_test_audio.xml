@@ -45,5 +45,12 @@
 
 
 
+<com.juziwl.uilibrary.multimedia.NewRecordAudioLayout
+    android:id="@+id/rl_record_voice"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></com.juziwl.uilibrary.multimedia.NewRecordAudioLayout>
+
+
+
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.progressbar;
+package com.juziwl.uilibrary.multimedia;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,7 +20,7 @@ import android.view.animation.LinearInterpolator;
  * @date 2017/11/29
  * @description 录音的控制显示和进度显示，是正方形
  */
-public class RecordCircleProgressButton extends View implements View.OnClickListener {
+public class NewRecordCircleProgressButton extends View implements View.OnClickListener {
 
     private int width = 0;
     private Paint paint;
@@ -38,6 +38,12 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
     public static final int STATE_RECORDING = 1;
     public static final int STATE_PAUSE = 2;
     public static final int STATE_PLAY = 3;
+
+
+    public int getCurrentState() {
+        return currentState;
+    }
+
     private int currentState = STATE_RESET;
     private ObjectAnimator animator = null;
     private OnOperationListener onOperationListener = null;
@@ -47,7 +53,7 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
      */
     private boolean isShowSwipeProgress = true;
 
-    public RecordCircleProgressButton(Context context, AttributeSet attrs) {
+    public NewRecordCircleProgressButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         outCircleWidth = dp2Px(4);
@@ -66,7 +72,7 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
     }
 
     public boolean isRecording() {
-        return currentState == STATE_RECORDING;
+        return currentState == STATE_RECORDING||currentState == STATE_RECORDING;
     }
 
     public boolean isPlaying() {
@@ -78,6 +84,8 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
     }
 
     public void stopRecordOrPlay() {
+
+
         performClick();
     }
 
@@ -147,7 +155,7 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
     protected void onDraw(Canvas canvas) {
         drawOutCircle(canvas);
         drawMiddleCircle(canvas);
-        if (currentState == STATE_RESET) {
+        if (currentState == STATE_RESET || currentState == STATE_PAUSE) {
             drawInnerCircle(canvas);
         } else if (currentState == STATE_RECORDING || currentState == STATE_PLAY) {
             drawInnerSquare(canvas);
@@ -156,52 +164,65 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
         }
     }
 
+
+    public void setHasToLimit(boolean hasToLimit) {
+        currentState=STATE_PAUSE;
+        this.hasToLimit = hasToLimit;
+        if (onOperationListener != null&&hasToLimit) {
+            onOperationListener.onPause();
+        }
+        invalidate();
+    }
+
+    boolean hasToLimit=false;
+
     @Override
     public void onClick(View v) {
+
+        if (hasToLimit) {
+            if (onOperationListener != null) {
+                onOperationListener.toLimit();
+            }
+            return;
+        }
+
+
+
+        //最初状态
         if (currentState == STATE_RESET) {
             currentState = STATE_RECORDING;
-            initAnimator();
-            animator.removeAllUpdateListeners();
-            animator.addUpdateListener(animation -> {
-                if (onOperationListener != null) {
-                    onOperationListener.onProgress(animation.getCurrentPlayTime());
-                }
-            });
-            animator.removeAllListeners();
-            animator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    onAnimEnd();
-                }
-            });
+
             if (onOperationListener != null) {
                 onOperationListener.onStart();
             }
-            animator.start();
+
         } else if (currentState == STATE_RECORDING) {
-            onAnimEnd();
+
+            currentState = STATE_PAUSE;
+            if (onOperationListener != null) {
+                onOperationListener.onPause();
+            }
+
         } else if (currentState == STATE_PAUSE) {
-            initAnimator();
-            animator.removeAllUpdateListeners();
-            animator.addUpdateListener(animation -> {
-                if (onOperationListener != null) {
-                    onOperationListener.onProgress(animation.getCurrentPlayTime());
-                }
-            });
-            animator.removeAllListeners();
-            currentState = STATE_PLAY;
+
+            currentState =STATE_RECORDING ;
             if (onOperationListener != null) {
                 onOperationListener.onStart();
             }
-            animator.start();
         } else if (currentState == STATE_PLAY) {
-            animator.cancel();
+
             currentState = STATE_PAUSE;
             if (onOperationListener != null) {
                 onOperationListener.onPlayEnd();
             }
-            invalidate();
+
+        }else if (currentState == STATE_RECORDING) {
+            currentState = STATE_PAUSE;
+            if (onOperationListener != null) {
+                onOperationListener.onPause();
+            }
         }
+        invalidate();
     }
 
     private void initAnimator() {
@@ -269,7 +290,6 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
             progressRect.top = outCircleWidth / 2;
             progressRect.right = w - outCircleWidth / 2;
             progressRect.bottom = h - outCircleWidth / 2;
-
             squareRect.left = (float) (width / 3.0);
             squareRect.top = (float) (width / 3.0);
             squareRect.right = (float) (width * 2.0 / 3);
@@ -292,6 +312,7 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
 
     public void setInnerCircleColor(int innerCircleColor) {
         this.innerCircleColor = innerCircleColor;
+        invalidate();
     }
 
     private int dp2Px(int dp) {
@@ -315,7 +336,12 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
     }
 
     public interface OnOperationListener {
+
+        //开始录制
         void onStart();
+
+        //暂停录制
+        void onPause();
 
         /**
          * @param playtime 执行了的时间
@@ -325,5 +351,8 @@ public class RecordCircleProgressButton extends View implements View.OnClickList
         void onRecordEnd();
 
         void onPlayEnd();
+
+        void toLimit();
+
     }
 }
