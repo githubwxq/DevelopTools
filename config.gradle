@@ -29,7 +29,7 @@ ext {
             retrofit   : "2.2.0",
             okhttp     : "3.7.0",
             dagger2    : "2.5",
-            butterknife: "8.5.1",
+            butterknife: "8.8.1",
             blockcanary: "1.5.0",
             leakcanary : "1.5.4",
             stetho     : "1.5.0",
