@@ -1,14 +1,18 @@
 package com.example.uitestdemo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
+import com.juziwl.uilibrary.multimedia.AudioObj;
 import com.juziwl.uilibrary.recycler.viewpagerecycle.MySnapHelper;
 import com.juziwl.uilibrary.viewpage.pageindicator.IndicatorView;
 import com.wxq.mvplibrary.base.BaseActivity;
@@ -32,6 +36,8 @@ public class MainUiTestActivity extends BaseActivity {
     List<String> mlist = new ArrayList<>();
     @BindView(R.id.indicate)
     IndicatorView indicate;
+
+    List<AudioObj> list;
 
     @Override
     protected void initViews() {
@@ -66,12 +72,21 @@ public class MainUiTestActivity extends BaseActivity {
                     helper.setBackgroundRes(R.id.tv_tip, R.color.yellow_50);
                 }
 
+                helper.getView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
+                    }
+                });
             }
         });
 
         indicate.initIndicator(mlist.size());
 //        mLinearSnapHelper.
+
+
+//        list= (List<AudioObj>) getIntent().getSerializableExtra("list");
+
 
     }
 
@@ -97,6 +112,7 @@ public class MainUiTestActivity extends BaseActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {

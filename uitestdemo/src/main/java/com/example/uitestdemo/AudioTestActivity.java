@@ -1,11 +1,15 @@
 package com.example.uitestdemo;
 
 import android.Manifest;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.TextView;
 
+import com.juziwl.uilibrary.multimedia.AudioObj;
 import com.juziwl.uilibrary.multimedia.AudioPlayerUtil;
 import com.juziwl.uilibrary.multimedia.AudioRecorderUtil;
 import com.juziwl.uilibrary.multimedia.MediaUtils;
@@ -15,6 +19,7 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +48,9 @@ public class AudioTestActivity extends BaseActivity {
     @BindView(R.id.rl_record_voice)
     NewRecordAudioLayout rlRecordVoice;
 
+
+    List<AudioObj> list=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +60,10 @@ public class AudioTestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        list.add(new AudioObj("wxq"));
+        list.add(new AudioObj("123"));
+        list.add(new AudioObj("456"));
+
         //请求权限全部结果
         rxPermissions.request(
                 Manifest.permission.RECORD_AUDIO,
@@ -107,8 +119,15 @@ public class AudioTestActivity extends BaseActivity {
             @Override
             public void clickFinish(String path) {
                 ToastUtils.showShort("最终音频路径为"+path);
+//                Intent intent=new Intent();
+//                intent.putExtra("list", (Serializable) list);
+//                intent.setClass(AudioTestActivity.this,MainUiTestActivity.class);
+//                startActivity(intent);
+
+
             }
         });
+
 
 
     }
@@ -128,11 +147,16 @@ public class AudioTestActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.tv_start:
 
-                audioRecorderUtil.start();
+//                audioRecorderUtil.start();
 //                List<String> voces=new ArrayList<>();
 //
 //                MediaUtils.composeVoiceFile(this,)
 
+                Intent action = new Intent(Intent.ACTION_VIEW);
+                StringBuilder builder = new StringBuilder();
+                builder.append("wxq://juziwl:8080/main?system=pc&id=45464");
+                action.setData(Uri.parse(builder.toString()));
+                startActivity(action);
                 break;
             case R.id.tv_loading:
 

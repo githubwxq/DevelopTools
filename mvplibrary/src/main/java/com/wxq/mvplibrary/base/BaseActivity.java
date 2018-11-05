@@ -103,10 +103,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
                 }
             }
         });
-
     }
-
-
 
     protected abstract void initViews();
 

@@ -43,7 +43,9 @@ public class RxBusManager {
         mSubscriptionMap = new HashMap<>();
     }
 
-
+//for (PublishSubject.PublishDisposable<T> s : subscribers.get()) {  最后会调用这个
+//        s.onNext(t);
+//    }
     public void post(Object object) {
         mSubject.onNext(object);
     }

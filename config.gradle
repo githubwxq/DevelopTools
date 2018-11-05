@@ -5,7 +5,6 @@ ext {
     isNeedArouterTestModule = false
     isNeedUiTestModule = false
 
-
     /**
      *   所有项目依赖库集合
      *   注意：需要统一所有库的依赖
@@ -130,11 +129,7 @@ ext {
             "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
 
             //recycleview动画
-            "recyclerview-animators"     : "jp.wasabeef:recyclerview-animators:2.3.0",
-
-
-
-
+            "recyclerview-animators"    : "jp.wasabeef:recyclerview-animators:2.3.0",
 
             //高德地图
             "amp3d"                     : "com.amap.api:3dmap:5.0.0",
@@ -172,8 +167,6 @@ ext {
 
             //二维码
             "zxing"                     : "cn.yipianfengye.android:zxing-library:2.2",
-            //数据库调试
-            "debug-db"                  : "com.amitshekhar.android:debug-db:1.0.4",
 
             "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
 
@@ -183,9 +176,22 @@ ext {
             //调试软件
             "pandora"                   : "com.github.whataa:pandora:1.0.0",
             "pandora-no-op"             : "com.github.whataa:pandora-no-op:v1.0.0",
+            "debug-db"                  : "com.amitshekhar.android:debug-db:1.0.4",
+
+            //J神的rxrelay2，出现异常仍然可以处理
+            "rxrelay"                   : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
+
+
+
+            //组件化依赖
             "arouter-api"               : "com.alibaba:arouter-api:1.3.1",
-            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4",
-            "debug-db"                  : "com.amitshekhar.android:debug-db:1.0.4"
+            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4"
+
+
+
+
+
+
 
     ]
 }

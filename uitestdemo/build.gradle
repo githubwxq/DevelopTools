@@ -4,7 +4,42 @@ if (!rootProject.ext.isNeedUiTestModule) {
     apply plugin: 'com.android.library'
 }
 
-println csdn
+println csdn.equals("www.csdn.com")
+
+def printPersonInfo(Map<String, Object> person) {
+    println("${person.name} is ${person.age} years old")
+}
+
+def printJobInfo(Map<String, Object> job, String employeeName) {
+    println("$employeeName works as ${job.title} at ${job.company}")
+}
+
+printPersonInfo name: "wxq", age: 24
+printJobInfo "wxq", title: "Android developer", company: "Tooploox"
+
+
+class WriterOne {
+    def printText(str) {
+        println "Printed in One: $str"
+    }
+}
+
+class WriterTwo {
+    def printText(str) {
+        println "Printed in Two: $str"
+    }
+}
+
+def printClosure = {
+    printText "I come from a closure"
+}
+
+printClosure.delegate = new WriterOne()
+printClosure() // will print "Printed in One: I come from a closure
+printClosure.delegate = new WriterTwo()
+printClosure() // will print "Printed in Two: I come from a closure
+
+println projectDir.path
 
 
 android {
@@ -58,7 +93,8 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    debugApi (rootProject.ext.deps["debug-db"]){
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    debugApi(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
     api project(':mvplibrary')

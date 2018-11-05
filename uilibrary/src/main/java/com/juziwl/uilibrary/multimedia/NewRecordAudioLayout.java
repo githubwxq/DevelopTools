@@ -9,7 +9,9 @@ package com.juziwl.uilibrary.multimedia;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -75,12 +77,10 @@ public class NewRecordAudioLayout extends RelativeLayout {
     //一旦录制暂停就将
     Runnable updateTimeThread = new Runnable() {
         public void run() {
-
             if(totalSecond>=10){
                 timeHandler.removeCallbacks(this);
                 //达到最大然后走pause方法
                 progress.setHasToLimit(true);
-                setWidget(NewRecordCircleProgressButton.STATE_PAUSE);
                 return;
             }
             totalSecond++;
@@ -212,6 +212,9 @@ public class NewRecordAudioLayout extends RelativeLayout {
                     recordListener.clickFinish(audioFilePath);
                 }
                 Log.e("wxq","finish"+audioFilePath);
+
+
+
             }
         });
         reset.setOnClickListener(new OnClickListener() {

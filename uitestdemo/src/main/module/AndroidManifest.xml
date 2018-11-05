@@ -14,25 +14,49 @@
             android:name=".UIMainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
+            <intent-filter>
 
+                　　　　
+                <!-- 下面这几个必须要设置 -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                　　　　
+                <!-- 协议部分 -->
+                <data
+                    android:host="juziwl"
+                    android:path="/main"
+                    android:port="8080"
+                    android:scheme="wxq" />
+            </intent-filter>
         </activity>
         <activity android:name=".SnapRecycleViewActivity" />
-        <activity android:name=".AudioTestActivity" >
+        <activity android:name=".AudioTestActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
-
+            <!-- //使用urlscheme -->
 
         </activity>
         <activity android:name=".TestNativeWebViewActivity" />
         <activity android:name=".TestThirdActivity" />
-        <activity android:name=".RecycleViewTestActivity">
-
-
+        <activity android:name=".RecycleViewTestActivity"></activity>
+        <activity android:name=".TestClipBoardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+        <service android:name=".ClipBoardListenerService"
+
+            />
+
     </application>
 
 </manifest>

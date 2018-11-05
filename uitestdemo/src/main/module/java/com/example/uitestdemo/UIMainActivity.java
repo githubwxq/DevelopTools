@@ -4,7 +4,9 @@ import android.Manifest;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -56,11 +58,50 @@ public class UIMainActivity extends BaseActivity {
 
 
 
+    public void getUriData() {
+
+
+        Intent intent = getIntent();
+        String scheme = intent.getScheme();
+        String dataString = intent.getDataString();
+        Uri uri = intent.getData();
+        System.out.println("scheme:" + scheme);
+        if (uri != null) {
+            //完整的url信息
+            String url = uri.toString();
+            //scheme部分
+            String schemes = uri.getScheme();
+            //host部分
+            String host = uri.getHost();
+            //port部分
+            int port = uri.getPort();
+            //访问路径
+            String path = uri.getPath();
+            //编码路径
+            String path1 = uri.getEncodedPath();
+            //query部分
+            String queryString = uri.getQuery();
+            //获取参数值
+            String systemInfo = uri.getQueryParameter("system");
+            String id = uri.getQueryParameter("id");
+            Log.e("wxq","host:" + host);
+            System.out.println("host:" + host);
+            Log.e("wxq","dataString:" + dataString);
+            System.out.println("dataString:" + dataString);
+            Log.e("wxq","id:" + id);
+            System.out.println("id:" + id);
+            System.out.println("path:" + path);
+            System.out.println("path1:" + path1);
+            System.out.println("queryString:" + queryString);
+        }
+
+
+    }
 
     @Override
     protected void initViews() {
 
-
+        getUriData();
 
 
 
