@@ -103,7 +103,7 @@ public class UIMainActivity extends BaseActivity {
 
         getUriData();
 
-
+        testImageLoad();
 
         topHeard.setRightText("测试顶部栏目");
         tvTestUi.setText("点击进入ui模块");
@@ -182,6 +182,16 @@ public class UIMainActivity extends BaseActivity {
                         }
                     }
                 });
+
+
+
+    }
+
+    private void testImageLoad() {
+
+
+
+
 
 
 
