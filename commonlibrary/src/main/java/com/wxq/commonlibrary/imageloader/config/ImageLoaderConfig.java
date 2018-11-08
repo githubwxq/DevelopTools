@@ -1,7 +1,9 @@
 package com.wxq.commonlibrary.imageloader.config;
 
 import com.wxq.commonlibrary.imageloader.cache.BitmapCache;
+import com.wxq.commonlibrary.imageloader.cache.MemoryCache;
 import com.wxq.commonlibrary.imageloader.policy.LoadPolicy;
+import com.wxq.commonlibrary.imageloader.policy.ReversePolicy;
 
 /**
  * author:wxq
@@ -10,16 +12,16 @@ import com.wxq.commonlibrary.imageloader.policy.LoadPolicy;
  * desc:建造者模式
  * version:1.0
  */
-public class ImageLoadConfig {
+public class ImageLoaderConfig {
     /**
      * 缓存策略
      */
-    private BitmapCache bitmapCache;
+    private BitmapCache bitmapCache= new MemoryCache();
 
     /**
      * 加载策略
      */
-    private LoadPolicy loadPolicy;
+    private LoadPolicy loadPolicy=new ReversePolicy();
 
     /**
      * 默认线程数
@@ -45,9 +47,9 @@ public class ImageLoadConfig {
     /**
      * 加载策略
      */
-    private DisplayConfig displayConfig;
+    private DisplayConfig displayConfig=new DisplayConfig();
 
-    private ImageLoadConfig() {
+    private ImageLoaderConfig() {
 
 
     }
@@ -55,12 +57,12 @@ public class ImageLoadConfig {
 
     public static class Builder {
 
-        private ImageLoadConfig config;
+        private ImageLoaderConfig config;
 
 
         public Builder() {
 
-            config = new ImageLoadConfig();
+            config = new ImageLoaderConfig();
         }
 
 
@@ -115,13 +117,13 @@ public class ImageLoadConfig {
          * @param loadingFailImage
          * @return
          */
-        public Builder setFailImage(int loadingFailImage) {
+        public Builder setFaildImage(int loadingFailImage) {
             config.displayConfig.faildImage = loadingFailImage;
             return this;
         }
 
 
-        public ImageLoadConfig build() {
+        public ImageLoaderConfig build() {
             return config;
         }
     }

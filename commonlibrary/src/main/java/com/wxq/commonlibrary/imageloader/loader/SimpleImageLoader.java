@@ -1,15 +1,12 @@
 package com.wxq.commonlibrary.imageloader.loader;
 
 import android.graphics.Bitmap;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.wxq.commonlibrary.imageloader.config.DisplayConfig;
-import com.wxq.commonlibrary.imageloader.config.ImageLoadConfig;
+import com.wxq.commonlibrary.imageloader.config.ImageLoaderConfig;
 import com.wxq.commonlibrary.imageloader.request.BitmapRequest;
 import com.wxq.commonlibrary.imageloader.request.RequestQueue;
-
-import dalvik.system.DexClassLoader;
 
 /**
  * author:wxq
@@ -20,14 +17,11 @@ import dalvik.system.DexClassLoader;
  */
 public class SimpleImageLoader {
 
-    public ImageLoadConfig getConfig() {
-        return config;
-    }
 
-    private ImageLoadConfig config;
+    private ImageLoaderConfig config;
 
 
-    private RequestQueue requestQueue;
+    private RequestQueue mRequestQueue;
 
 
     private static SimpleImageLoader mInstance;
@@ -38,13 +32,17 @@ public class SimpleImageLoader {
     }
 
 
-    public SimpleImageLoader(ImageLoadConfig imageLoadConfig) {
-        config = imageLoadConfig;
+    public SimpleImageLoader(ImageLoaderConfig imageLoaderConfig) {
+        config = imageLoaderConfig;
+//        初始化请求队列
+        mRequestQueue=new RequestQueue(imageLoaderConfig.getThreadCount());
+        //开启请求队列
+        mRequestQueue.start();
     }
 
 
     //  dcl单列
-    public static SimpleImageLoader getInstance(ImageLoadConfig config) {
+    public static SimpleImageLoader getInstance(ImageLoaderConfig config) {
         if (mInstance == null) {
             synchronized (SimpleImageLoader.class) {
                 if (mInstance == null) {
@@ -64,21 +62,17 @@ public class SimpleImageLoader {
 
 
     public void displayImage(ImageView imageView, String uri) {
+        displayImage(imageView,uri,null,null);
+
 
 
     }
 
 
     public void displayImage(ImageView imageView, String uri, DisplayConfig displayConfig,ImageListener imageListener) {
-
-        BitmapRequest bitmapRequest=new BitmapRequest();
-
-
-
-
-
-
-
+//         实力话请求添加到队列
+        BitmapRequest bitmapRequest=new BitmapRequest(imageView,uri,displayConfig,imageListener);
+        mRequestQueue.addRequest(bitmapRequest);
     }
 
 
@@ -97,6 +91,26 @@ public class SimpleImageLoader {
 
 
 
+    public ImageLoaderConfig getConfig() {
+        return config;
+    }
+
+
+
+
+
+
+    //配置
+//  ImageLoaderConfig.Builder build = new ImageLoaderConfig.Builder();
+//        build.setThreadCount(3) //线程数量
+//                .setLoadPolicy(new ReversePolicy()) //加载策略
+//            .setCachePolicy(new DoubleCache(this)) //缓存策略
+//            .setLoadingImage(R.drawable.loading)
+//                .setFaildImage(R.drawable.not_found);
+//
+//    ImageLoaderConfig config = build.build();
+//    //初始化
+//    imageLoader = SimpleImageLoader.getInstance(config);
 
 
 

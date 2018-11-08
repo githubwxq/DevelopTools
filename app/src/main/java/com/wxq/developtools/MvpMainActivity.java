@@ -12,6 +12,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.tools.SharedPreferencesUtils;
 import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.imageloader.cache.DoubleCache;
+import com.wxq.commonlibrary.imageloader.loader.SimpleImageLoader;
+import com.wxq.commonlibrary.imageloader.policy.ReversePolicy;
 import com.wxq.commonlibrary.retrofit.download.DownloadHelper;
 import com.wxq.commonlibrary.retrofit.download.DownloadListener;
 import com.wxq.commonlibrary.util.BarUtils;
@@ -51,6 +54,11 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
     @Override
     protected void initViews() {
+
+
+        //配置
+
+
         tvHello.setText("1111111111111111111");
 
 
