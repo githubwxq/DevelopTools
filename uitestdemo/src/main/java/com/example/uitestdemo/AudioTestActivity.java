@@ -33,19 +33,19 @@ import io.reactivex.functions.Consumer;
  */
 public class AudioTestActivity extends BaseActivity {
 
-    @BindView(R.id.tv_start)
+    @BindView(R2.id.tv_start)
     TextView tvStart;
-    @BindView(R.id.tv_loading)
+    @BindView(R2.id.tv_loading)
     TextView tvLoading;
-    @BindView(R.id.tv_stop)
+    @BindView(R2.id.tv_stop)
     TextView tvStop;
-    @BindView(R.id.tv_play)
+    @BindView(R2.id.tv_play)
     TextView tvPlay;
 
     AudioRecorderUtil audioRecorderUtil;
     AudioPlayerUtil audioPlayerUtil;
     String audioFilePath;
-    @BindView(R.id.rl_record_voice)
+    @BindView(R2.id.rl_record_voice)
     NewRecordAudioLayout rlRecordVoice;
 
 
@@ -142,10 +142,10 @@ public class AudioTestActivity extends BaseActivity {
         return null;
     }
 
-    @OnClick({R.id.tv_start, R.id.tv_loading, R.id.tv_stop, R.id.tv_play})
+    @OnClick({R2.id.tv_start, R2.id.tv_loading, R2.id.tv_stop, R2.id.tv_play})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.tv_start:
+            case R2.id.tv_start:
 
 //                audioRecorderUtil.start();
 //                List<String> voces=new ArrayList<>();
@@ -158,7 +158,7 @@ public class AudioTestActivity extends BaseActivity {
                 action.setData(Uri.parse(builder.toString()));
                 startActivity(action);
                 break;
-            case R.id.tv_loading:
+            case R2.id.tv_loading:
 
                 List<String> voices = new ArrayList<>();
                 voices.add("/storage/emulated/0/DevelopTools/audio/600.mp4");
@@ -170,11 +170,11 @@ public class AudioTestActivity extends BaseActivity {
 //                audioFilePath="/storage/emulated/0/DevelopTools/audio/400.mp4";
 
                 break;
-            case R.id.tv_stop:
+            case R2.id.tv_stop:
 
                 audioRecorderUtil.stop();
                 break;
-            case R.id.tv_play:
+            case R2.id.tv_play:
                 if (audioFilePath != null) {
 
                 }

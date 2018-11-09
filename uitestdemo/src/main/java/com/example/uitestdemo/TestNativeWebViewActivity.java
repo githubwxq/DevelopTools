@@ -24,9 +24,9 @@ import static android.view.KeyEvent.KEYCODE_BACK;
 public class TestNativeWebViewActivity extends BaseActivity {
 
 
-    @BindView(R.id.webview)
+    @BindView(R2.id.webview)
     NativeWebView mWebView;
-    @BindView(R.id.tv_click)
+    @BindView(R2.id.tv_click)
     TextView tvClick;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

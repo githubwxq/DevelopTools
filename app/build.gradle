@@ -94,13 +94,13 @@ dependencies {
     annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //最顶层依赖activity已经封装过 整个架构模式确定结束
     implementation project(':mvplibrary')
-    if (rootProject.ext.isNeedNetTestModule) {
-        implementation project(':nettestdemo')
-    }
-    if (rootProject.ext.isNeedArouterTestModule) {
-        implementation project(':aroutertestdemo')
-    }
-    if (rootProject.ext.isNeedUiTestModule) {
+//    if (rootProject.ext.isNeedNetTestModule) {
+//        implementation project(':nettestdemo')
+//    }
+//    if (rootProject.ext.isNeedArouterTestModule) {
+//        implementation project(':aroutertestdemo')
+//    }
+    if (!isBuildModule.toBoolean()) {
         implementation project(':uitestdemo')
     }
     annotationProcessor rootProject.ext.deps["arouter-compiler"]

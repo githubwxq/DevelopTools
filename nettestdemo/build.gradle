@@ -59,7 +59,16 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
+
+
+
+
+
     api project(':mvplibrary')
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
+
+
+
+
 
 }

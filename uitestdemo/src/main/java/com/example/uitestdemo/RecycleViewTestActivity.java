@@ -27,7 +27,7 @@ import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
 public class RecycleViewTestActivity extends BaseActivity {
 
 
-    @BindView(R.id.recycle)
+    @BindView(R2.id.recycle)
     SuperRecyclerView recycle;
 
     SimpleImageLoader imageLoader;

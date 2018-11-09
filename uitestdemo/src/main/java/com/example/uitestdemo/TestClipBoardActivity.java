@@ -23,9 +23,9 @@ import butterknife.ButterKnife;
 
 public class TestClipBoardActivity extends BaseActivity {
 
-    @BindView(R.id.tv_set_data)
+    @BindView(R2.id.tv_set_data)
     TextView tvSetData;
-    @BindView(R.id.tv_get_data)
+    @BindView(R2.id.tv_get_data)
     TextView tvGetData;
 
     @Override

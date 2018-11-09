@@ -102,6 +102,14 @@ dependencies {
     api rootProject.ext.deps["okrx2"]
 
 
+    //tools
+    api(rootProject.ext.deps["arouter-api"]) {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+    }
+
+
+
 //数据库调试
 //debugCompile 'com.amitshekhar.android:debug
 // -db:1.0.0'

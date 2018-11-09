@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply from : "config.gradle"
+apply from: "config.gradle"
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
@@ -9,12 +9,21 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
+
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
 //        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+//        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' // add plugin
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0'
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
         // tinkersupport插件
         classpath "com.tencent.bugly:tinker-support:1.1.1"
     }
@@ -31,7 +40,7 @@ allprojects {
         maven { url 'http://developer.huawei.com/repo/' }
     }
     tasks.withType(Javadoc) {//兼容中文字符
-        options{
+        options {
             encoding "UTF-8"
             charSet 'UTF-8'
             links "http://docs.oracle.com/javase/7/docs/api"

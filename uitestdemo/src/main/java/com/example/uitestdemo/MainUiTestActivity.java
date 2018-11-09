@@ -1,11 +1,8 @@
 package com.example.uitestdemo;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,16 +25,15 @@ import butterknife.ButterKnife;
 @Route(path = RouterContent.UI_MAIN)
 public class MainUiTestActivity extends BaseActivity {
 
-    @BindView(R.id.tv_test_ui)
+    @BindView(R2.id.tv_test_ui)
     TextView tvTestUi;
-    @BindView(R.id.rv_list)
+    @BindView(R2.id.rv_list)
     RecyclerView rvList;
-
     List<String> mlist = new ArrayList<>();
-    @BindView(R.id.indicate)
+    @BindView(R2.id.indicate)
     IndicatorView indicate;
-
     List<AudioObj> list;
+
 
     @Override
     protected void initViews() {

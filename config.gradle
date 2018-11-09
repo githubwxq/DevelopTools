@@ -3,7 +3,7 @@ ext {
 //    true表示作为模块 false表示作为应用
     isNeedNetTestModule = false
     isNeedArouterTestModule = false
-    isNeedUiTestModule = false
+    isNeedUiTestModule = true
 
     /**
      *   所有项目依赖库集合
