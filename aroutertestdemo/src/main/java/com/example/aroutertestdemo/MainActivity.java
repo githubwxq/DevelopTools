@@ -1,27 +1,20 @@
 package com.example.aroutertestdemo;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.nettestdemo.R;
-import com.wxq.mvplibrary.router.RouterContent;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_goto)
+    @BindView(R2.id.tv_goto)
     TextView tvGoto;
-    @BindView(R.id.fl_content)
+    @BindView(R2.id.fl_content)
     FrameLayout flContent;
 
     FirstFragment firstFragment;

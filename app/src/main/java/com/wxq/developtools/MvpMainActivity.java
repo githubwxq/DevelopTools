@@ -113,6 +113,14 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         tv_hello2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                ARouter.getInstance()
+                        .build(RouterContent.AROUTER_MAIN)
+                        .withString("name","name")
+                        .withString("wxq","wxq")
+                        .navigation();
+
+
                 try {
 //                    ARouter.getInstance().build(RouterContent.NETTEST_MAIN).navigation();
 //                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
@@ -141,7 +149,20 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
                         }
                     });
-                    helper.downloadFile("https://dfsres-1254059237.cos.ap-shanghai.myqcloud.com/apppackage/testpad/ipadteacher.apk", GlobalContent.SAVEFILEPATH,"test.apk");
+//                    helper.downloadFile("https://dfsres-1254059237.cos.ap-shanghai.myqcloud.com/apppackage/testpad/ipadteacher.apk", GlobalContent.SAVEFILEPATH,"test.apk");
+
+//                    try {
+//                        ARouter.getInstance()
+//                                .build(RouterContent.UI_MAIN)
+//                                .withString("name","arouter_main")
+//                                .withString("wxq","wxq")
+//                                .navigation();
+////                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+
+
 
 
 

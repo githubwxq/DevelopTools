@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.nettestdemo.R;
+
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.router.RouterContent;
 

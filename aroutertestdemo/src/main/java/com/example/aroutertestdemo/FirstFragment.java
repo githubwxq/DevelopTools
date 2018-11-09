@@ -6,10 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.example.nettestdemo.R;
 import com.wxq.mvplibrary.base.BaseFragment;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -20,7 +17,7 @@ import butterknife.Unbinder;
 
 public class FirstFragment extends BaseFragment<FirstFragmentPresent> {
 
-    @BindView(R.id.tv_first)
+    @BindView(R2.id.tv_first)
     TextView tvFirst;
     Unbinder unbinder;
 

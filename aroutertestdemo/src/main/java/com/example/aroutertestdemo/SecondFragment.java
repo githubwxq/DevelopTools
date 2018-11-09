@@ -2,7 +2,6 @@ package com.example.aroutertestdemo;
 
 import android.widget.TextView;
 
-import com.example.nettestdemo.R;
 import com.wxq.mvplibrary.base.BaseFragment;
 
 import butterknife.BindView;
@@ -14,7 +13,7 @@ import butterknife.Unbinder;
 
 public class SecondFragment extends BaseFragment<SecondFragmentPresent> {
 
-    @BindView(R.id.tv_first)
+    @BindView(R2.id.tv_first)
     TextView tvFirst;
     Unbinder unbinder;
 

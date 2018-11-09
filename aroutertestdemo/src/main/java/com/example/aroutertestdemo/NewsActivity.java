@@ -1,7 +1,5 @@
 package com.example.aroutertestdemo;
 
-import android.app.Activity;
-
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 

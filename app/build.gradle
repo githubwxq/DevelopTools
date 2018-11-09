@@ -100,9 +100,10 @@ dependencies {
 //    if (rootProject.ext.isNeedArouterTestModule) {
 //        implementation project(':aroutertestdemo')
 //    }
-    if (!isBuildModule.toBoolean()) {
+//    if (!isBuildModule.toBoolean()) {
         implementation project(':uitestdemo')
-    }
+        implementation project(':aroutertestdemo')
+//    }
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
 
     //集成推送
