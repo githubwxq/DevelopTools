@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayerManager;
@@ -16,6 +17,7 @@ import com.wxq.commonlibrary.util.BuglyUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
+import com.wxq.mvplibrary.router.RouterContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.logging.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+@Route(path = "/main/main")
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.iv_test_pic)

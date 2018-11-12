@@ -59,7 +59,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         //配置
 
 
-        tvHello.setText("1111111111111111111");
+//        tvHello.setText("1111111111111111111");
 
 
         for (User user : DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list()) {
@@ -70,40 +70,38 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPresenter.getData(1);
-                User user = new User();
-                user.setUserName("wxq");
-                user.setFlag(0);
-                user.setAccessToken("token");
-                DbManager.getInstance().getDaoSession().getUserDao().save(user);
+//                mPresenter.getData(1);
+//                User user = new User();
+//                user.setUserName("wxq");
+//                user.setFlag(0);
+//                user.setAccessToken("token");
+//                DbManager.getInstance().getDaoSession().getUserDao().save(user);
+//
+//                int size = DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list().size();
+//
+//                showToast(size + "数据裤中数据");
+//
+//                Event event = new Event(2, "wxq");
+//
+//                RxBusManager.getInstance().post(event);
+//
+//
+//                SharedPreferencesUtils.setStringContent(MvpMainActivity.this,"wxqshare","name","wxq");
+//
 
-                int size = DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list().size();
 
-                showToast(size + "数据裤中数据");
-
-                Event event = new Event(2, "wxq");
-
-                RxBusManager.getInstance().post(event);
-
-
-                SharedPreferencesUtils.setStringContent(MvpMainActivity.this,"wxqshare","name","wxq");
-
-
-
-                try {
+//                try {
                     ARouter.getInstance()
-                            .build(RouterContent.UI_MAIN)
-                            .withString("name","name")
-                            .withString("wxq","wxq")
+                            .build("/main/main")
                             .navigation();
 //                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
 
-                FileUtils.createOrExistsDir(GlobalContent.logPath);
-
-                FileUtils.appendToFile("wxqdsfasfasdfasd", GlobalContent.logPath+System.currentTimeMillis()+".text");
+//                FileUtils.createOrExistsDir(GlobalContent.logPath);
+//
+//                FileUtils.appendToFile("wxqdsfasfasdfasd", GlobalContent.logPath+System.currentTimeMillis()+".text");
 
             }
         });
@@ -115,7 +113,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
             public void onClick(View view) {
 
                 ARouter.getInstance()
-                        .build(RouterContent.AROUTER_MAIN)
+                        .build(RouterContent.UI_MAIN)
                         .withString("name","name")
                         .withString("wxq","wxq")
                         .navigation();

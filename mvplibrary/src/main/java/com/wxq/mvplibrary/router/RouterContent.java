@@ -20,6 +20,9 @@ public class RouterContent {
     public static final String UI_MAIN = "/ui/main";
 
 
+    public static final String MAIN_MAIN = "/main/main";
+
+
 
 
 

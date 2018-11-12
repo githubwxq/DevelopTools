@@ -40,10 +40,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         super.onCreate();
         mContext = this;
         isDebug = setIsDebug();
-        // 打印日志
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(this);
+
         initDagger();
         //工具初始化
         Utils.init(this);

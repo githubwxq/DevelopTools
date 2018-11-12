@@ -29,31 +29,31 @@ public class MvpMainPresent extends RxPresenter<MvpMainContract.View> implements
     @Override
     public void initEventAndData() {
 //      、、倒计时
-        CountDownTimer countDownTimer=new CountDownTimer(10*1000, 2000) {
-            @Override
-            public void onTick(long l) {
+//        CountDownTimer countDownTimer=new CountDownTimer(10*1000, 2000) {
+//            @Override
+//            public void onTick(long l) {
+//
+//
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//
+//            }
+//        };
 
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        };
-
-        countDownTimer.start();
-        CountDownTimerUtils.countDown(10, 1, new CountDownTimerUtils.CountDownListener() {
-            @Override
-            public void countDownfinish() {
-                mView.showToast("倒计时结束");
-            }
-
-            @Override
-            public void currentProcess(int time) {
-                mView.showToast(time+"");
-            }
-        });
+//        countDownTimer.start();
+//        CountDownTimerUtils.countDown(10, 1, new CountDownTimerUtils.CountDownListener() {
+//            @Override
+//            public void countDownfinish() {
+//                mView.showToast("倒计时结束");
+//            }
+//
+//            @Override
+//            public void currentProcess(int time) {
+//                mView.showToast(time+"");
+//            }
+//        });
     }
 
 

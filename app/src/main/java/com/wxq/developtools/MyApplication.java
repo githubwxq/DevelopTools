@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Process;
 import android.support.multidex.MultiDex;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.ActivityUtils;
 import com.wxq.commonlibrary.util.AppUtils;
@@ -34,6 +35,12 @@ public class MyApplication extends BaseApp {
 
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+
+
+        // 打印日志
+        ARouter.openLog();
+        ARouter.openDebug();
+        ARouter.init(this);
 
 
     }
