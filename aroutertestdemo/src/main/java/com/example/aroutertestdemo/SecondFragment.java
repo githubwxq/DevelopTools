@@ -2,6 +2,7 @@ package com.example.aroutertestdemo;
 
 import android.widget.TextView;
 
+
 import com.wxq.mvplibrary.base.BaseFragment;
 
 import butterknife.BindView;
@@ -38,6 +39,6 @@ public class SecondFragment extends BaseFragment<SecondFragmentPresent> {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+//        unbinder.unbind();
     }
 }

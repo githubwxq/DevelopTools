@@ -48,6 +48,15 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         initX5WebView();
         Stetho.initializeWithDefaults(this);
         Thread.setDefaultUncaughtExceptionHandler(this);
+
+        // 打印日志
+        ARouter.openLog();
+        ARouter.openDebug();
+        ARouter.init(this);
+
+        applicationDelegate.onCreate(this);
+
+
     }
 
     //初始化简单的app全局的dragger

@@ -6,6 +6,10 @@ import android.content.pm.PackageManager;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * ManifestParser
+ */
 public final class ManifestParser {
     private static final String MODULE_VALUE = "IModuleConfig";
 
@@ -23,6 +27,7 @@ public final class ManifestParser {
             if (appInfo.metaData != null) {
                 for (String key : appInfo.metaData.keySet()) {
                     if (MODULE_VALUE.equals(appInfo.metaData.get(key))) {
+                        //根据名字获取对应的值  判断值是不是对应的
                         modules.add(parseModule(key));
                     }
                 }

@@ -37,10 +37,7 @@ public class MyApplication extends BaseApp {
         JPushInterface.init(this);
 
 
-        // 打印日志
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(this);
+
 
 
     }

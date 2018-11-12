@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/tv_name"
+        android:text="1212313212313213"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

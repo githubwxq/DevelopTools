@@ -23,7 +23,7 @@ public class RouterContent {
     public static final String MAIN_MAIN = "/main/main";
 
 
-
+    public static final String AROUTER_TEST = "/arouter/test";
 
 
 }

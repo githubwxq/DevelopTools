@@ -1,4 +1,4 @@
-package com.example.aroutertestdemo;
+package com.example.uitestdemo;
 
 import android.app.Application;
 import android.content.Context;
@@ -16,7 +16,7 @@ import java.util.List;
  * desc: 主的application
  * version:1.0
  */
-public class ArouterApplication implements IModuleConfig,IAppLife {
+public class UIApplication implements IModuleConfig,IAppLife {
 
 
     @Override

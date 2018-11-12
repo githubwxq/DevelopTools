@@ -4,6 +4,18 @@
 
     <application>
         <activity android:name=".MainUiTestActivity"></activity>
+        <activity android:name=".UIMainActivity"></activity>
+
+        <meta-data
+            android:name="com.example.uitestdemo.UIApplication"
+            android:value="IModuleConfig" />
     </application>
+
+
+
+
+
+
+
 
 </manifest>
