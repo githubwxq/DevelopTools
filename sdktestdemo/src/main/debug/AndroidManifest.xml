@@ -2,15 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sdktestdemo">
 
-    <application>
-
+    <application
+        android:theme="@style/common_baseStyle"
+        >
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

@@ -52,8 +52,4 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
-
-    @OnClick(R2.id.tv_title)
-    public void onViewClicked() {
-    }
 }
