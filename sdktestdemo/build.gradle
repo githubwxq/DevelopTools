@@ -1,0 +1,10 @@
+apply from: "../common_component_build.gradle"
+android {
+
+}
+
+
+dependencies {
+
+
+}
