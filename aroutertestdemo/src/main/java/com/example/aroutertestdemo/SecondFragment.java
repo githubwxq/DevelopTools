@@ -1,10 +1,6 @@
 package com.example.aroutertestdemo;
-
 import android.widget.TextView;
-
-
 import com.wxq.mvplibrary.base.BaseFragment;
-
 import butterknife.BindView;
 import butterknife.Unbinder;
 

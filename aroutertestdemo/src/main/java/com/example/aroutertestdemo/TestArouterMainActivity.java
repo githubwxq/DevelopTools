@@ -24,7 +24,7 @@ public class TestArouterMainActivity extends AppCompatActivity {
         String wxq = getIntent().getStringExtra("wxq");
         TextView tv_name= (TextView) findViewById(R.id.tv_name);
         tv_name.setText(name);
-        ToastUtils.showLong(wxq + "");
+//        ToastUtils.showLong(wxq + "");
         tv_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

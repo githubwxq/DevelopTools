@@ -2,18 +2,22 @@
     package="com.example.aroutertestdemo" >
 
 
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:supportsRtl="true">
+    <application>
 
         <activity android:name=".TestArouterMainActivity">
 
         </activity>
 
+        <activity android:name=".MainActivity">
+
+        </activity>
+
+
         <!--<meta-data-->
             <!--android:name="com.example.nettestdemo.NetTestApplication"-->
             <!--android:value="IModuleConfig" />-->
+
+
 
         <meta-data
             android:name="com.example.aroutertestdemo.ArouterApplication"

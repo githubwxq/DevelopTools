@@ -7,12 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-
 import com.wxq.mvplibrary.router.RouterContent;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

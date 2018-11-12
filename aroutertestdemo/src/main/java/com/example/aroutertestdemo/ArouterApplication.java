@@ -2,11 +2,9 @@ package com.example.aroutertestdemo;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wxq.mvplibrary.base.IAppLife;
 import com.wxq.mvplibrary.base.IModuleConfig;
-
 import java.util.List;
 
 /**

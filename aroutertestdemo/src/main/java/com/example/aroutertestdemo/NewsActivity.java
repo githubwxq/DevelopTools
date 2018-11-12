@@ -1,9 +1,6 @@
 package com.example.aroutertestdemo;
-
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
-
-
 /**
  * 项目名称:    NewFastFrame
  * 创建人:        陈锦军

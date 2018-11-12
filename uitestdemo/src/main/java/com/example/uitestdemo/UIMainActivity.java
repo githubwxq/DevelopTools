@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.juziwl.uilibrary.notification.NotificationUtils;
@@ -22,6 +24,7 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 import com.wxq.mvplibrary.model.User;
+import com.wxq.mvplibrary.router.RouterContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,9 +115,9 @@ public class UIMainActivity extends BaseActivity {
         tvTestUi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                ARouter.getInstance()
-//                        .build(RouterContent.UI_MAIN)
-//                        .navigation();
+                ARouter.getInstance()
+                        .build(RouterContent.UI_MAIN)
+                        .navigation();
 //
 //                Intent intent=new Intent(UIMainActivity.this,AudioTestActivity.class);
 //                startActivity(intent);
