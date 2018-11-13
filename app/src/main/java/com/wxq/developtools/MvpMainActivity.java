@@ -64,7 +64,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
         for (User user : DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list()) {
 
-            com.orhanobut.logger.Logger.e("token",user.getAccessToken());
+            com.orhanobut.logger.Logger.e("token", user.getAccessToken());
         }
 
         tvHello.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +91,9 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 
 //                try {
-                    ARouter.getInstance()
-                            .build("/main/main")
-                            .navigation();
+                ARouter.getInstance()
+                        .build(RouterContent.UI_MAIN)
+                        .navigation();
 //                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
 //                } catch (Exception e) {
 //                    e.printStackTrace();
@@ -107,15 +107,14 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         });
 
 
-
         tv_hello2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 ARouter.getInstance()
-                        .build(RouterContent.UI_MAIN)
-                        .withString("name","name")
-                        .withString("wxq","wxq")
+                        .build(RouterContent.SDK_MAIN)
+                        .withString("name", "name")
+                        .withString("wxq", "wxq")
                         .navigation();
 
 
@@ -125,7 +124,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 //                    、、下载
 
-                    DownloadHelper helper=new DownloadHelper("http://www.baidu.com", new DownloadListener() {
+                    DownloadHelper helper = new DownloadHelper("http://www.baidu.com", new DownloadListener() {
                         @Override
                         public void onStartDownload() {
 
@@ -133,7 +132,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
                         @Override
                         public void onProgress(int progress) {
-                            tvHello.setText(progress+"");
+                            tvHello.setText(progress + "");
                         }
 
                         @Override
@@ -161,9 +160,6 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 //                    }
 
 
-
-
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -181,7 +177,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
                     @Override
                     public void accept(Boolean granted) throws Exception {
                         if (!granted) {
-                          showToast("App未能获取全部需要的相关权限，部分功能可能不能正常使用.");
+                            showToast("App未能获取全部需要的相关权限，部分功能可能不能正常使用.");
                         }
                         //不管是否获取全部权限，进入主页面
 //                        initCountDown();

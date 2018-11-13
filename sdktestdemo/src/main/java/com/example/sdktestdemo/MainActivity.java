@@ -1,14 +1,17 @@
 package com.example.sdktestdemo;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
+import com.wxq.mvplibrary.router.RouterContent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Skeleton of an Android Things activity.
@@ -34,12 +37,15 @@ import butterknife.OnClick;
 public class MainActivity extends BaseActivity {
 
 
-    @BindView(R2.id.tv_title)
-    TextView tvTitle;
 
     @Override
     protected void initViews() {
-
+//        tvTitleTitle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ToastUtils.showShort("1111");
+//            }
+//        });
     }
 
     @Override
@@ -52,4 +58,10 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        // TODO: add setContentView(...) invocation
+//        ButterKnife.bind(this);
+//    }
 }

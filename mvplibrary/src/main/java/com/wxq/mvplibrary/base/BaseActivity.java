@@ -53,20 +53,20 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     /**
      * 默认显示顶部top栏
      */
-    public boolean needHeardLayout=true;
+    public boolean needHeardLayout = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if(isNeedHeardLayout()){
+        needHeardLayout=isNeedHeardLayout();
+        if (needHeardLayout) {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
-            topHeard=new TopBarHeard(this);
+            topHeard = new TopBarHeard(this);
             linearLayout.addView(topHeard);
             linearLayout.addView(LayoutInflater.from(this).inflate(attachLayoutRes(), null), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
             setContentView(linearLayout);
-        }else {
+        } else {
             setContentView(attachLayoutRes());
         }
         unbinder = ButterKnife.bind(this);
@@ -75,9 +75,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         AppManager.getInstance().addActivity(this);
         rxPermissions = new RxPermissions(this);
         initViews();
-        mPresenter=  initPresent();
+        mPresenter = initPresent();
         //数据初始化
-        if (mPresenter!=null) {
+        if (mPresenter != null) {
             mPresenter.initEventAndData();
         }
         //注册广播
@@ -89,7 +89,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     }
 
     private void initRxBus() {
-         disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {
+        disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {
             @Override
             public void accept(Event event) {
                 dealWithRxEvent(event.action, event);
@@ -118,7 +118,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     public void dealWithRxEvent(int action, Event event) {
 
     }
-
 
 
     /**
@@ -171,10 +170,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
 
     @Override
     protected void onDestroy() {
-        if (mPresenter != null){
+        if (mPresenter != null) {
             mPresenter.detachView();
         }
-        if (disposable!=null) {
+        if (disposable != null) {
             disposable.dispose();
         }
         super.onDestroy();
@@ -207,7 +206,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     }
 
     public boolean isNeedHeardLayout() {
-      return  true;
+        return   true;
     }
 
 }
