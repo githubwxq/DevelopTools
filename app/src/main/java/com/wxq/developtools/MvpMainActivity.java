@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonservice.ServiceCallBack;
+import com.example.commonservice.sdk.bean.SdkBean;
+import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.tools.SharedPreferencesUtils;
 import com.wxq.commonlibrary.constant.GlobalContent;
@@ -91,9 +94,9 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 
 //                try {
-                ARouter.getInstance()
-                        .build(RouterContent.UI_MAIN)
-                        .navigation();
+//                ARouter.getInstance()
+//                        .build(RouterContent.UI_MAIN)
+//                        .navigation();
 //                    startActivity(new Intent(MvpMainActivity.this,MainActivity.class));
 //                } catch (Exception e) {
 //                    e.printStackTrace();
@@ -103,6 +106,16 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 //
 //                FileUtils.appendToFile("wxqdsfasfasdfasd", GlobalContent.logPath+System.currentTimeMillis()+".text");
 
+                SdkService service = (SdkService) ARouter.getInstance().build(RouterContent.SDK_SERVICE).navigation();
+
+//                ToastUtils.showShort(backBean.name);
+                service.getDataBack(new ServiceCallBack<String>() {
+                    @Override
+                    public void callBack(String result) {
+                        ToastUtils.showShort(result);
+                    }
+                });
+                SdkBean backBean = service.getSdkBean("11111");
             }
         });
 

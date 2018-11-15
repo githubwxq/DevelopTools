@@ -9,6 +9,10 @@ package com.example.commonservice.sdk.bean;
  */
 public class SdkBean {
 
-    String name;
+    public SdkBean(String name) {
+        this.name = name;
+    }
+
+    public  String name;
 
 }

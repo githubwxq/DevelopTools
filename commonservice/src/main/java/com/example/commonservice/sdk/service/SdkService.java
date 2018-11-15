@@ -1,6 +1,6 @@
 package com.example.commonservice.sdk.service;
 
-import com.alibaba.android.arouter.facade.template.IProvider;
+import com.example.commonservice.BaseIService;
 import com.example.commonservice.sdk.bean.SdkBean;
 
 /**
@@ -10,9 +10,9 @@ import com.example.commonservice.sdk.bean.SdkBean;
  * desc:模块交互
  * version:1.0
  */
-public interface SdkService extends IProvider {
+public interface SdkService extends BaseIService {
 
-    SdkBean getSdkBean();
+    SdkBean getSdkBean(String uid);
 
 
 }

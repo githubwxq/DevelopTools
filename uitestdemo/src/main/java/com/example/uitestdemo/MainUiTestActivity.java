@@ -3,15 +3,20 @@ package com.example.uitestdemo;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonservice.ServiceCallBack;
+import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.multimedia.AudioObj;
 import com.juziwl.uilibrary.recycler.viewpagerecycle.MySnapHelper;
 import com.juziwl.uilibrary.viewpage.pageindicator.IndicatorView;
+import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 import com.wxq.mvplibrary.router.RouterContent;
@@ -72,6 +77,17 @@ public class MainUiTestActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
 
+                        SdkService service= (SdkService) ARouter.getInstance().build(RouterContent.SDK_SERVICE).navigation();
+
+//                        service.getDataBack(new ServiceCallBack<String>() {
+//                            @Override
+//                            public void callBack(String o) {
+//                                Log.e("wxq","我再ui"+o);
+//
+//                            }
+//                        });
+
+                        service.setDataBack("我跳转到ui页面去了");
                     }
                 });
             }
@@ -83,6 +99,9 @@ public class MainUiTestActivity extends BaseActivity {
 
 //        list= (List<AudioObj>) getIntent().getSerializableExtra("list");
 
+          //
+
+          //獲取對對象設置返回值
 
     }
 

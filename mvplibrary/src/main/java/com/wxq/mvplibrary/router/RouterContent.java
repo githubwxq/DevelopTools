@@ -31,6 +31,9 @@ public class RouterContent {
     public static final String SDK_MAIN = "/sdk/main";
 
 
+    //sdk测试模块
+    public static final String SDK_SERVICE = "/sdk/servoce";
+
 
 
 }
