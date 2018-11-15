@@ -38,6 +38,12 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven { url 'http://developer.huawei.com/repo/' }
+        maven {url 'http://maven.aliyun.com/nexus/content/repositories/releases/'}
+        maven {url 'https://dl.bintray.com/polyv/android'}
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     tasks.withType(Javadoc) {//兼容中文字符
         options {

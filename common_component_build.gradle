@@ -47,7 +47,7 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "false"
             buildConfigField "boolean", "USE_CANARY", "false"
 //            buildConfigField "boolean", "IS_BUILD_MODULE", "${isBuildModule}"
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -84,5 +84,7 @@ dependencies {
     api rootProject.ext.deps["constraint-layout"]
 
     api project(':commonservice')
+
+
 
 }
