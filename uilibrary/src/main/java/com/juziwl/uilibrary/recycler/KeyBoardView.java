@@ -8,18 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.recycler.itemdecoration.GrideItemDecorationForKeyBoard;
 import com.juziwl.uilibrary.utils.ConvertUtils;
 import com.juziwl.uilibrary.utils.ScreenUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import tv.danmaku.ijk.media.player_x86.Pragma;
 
 /**
  * 键盘空间

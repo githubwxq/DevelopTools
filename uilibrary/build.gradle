@@ -39,10 +39,10 @@ dependencies {
     //nineoldandroids
     api rootProject.ext.deps["nineoldandroids"]
     //ijack
-    api rootProject.ext.deps["ijkplayer-x86"]
+//    api rootProject.ext.deps["ijkplayer-x86"]
     api rootProject.ext.deps["ijkplayer-java"]
-    api rootProject.ext.deps["ijkplayer-armv7a"]
-    api rootProject.ext.deps["ijkplayer-armv5"]
+//    api rootProject.ext.deps["ijkplayer-armv7a"]
+//    api rootProject.ext.deps["ijkplayer-armv5"]
     api rootProject.ext.deps["recyclerview-v7"]
     api rootProject.ext.deps["cardview-v7"]
     api rootProject.ext.deps["constraint-layout"]

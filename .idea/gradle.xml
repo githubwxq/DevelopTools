@@ -8,11 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BaoLiPlay" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/aroutertestdemo" />
             <option value="$PROJECT_DIR$/commonlibrary" />
+            <option value="$PROJECT_DIR$/commonservice" />
             <option value="$PROJECT_DIR$/mvplibrary" />
             <option value="$PROJECT_DIR$/nettestdemo" />
+            <option value="$PROJECT_DIR$/sdktestdemo" />
             <option value="$PROJECT_DIR$/uilibrary" />
             <option value="$PROJECT_DIR$/uitestdemo" />
           </set>

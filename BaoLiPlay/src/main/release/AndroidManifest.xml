@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sdktestdemo">
+
+    <application>
+        <activity android:name="com.easefun.polyvsdk.activity.PolyvPlayerActivity"></activity>
+
+        <!--<meta-data-->
+            <!--android:name="com.example.sdktestdemo.SdkApplication"-->
+            <!--android:value="IModuleConfig" />-->
+
+    </application>
+</manifest>
