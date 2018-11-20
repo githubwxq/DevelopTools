@@ -48,14 +48,11 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         initX5WebView();
         Stetho.initializeWithDefaults(this);
         Thread.setDefaultUncaughtExceptionHandler(this);
-
         // 打印日志
         ARouter.openLog();
         ARouter.openDebug();
         ARouter.init(this);
-
         applicationDelegate.onCreate(this);
-
 
     }
 
@@ -96,8 +93,8 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
 
 
     public void initLog() {
-        Logger.init("develop").logLevel(LogLevel.FULL).logAdapter(new FileLogAdapter()).hideThreadInfo().methodCount(0);
-        Logger.init("develop").logLevel(LogLevel.FULL);
+        Logger.init("wxq").logLevel(LogLevel.FULL).logAdapter(new FileLogAdapter()).hideThreadInfo().methodCount(0);
+        Logger.init("wxq").logLevel(LogLevel.FULL);
     }
 
 

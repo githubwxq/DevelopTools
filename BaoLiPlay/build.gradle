@@ -2,11 +2,11 @@ apply from: "../common_component_build.gradle"
 android {
 }
 dependencies {
-    compile('com.easefun.polyv:polyvPlayer:2.5.2') {
+    implementation('com.easefun.polyv:polyvPlayer:2.5.2') {
         exclude module: 'crashreport'
 //        exclude group: 'com.tencent.bugly', module: 'crashreport' //by both name and group
     }
-    compile('com.easefun.polyv:polyvPlayerABI:1.6.0') {
+    implementation('com.easefun.polyv:polyvPlayerABI:1.6.0') {
         //excluding a particular transitive dependency:
 //        exclude group: 'com.tencent.bugly', module: 'crashreport' //by both name and group
         exclude module: 'crashreport'

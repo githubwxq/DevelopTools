@@ -107,15 +107,16 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 //                FileUtils.appendToFile("wxqdsfasfasdfasd", GlobalContent.logPath+System.currentTimeMillis()+".text");
 
                 SdkService service = (SdkService) ARouter.getInstance().build(RouterContent.SDK_SERVICE).navigation();
-
-//                ToastUtils.showShort(backBean.name);
-                service.getDataBack(new ServiceCallBack<String>() {
-                    @Override
-                    public void callBack(String result) {
-                        ToastUtils.showShort(result);
-                    }
-                });
-                SdkBean backBean = service.getSdkBean("11111");
+                if (service!=null) {
+                    //交互判断非空
+                    service.getDataBack(new ServiceCallBack<String>() {
+                        @Override
+                        public void callBack(String result) {
+                            ToastUtils.showShort(result);
+                        }
+                    });
+                    SdkBean backBean = service.getSdkBean("11111");
+                }
             }
         });
 

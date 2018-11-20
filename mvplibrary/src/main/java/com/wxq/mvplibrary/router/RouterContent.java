@@ -32,7 +32,7 @@ public class RouterContent {
 
 
     //sdk测试模块
-    public static final String SDK_SERVICE = "/sdk/servoce";
+    public static final String SDK_SERVICE = "/sdk/service";
 
 
 

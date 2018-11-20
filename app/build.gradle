@@ -52,6 +52,7 @@ android {
         }
         debug {
             signingConfig signingConfigs.debug
+
         }
     }
 
@@ -96,19 +97,19 @@ dependencies {
     annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //最顶层依赖activity已经封装过 整个架构模式确定结束
     implementation project(':mvplibrary')
-//    if (rootProject.ext.isNeedNetTestModule) {
-//        implementation project(':nettestdemo')
-//    }
-//    if (rootProject.ext.isNeedArouterTestModule) {
-//        implementation project(':aroutertestdemo')
-//    }
+    //    if (rootProject.ext.isNeedNetTestModule) {
+    //        implementation project(':nettestdemo')
+    //    }
+    //    if (rootProject.ext.isNeedArouterTestModule) {
+    //        implementation project(':aroutertestdemo')
+    //    }
     if (!isBuildModule.toBoolean()) {
         implementation project(':uitestdemo')
         implementation project(':sdktestdemo')
 //        implementation project(':aroutertestdemo')
     }
-
     //集成推送
     implementation rootProject.ext.deps["jpush"]
     implementation rootProject.ext.deps["jcore"]
+    implementation project(':commonservice')
 }
