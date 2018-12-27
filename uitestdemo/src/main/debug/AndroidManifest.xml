@@ -27,15 +27,15 @@
                 <!-- 协议部分 -->
                 <data
                     android:host="juziwl"
-                    android:path="/main"
+                    android:path="/ecourseDetail"
                     android:port="8080"
-                    android:scheme="wxq" />
+                    android:scheme="orange" />
             </intent-filter>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
         </activity>
         <activity android:name=".SnapRecycleViewActivity" />
@@ -49,7 +49,14 @@
             <!-- //使用urlscheme -->
 
         </activity>
-        <activity android:name=".TestNativeWebViewActivity" />
+        <activity android:name=".TestNativeWebViewActivity" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".TestThirdActivity" />
         <activity android:name=".RecycleViewTestActivity">
 

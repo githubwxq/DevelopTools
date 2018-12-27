@@ -63,7 +63,6 @@ public class UIMainActivity extends BaseActivity {
 
     public void getUriData() {
 
-
         Intent intent = getIntent();
         String scheme = intent.getScheme();
         String dataString = intent.getDataString();
