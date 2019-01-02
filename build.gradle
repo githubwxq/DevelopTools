@@ -5,27 +5,19 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        maven { url "https://dl.google.com/dl/android/maven2" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
     }
 
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
-//        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
-//        classpath 'com.android.tools.build:gradle:3.2.0'
         classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' // add plugin
-//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
-
-//        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0'
-//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
-//        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
-        // tinkersupport插件
         classpath "com.tencent.bugly:tinker-support:1.1.1"
+        //可以持续跟踪和报告构建时间的插件
+        classpath "net.rdrei.android.buildtimetracker:gradle-plugin:0.11.+"
     }
 }
 

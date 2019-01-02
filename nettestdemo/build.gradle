@@ -1,4 +1,4 @@
-if (!rootProject.ext.isNeedNetTestModule) {
+if (!rootProject.ext.isNetTestModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -9,7 +9,7 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        if (!rootProject.ext.isNeedNetTestModule) {
+        if (!rootProject.ext.isNetTestModule) {
             applicationId rootProject.ext.android.nettestdemoApplicationId
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -39,7 +39,7 @@ android {
     sourceSets {
         main {
             //单独的项目的话  添加单独的java 或者
-            if (!rootProject.ext.isNeedNetTestModule) {
+            if (!rootProject.ext.isNetTestModule) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java.srcDirs = ['src/main/java', 'src/main/module/java']
                 res.srcDirs = ['src/main/res', 'src/main/module/res']

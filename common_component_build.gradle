@@ -1,8 +1,4 @@
-if (isBuildModule.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -53,23 +49,6 @@ android {
     }
 
 
-    //这是干什么的
-//    lintOptions {
-//        disable 'InvalidPackage'
-//        disable "ResourceType"
-//        abortOnError false
-//    }
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-            if (isBuildModule.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-            }
-        }
-    }
 }
 
 dependencies {

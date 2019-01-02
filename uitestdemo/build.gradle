@@ -1,137 +1,24 @@
-
+if (!rootProject.ext.isUiTestModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply from: "../common_component_build.gradle"
-
 android {
-    //其他配置
-//    resourcePrefix "zhihu_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (!rootProject.ext.isUiTestModule) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
-//    implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    api project(":CommonRes")//因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
-//    api project(":CommonService")
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:27.1.1'
 }
-
-//
-//
-//
-//println csdn.equals("www.csdn.com")
-//def printPersonInfo(Map<String, Object> person) {
-//    println("${person.name} is ${person.age} years old")
-//}
-//
-//def printJobInfo(Map<String, Object> job, String employeeName) {
-//    println("$employeeName works as ${job.title} at ${job.company}")
-//}
-//printPersonInfo name: "wxq", age: 24
-//printJobInfo "wxq", title: "Android developer", company: "Tooploox"
-//class WriterOne {
-//    def printText(str) {
-//        println "Printed in One: $str"
-//    }
-//}
-//class WriterTwo {
-//    def printText(str) {
-//        println "Printed in Two: $str"
-//    }
-//}
-//def printClosure = {
-//    printText "I come from a closure"
-//}
-//printClosure.delegate = new WriterOne()
-//printClosure() // will print "Printed in One: I come from a closure
-//printClosure.delegate = new WriterTwo()
-//printClosure() // will print "Printed in Two: I come from a closure
-//println projectDir.path
-
-//
-//
-//
-//
-//
-//android {
-//    compileSdkVersion rootProject.ext.android.compileSdkVersion
-//    buildToolsVersion rootProject.ext.android.buildToolsVersion
-////    useLibrary 'org.apache.http.legacy'
-//
-//
-//
-//    defaultConfig {
-////        if (!rootProject.ext.isNeedUiTestModule) {
-////            applicationId rootProject.ext.android.uitestdemoApplicationId
-////        }
-//        minSdkVersion rootProject.ext.android.minSdkVersion
-//        targetSdkVersion rootProject.ext.android.targetSdkVersion
-//        versionCode rootProject.ext.android.versionCode
-//        versionName rootProject.ext.android.versionName
-//        multiDexEnabled true
-//        ndk { abiFilters "armeabi-v7a" }
-//
-//        //arouter
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [moduleName: project.getName()]
-//               //这是什么没看懂
-//                includeCompileClasspath true
-//
-//            }
-//        }
-//
-//
-////        javaCompileOptions {
-////            annotationProcessorOptions {
-////                includeCompileClasspath = true
-////            }
-////        }
-//
-//    }
-//
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
-//
-//
-//    sourceSets {
-//        main {
-//            //单独的项目的话  添加单独的java 或者
-//            if (!rootProject.ext.isNeedUiTestModule) {
-//                manifest.srcFile 'src/main/module/AndroidManifest.xml'
-//                java.srcDirs = ['src/main/java', 'src/main/module/java']
-//                res.srcDirs = ['src/main/res', 'src/main/module/res']
-//            } else {
-//                manifest.srcFile 'src/main/AndroidManifest.xml'
-//            }
-//            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
-//        }
-//    }
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
-//
-//
-//    dataBinding{
-//        enabled=true
-//    }
-//
-//
-//
-//
-//}
-//
-//dependencies {
-//    api fileTree(include: ['*.jar'], dir: 'libs')
-//    debugApi(rootProject.ext.deps["debug-db"]) {
-//        exclude group: 'com.android.support'
-//    }
-//    api project(':mvplibrary')
-//    annotationProcessor rootProject.ext.deps["butterknife-compiler"]
-//    annotationProcessor rootProject.ext.deps["arouter-compiler"]
-//    api rootProject.ext.deps["butterknife"]
-//    api rootProject.ext.deps["constraint-layout"]
-//
-//
-//}

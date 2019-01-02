@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaoLiPlay/BaoLiPlay.iml" filepath="$PROJECT_DIR$/BaoLiPlay/BaoLiPlay.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DevelopTools.iml" filepath="$PROJECT_DIR$/DevelopTools.iml" />
-      <module fileurl="file://D:\develop_soft\code\projectfromgithub\DevelopTools\.idea\DevelopTools.iml" filepath="D:\develop_soft\code\projectfromgithub\DevelopTools\.idea\DevelopTools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DevelopTools.iml" filepath="$PROJECT_DIR$/.idea/DevelopTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" filepath="$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonlibrary/commonlibrary.iml" filepath="$PROJECT_DIR$/commonlibrary/commonlibrary.iml" />

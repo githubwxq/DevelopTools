@@ -1,5 +1,20 @@
+if (!rootProject.ext.isBaoLiModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply from: "../common_component_build.gradle"
 android {
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (!rootProject.ext.isBaoLiModule) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
 }
 dependencies {
     implementation('com.easefun.polyv:polyvPlayer:2.5.2') {

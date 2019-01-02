@@ -16,14 +16,20 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
 
+
                 　　　　
+
+
                 <!-- 下面这几个必须要设置 -->
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+
                 　　　　
+
+
                 <!-- 协议部分 -->
                 <data
                     android:host="juziwl"
@@ -32,45 +38,47 @@
                     android:scheme="orange" />
             </intent-filter>
 
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
         <activity android:name=".SnapRecycleViewActivity" />
         <activity android:name=".AudioTestActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+
+            <!-- //使用urlscheme -->
+
+        </activity>
+        <activity android:name=".TestNativeWebViewActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-
-            <!-- //使用urlscheme -->
-
-        </activity>
-        <activity android:name=".TestNativeWebViewActivity" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".TestThirdActivity" />
-        <activity android:name=".RecycleViewTestActivity">
+        <activity android:name=".RecycleViewTestActivity"></activity>
+        <activity android:name=".TestClipBoardActivity"></activity>
 
+        <service android:name=".ClipBoardListenerService" />
 
+        <activity android:name=".FragmentTestActivity">
+
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
 
         </activity>
-        <activity android:name=".TestClipBoardActivity">
-
-        </activity>
-
-        <service android:name=".ClipBoardListenerService"
-
-            />
-
     </application>
 
 </manifest>
