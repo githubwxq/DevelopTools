@@ -2,15 +2,13 @@ ext {
 
 
 //#isBuildModule 为 true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中 //    true表示作为模块 library false表示作为应用
-    isBuildModule=true
-
-
+    isBuildModule=false
 
     isNetTestModule = false
     isArouterTestModule = false
-    isUiTestModule = false
+    isUiTestModule = true
     isBaoLiModule = false
-    isSdkModule = false
+    isSdkModule = true
 
 
 
@@ -191,16 +189,15 @@ ext {
             "rxrelay"                   : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
 
 
-
             //组件化依赖
             "arouter-api"               : "com.alibaba:arouter-api:1.3.1",
-            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4"
+            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4",
 
-
-
-
-
-
+            //ui调试框架
+            "sak-autopilot"          : "com.wanjian:sak-autopilot:0.3.0",
+            "Android-PickerView"          : "com.contrarywind:Android-PickerView:3.2.7",
+            "banner"          : "com.youth.banner:banner:1.4.10",
+            "zxing"          : "cn.yipianfengye.android:zxing-library:2.2"
 
     ]
 }

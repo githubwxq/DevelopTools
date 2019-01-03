@@ -137,7 +137,7 @@ public class ClipViewPager extends ViewPager {
 //                DisplayUtils.dip2px(107), DisplayUtils.dip2px(107));
 //        childVp.setLayoutParams(params);
 //        childVp.setPageMargin(DisplayUtils.sp2px(25));
-//        childVp.setAdapter(new AbstractViewPagerAdapter<Child>(mlist) {
+//        childVp.setAdapter(new BaseViewPagerAdapter<Child>(mlist) {
 //            @Override
 //            public View newView(int position) {
 ////                View view = LayoutInflater.from(getActivity()).inflate(R.layout.hualang_item_viewpager_layout, null);

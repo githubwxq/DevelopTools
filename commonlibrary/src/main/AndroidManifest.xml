@@ -103,18 +103,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
-
-
-
-
     <application>
-        <!--<activity-->
-            <!--android:name=".util.PermissionUtils$PermissionActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden|screenSize"-->
-            <!--android:multiprocess="true"-->
-            <!--android:theme="@style/ActivityTranslucent"-->
-            <!--android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />-->
-
         <provider
             android:name="android.support.v4.content.FileProvider4Util"
             android:authorities="${applicationId}.utilcode.provider"
@@ -123,15 +112,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/util_code_provider_paths" />
-
-
-            <!--<meta-data-->
-                <!--android:name="com.wxq.commonlibrary.glide.ProgressGlideModule"-->
-                <!--android:value="GlideModule" />-->
-
         </provider>
     </application>
-
-
 </manifest>
 

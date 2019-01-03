@@ -80,6 +80,8 @@ public class BuglyUtils {
             }
         };
         Bugly.init(context, acount, isDebug, userStrategy);
+//       CrashReport.postCatchedException(new Exception("41222"));  //手动上传错误
+
     }
 
     @TargetApi(9)

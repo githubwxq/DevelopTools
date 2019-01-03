@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 public class FragmentTestActivity extends BaseActivity {
 
-    @BindView(R.id.viewpage)
+    @BindView(R2.id.viewpage)
     ViewPager viewpage;
 
     List<Fragment> fragmentList=new ArrayList<>();

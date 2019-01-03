@@ -14,6 +14,7 @@ import com.example.commonservice.sdk.bean.SdkBean;
 import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.tools.SharedPreferencesUtils;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.imageloader.cache.DoubleCache;
 import com.wxq.commonlibrary.imageloader.loader.SimpleImageLoader;
@@ -58,7 +59,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     @Override
     protected void initViews() {
 
-
+        CrashReport.postCatchedException(new Exception("41222"));
         //配置
 
 

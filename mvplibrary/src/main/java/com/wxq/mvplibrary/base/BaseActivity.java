@@ -46,7 +46,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     private BroadcastReceiver localBroadcastReceiver = null;
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
     public RxPermissions rxPermissions;
-
     public TopBarHeard topHeard;
 
 
