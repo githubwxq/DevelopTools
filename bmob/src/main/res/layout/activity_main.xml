@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="bmob World!"
-      />
+        android:padding="5dp"
+        android:text="测试插入"
+        android:textSize="20sp" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="测试删除"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="测试修改"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="测试查询"
+        android:textSize="20sp" />
+
+
+</LinearLayout>

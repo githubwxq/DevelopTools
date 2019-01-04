@@ -64,9 +64,11 @@ ext {
             "glide-annotations"         : "com.github.bumptech.glide:annotations:${dependVersion.glide}",
             "glide-transformations"     : "jp.wasabeef:glide-transformations:3.0.1",
 
+
+
             //rx
-            "rxjava"                    : "io.reactivex.rxjava2:rxjava:2.1.1",
-            "rxandroid"                 : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxjava"                    : "io.reactivex.rxjava2:rxjava:2.2.2",
+            "rxandroid"                 : "io.reactivex.rxjava2:rxandroid:2.1.0",
             "rxpermissions"             : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
             "rxbinding"                 : "com.jakewharton.rxbinding2:rxbinding:${dependVersion.rxbinding}",
             "rxbinding-support-v4"      : "com.jakewharton.rxbinding2:rxbinding-support-v4:${dependVersion.rxbinding}",
@@ -76,7 +78,7 @@ ext {
 
             //retrofit
             "fastjson"                  : "com.alibaba:fastjson:1.1.60.android",
-            "gson"                      : "com.google.code.gson:gson:2.4",
+            "gson"                      : "com.google.code.gson:gson:2.8.5",
             "retrofit"                  : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             "retrofit-converter-scalars": "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
             "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
@@ -198,7 +200,12 @@ ext {
             "sak-autopilot"          : "com.wanjian:sak-autopilot:0.3.0",
             "Android-PickerView"          : "com.contrarywind:Android-PickerView:3.2.7",
             "banner"          : "com.youth.banner:banner:1.4.10",
-            "zxing"          : "cn.yipianfengye.android:zxing-library:2.2"
+            "zxing"          : "cn.yipianfengye.android:zxing-library:2.2",
+
+            //bmob相关  bmob-sdk  数据存储相关
+            "bmob-sdk"          : "cn.bmob.android:bmob-sdk:3.6.8-rc4"
+
+
 
     ]
 }

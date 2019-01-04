@@ -5,7 +5,7 @@ if (!rootProject.ext.isBmobModule) {
 }
 apply from: "../common_component_build.gradle"
 android {
-
+    useLibrary 'org.apache.http.legacy'
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
