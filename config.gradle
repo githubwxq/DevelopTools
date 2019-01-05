@@ -11,6 +11,9 @@ ext {
     isSdkModule = true
     isBmobModule = false
 
+    //true 为依赖库 false 为应用
+    isLoginModule = true
+
 
 
     /**
