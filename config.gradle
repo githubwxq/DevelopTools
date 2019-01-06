@@ -9,8 +9,9 @@ ext {
     isUiTestModule = true
     isBaoLiModule = false
     isSdkModule = true
-    isBmobModule = false
 
+    //bmob当前为应用成无任何代码只有常见配置
+    isBmobModule = false
     //true 为依赖库 false 为应用
     isLoginModule = true
 
@@ -28,6 +29,8 @@ ext {
             nettestdemoApplicationId    : "com.example.nettestdemo",
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",
             uitestdemoApplicationId     : "com.example.uitestdemo",
+            bmobApplicationId           : "com.example.bmob",
+
             minSdkVersion               : 17,
             targetSdkVersion            : 27,
             versionCode                 : 1,
@@ -118,9 +121,10 @@ ext {
             "GreenDaoUpgradeHelper"     : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
 
             //友盟
-            "umeng-analytics"           : "com.umeng.analytics:analytics:6.1.2",
+            "umeng-analytics"           : "com.umeng.umsdk:analytics:7.5.4",
+            "umeng-common"           : "com.umeng.umsdk:common:1.5.4",
 
-            //nineoldandroids
+            //nineoldandroidsff
             "nineoldandroids"           : "com.nineoldandroids:library:2.4.0",
 
             //工具类集合

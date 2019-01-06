@@ -17,6 +17,8 @@ buildscript {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://jitpack.io" }
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 
 
@@ -46,6 +48,8 @@ allprojects {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://jitpack.io" }
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
     tasks.withType(Javadoc) { //兼容中文字符
         options {
