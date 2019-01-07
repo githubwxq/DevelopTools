@@ -1,5 +1,8 @@
 package com.example.bmob.app;
 
+import com.example.bmob.BuildConfig;
+import com.umeng.analytics.MobclickAgent;
+import com.wxq.commonlibrary.util.BuglyUtils;
 import com.wxq.mvplibrary.base.BaseApp;
 
 import cn.bmob.v3.Bmob;
@@ -16,6 +19,9 @@ public class BmobApplication extends BaseApp {
     public void onCreate() {
         super.onCreate();
         Bmob.initialize(this, "ea796f59c1a3d4a34f0b18b7626dd291");
+        //初始化bugly
+        BuglyUtils.init(this,"bf24009ac5", BuildConfig.DEBUG);
+        //初始化友盟社区化分享
 
     }
 

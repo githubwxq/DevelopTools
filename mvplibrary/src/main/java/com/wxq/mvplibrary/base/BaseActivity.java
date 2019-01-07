@@ -18,6 +18,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.baserx.Event;
@@ -208,4 +209,16 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         return   true;
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 }
