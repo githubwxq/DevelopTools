@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -20,6 +21,7 @@ import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.AppManager;
+import com.wxq.commonlibrary.util.RxHelp;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.baserx.Event;
 import com.wxq.mvplibrary.baserx.RxBus;
@@ -221,4 +223,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
+//    ui相关辅助操作
+    public void click(View view, Consumer<Object> consumer){
+        RxHelp.click(view,consumer);
+    }
+
+
 }
