@@ -113,6 +113,8 @@ dependencies {
     //bmob
     api rootProject.ext.deps["bmob-sdk"]
 
+    api rootProject.ext.deps["bmob-push"]
+
 
 
 

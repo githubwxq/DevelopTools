@@ -103,6 +103,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
+    <!-- bmob相关权限 -->
+
+
+
     <application>
         <provider
             android:name="android.support.v4.content.FileProvider4Util"
