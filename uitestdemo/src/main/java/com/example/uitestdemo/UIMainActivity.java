@@ -18,7 +18,6 @@ import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.juziwl.uilibrary.notification.NotificationUtils;
 import com.juziwl.uilibrary.progressbar.MyProgressBarSecond;
-import com.juziwl.uilibrary.recycler.xrecyclerview.SuperRecyclerView;
 import com.wxq.commonlibrary.util.ClipboardUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
@@ -55,7 +54,6 @@ public class UIMainActivity extends BaseActivity {
     SuperEditText etSuperedit;
 
 
-    SuperRecyclerView superRecyclerView;
 
 
 

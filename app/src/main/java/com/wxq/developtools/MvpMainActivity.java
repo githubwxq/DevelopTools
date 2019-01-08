@@ -1,9 +1,6 @@
 package com.wxq.developtools;
 
 import android.Manifest;
-import android.content.Intent;
-import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,30 +10,16 @@ import com.example.commonservice.ServiceCallBack;
 import com.example.commonservice.sdk.bean.SdkBean;
 import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
-import com.juziwl.uilibrary.tools.SharedPreferencesUtils;
-import com.tencent.bugly.crashreport.CrashReport;
-import com.wxq.commonlibrary.constant.GlobalContent;
-import com.wxq.commonlibrary.imageloader.cache.DoubleCache;
-import com.wxq.commonlibrary.imageloader.loader.SimpleImageLoader;
-import com.wxq.commonlibrary.imageloader.policy.ReversePolicy;
-import com.wxq.commonlibrary.retrofit.download.DownloadHelper;
-import com.wxq.commonlibrary.retrofit.download.DownloadListener;
-import com.wxq.commonlibrary.util.BarUtils;
-import com.wxq.commonlibrary.util.FileUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.baserx.Event;
-import com.wxq.mvplibrary.baserx.RxBus;
-import com.wxq.mvplibrary.baserx.RxBusManager;
 import com.wxq.mvplibrary.dbmanager.DbManager;
 import com.wxq.mvplibrary.model.User;
 import com.wxq.mvplibrary.router.RouterContent;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -59,7 +42,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     @Override
     protected void initViews() {
 
-        CrashReport.postCatchedException(new Exception("41222"));
+
         //配置
 
 
@@ -139,28 +122,28 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
 //                    、、下载
 
-                    DownloadHelper helper = new DownloadHelper("http://www.baidu.com", new DownloadListener() {
-                        @Override
-                        public void onStartDownload() {
-
-                        }
-
-                        @Override
-                        public void onProgress(int progress) {
-                            tvHello.setText(progress + "");
-                        }
-
-                        @Override
-                        public void onFinishDownload(File file) {
-
-                            tv_hello2.setText(file.getAbsolutePath());
-                        }
-
-                        @Override
-                        public void onFail(Throwable ex) {
-
-                        }
-                    });
+//                    DownloadHelper helper = new DownloadHelper("http://www.baidu.com", new DownloadListener() {
+//                        @Override
+//                        public void onStartDownload() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onProgress(int progress) {
+//                            tvHello.setText(progress + "");
+//                        }
+//
+//                        @Override
+//                        public void onFinishDownload(File file) {
+//
+//                            tv_hello2.setText(file.getAbsolutePath());
+//                        }
+//
+//                        @Override
+//                        public void onFail(Throwable ex) {
+//
+//                        }
+//                    });
 //                    helper.downloadFile("https://dfsres-1254059237.cos.ap-shanghai.myqcloud.com/apppackage/testpad/ipadteacher.apk", GlobalContent.SAVEFILEPATH,"test.apk");
 
 //                    try {

@@ -9,16 +9,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/aroutertestdemo" />
             <option value="$PROJECT_DIR$/bmob" />
             <option value="$PROJECT_DIR$/commonlibrary" />
             <option value="$PROJECT_DIR$/commonservice" />
+            <option value="$PROJECT_DIR$/gank" />
             <option value="$PROJECT_DIR$/ijkplayerlib" />
             <option value="$PROJECT_DIR$/im" />
             <option value="$PROJECT_DIR$/module_login" />
             <option value="$PROJECT_DIR$/module_wanandroid" />
             <option value="$PROJECT_DIR$/mvplibrary" />
-            <option value="$PROJECT_DIR$/nettestdemo" />
             <option value="$PROJECT_DIR$/photoview" />
             <option value="$PROJECT_DIR$/picture_library" />
             <option value="$PROJECT_DIR$/sdktestdemo" />

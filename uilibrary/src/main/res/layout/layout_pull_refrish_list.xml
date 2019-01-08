@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yan.pullrefreshlayout.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    <com.yan.pullrefreshlayout.NestedFrameLayout
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+>
+    <!--app:prl_headerShowGravity="placeholder"-->
+    <!--app:prl_pullUpMaxDistance="250dp"-->
+
+    <com.juziwl.uilibrary.pullrefreshlayout.widget.NestedFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.juziwl.uilibrary.recycler.BaseWrapRecyclerView
+
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,16 +24,18 @@
             android:id="@+id/nest_nodata"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:background="@mipmap/common_white_bg"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_gravity="center"
             android:visibility="gone">
+
             <ImageView
                 android:id="@+id/nodate_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/nodatapic" />
+
             <TextView
                 android:id="@+id/nodata_message"
                 android:layout_width="wrap_content"
@@ -40,5 +47,5 @@
         </LinearLayout>
 
 
-    </com.yan.pullrefreshlayout.NestedFrameLayout>
-</com.yan.pullrefreshlayout.PullRefreshLayout>
+    </com.juziwl.uilibrary.pullrefreshlayout.widget.NestedFrameLayout>
+</com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout>

@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/loading_view"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/jiantou"
+        />
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_toRightOf="@+id/loading_view"
+            android:textSize="14sp"
+            android:minWidth="130dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="上拉可以加载更多"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/loading_view"
+            android:layout_toEndOf="@+id/loading_view" />
+
+        <!--可以松开手啦-->
+
+        <TextView
+            android:id="@+id/tv_complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="已经全部加载完毕"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:textColor="#999999"
+            />
+
+    </RelativeLayout>
+</FrameLayout>
+

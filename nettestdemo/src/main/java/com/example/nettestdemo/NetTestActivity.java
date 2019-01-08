@@ -9,10 +9,10 @@ import com.wxq.commonlibrary.Service.WanAndroidApi;
 import com.wxq.commonlibrary.model.LoginResponse;
 import com.wxq.commonlibrary.model.ResponseData;
 import com.wxq.commonlibrary.model.User;
-import com.wxq.commonlibrary.retrofit.Api;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
+import com.wxq.mvplibrary.http.common.Api;
 import com.wxq.mvplibrary.router.RouterContent;
 
 import org.reactivestreams.Publisher;

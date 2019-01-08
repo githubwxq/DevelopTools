@@ -10,11 +10,12 @@ ext {
     isBaoLiModule = false
     isSdkModule = true
 
+    //true为应用  false 为依赖库
     //bmob当前为应用成无任何代码只有常见配置
-    isBmobModule = false
-    //true 为依赖库 false 为应用
-    isLoginModule = true
+    isBmobModule = true
+    isLoginModule = false
     isWanAndroidApp = true
+    isGankApp = true
 
 
 
@@ -146,6 +147,8 @@ ext {
             "photoview"                 : "com.github.chrisbanes.photoview:library:1.2.4",
 
             "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
+            "pullrefreshlayout"             : "com.yan:pullrefreshlayout:2.2.6",
+            "BaseRecyclerViewAdapterHelper"             : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
 
             //recycleview动画
             "recyclerview-animators"    : "jp.wasabeef:recyclerview-animators:2.3.0",
