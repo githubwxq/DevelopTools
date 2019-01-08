@@ -136,7 +136,7 @@ public class UIMainActivity extends BaseActivity {
                 a++;
 //                 int a=0;
 //             boolean judgeNull=  user.accessToken.equals("1");
-                NotificationUtils.showCommonNofition(UIMainActivity.this, "id", "name");
+//                NotificationUtils.showCommonNofition(UIMainActivity.this, "id", "name");
 
 
                 //设置剪切板信息

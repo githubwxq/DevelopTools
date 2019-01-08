@@ -21,13 +21,15 @@ import com.juziwl.uilibrary.R;
 public class NotificationUtils {
 
 
-    public static void showCommonNofition(Context context, String id, CharSequence name) {
-
+    public static void showCommonNofition(Context context, String title, String content, Intent notificationIntent ) {
+        String id="id";
+        String name="name";
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1) {
             NotificationChannel channel = manager.getNotificationChannel(id);
             if (channel == null) {
+                // 传入参数：通道ID，通道名字，通道优先级（类似曾经的 builder.setPriority()）
                 channel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH);
                 // 开启指示灯，如果设备有的话
                 channel.enableLights(true);
@@ -45,13 +47,6 @@ public class NotificationUtils {
         } else {
             mBuilder = new NotificationCompat.Builder(context);
         }
-        Intent notificationIntent = null;
-        try {
-            notificationIntent = new Intent(context, Class.forName("com.example.uitestdemo.AudioTestActivity"));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.common_layout_common_dialog);
@@ -60,7 +55,7 @@ public class NotificationUtils {
 //                .setCustomBigContentView(new RemoteViews(context.getPackageName(),R.layout.common_layout_common_dialog))
                 .setContentText("content")
                 .setContentIntent(intent)
-                .setAutoCancel(false)
+                .setAutoCancel(true)
 //              .setNumber(++pushNum) //设置通知集合的数量
                 //通知首次出现在通知栏，带上升动画效果的
 //                .setProgress(100, 0, false)
