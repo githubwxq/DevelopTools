@@ -1,3 +1,1 @@
-include ':app', ':commonlibrary', ':uilibrary',':mvplibrary', ':nettestdemo', ':uitestdemo', ':sdktestdemo', ':commonservice', ':bmob', ':module_login'
-
-//,':jpushdemo' , ':BaoLiPlay' , ':aroutertestdemo'
+include ':app', ':commonlibrary', ':uilibrary',':mvplibrary', ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo', ':commonservice', ':bmob', ':module_login', ':module_wanandroid'
