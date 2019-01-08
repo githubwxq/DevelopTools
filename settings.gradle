@@ -1,4 +1,4 @@
-include ':app', ':commonlibrary', ':uilibrary',':mvplibrary',
+include ':app', ':commonlibrary', ':uilibrary',':mvplibrary',':gank',
         ':commonservice',
         ':bmob', ':module_login', ':module_wanandroid',':picture_library', ':photoview', ':im', ':ijkplayerlib'
 
