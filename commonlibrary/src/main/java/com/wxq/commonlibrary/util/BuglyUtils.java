@@ -27,6 +27,7 @@ public class BuglyUtils {
             @Override
             public synchronized Map<String, String> onCrashHandleStart(int i, String s, String s1, String s2) {
                 Map<String, String> map = new HashMap<>(5);
+                map.put("from","development");
                 return map;
             }
         });
@@ -80,6 +81,8 @@ public class BuglyUtils {
             }
         };
         Bugly.init(context, acount, isDebug, userStrategy);
+        //CrashReport.postCatchedException(new Exception("41222"));  //手动上传错误
+        // CrashReport.testJavaCrash();  //手动排除异常
     }
 
     @TargetApi(9)

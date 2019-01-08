@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.viewpage;
+package com.juziwl.uilibrary.viewpage.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.util.SparseArray;
@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public abstract class AbstractViewPagerAdapter<T> extends PagerAdapter {
+public abstract class BaseViewPagerAdapter<T> extends PagerAdapter {
     public List<T> mData;
     public SparseArray<View> mViews;  //根据位置存入view  外层能拿到所有的view
   
-    public AbstractViewPagerAdapter(List<T> data) {  //传入数据mData
+    public BaseViewPagerAdapter(List<T> data) {  //传入数据mData
         mData = data;  
         mViews = new SparseArray<View>(data.size());  
     }
@@ -58,7 +58,7 @@ public abstract class AbstractViewPagerAdapter<T> extends PagerAdapter {
 
 //、、使用方法     View view = LayoutInflater.from(this).inflate(R.layout.hualang_item_viewpager_layout, null);
 
-//class OpenResultAdapter extends AbstractViewPagerAdapter<OpenResult> {
+//class OpenResultAdapter extends BaseViewPagerAdapter<OpenResult> {
 //
 //    public OpenResultAdapter(List<OpenResult> data) {
 //        super(data);

@@ -2,7 +2,10 @@
 //
 //import android.app.Activity;
 //import android.content.Context;
+//import android.util.Config;
+//
 //import com.umeng.analytics.MobclickAgent;
+//import com.umeng.commonsdk.UMConfigure;
 //import com.wxq.commonlibrary.channel.DNChannelHelper;
 //
 ///**

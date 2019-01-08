@@ -1,0 +1,60 @@
+if (!rootProject.ext.isBmobModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply from: "../common_component_build.gradle"
+android {
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId rootProject.ext.android.bmobApplicationId
+
+
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (!rootProject.ext.isBmobModule) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'bmob'
+            keyPassword '111111'
+            storeFile file('./keystore/bmob.jks')
+            storePassword '111111'
+        }
+        release {
+            keyAlias 'bmob'
+            keyPassword '111111'
+            storeFile file('./keystore/bmob.jks')
+            storePassword '111111'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+dependencies {
+    implementation project(':module_login')
+}

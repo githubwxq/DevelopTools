@@ -11,6 +11,7 @@ import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.smtt.sdk.QbSdk;
+import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
 
@@ -40,8 +41,6 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         super.onCreate();
         mContext = this;
         isDebug = setIsDebug();
-
-        initDagger();
         //工具初始化
         Utils.init(this);
         initLog();
@@ -52,6 +51,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         ARouter.openLog();
         ARouter.openDebug();
         ARouter.init(this);
+        //通过反射调用其他application
         applicationDelegate.onCreate(this);
 
     }
@@ -65,7 +65,6 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
     private void initX5WebView() {
         try {
             QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
-
                 @Override
                 public void onViewInitFinished(boolean arg0) {
                     // TODO Auto-generated method stub
@@ -110,6 +109,35 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
     public void onTerminate() {
         super.onTerminate();
         applicationDelegate.onTerminate(this);
+        exitApp();
     }
+
+
+    /**
+     * 退出应用
+     */
+    public void exitApp() {
+        AppManager.getInstance().killAllActivity();
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
+    }
+    /**
+     * 低内存的时候执行
+     */
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+
+    }
+    // 程序在内存清理的时候执行
+    /**
+     * 程序在内存清理的时候执行
+     */
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+
+    }
+
 
 }

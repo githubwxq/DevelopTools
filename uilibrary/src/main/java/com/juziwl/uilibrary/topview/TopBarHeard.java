@@ -92,24 +92,32 @@ public class TopBarHeard extends LinearLayout {
     }
 
 
-    public TopBarHeard setLeftAndRightListener(OnClickListener left,OnClickListener right) {
-        iv_header_layout_right.setOnClickListener(right);
+    public TopBarHeard setLeftAndRightListener(OnClickListener left, OnClickListener right) {
+        if (left == null) {
+            iv_header_layoutleft.setVisibility(GONE);
+        }else {
+            iv_header_layoutleft.setVisibility(VISIBLE);
+        }
+        if (right == null) {
+            iv_header_layout_right.setVisibility(GONE);
+        }else {
+            iv_header_layout_right.setVisibility(VISIBLE);
+        }
         tv_header_layout_right.setOnClickListener(right);
         iv_header_layoutleft.setOnClickListener(left);
         return this;
     }
 
-      public TopBarHeard setLeftListener(OnClickListener left) {
+    public TopBarHeard setLeftListener(OnClickListener left) {
         iv_header_layoutleft.setOnClickListener(left);
         return this;
     }
 
-        public TopBarHeard setRightListener(OnClickListener right) {
+    public TopBarHeard setRightListener(OnClickListener right) {
         iv_header_layout_right.setOnClickListener(right);
         tv_header_layout_right.setOnClickListener(right);
         return this;
     }
-
 
 
 }

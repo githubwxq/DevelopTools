@@ -10,65 +10,163 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-
 import com.juziwl.uilibrary.dialog.DialogManager;
+import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.baserx.RxBus;
-
 import java.util.List;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
 import com.wxq.mvplibrary.baserx.Event;
-
 /**
  * Created by long on 2016/5/31.
  * 碎片基类
  */
 public abstract class BaseFragment<T extends BasePresenter> extends RxFragment implements BaseView {
 
-
     public T mPresenter;
-
     Unbinder unbinder;
-
     private Dialog mDialog;
-
     protected Context mContext;
-
-    public boolean hideflag = false;
-
     //防止fragment重叠
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     public String fragmentTitle;
-    private boolean isVisible;
-
-    private boolean isPrepared;
-    protected boolean isFirstLoad = true;
-
     protected RxPermissions rxPermissions = null;
     //缓存Fragment view
     protected View mRootView;
-    private boolean waitingShowToUser = false;
-    private FragmentTransaction ft;
 
+
+    protected boolean mIsFirstVisible = true;
+    protected boolean isViewCreated = false;
+    protected boolean currentVisibleState = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            if (isSupportHidden) {
+                ft.hide(this);
+            } else {
+                ft.show(this);
+            }
+            ft.commit();
+        }
         mContext = getActivity();
     }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!mIsFirstVisible) {
+            if (!isHidden() && !currentVisibleState && getUserVisibleHint()) {
+                dispatchUserVisibleHint(true);
+            }
+        }
+    }
+
+
+    /**
+     * 统一处理 显示隐藏
+     *
+     * @param visible
+     */
+    public void dispatchUserVisibleHint(boolean visible) {
+        //当前 Fragment 是 child 时候 作为缓存 Fragment 的子 fragment getUserVisibleHint = true
+        //但当父 fragment 不可见所以 currentVisibleState = false 直接 return 掉
+        // 这里限制则可以限制多层嵌套的时候子 Fragment 的分发
+        if (visible && isParentInvisible()) return;
+        //此处是对子 Fragment 不可见的限制，因为 子 Fragment 先于父 Fragment回调本方法 currentVisibleState 置位 false
+        // 当父 dispatchChildVisibleState 的时候第二次回调本方法 visible = false 所以此处 visible 将直接返回
+        if (currentVisibleState == visible) {
+            return;
+        }
+        currentVisibleState = visible;
+        if (visible) {
+            if (mIsFirstVisible) {
+                mIsFirstVisible = false;
+                lazyLoadData(null);
+            }
+            onFragmentResume();
+            dispatchChildVisibleState(true);
+        } else {
+            dispatchChildVisibleState(false);
+            onFragmentPause();
+        }
+    }
+
+    /**
+     * 当前 Fragment 是 child 时候 作为缓存 Fragment 的子 fragment 的唯一或者嵌套 VP 的第一 fragment 时 getUserVisibleHint = true
+     * 但是由于父 Fragment 还进入可见状态所以自身也是不可见的， 这个方法可以存在是因为庆幸的是 父 fragment 的生命周期回调总是先于子 Fragment
+     * 所以在父 fragment 设置完成当前不可见状态后，需要通知子 Fragment 我不可见，你也不可见，
+     * <p>
+     * 因为 dispatchUserVisibleHint 中判断了 isParentInvisible 所以当 子 fragment 走到了 onActivityCreated 的时候直接 return 掉了
+     * <p>
+     * 当真正的外部 Fragment 可见的时候，走 setVisibleHint (VP 中)或者 onActivityCreated (hide show) 的时候
+     * 从对应的生命周期入口调用 dispatchChildVisibleState 通知子 Fragment 可见状态
+     *
+     * @param visible
+     */
+    private void dispatchChildVisibleState(boolean visible) {
+        FragmentManager childFragmentManager = getChildFragmentManager();
+        List<Fragment> fragments = childFragmentManager.getFragments();
+        if (!fragments.isEmpty()) {
+            for (Fragment child : fragments) {
+                if (child instanceof BaseFragment && !child.isHidden() && child.getUserVisibleHint()) {
+                    ((BaseFragment) child).dispatchUserVisibleHint(visible);
+                }
+            }
+        }
+    }
+
+    /**
+     * 用于分发可见时间的时候父获取 fragment 是否隐藏
+     *
+     * @return true fragment 不可见， false 父 fragment 可见
+     */
+    private boolean isParentInvisible() {
+        Fragment parentFragment = getParentFragment();
+        if (parentFragment instanceof BaseFragment ) {
+            BaseFragment fragment = (BaseFragment) parentFragment;
+            return !fragment.isSupportVisible();
+        }else {
+            return false;
+        }
+    }
+
+    public boolean isSupportVisible() {
+        return currentVisibleState;
+    }
+
+    public void lazyLoadData(View view) {
+        Logger.d(getClass().getSimpleName() + "  对用户第一次可见");
+    }
+
+
+    public void onFragmentResume() {
+        Logger.d(getClass().getSimpleName() + "  对用户可见");
+
+    }
+
+    public void onFragmentPause() {
+        Logger.d(getClass().getSimpleName() + "  对用户不可见");
+
+    }
+
+
+
 
     protected abstract T initPresenter();
 
@@ -76,18 +174,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        try {
-            if (unbinder != null) {
-                unbinder.unbind();
-            }
-            if (mPresenter != null) {
-                mPresenter.unDisposable();
-            }
-        } catch (Exception e) {
-
+        if (unbinder != null) {
+            unbinder.unbind();
         }
-
-
+        if (mPresenter != null)
+            mPresenter.unDisposable();
     }
 
     @Nullable
@@ -109,8 +200,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         RxBus.getDefault().take()
                 .compose(this.bindUntilEvent(FragmentEvent.DESTROY)).subscribe(event -> {
             dealWithRxEvent(event.action, event);
-        });
-        ;
+        });;
 
     }
 
@@ -134,9 +224,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews();
-        isPrepared = true;
         commonLoad(mRootView);  //比initwidget后执行 initwidget初始化控件 实现类用butterknife实现
-        lazyLoad(mRootView);
     }
 
     /**
@@ -150,112 +238,43 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // 如果自己是显示状态，但父Fragment却是隐藏状态，就把自己也改为隐藏状态，并且设置一个等待显示标记
-        if (getUserVisibleHint()) {
-            Fragment parentFragment = getParentFragment();
-            if (parentFragment != null && !parentFragment.getUserVisibleHint()) {
-                waitingShowToUser = true;
-                super.setUserVisibleHint(false);
-            }
+        isViewCreated = true;
+        // !isHidden() 默认为 true  在调用 hide show 的时候可以使用
+        if (!isHidden() && getUserVisibleHint()) {
+            dispatchUserVisibleHint(true);
         }
     }
 
-    /**
-     * 如果是与ViewPager一起使用，调用的是setUserVisibleHint
-     *
-     * @param isVisibleToUser 是否显示出来了
-     */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            // 父Fragment还没显示，你着什么急
-            Fragment parentFragment = getParentFragment();
-            if (parentFragment != null && !parentFragment.getUserVisibleHint()) {
-                waitingShowToUser = true;
-                super.setUserVisibleHint(false);
-            } else {
-                isVisible = true;
-                onVisible();
-            }
-        }
-        if (getActivity() != null) {
-            @SuppressLint("RestrictedApi")
-            List<Fragment> childFragmentList = getChildFragmentManager().getFragments();
-            if (isVisibleToUser) {
-                // 将所有正等待显示的子Fragment设置为显示状态，并取消等待显示标记
-                if (childFragmentList != null && childFragmentList.size() > 0) {
-                    for (Fragment childFragment : childFragmentList) {
-                        if (childFragment instanceof BaseFragment) {
-                            BaseFragment childBaseFragment = (BaseFragment) childFragment;
-                            if (childBaseFragment.isWaitingShowToUser()) {
-                                childBaseFragment.setWaitingShowToUser(false);
-                                childFragment.setUserVisibleHint(true);
-                            }
-                        }
-                    }
-                }
-            } else {
-                // 将所有正在显示的子Fragment设置为隐藏状态，并设置一个等待显示标记
-                if (childFragmentList != null && childFragmentList.size() > 0) {
-                    for (Fragment childFragment : childFragmentList) {
-                        if (childFragment instanceof BaseFragment) {
-                            BaseFragment childBaseFragment = (BaseFragment) childFragment;
-                            if (childFragment.getUserVisibleHint()) {
-                                childBaseFragment.setWaitingShowToUser(true);
-                                childFragment.setUserVisibleHint(false);
-                            }
-                        }
-                    }
-                } else {
-                    isVisible = false;
-                }
+        // 对于默认 tab 和 间隔 checked tab 需要等到 isViewCreated = true 后才可以通过此通知用户可见
+        // 这种情况下第一次可见不是在这里通知 因为 isViewCreated = false 成立,等从别的界面回到这里后会使用 onFragmentResume 通知可见
+        // 对于非默认 tab mIsFirstVisible = true 会一直保持到选择则这个 tab 的时候，因为在 onActivityCreated 会返回 false
+        if (isViewCreated) {
+            if (isVisibleToUser && !currentVisibleState) {
+                dispatchUserVisibleHint(true);
+            } else if (!isVisibleToUser && currentVisibleState) {
+                dispatchUserVisibleHint(false);
             }
         }
     }
 
-    /**
-     * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged.
-     * 若是初始就show的Fragment 为了触发该事件 需要先hide再show
-     *
-     * @param hidden hidden True if the fragment is now hidden, false if it is not
-     *               visible.
-     */
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (!hidden) {
-            isVisible = true;
-            onVisible();
+        Logger.d(getClass().getSimpleName() + "  onHiddenChanged dispatchChildVisibleState  hidden " + hidden);
+        if (hidden) {
+            dispatchUserVisibleHint(false);
         } else {
-            isVisible = false;
+            dispatchUserVisibleHint(true);
         }
     }
 
 
-    public void onVisible() {
-        if (mRootView != null) {
-            lazyLoad(mRootView);
-        }
-    }
 
 
-    /**
-     * 要实现延迟加载Fragment内容,需要在 onCreateView
-     * isPrepared = true;
-     */
-    private void lazyLoad(View view) {
-        if (!isPrepared || !isVisible || !isFirstLoad) {
-            return;
-        }
-        isFirstLoad = false;
-        lazyLoadData(view);
-    }
 
-    public void lazyLoadData(View view) {
-
-    }
 
     // 处理系统发出的广播
     public BroadcastReceiver broadcastReceiver = null, localBroadcastReceiver = null;
@@ -293,13 +312,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         }
     }
 
-    public boolean isWaitingShowToUser() {
-        return waitingShowToUser;
-    }
-
-    public void setWaitingShowToUser(boolean waitingShowToUser) {
-        this.waitingShowToUser = waitingShowToUser;
-    }
 
     /**
      * 子类添加的action

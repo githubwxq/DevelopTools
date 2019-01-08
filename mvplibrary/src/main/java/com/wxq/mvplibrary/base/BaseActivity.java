@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -18,7 +19,9 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.AppManager;
+import com.wxq.commonlibrary.util.RxHelp;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.baserx.Event;
 import com.wxq.mvplibrary.baserx.RxBus;
@@ -46,7 +49,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     private BroadcastReceiver localBroadcastReceiver = null;
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
     public RxPermissions rxPermissions;
-
     public TopBarHeard topHeard;
 
 
@@ -208,5 +210,24 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     public boolean isNeedHeardLayout() {
         return   true;
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+//    ui相关辅助操作
+    public void click(View view, Consumer<Object> consumer){
+        RxHelp.click(view,consumer);
+    }
+
 
 }

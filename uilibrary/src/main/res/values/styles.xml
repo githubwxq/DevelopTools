@@ -248,4 +248,24 @@
 
 
 
+    <!--水平线-->
+    <style name="HorizontalLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/common_grey_cccccc</item>
+    </style>
+    <!--垂直线-->
+    <style name="VerticalLineStyle">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/common_grey_cccccc</item>
+    </style>
+    <!--水平小分割线-->
+    <style name="otherui_TabLayoutTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+
+
 </resources>
