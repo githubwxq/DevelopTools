@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BaoLiPlay/BaoLiPlay.iml" filepath="$PROJECT_DIR$/BaoLiPlay/BaoLiPlay.iml" />
       <module fileurl="file://$PROJECT_DIR$/DevelopTools.iml" filepath="$PROJECT_DIR$/DevelopTools.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/DevelopTools.iml" filepath="$PROJECT_DIR$/.idea/DevelopTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" filepath="$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/bmob/bmob.iml" filepath="$PROJECT_DIR$/bmob/bmob.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonlibrary/commonlibrary.iml" filepath="$PROJECT_DIR$/commonlibrary/commonlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonservice/commonservice.iml" filepath="$PROJECT_DIR$/commonservice/commonservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" filepath="$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/im/im.iml" filepath="$PROJECT_DIR$/im/im.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_wanandroid/module_wanandroid.iml" filepath="$PROJECT_DIR$/module_wanandroid/module_wanandroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvplibrary/mvplibrary.iml" filepath="$PROJECT_DIR$/mvplibrary/mvplibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettestdemo/nettestdemo.iml" filepath="$PROJECT_DIR$/nettestdemo/nettestdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdktestdemo/sdktestdemo.iml" filepath="$PROJECT_DIR$/sdktestdemo/sdktestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/uilibrary/uilibrary.iml" filepath="$PROJECT_DIR$/uilibrary/uilibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/uitestdemo/uitestdemo.iml" filepath="$PROJECT_DIR$/uitestdemo/uitestdemo.iml" />
