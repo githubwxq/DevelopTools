@@ -14,6 +14,7 @@ ext {
     isBmobModule = false
     //true 为依赖库 false 为应用
     isLoginModule = true
+    isWanAndroidApp = true
 
 
 
@@ -30,6 +31,7 @@ ext {
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",
             uitestdemoApplicationId     : "com.example.uitestdemo",
             bmobApplicationId           : "com.example.bmob",
+            wanandroidId                : "com.heqijun.module_wanandroid",
 
             minSdkVersion               : 17,
             targetSdkVersion            : 27,

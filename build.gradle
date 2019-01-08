@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
 buildscript {
+    ext.kotlin_version = '1.2.41'
 
     repositories {
         google()
@@ -10,8 +11,8 @@ buildscript {
         mavenCentral()
         mavenLocal()
         maven { url 'http://developer.huawei.com/repo/' }
-        maven {url 'http://maven.aliyun.com/nexus/content/repositories/releases/'}
-        maven {url 'https://dl.bintray.com/polyv/android'}
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url 'https://dl.bintray.com/polyv/android' }
         maven { url "https://dl.google.com/dl/android/maven2" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
@@ -29,7 +30,12 @@ buildscript {
         classpath "com.tencent.bugly:tinker-support:1.1.1"
         //可以持续跟踪和报告构建时间的插件
         classpath "net.rdrei.android.buildtimetracker:gradle-plugin:0.11.+"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
+
+    
+
+
 }
 
 allprojects {
