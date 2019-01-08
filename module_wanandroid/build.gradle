@@ -1,0 +1,29 @@
+if (rootProject.ext.isWanAndroidApp) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply from: "../common_component_build.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    defaultConfig {
+        if (rootProject.ext.isWanAndroidApp) {
+            applicationId rootProject.ext.android.wanandroidId
+        }
+    }
+    sourceSets {
+        main {
+            if (rootProject.ext.isWanAndroidApp) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
