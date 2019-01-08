@@ -104,8 +104,8 @@ dependencies {
     //        implementation project(':aroutertestdemo')
     //    }
     if (!rootProject.ext.isBuildModule) {
-        implementation project(':uitestdemo')
-        implementation project(':sdktestdemo')
+//        implementation project(':uitestdemo')
+//        implementation project(':sdktestdemo')
 //        implementation project(':module_wanandroid')
 //        implementation project(':aroutertestdemo')
     }

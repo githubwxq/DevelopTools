@@ -27,4 +27,17 @@
         android:layout_height="wrap_content" />
 
 
+    <RelativeLayout
+        android:id="@+id/rl_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+        <com.luck.picture.lib.PictureSelectorView
+            android:id="@+id/pic_select_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
 </RelativeLayout>
