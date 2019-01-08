@@ -10,11 +10,12 @@ ext {
     isBaoLiModule = false
     isSdkModule = true
 
+    //true为应用  false 为依赖库
     //bmob当前为应用成无任何代码只有常见配置
-    isBmobModule = false
-    //true 为依赖库 false 为应用
-    isLoginModule = true
+    isBmobModule = true
+    isLoginModule = false
     isWanAndroidApp = true
+    isGankApp = true
 
 
 

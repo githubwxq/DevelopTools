@@ -1,4 +1,4 @@
-if (!rootProject.ext.isBmobModule) {
+if (rootProject.ext.isBmobModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -14,7 +14,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
-            if (!rootProject.ext.isBmobModule) {
+            if (rootProject.ext.isBmobModule) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'

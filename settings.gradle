@@ -1,5 +1,5 @@
 include ':app', ':commonlibrary', ':uilibrary',':mvplibrary',
-        ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo', ':commonservice',
-        ':bmob', ':module_login', ':module_wanandroid',':picture_library', ':photoview', ':im', ':ijkplayerlib',':gank',
+         ':uitestdemo', ':sdktestdemo', ':commonservice',
+        ':bmob', ':module_login', ':module_wanandroid',':picture_library', ':photoview', ':im', ':ijkplayerlib',':gank'
 
 
