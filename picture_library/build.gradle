@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //    api rootProject.ext.dependencies["ucrop"]
+    //    api project(':ucrop')
+    api rootProject.ext.deps["appcompat-v7"]
+    api rootProject.ext.deps["design"]
+    api rootProject.ext.deps["recyclerview-v7"]
+    api rootProject.ext.deps["cardview-v7"]
+    api rootProject.ext.deps["support-v4"]
+    api project(path: ':photoview')
+    api project(':commonlibrary')
+    api project(':ijkplayerlib')
+
+//    provided rootProject.ext.deps["rxjava"]
+//    provided rootProject.ext.deps["rxandroid"]
+//    provided rootProject.ext.deps["rxpermissions"]
+    //glide
+//    provided rootProject.ext.deps["glide"]
+//    provided (rootProject.ext.deps["glide-okhttp3-integration"]){
+//        exclude group: 'com.squareup.okhttp3'
+//    }
+//    api 'com.juziwl.exue:photoview:0.0.3'
+//        api project(path: ':photoview')
+//    api (rootProject.ext.deps["okgo"]){
+//        exclude group: 'com.squareup.okhttp3'
+//    }
+//    provided rootProject.ext.deps["okhttp"]
+//    implementation project(':commonlibrary')
+//    implementation project(':ijkplayerlib')
+//    api "com.juziwl.exue:ijkplayer:0.0.6"
+
+
+}
+
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        //这里的url可以换成自己的仓库地址
+//        repository(url: "http://39.108.120.100:8090/repository/AndroidLib/") {
+//            authentication(userName: "army", password: "111111")
+//        }
+//        //api "com.juziwl.exue:picture:0.0.8"
+//        pom.version = "0.0.8"
+//        pom.artifactId = "picture"
+//        pom.groupId = "com.juziwl.exue"
+//    }
+//}
+
+uploadArchives{
+    repositories.mavenDeployer{
+        //这里的url可以换成自己的仓库地址
+        repository(url:"http://192.168.129.198:8081/nexus/content/repositories/AndroidLib/"){
+            authentication(userName:"admin", password:"admin123")
+        }
+        //api "com.juziwl.exue:picture:0.0.9"
+        pom.version = "0.0.9"
+        pom.artifactId = "picture"
+        pom.groupId = "com.juziwl.exue"
+    }
+}

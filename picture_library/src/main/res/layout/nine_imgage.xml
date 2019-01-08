@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/nine_img"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="2dp"
+        android:padding="4dp"
+        android:src="@mipmap/space_morepic" />
+
+    <TextView
+        android:id="@+id/tv_img_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toRightOf="@id/iv"
+        android:text="30"
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
+</RelativeLayout>
