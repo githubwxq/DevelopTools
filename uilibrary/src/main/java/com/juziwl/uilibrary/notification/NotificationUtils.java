@@ -51,9 +51,9 @@ public class NotificationUtils {
         PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.common_layout_common_dialog);
 
-        mBuilder.setContentTitle("title")
+        mBuilder.setContentTitle(title)
 //                .setCustomBigContentView(new RemoteViews(context.getPackageName(),R.layout.common_layout_common_dialog))
-                .setContentText("content")
+                .setContentText(content)
                 .setContentIntent(intent)
                 .setAutoCancel(true)
 //              .setNumber(++pushNum) //设置通知集合的数量

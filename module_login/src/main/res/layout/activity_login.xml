@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity">
+    android:background="@color/white"
+    android:id="@+id/layout_login"
+    android:orientation="vertical"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_register"
+            android:padding="20dp"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:text="注册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_marginTop="24dp"
+        android:id="@+id/title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:drawableLeft="@mipmap/back_img"
+        android:gravity="center"
+        android:onClick="back"
+        android:visibility="gone"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" />
+
+    <ImageView
+        android:layout_marginTop="85dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:text="用户账号"
+        android:textColor="@color/color_666"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <com.juziwl.uilibrary.edittext.EditTextWithDel
+            android:id="@+id/etd_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入账号"
+            android:maxLength="20"
+            android:text=""
+            android:singleLine="true"
+            android:textColor="@color/color_333"
+            android:textSize="14sp" />
+
+        <View
+            style="@style/HorizontalLineStyle"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:text="密码"
+        android:textColor="@color/color_666"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.juziwl.uilibrary.edittext.EditTextWithDel
+                android:id="@+id/etd_pwd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:textAlignment="viewStart"
+                android:textDirection="locale"
+                android:gravity="start"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/cb_show_hide_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/cart_selector_show_hide_pwd" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/HorizontalLineStyle"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:padding="0dp"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_radius_100dp_solid_0093e8"
+        android:text="登入" />
+
+    <TextView
+        android:id="@+id/tv_service_phone_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:text="如忘记密码，请拨打客服热线--申请重置密码"
+        android:textColor="@color/color_9a9a9a"
+        android:textSize="13sp" />
+</LinearLayout>

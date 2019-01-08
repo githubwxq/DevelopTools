@@ -39,9 +39,6 @@ public class BmobApplication extends BaseApp {
         // 启动推送服务
         BmobPush.startWork(this);
 
-
-
-
         //初始化bugly
         BuglyUtils.init(this,"bf24009ac5", BuildConfig.DEBUG);
         //初始化友盟社区化分享
