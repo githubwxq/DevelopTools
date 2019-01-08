@@ -127,6 +127,8 @@ ext {
             "photoview"                 : "com.github.chrisbanes.photoview:library:1.2.4",
 
             "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
+            "pullrefreshlayout"             : "com.yan:pullrefreshlayout:2.2.6",
+            "BaseRecyclerViewAdapterHelper"             : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
 
             //recycleview动画
             "recyclerview-animators"    : "jp.wasabeef:recyclerview-animators:2.3.0",

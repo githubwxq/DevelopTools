@@ -1,3 +1,4 @@
-include ':app', ':commonlibrary', ':uilibrary',':mvplibrary', ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo', ':commonservice', ':BaoLiPlay'
+include ':app', ':commonlibrary', ':uilibrary',':mvplibrary',
+        ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo', ':commonservice', ':BaoLiPlay', ':gank'
 
 //,':jpushdemo'

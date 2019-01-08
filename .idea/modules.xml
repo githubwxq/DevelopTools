@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" filepath="$PROJECT_DIR$/aroutertestdemo/aroutertestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonlibrary/commonlibrary.iml" filepath="$PROJECT_DIR$/commonlibrary/commonlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonservice/commonservice.iml" filepath="$PROJECT_DIR$/commonservice/commonservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gank/gank.iml" filepath="$PROJECT_DIR$/gank/gank.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvplibrary/mvplibrary.iml" filepath="$PROJECT_DIR$/mvplibrary/mvplibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettestdemo/nettestdemo.iml" filepath="$PROJECT_DIR$/nettestdemo/nettestdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdktestdemo/sdktestdemo.iml" filepath="$PROJECT_DIR$/sdktestdemo/sdktestdemo.iml" />

@@ -47,6 +47,7 @@ dependencies {
     api rootProject.ext.deps["cardview-v7"]
     api rootProject.ext.deps["constraint-layout"]
     api rootProject.ext.deps["design"]
+    api rootProject.ext.deps["BaseRecyclerViewAdapterHelper"]
 
     api rootProject.ext.deps["recyclerview-animators"]
 

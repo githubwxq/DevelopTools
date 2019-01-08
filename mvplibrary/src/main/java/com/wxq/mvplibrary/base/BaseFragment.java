@@ -31,6 +31,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import com.wxq.mvplibrary.baserx.Event;
+
 /**
  * Created by long on 2016/5/31.
  * 碎片基类
@@ -75,11 +76,18 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (unbinder != null) {
-            unbinder.unbind();
+        try {
+            if (unbinder != null) {
+                unbinder.unbind();
+            }
+            if (mPresenter != null) {
+                mPresenter.unDisposable();
+            }
+        } catch (Exception e) {
+
         }
-        if (mPresenter != null)
-            mPresenter.unDisposable();
+
+
     }
 
     @Nullable
@@ -101,7 +109,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         RxBus.getDefault().take()
                 .compose(this.bindUntilEvent(FragmentEvent.DESTROY)).subscribe(event -> {
             dealWithRxEvent(event.action, event);
-        });;
+        });
+        ;
 
     }
 
@@ -223,8 +232,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
             isVisible = false;
         }
     }
-
-
 
 
     public void onVisible() {
