@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wxq.commonlibrary.Service.WanAndroidApi;
+import com.wxq.commonlibrary.service.WanAndroidApi;
 import com.wxq.commonlibrary.model.LoginResponse;
 import com.wxq.commonlibrary.model.ResponseData;
 import com.wxq.commonlibrary.model.User;

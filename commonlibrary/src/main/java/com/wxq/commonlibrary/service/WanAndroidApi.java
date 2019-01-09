@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.Service;
+package com.wxq.commonlibrary.service;
 
 import com.wxq.commonlibrary.model.LoginResponse;
 import com.wxq.commonlibrary.model.ResponseData;
