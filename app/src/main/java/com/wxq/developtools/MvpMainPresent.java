@@ -1,10 +1,7 @@
 package com.wxq.developtools;
 
-import android.os.CountDownTimer;
-
-import com.wxq.commonlibrary.util.CountDownTimerUtils;
-import com.wxq.mvplibrary.base.BaseView;
-import com.wxq.mvplibrary.base.RxPresenter;
+import com.wxq.commonlibrary.base.BaseView;
+import com.wxq.commonlibrary.base.RxPresenter;
 
 /**
  * Created by wxq on 2018/6/28.

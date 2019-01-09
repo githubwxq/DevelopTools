@@ -2,10 +2,8 @@ package com.example.module_login.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,11 +15,10 @@ import com.example.module_login.presenter.LoginActivityPresent;
 import com.juziwl.uilibrary.edittext.EditTextWithDel;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.baserx.Event;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.baserx.Event;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bmob.v3.BmobUser;
 
 /*

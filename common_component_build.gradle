@@ -32,7 +32,8 @@ dependencies {
     debugApi(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
-    api project(':mvplibrary')
+    api project(':uilibrary')
+    api project(':commonlibrary')
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     api rootProject.ext.deps["butterknife"]

@@ -57,4 +57,5 @@ android {
 }
 dependencies {
     implementation project(':module_login')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

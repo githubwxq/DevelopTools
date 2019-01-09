@@ -11,13 +11,11 @@ import com.example.commonservice.sdk.bean.SdkBean;
 import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.baserx.Event;
-import com.wxq.mvplibrary.dbmanager.DbManager;
-import com.wxq.mvplibrary.model.User;
-import com.wxq.mvplibrary.router.RouterContent;
-
-import java.io.File;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.dbmanager.DbManager;
+import com.wxq.commonlibrary.model.User;
+import com.wxq.commonlibrary.router.RouterContent;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;

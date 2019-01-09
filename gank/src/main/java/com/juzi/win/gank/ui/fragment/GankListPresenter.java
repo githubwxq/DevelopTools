@@ -1,13 +1,10 @@
 package com.juzi.win.gank.ui.fragment;
 
-import android.widget.Toast;
-
 import com.juzi.win.gank.api.ApiService;
 import com.juzi.win.gank.bean.GankBaseResponse;
-import com.wxq.commonlibrary.util.LogUtils;
-import com.wxq.mvplibrary.base.RxPresenter;
-import com.wxq.mvplibrary.baserx.RxTransformer;
-import com.wxq.mvplibrary.http.common.Api;
+import com.wxq.commonlibrary.base.RxPresenter;
+import com.wxq.commonlibrary.baserx.RxTransformer;
+import com.wxq.commonlibrary.http.common.Api;
 
 import io.reactivex.functions.Consumer;
 

@@ -2,8 +2,6 @@ package com.example.module_login.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.provider.Settings;
 import android.widget.ImageView;
 
 import com.example.module_login.R;
@@ -20,13 +18,12 @@ import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.commonlibrary.util.DensityUtil;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class SplashActivity extends BaseActivity<SplashContract.Presenter> implements SplashContract.View {
 

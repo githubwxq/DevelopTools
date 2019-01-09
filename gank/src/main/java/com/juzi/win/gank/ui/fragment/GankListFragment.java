@@ -10,7 +10,7 @@ import com.juzi.win.gank.bean.GankBaseResponse;
 import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.wxq.commonlibrary.util.ListUtils;
-import com.wxq.mvplibrary.base.BaseFragment;
+import com.wxq.commonlibrary.base.BaseFragment;
 
 import java.util.List;
 

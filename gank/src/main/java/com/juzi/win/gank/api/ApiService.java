@@ -16,9 +16,7 @@ public interface ApiService {
 
 
     /**
-     * 获取gank数据
-     *
-     * @param type {@link GANK_ARR}
+     * 获取gank数
      * @param page 页码
      * @return
      */

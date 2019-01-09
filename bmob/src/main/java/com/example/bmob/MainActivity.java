@@ -6,8 +6,8 @@ import android.widget.TextView;
 import com.example.bmob.model.User;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 
 import butterknife.BindView;
 import butterknife.OnClick;

@@ -1,7 +1,7 @@
 package com.example.module_login.presenter;
 
 import com.example.module_login.contract.SplashContract;
-import com.wxq.mvplibrary.base.RxPresenter;
+import com.wxq.commonlibrary.base.RxPresenter;
 
 import cn.bmob.v3.BmobUser;
 

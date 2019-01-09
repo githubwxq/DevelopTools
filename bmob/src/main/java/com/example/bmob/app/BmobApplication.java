@@ -2,9 +2,8 @@ package com.example.bmob.app;
 
 import com.example.bmob.BuildConfig;
 import com.orhanobut.logger.Logger;
-import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.BuglyUtils;
-import com.wxq.mvplibrary.base.BaseApp;
+import com.wxq.commonlibrary.base.BaseApp;
 
 import cn.bmob.push.BmobPush;
 import cn.bmob.v3.Bmob;

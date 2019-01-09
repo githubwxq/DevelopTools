@@ -4,7 +4,7 @@ apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 greendao{
     schemaVersion 1
-    daoPackage 'com.wxq.mvplibrary.dao'
+    daoPackage 'com.wxq.commonlibrary.dao'
     targetGenDir 'src/main/java'
 }
 

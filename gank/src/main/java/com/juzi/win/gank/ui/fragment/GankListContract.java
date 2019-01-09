@@ -2,8 +2,8 @@ package com.juzi.win.gank.ui.fragment;
 
 
 import com.juzi.win.gank.bean.GankBaseResponse;
-import com.wxq.mvplibrary.base.BasePresenter;
-import com.wxq.mvplibrary.base.BaseView;
+import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.base.BaseView;
 
 import java.util.List;
 

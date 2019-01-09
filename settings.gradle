@@ -1,6 +1,6 @@
-include ':app', ':commonlibrary', ':uilibrary',':mvplibrary',':gank',
+include ':app', ':commonlibrary', ':uilibrary',':gank',
         ':commonservice',
         ':bmob', ':module_login', ':module_wanandroid',':picture_library', ':photoview', ':im', ':ijkplayerlib'
 
 
-//  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',
+//  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'

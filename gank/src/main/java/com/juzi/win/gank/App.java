@@ -1,6 +1,6 @@
 package com.juzi.win.gank;
 
-import com.wxq.mvplibrary.base.BaseApp;
+import com.wxq.commonlibrary.base.BaseApp;
 
 /**
  * @author 文庆

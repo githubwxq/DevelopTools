@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+greendao{
+    schemaVersion 1
+    daoPackage 'com.wxq.commonlibrary.dao'
+    targetGenDir 'src/main/java'
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -10,6 +16,12 @@ android {
         versionName "1.0"
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
 
     }
 
@@ -97,27 +109,20 @@ dependencies {
     //统计库 友盟 和bugly一起
     api rootProject.ext.deps["umeng-analytics"]
     api rootProject.ext.deps["umeng-common"]
-
-
     api rootProject.ext.deps["bugly"]
     //okgo
     api rootProject.ext.deps["okgo"]
     api rootProject.ext.deps["okrx2"]
+    //arouter
+    api rootProject.ext.deps["arouter-api"]
+    annotationProcessor  rootProject.ext.deps["arouter-compiler"]
 
-    //tools
-    api(rootProject.ext.deps["arouter-api"]) {
-        exclude module: 'support-v4'
-        exclude module: 'support-annotations'
-    }
-
+    //greendao
+    api rootProject.ext.deps["greendao"]
+    api rootProject.ext.deps["GreenDaoUpgradeHelper"]
     //bmob
     api rootProject.ext.deps["bmob-sdk"]
-
     api rootProject.ext.deps["bmob-push"]
-
-
-
-
 //数据库调试
 //debugCompile 'com.amitshekhar.android:debug
 // -db:1.0.0'
@@ -129,9 +134,4 @@ dependencies {
 //    provided rootProject.ext.deps["javax.annotation-api"]
 //    api rootProject.ext.deps["dagger"]
 //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
-
-
-
-
-
 }

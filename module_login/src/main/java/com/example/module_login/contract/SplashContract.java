@@ -1,8 +1,8 @@
 package com.example.module_login.contract;
 
 
-import com.wxq.mvplibrary.base.BasePresenter;
-import com.wxq.mvplibrary.base.BaseView;
+import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.base.BaseView;
 
 public interface SplashContract {
     interface View extends BaseView {

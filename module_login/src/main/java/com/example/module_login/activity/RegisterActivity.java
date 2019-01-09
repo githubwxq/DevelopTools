@@ -12,9 +12,9 @@ import com.example.module_login.presenter.RegisterActivityPresent;
 import com.juziwl.uilibrary.edittext.EditTextWithDel;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.baserx.Event;
-import com.wxq.mvplibrary.baserx.RxBusManager;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 
 import butterknife.BindView;
 

@@ -1,7 +1,7 @@
 package com.heqijun.module_wanandroid.app
 
 import com.heqijun.module_wanandroid.BuildConfig
-import com.wxq.mvplibrary.base.BaseApp
+import com.wxq.commonlibrary.base.BaseApp
 
 /**
  * Created by heqijun on 2019/1/8.

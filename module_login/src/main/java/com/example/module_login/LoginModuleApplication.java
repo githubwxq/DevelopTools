@@ -1,6 +1,6 @@
 package com.example.module_login;
 
-import com.wxq.mvplibrary.base.BaseApp;
+import com.wxq.commonlibrary.base.BaseApp;
 
 import cn.bmob.v3.Bmob;
 
