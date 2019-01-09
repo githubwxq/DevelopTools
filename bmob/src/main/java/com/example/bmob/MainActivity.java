@@ -1,17 +1,15 @@
 package com.example.bmob;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.bmob.bean.User;
+import com.example.bmob.model.User;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;

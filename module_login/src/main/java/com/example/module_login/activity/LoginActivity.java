@@ -18,6 +18,7 @@ import com.juziwl.uilibrary.edittext.EditTextWithDel;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
+import com.wxq.mvplibrary.baserx.Event;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -87,6 +88,7 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
     public boolean isNeedHeardLayout() {
         return false;
     }
+
 
 
     @Override

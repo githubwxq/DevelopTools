@@ -9,7 +9,7 @@ public interface LoginContract {
         void naveToMainActivity();
     }
 
-    interface Presenter extends BasePresenter<LoginContract.View> {
+    interface Presenter extends BasePresenter<View> {
         void loginWithAccountAndPwd(String s, String s1);
     }
 }
