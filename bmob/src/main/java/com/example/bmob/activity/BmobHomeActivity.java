@@ -195,7 +195,9 @@ public class BmobHomeActivity extends BaseActivity<BmobHomeContract.Presenter> i
 
     @Override
     public void onClick(View v) {
-
+        if (v.getId() == R.id.nav_header_login_tv){
+            L.d(TAG, "点击了登录");
+        }
     }
 
     /**
