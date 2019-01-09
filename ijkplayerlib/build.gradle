@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.deps["appcompat-v7"]
+//    implementation project(':BaoLiPlay')
+    //    api 'com.squareup:otto:1.3.8'
+//        api 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+//    api 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+//    api 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+//    api rootProject.ext.deps["ijkplayer-x86"]
+    api rootProject.ext.deps["ijkplayer-java"]
+//    api rootProject.ext.deps["ijkplayer-armv7a"]
+    api rootProject.ext.deps["ijkplayer-exo"]
+//    api project(':ijkplayer-armv7a')
+}
+
+uploadArchives{
+    repositories.mavenDeployer{
+        //这里的url可以换成自己的仓库地址
+        repository(url:"http://192.168.129.198:8081/nexus/content/repositories/AndroidLib/"){
+            authentication(userName:"admin", password:"admin123")
+        }
+        //api "com.juziwl.exue:ijkplayer:0.0.6"
+        pom.version = "0.0.6"
+        pom.artifactId = "ijkplayer"
+        pom.groupId = "com.juziwl.exue"
+    }
+}

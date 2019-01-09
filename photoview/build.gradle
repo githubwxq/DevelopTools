@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.deps["support-v4"]
+}
+
+//uploadArchives{
+//    repositories.mavenDeployer{
+//        //这里的url可以换成自己的仓库地址
+//        repository(url:"http://39.108.120.100:8090/repository/AndroidLib/"){
+//            authentication(userName:"army", password:"111111")
+//        }
+//        //api "com.juziwl.exue:photoview:0.0.3"
+//        pom.version = "0.0.3"
+//        pom.artifactId = "photoview"
+//        pom.groupId = "com.juziwl.exue"
+//    }
+//}
+
+uploadArchives{
+    repositories.mavenDeployer{
+        //这里的url可以换成自己的仓库地址
+        repository(url:"http://192.168.0.248:8081/nexus/content/repositories/AndroidLib/"){
+            authentication(userName:"admin", password:"admin123")
+        }
+        //api "com.juziwl.exue:photoview:0.0.2"
+        pom.version = "0.0.2"
+        pom.artifactId = "photoview"
+        pom.groupId = "com.juziwl.exue"
+    }
+}
