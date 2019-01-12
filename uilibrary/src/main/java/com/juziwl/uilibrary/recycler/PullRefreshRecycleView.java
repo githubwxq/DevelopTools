@@ -62,16 +62,12 @@ public class PullRefreshRecycleView extends LinearLayout {
         mContext = context;
         //加载布局
         view = View.inflate(context, R.layout.layout_pull_refrish_list, this);
-
         pullRefreshLayout = findViewById(R.id.refreshLayout);
         rv_list = findViewById(R.id.rv_list);
-
         loadView = LayoutInflater.from(context).inflate(R.layout.layout_load_view, null, false);
-
         emptyView = LayoutInflater.from(context).inflate(R.layout.layout_empty_view, null, false);
         mIvEmpty = emptyView.findViewById(R.id.iv_empty);
         mTvEmpty = emptyView.findViewById(R.id.tv_empty);
-
         header = new DiDiHeader(context,pullRefreshLayout);
         footer = new FootView2(context);
         layoutManager = new LinearLayoutManager(this.getContext()); //默认是线性向下 可以手动给重新设置
@@ -420,24 +416,4 @@ public class PullRefreshRecycleView extends LinearLayout {
         return pullRefreshLayout;
     }
 
-
-/**
- * 重置数据
- *
- * @param
- */
-//设置适配器
-//public <T> void getAdapter(List<T> list) {
-//    if (list != null && list.size() > 0) {
-//        nest_nodata.setVisibility(GONE);
-//    } else {
-//        if (list == null) {
-//            list = new ArrayList<T>();
-//        }
-//        nest_nodata.setVisibility(VISIBLE);
-//    }
-//    adapter.replaceAll(list);
-//
-//    completeRefrishOrLoadMore();
-//}
 }

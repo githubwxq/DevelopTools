@@ -55,15 +55,22 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
             @Override
             public void onRefresh() {
 
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                rv.completeRefrishOrLoadMore();
             }
 
             @Override
             public void onLoading() {
-
+                rv.completeRefrishOrLoadMore();
             }
         });
 
-        rv.completeRefrishOrLoadMore();
+//        rv.completeRefrishOrLoadMore();
     }
 
 
