@@ -8,6 +8,7 @@ import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.tencent.bugly.beta.Beta;
+import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
@@ -39,6 +40,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         isDebug = setIsDebug();
         //工具初始化
         Utils.init(this);
+        AllDataCenterManager.init(this);
         initLog();
         Stetho.initializeWithDefaults(this);
         Thread.setDefaultUncaughtExceptionHandler(this);

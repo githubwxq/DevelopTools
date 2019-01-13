@@ -59,4 +59,5 @@
     <color name="ucrop_color_default_logo">#4f212121</color>
     <color name="ucrop_color_grey">#999999</color>
     <color name="alpha_2_black">#33000000</color>
+    <color name="color_3f3f3f">#3f3f3f</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.model;
+package com.wxq.commonlibrary.datacenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,7 +16,6 @@ import java.util.Set;
  */
 public class UserPreference {
     private SharedPreferences settings;
-    PublicPreference publicPreference;
     public String getCertificateType() {
         checkNull();
         return settings.getString("CertificateType", "");
@@ -173,12 +172,11 @@ public class UserPreference {
         edit.commit();
     }
 
-    public UserPreference(PublicPreference publicPreference) {
-        this.publicPreference=publicPreference;
+    public UserPreference() {
     }
 
     /**
-     * 切换到相应用户的文件里去
+     * sharepreference名称和用户的id绑定
      */
     public void setUserid(Context ctx, String uid) {
         if (TextUtils.isEmpty(uid)) {

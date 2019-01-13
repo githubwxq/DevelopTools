@@ -7,12 +7,14 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_login.R;
 import com.example.module_login.R2;
 import com.example.module_login.bean.User;
 import com.example.module_login.contract.LoginContract;
 import com.example.module_login.presenter.LoginActivityPresent;
 import com.juziwl.uilibrary.edittext.EditTextWithDel;
+import com.wxq.commonlibrary.router.RouterContent;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.base.BaseActivity;
@@ -78,7 +80,8 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
     @Override
     public void naveToMainActivity() {
         //前往首页模块
-        ToastUtils.showShort("123456");
+        ARouter.getInstance().build(RouterContent.BMOB_MAIN).navigation();
+        finish();
     }
 
     @Override

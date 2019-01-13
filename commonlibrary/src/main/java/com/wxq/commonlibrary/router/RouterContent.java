@@ -35,6 +35,9 @@ RouterContent {
     //sdk测试模块
     public static final String SDK_SERVICE = "/sdk/service";
 
+    //bmob首页模块
+    public static final String BMOB_MAIN = "/bmob/main";
+
 
 
 }

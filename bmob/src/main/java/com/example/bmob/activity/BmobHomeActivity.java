@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.bmob.R;
 import com.example.bmob.R2;
 import com.example.bmob.contract.BmobHomeContract;
@@ -24,6 +25,7 @@ import com.example.bmob.presenter.BmobHomeActivityPresenter;
 import com.juziwl.uilibrary.BottomNavigationViewHelper;
 import com.juziwl.uilibrary.ninegridview.L;
 import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.router.RouterContent;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
@@ -39,6 +41,7 @@ import butterknife.ButterKnife;
  *
  * @author:wxq
  */
+@Route(path = RouterContent.BMOB_MAIN)
 public class BmobHomeActivity extends BaseActivity<BmobHomeContract.Presenter> implements BmobHomeContract.View, NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @BindView(R2.id.layout_pager)

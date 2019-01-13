@@ -39,7 +39,7 @@ public class SplashActivity extends BaseActivity<SplashContract.Presenter> imple
         BarUtils.setStatusBarVisibility(this, false);
         //点击背景如果当前有广告
         click(ivBg, o -> {
-//            LoginActivity.navToActivity(this);
+            LoginActivity.navToActivity(this);
             finish();
         });
         picSelectView.setOutputCameraPath(GlobalContent.imgPath);

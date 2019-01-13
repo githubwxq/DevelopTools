@@ -1,4 +1,4 @@
-package com.wxq.commonlibrary.model;
+package com.wxq.commonlibrary.datacenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
