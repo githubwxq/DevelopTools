@@ -38,6 +38,9 @@ RouterContent {
     //bmob首页模块
     public static final String BMOB_MAIN = "/bmob/main";
 
+    //bmob发布模块
+    public static final String BMOB_PUBLISHCARD = "/bmob/publishcard";
+
 
 
 }

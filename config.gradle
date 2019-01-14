@@ -191,9 +191,8 @@ ext {
             "zxing"                     : "cn.yipianfengye.android:zxing-library:2.2",
 
             "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
+            "loadingView"               : "com.wang.avi:library:2.1.3",
 
-//            debugImplementation 'com.github.whataa:pandora:1.0.0'
-//            releaseImplementation 'com.github.whataa:pandora-no-op:v1.0.0'
 
             //调试软件
             "pandora"                   : "com.github.whataa:pandora:1.0.0",
@@ -217,6 +216,7 @@ ext {
             //bmob相关  bmob-sdk  数据存储相关
             "bmob-push"          : "cn.bmob.android:bmob-push:1.0.2",
             "bmob-sdk"          : "cn.bmob.android:bmob-sdk:3.6.8-rc4"
+
 
 
     ]

@@ -3,6 +3,7 @@ package com.juziwl.uilibrary.recycler;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
 import com.juziwl.uilibrary.pullrefreshlayout.ShowGravity;
 import com.juziwl.uilibrary.pullrefreshlayout.widget.DiDiHeader;
 import com.juziwl.uilibrary.pullrefreshlayout.widget.FootView2;
+import com.juziwl.uilibrary.pullrefreshlayout.widget.HeaderOrFooter;
 
 import java.util.List;
 
@@ -36,7 +38,8 @@ public class PullRefreshRecycleView extends LinearLayout {
 
     RecyclerView rv_list;
 
-    DiDiHeader header;
+//    DiDiHeader header;
+    HeaderOrFooter header;
 
     FootView2 footer;
 
@@ -68,12 +71,14 @@ public class PullRefreshRecycleView extends LinearLayout {
         emptyView = LayoutInflater.from(context).inflate(R.layout.layout_empty_view, null, false);
         mIvEmpty = emptyView.findViewById(R.id.iv_empty);
         mTvEmpty = emptyView.findViewById(R.id.tv_empty);
-        header = new DiDiHeader(context,pullRefreshLayout);
+//        AVLoadingIndicatorView
+        header = new HeaderOrFooter(context,"BallSpinFadeLoaderIndicator");
+//        header = new DiDiHeader(context,pullRefreshLayout);
         footer = new FootView2(context);
         layoutManager = new LinearLayoutManager(this.getContext()); //默认是线性向下 可以手动给重新设置
         //添加头和尾
         rv_list.setLayoutManager(layoutManager);
-        pullRefreshLayout.setHeaderShowGravity(ShowGravity.PLACEHOLDER_CENTER);
+        pullRefreshLayout.setHeaderShowGravity(ShowGravity.FOLLOW);
         pullRefreshLayout.setHeaderView(header);
         pullRefreshLayout.setFooterView(footer);
         pullRefreshLayout.setLoadMoreEnable(true);

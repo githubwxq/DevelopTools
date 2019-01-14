@@ -24,25 +24,25 @@ public class User extends BmobUser{
     /**
      * 性别
      */
-    private Integer gender;
+    public Integer gender;
 
 
     /**
      * 用户当前位置
      */
-    private BmobGeoPoint address;
+    public BmobGeoPoint address;
 
 
     /**
      * 头像
      */
-    private BmobFile avatar;
+    public BmobFile avatar;
 
 
     /**
      * 别名
      */
-    private List<String> alias;
+    public List<String> alias;
 
 
 

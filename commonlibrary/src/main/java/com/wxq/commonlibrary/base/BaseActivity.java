@@ -74,9 +74,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         context = this;
         lifecycleSubject.onNext(ActivityEvent.CREATE);
         AppManager.getInstance().addActivity(this);
+        mPresenter = initPresent();
         rxPermissions = new RxPermissions(this);
         initViews();
-        mPresenter = initPresent();
         //数据初始化
         if (mPresenter != null) {
             mPresenter.initEventAndData();

@@ -71,19 +71,20 @@ public class TopBarHeard extends LinearLayout {
     }
 
     public TopBarHeard setRightText(String title, float size, int colorId) {
-        tv_header_layout_title.setTextColor(getContext().getResources().getColor(colorId));
+        tv_header_layout_right.setTextColor(getContext().getResources().getColor(colorId));
         setRightText(title, size);
         return this;
     }
 
     public TopBarHeard setRightText(String title, float size) {
-        tv_header_layout_title.setTextSize(size);
+        tv_header_layout_right.setTextSize(size);
         setRightText(title);
         return this;
     }
 
     public TopBarHeard setRightText(String title) {
         tv_header_layout_title.setText(title);
+        tv_header_layout_right.setText(title);
         return this;
     }
 

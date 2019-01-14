@@ -117,4 +117,38 @@ public class ImageSeclctUtils {
                 .setmaxImageSize(PictureConfig.DEFAULT_IMAGE_SIZE)
                 .forResult(PictureConfig.CHOOSE_REQUEST);
     }
+
+
+
+    public static void openAlbum(Activity activity,List<LocalMedia> localMedias) {
+        PictureSelector.create(activity)
+                // 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
+                .openGallery(PictureMimeType.ofAll())
+                // 最大图片选择数量
+                .maxSelectNum(9)
+                // 最小选择数量
+                .minSelectNum(1)
+                // 多选 or 单选
+                .selectionMode(PictureConfig.MULTIPLE)
+                // 是否可预览图片
+                .previewImage(true)
+                // 自定义拍照保存路径
+                .setOutputCameraPath(GlobalContent.imgPath)
+                // 自定义拍视频保存路径
+                .setOutputVideoPath(GlobalContent.VIDEOPATH)
+                // 是否显示拍照按钮
+                .isCamera(true)
+                // 图片列表点击 缩放效果 默认true
+                .isZoomAnim(true)
+                // glide 加载宽高，越小图片列表越流畅，但会影响列表图片浏览的清晰度
+                .glideOverride(160, 160)
+                // 是否显示gif图片
+                .isGif(false)
+                .compress(true)
+                .selectionMedia(localMedias)
+//                .setStyle(GlobalContent.loginType)
+                .forResult(PictureConfig.CHOOSE_REQUEST);
+    }
+
+
 }

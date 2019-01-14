@@ -42,6 +42,7 @@ dependencies {
     api rootProject.ext.deps["design"]
     api rootProject.ext.deps["BaseRecyclerViewAdapterHelper"]
     api rootProject.ext.deps["recyclerview-animators"]
+    api rootProject.ext.deps["loadingView"]
     api project(path: ':picture_library')
     implementation project(':commonlibrary')
 }

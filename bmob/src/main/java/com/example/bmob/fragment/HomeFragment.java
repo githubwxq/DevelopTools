@@ -1,32 +1,40 @@
 package com.example.bmob.fragment;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.bmob.R;
 import com.example.bmob.R2;
-import com.example.bmob.presenter.HomeFragmentPresenter;
 import com.example.bmob.contract.HomeContract;
+import com.example.bmob.presenter.HomeFragmentPresenter;
+import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
+import com.juziwl.uilibrary.pullrefreshlayout.widget.DiDiHeader;
 import com.orhanobut.logger.Logger;
-import com.tencent.bugly.crashreport.CrashReport;
-import com.wxq.commonlibrary.util.ListUtils;
 import com.wxq.commonlibrary.base.BaseFragment;
-import java.util.List;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
  * 创建日期：
  * 描述: 首页
+ *
  * @author:wxq
  */
 public class HomeFragment extends BaseFragment<HomeContract.Presenter> implements HomeContract.View {
     public static final String PARMER = "parmer";
     public String currentType = "";
+    @BindView(R2.id.rv_data)
+    RecyclerView rvData;
+    @BindView(R2.id.prl)
+    PullRefreshLayout prl;
+    Unbinder unbinder;
 
     public static HomeFragment getInstance(String parmer) {
         HomeFragment fragment = new HomeFragment();
@@ -39,8 +47,8 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        currentType= (String) getArguments().get("PARMER");
-        Logger.e("onAttach_______"+ currentType);
+        currentType = (String) getArguments().get("PARMER");
+        Logger.e("onAttach_______" + currentType);
     }
 
     @Override
@@ -49,10 +57,37 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     }
 
 
-
     @Override
     protected void initViews() {
 
+        prl.setHeaderView(new DiDiHeader(getActivity(), prl));
+        prl.setOnRefreshListener(new PullRefreshLayout.OnRefreshListenerAdapter() {
+            @Override
+            public void onRefresh() {
+                prl.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        prl.refreshComplete();
+                    }
+                }, 3000);
+            }
+        });
+
+
+        rvData.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvData.setAdapter(new RecyclerView.Adapter() {
+            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return new RecyclerView.ViewHolder(getLayoutInflater().inflate(R.layout.item_change_clarity, parent, false)) {
+                };
+            }
+
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            }
+
+            public int getItemCount() {
+                return 8;
+            }
+        });
 
     }
 
@@ -64,19 +99,33 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     @Override
     public void lazyLoadData(View view) {
         super.lazyLoadData(view);
-        Logger.e("lazyLoadData________"+currentType);
+        Logger.e("lazyLoadData________" + currentType);
     }
 
     @Override
     public void onFragmentResume() {
         super.onFragmentResume();
-        Logger.e("onFragmentResume________"+currentType);
+        Logger.e("onFragmentResume________" + currentType);
     }
 
     @Override
     public void onFragmentPause() {
         super.onFragmentPause();
-        Logger.e("onFragmentPause________"+currentType);
+        Logger.e("onFragmentPause________" + currentType);
 
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }
