@@ -1,6 +1,7 @@
 package com.example.bmob.cardmodule.contract;
 
 
+import com.luck.picture.lib.entity.LocalMedia;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.base.BaseView;
 
@@ -17,6 +18,7 @@ public interface PublishCardContract {
     }
 
     interface Presenter extends BasePresenter<View> {
+        void saveCard(String s, List<LocalMedia> selectList);
     }
 
 }

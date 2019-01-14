@@ -16,9 +16,10 @@ public class Card extends BmobObject {
     public String name;
     public String content;
     public User user; //作者
-    public BmobFile image; //图片
+//    public BmobFile image;
 
     public BmobRelation likes; //关注的人
+    public String images;  //图片
 
 
 

@@ -13,6 +13,7 @@ import com.example.bmob.R2;
 import com.example.bmob.cardmodule.contract.PublishCardContract;
 import com.example.bmob.cardmodule.presenter.PublishCardActivityPresenter;
 import com.example.module_login.activity.SplashActivity;
+import com.example.module_login.bean.User;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.luck.picture.lib.PictureSelectAdapter;
 import com.luck.picture.lib.PictureSelectorView;
@@ -24,6 +25,8 @@ import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.router.RouterContent;
 import com.wxq.commonlibrary.util.DensityUtil;
+import com.wxq.commonlibrary.util.FileUtils;
+import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.util.ArrayList;
@@ -31,6 +34,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.LogInListener;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 
 /**
@@ -65,10 +74,25 @@ public class PublishCardActivity extends BaseActivity<PublishCardContract.Presen
 
     @Override
     protected void initViews() {
+        //模拟登入
+        BmobUser.loginByAccount("wxq123", "123", new LogInListener<User>() {
+            @Override
+            public void done(User user, BmobException e) {
+                if (e == null) {
+                } else {
+                     ToastUtils.showShort("登入异常");
+                }
+            }
+        });
+
         topHeard.setTitle("发布帖子").setRightText("发布").setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                mPresenter.saveCard();
+                if (StringUtils.isEmpty( content.getText().toString())) {
+                    ToastUtils.showShort("请输入相关内容");
+                }else {
+                    mPresenter.saveCard( content.getText().toString(),selectList);
+                }
             }
         });
 
@@ -86,7 +110,6 @@ public class PublishCardActivity extends BaseActivity<PublishCardContract.Presen
     }
 
     public List<LocalMedia> selectList = new ArrayList<>();
-    private List<LocalMedia> needList = new ArrayList<>();
     private static final int COLUME = 3;
     private static final int MAXSELECTNUM = 30;
     @Override
@@ -98,7 +121,7 @@ public class PublishCardActivity extends BaseActivity<PublishCardContract.Presen
             switch (requestCode) {
                 case PictureConfig.CHOOSE_REQUEST:
                     // 图片选择结果回调
-                    needList.clear();
+
                     selectList = picSelectView.getSelectList();
                 default:
                     break;
