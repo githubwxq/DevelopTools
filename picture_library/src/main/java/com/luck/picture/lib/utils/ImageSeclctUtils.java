@@ -144,7 +144,7 @@ public class ImageSeclctUtils {
                 .glideOverride(160, 160)
                 // 是否显示gif图片
                 .isGif(false)
-                .compress(true)
+                .compress(false)
                 .selectionMedia(localMedias)
 //                .setStyle(GlobalContent.loginType)
                 .forResult(PictureConfig.CHOOSE_REQUEST);

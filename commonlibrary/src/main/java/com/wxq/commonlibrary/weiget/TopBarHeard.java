@@ -83,7 +83,6 @@ public class TopBarHeard extends LinearLayout {
     }
 
     public TopBarHeard setRightText(String title) {
-        tv_header_layout_title.setText(title);
         tv_header_layout_right.setText(title);
         return this;
     }

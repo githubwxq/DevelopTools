@@ -47,6 +47,10 @@
         <activity
             android:name=".cardmodule.activity.PublishCardActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cardmodule.activity.CardListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"></activity>
     </application>
 

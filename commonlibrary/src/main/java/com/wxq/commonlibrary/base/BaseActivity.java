@@ -228,5 +228,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         RxHelp.click(view,consumer);
     }
 
+    @Override
+    public void finishActivity() {
+       onBackPressed();
+    }
 
+    @Override
+    public Context getContext() {
+        return context;
+    }
 }

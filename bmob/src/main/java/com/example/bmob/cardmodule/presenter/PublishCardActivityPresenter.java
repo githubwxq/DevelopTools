@@ -1,5 +1,6 @@
 package com.example.bmob.cardmodule.presenter;
 
+import com.example.bmob.cardmodule.activity.CardListActivity;
 import com.example.bmob.cardmodule.contract.PublishCardContract;
 import com.example.module_login.bean.Card;
 import com.example.module_login.bean.User;
@@ -46,7 +47,7 @@ public class PublishCardActivityPresenter extends RxPresenter<PublishCardContrac
                 if (selectList.get(i).getPictureType().contains("video/")) {
                     filePaths[i]=selectList.get(i).getPath();
                 }else {
-                    filePaths[i]=selectList.get(i).getCompressPath();
+                    filePaths[i]=selectList.get(i).getPath();
                 }
             }
             BmobFile.uploadBatch(filePaths, new UploadBatchListener() {
@@ -96,7 +97,9 @@ public class PublishCardActivityPresenter extends RxPresenter<PublishCardContrac
             @Override
             public void done(String s, BmobException e) {
                 mView.dismissLoadingDialog();
+                mView.finishActivity();
                 ToastUtils.showShort("上传成功");
+                CardListActivity.navToActivity(mView.getContext());
             }
         });
     }

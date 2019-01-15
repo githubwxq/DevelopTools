@@ -1,5 +1,7 @@
 package com.wxq.commonlibrary.base;
 
+import android.content.Context;
+
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
@@ -20,7 +22,8 @@ public interface BaseView {
 
     void showToast(String message);
 
+    void finishActivity();
 
-
+    Context getContext();
 
 }

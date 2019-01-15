@@ -382,4 +382,10 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     public <T> LifecycleTransformer<T> bindDestory() {
         return this.bindToLife();
     }
+
+    @Override
+    public void finishActivity() {
+        getActivity().onBackPressed();
+    }
+
 }
