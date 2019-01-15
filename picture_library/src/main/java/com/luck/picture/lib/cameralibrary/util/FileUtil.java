@@ -21,19 +21,18 @@ public class FileUtil {
 
     public static String saveBitmap(String dir, Bitmap b) {
         File file = new File(dir);
-        if (!file.exists() && file.isDirectory()) {
+        if (!file.exists()) {
             file.mkdirs();
         }
         long dataTake = System.currentTimeMillis();
-//        String jpegName = path + File.separator + "picture_" + dataTake + ".jpg";
-        String jpegName = dir + "picture_" + dataTake + ".jpg";
+        File jpegfile = new File(dir,"picture_" + dataTake + ".jpg");
         try {
-            FileOutputStream fout = new FileOutputStream(jpegName);
+            FileOutputStream fout = new FileOutputStream(jpegfile);
             BufferedOutputStream bos = new BufferedOutputStream(fout);
             b.compress(Bitmap.CompressFormat.JPEG, 100, bos);
             bos.flush();
             bos.close();
-            return jpegName;
+            return jpegfile.getPath();
         } catch (IOException e) {
             e.printStackTrace();
             return "";
