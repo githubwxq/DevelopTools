@@ -2,15 +2,23 @@ package com.juzi.win.gank.ui.fragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.juzi.win.gank.R;
 import com.juzi.win.gank.bean.GankBaseResponse;
-import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
-import com.wxq.commonlibrary.util.ListUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseFragment;
+import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.util.ListUtils;
 
 import java.util.List;
 
@@ -22,7 +30,13 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
     @BindView(R.id.rv)
     PullRefreshRecycleView rv;
 
-    public  static GankListFragment getInstance(String type) {
+//    @BindView(R.id.smartRefreshLayout)
+//    SmartRefreshLayout refreshLayout;
+//    @BindView(R.id.rv)
+//    RecyclerView rv;
+//    BaseQuickAdapter adapter;
+
+    public static GankListFragment getInstance(String type) {
         GankListFragment fragment = new GankListFragment();
         Bundle bundle = new Bundle();
         bundle.putString("type", type);
@@ -33,44 +47,84 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
     @Override
     protected void initViews() {
 
-        mPresenter.reqInfo(getArguments().getString("type"));
+        mPresenter.reqInfo(getArguments().getString("type"), GlobalContent.REFRESH);
+
+//        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        rv.setAdapter(adapter = new BaseQuickAdapter<GankBaseResponse.GankBean, BaseViewHolder>(R.layout.item_list_info) {
+//
+//            @Override
+//            protected void convert(BaseViewHolder helper, GankBaseResponse.GankBean item) {
+//                helper.setText(R.id.tv_title, item.desc);
+//                helper.setText(R.id.tv_time, item.publishedAt);
+//                helper.setText(R.id.tv_tag, item.type);
+//            }
+//        });
+//        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+//            @Override
+//            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+//                mPresenter.reqInfo(getArguments().getString("type"), GlobalContent.LOADMORE);
+//            }
+//
+//            @Override
+//            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+//                mPresenter.reqInfo(getArguments().getString("type"), GlobalContent.REFRESH);
+//            }
+//        });
+
+        rv.setAdapter(new BaseQuickAdapter<GankBaseResponse.GankBean, BaseViewHolder>(R.layout.item_list_info) {
+
+                          @Override
+                          protected void convert(BaseViewHolder helper, GankBaseResponse.GankBean item) {
+                              helper.setText(R.id.tv_title, item.desc);
+                              helper.setText(R.id.tv_time, item.publishedAt);
+                              helper.setText(R.id.tv_tag, item.type);
+                              if (ListUtils.isNotEmpty(item.images)) {
+//                    Loutil
+                              }
+                          }
+                      }, new OnRefreshLoadMoreListener() {
+                          @Override
+                          public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                              mPresenter.reqInfo(getArguments().getString("type"), GlobalContent.LOADMORE);
+
+                          }
+
+                          @Override
+                          public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                              mPresenter.reqInfo(getArguments().getString("type"), GlobalContent.REFRESH);
+                          }
+                      }
+
+
+        );
+
+        rv.setEmptyLayoutTV("hhah");
+        TextView  tv=new TextView(getActivity());
+        tv.setText("aaaaaaaaaaaaaaaa");
+        rv.addHeaderView(tv,true);
 
 
     }
 
     @Override
     public void setData(List<GankBaseResponse.GankBean> list) {
-        rv.setAdapter(new BaseQuickAdapter<GankBaseResponse.GankBean, BaseViewHolder>(R.layout.item_list_info, list) {
+//        adapter.getData().clear();
+//        adapter.notifyDataSetChanged();
+//        refreshLayout.finishRefresh();
 
-            @Override
-            protected void convert(BaseViewHolder helper, GankBaseResponse.GankBean item) {
-                helper.setText(R.id.tv_title, item.desc);
-                helper.setText(R.id.tv_time, item.publishedAt);
-                helper.setText(R.id.tv_tag, item.type);
-                if (ListUtils.isNotEmpty(item.images)) {
-//                    Loutil
-                }
-            }
-        }, new PullRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+        rv.getAdapter().getData().clear();
+        rv.getAdapter().notifyDataSetChanged();
+        rv.completeRefrishOrLoadMore();
+//        rv.setRecycleViewData(list);
+    }
 
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+    @Override
+    public void addData(List<GankBaseResponse.GankBean> list) {
+//        adapter.addData(results);
+//        refreshLayout.finishLoadMore();
 
-                rv.completeRefrishOrLoadMore();
-            }
+        rv.addRecycleViewData(list);
 
-            @Override
-            public void onLoading() {
-                rv.completeRefrishOrLoadMore();
-            }
-        });
-
-//        rv.completeRefrishOrLoadMore();
     }
 
 
@@ -83,7 +137,6 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
     protected int attachLayoutRes() {
         return R.layout.fragment_list;
     }
-
 
 
 }

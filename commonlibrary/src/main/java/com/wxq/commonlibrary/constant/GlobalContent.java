@@ -20,12 +20,12 @@ public class GlobalContent {
     /**
      * 语音存放路径
      */
-    public static String VOICEPATH=filePath+"audio/";
+    public static String VOICEPATH = filePath + "audio/";
 
     /**
      * 视频存放路径
      */
-    public static String VIDEOPATH=filePath+"video/";
+    public static String VIDEOPATH = filePath + "video/";
 
     /**
      * 课件保存路径
@@ -41,21 +41,26 @@ public class GlobalContent {
     /**
      * 选图片缓存和glide缓存的图片路径
      */
-    public static String imgPath= filePath + "savepictures/";
+    public static String imgPath = filePath + "savepictures/";
 
     /**
      * 文件的存放地址
      */
-    public static String SAVEFILEPATH= filePath + "savefile/";
+    public static String SAVEFILEPATH = filePath + "savefile/";
 
     /**
      * log路径
      */
-    public static String logPath=filePath + "log/";
+    public static String logPath = filePath + "log/";
 
     /**
      * baseurl
      */
     public static final String BASE_URL = "http://www.wanandroid.com/tools/mockapi/2547/";
+
+
+    public static final int REFRESH = 0;
+    public static final int LOADMORE = 1;
+
 
 }

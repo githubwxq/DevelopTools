@@ -1,6 +1,11 @@
 <com.juziwl.uilibrary.recycler.PullRefreshRecycleView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" />
 
-</com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
+
+    <!--<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:id="@+id/smartRefreshLayout"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+    <!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/rv"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent" />-->
+
+    <!--</com.scwang.smartrefresh.layout.SmartRefreshLayout>-->

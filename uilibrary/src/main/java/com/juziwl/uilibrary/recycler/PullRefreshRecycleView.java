@@ -3,7 +3,6 @@ package com.juziwl.uilibrary.recycler;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,11 +16,8 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.juziwl.uilibrary.R;
-import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
-import com.juziwl.uilibrary.pullrefreshlayout.ShowGravity;
-import com.juziwl.uilibrary.pullrefreshlayout.widget.DiDiHeader;
-import com.juziwl.uilibrary.pullrefreshlayout.widget.FootView2;
-import com.juziwl.uilibrary.pullrefreshlayout.widget.HeaderOrFooter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -34,15 +30,9 @@ public class PullRefreshRecycleView extends LinearLayout {
 
     View view;
 
-    PullRefreshLayout pullRefreshLayout;
+    SmartRefreshLayout pullRefreshLayout;
 
     RecyclerView rv_list;
-
-//    DiDiHeader header;
-    HeaderOrFooter header;
-
-    FootView2 footer;
-
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -71,17 +61,10 @@ public class PullRefreshRecycleView extends LinearLayout {
         emptyView = LayoutInflater.from(context).inflate(R.layout.layout_empty_view, null, false);
         mIvEmpty = emptyView.findViewById(R.id.iv_empty);
         mTvEmpty = emptyView.findViewById(R.id.tv_empty);
-//        AVLoadingIndicatorView
-        header = new HeaderOrFooter(context,"BallSpinFadeLoaderIndicator");
-//        header = new DiDiHeader(context,pullRefreshLayout);
-        footer = new FootView2(context);
+
         layoutManager = new LinearLayoutManager(this.getContext()); //默认是线性向下 可以手动给重新设置
         //添加头和尾
         rv_list.setLayoutManager(layoutManager);
-        pullRefreshLayout.setHeaderShowGravity(ShowGravity.FOLLOW);
-        pullRefreshLayout.setHeaderView(header);
-        pullRefreshLayout.setFooterView(footer);
-        pullRefreshLayout.setLoadMoreEnable(true);
     }
 
 
@@ -202,8 +185,8 @@ public class PullRefreshRecycleView extends LinearLayout {
      * @param adapter           自己处理数据源问题
      * @param onRefreshListener
      */
-    public void setAdapter(BaseQuickAdapter adapter, PullRefreshLayout.OnRefreshListener onRefreshListener) {
-        pullRefreshLayout.setOnRefreshListener(onRefreshListener);
+    public void setAdapter(BaseQuickAdapter adapter, OnRefreshLoadMoreListener onRefreshListener) {
+        pullRefreshLayout.setOnRefreshLoadMoreListener(onRefreshListener);
         this.adapter = adapter;
         this.adapter.setEmptyView(loadView);
         rv_list.setAdapter(this.adapter);
@@ -307,19 +290,15 @@ public class PullRefreshRecycleView extends LinearLayout {
     /**
      * 删除全部的头和尾
      */
-    public PullRefreshRecycleView removeHeaderAndFootVew() {
+    public PullRefreshRecycleView removeHeaderAndFootView() {
         adapter.removeAllFooterView();
         adapter.removeAllHeaderView();
         return this;
     }
 
-    public PullRefreshRecycleView addHeardVew(View view) {
+    public PullRefreshRecycleView addHeaderView(View view,boolean  isShowHeader) {
         adapter.addHeaderView(view);
-        return this;
-    }
-
-    public PullRefreshRecycleView addHeadVew(View view) {
-        adapter.addHeaderView(view);
+        adapter.setHeaderAndEmpty(isShowHeader);
         return this;
     }
 
@@ -345,32 +324,28 @@ public class PullRefreshRecycleView extends LinearLayout {
     }
 
     //设置能否加载更多
+    @SuppressLint("RestrictedApi")
     public PullRefreshRecycleView setLoadMoreEnable(boolean enable) {
-        pullRefreshLayout.setLoadMoreEnable(enable);
-        footer.isShowComplete(!enable);
+        pullRefreshLayout.setEnableLoadMore(enable);
+        pullRefreshLayout.getRefreshFooter().setNoMoreData(!enable);
         return this;
     }
 
-    public PullRefreshRecycleView setFooterCompleteText(String text) {
-        footer.setCompleteText(text);
-        return this;
-    }
+//    public PullRefreshRecycleView setFooterCompleteText(String text) {
+//        footer.setCompleteText(text);
+//        return this;
+//    }
 
     public PullRefreshRecycleView setRefreshEnable(boolean enable) {
-        pullRefreshLayout.setRefreshEnable(enable);
-        if (!enable) {
-            pullRefreshLayout.removeView(header);
-        } else {
-            pullRefreshLayout.setHeaderView(header);
-        }
+        pullRefreshLayout.setEnableRefresh(enable);
         return this;
     }
 
 
     public PullRefreshRecycleView completeRefrishOrLoadMore() {
-        pullRefreshLayout.refreshComplete();
-        pullRefreshLayout.loadMoreComplete();
-        this.adapter.setEmptyView(emptyView);
+        pullRefreshLayout.finishRefresh();//结束刷新
+        pullRefreshLayout.finishLoadMore();//结束加载
+        adapter.setEmptyView(emptyView);
         return this;
     }
 
@@ -381,13 +356,17 @@ public class PullRefreshRecycleView extends LinearLayout {
     }
 
     public PullRefreshRecycleView autoRefresh(boolean isAuto) {
-        pullRefreshLayout.autoRefresh(isAuto);
+        if (isAuto) {
+            pullRefreshLayout.autoRefresh();
+        }
         return this;
     }
 
 
     public PullRefreshRecycleView autoLoading(boolean isAuto) {
-        pullRefreshLayout.autoLoading(isAuto);
+        if (isAuto) {
+            pullRefreshLayout.autoLoadMore();
+        }
         return this;
     }
 
@@ -399,9 +378,9 @@ public class PullRefreshRecycleView extends LinearLayout {
     public PullRefreshRecycleView setIsRefrishAndLoadMoreEnable(boolean enable) {
         isRefrishAndLoadMoreEnable = enable;
         if (!isRefrishAndLoadMoreEnable) {
-            pullRefreshLayout.removeView(footer);
-            pullRefreshLayout.setRefreshEnable(false);
-            pullRefreshLayout.setLoadMoreEnable(false);
+//            pullRefreshLayout.removeView(footer);
+            pullRefreshLayout.setEnableRefresh(false);
+            pullRefreshLayout.setEnableLoadMore(false);
         }
         return this;
     }
@@ -417,7 +396,7 @@ public class PullRefreshRecycleView extends LinearLayout {
         return rv_list;
     }
 
-    public PullRefreshLayout getPullRefreshLayout() {
+    public SmartRefreshLayout getPullRefreshLayout() {
         return pullRefreshLayout;
     }
 

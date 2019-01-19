@@ -1,4 +1,3 @@
-
 if (rootProject.ext.isGankApp) {
     apply plugin: 'com.android.application'
 } else {
@@ -27,4 +26,5 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

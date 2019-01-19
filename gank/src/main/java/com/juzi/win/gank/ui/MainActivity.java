@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
-                tabLayout.setCurrentTab(position);
+                vp.setCurrentItem(position);
             }
 
             @Override

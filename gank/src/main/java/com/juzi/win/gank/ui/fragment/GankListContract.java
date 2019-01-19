@@ -10,10 +10,12 @@ import java.util.List;
 public interface GankListContract {
     interface View extends BaseView {
         void  setData(List<GankBaseResponse.GankBean>  list);
+
+        void addData(List<GankBaseResponse.GankBean> results);
     }
 
     interface Presenter extends BasePresenter<View> {
-        void reqInfo(String type);
+        void reqInfo(String type, int touchtype);
     }
 
 }
