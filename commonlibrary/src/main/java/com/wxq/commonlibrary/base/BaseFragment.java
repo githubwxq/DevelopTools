@@ -15,6 +15,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
@@ -22,9 +23,12 @@ import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.baserx.RxBus;
+
 import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.weiget.DialogManager;
 
@@ -138,10 +142,10 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
      */
     private boolean isParentInvisible() {
         Fragment parentFragment = getParentFragment();
-        if (parentFragment instanceof BaseFragment ) {
+        if (parentFragment instanceof BaseFragment) {
             BaseFragment fragment = (BaseFragment) parentFragment;
             return !fragment.isSupportVisible();
-        }else {
+        } else {
             return false;
         }
     }
@@ -166,19 +170,22 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     }
 
 
-
-
     protected abstract T initPresenter();
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (mPresenter != null)
+            mPresenter.unDisposable();
+    }
+
+    @Override
+    public void onDestroy() {
         if (unbinder != null) {
             unbinder.unbind();
         }
-        if (mPresenter != null)
-            mPresenter.unDisposable();
+        super.onDestroy();
     }
 
     @Nullable
@@ -200,7 +207,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         RxBus.getDefault().take()
                 .compose(this.bindUntilEvent(FragmentEvent.DESTROY)).subscribe(event -> {
             dealWithRxEvent(event.action, event);
-        });;
+        });
+        ;
 
     }
 
@@ -270,10 +278,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
             dispatchUserVisibleHint(true);
         }
     }
-
-
-
-
 
 
     // 处理系统发出的广播

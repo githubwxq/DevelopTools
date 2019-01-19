@@ -4,6 +4,7 @@ package com.juziwl.uilibrary.recycler;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,13 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.juziwl.uilibrary.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
+import com.scwang.smartrefresh.layout.api.RefreshFooter;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
@@ -65,6 +73,26 @@ public class PullRefreshRecycleView extends LinearLayout {
         layoutManager = new LinearLayoutManager(this.getContext()); //默认是线性向下 可以手动给重新设置
         //添加头和尾
         rv_list.setLayoutManager(layoutManager);
+
+
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
+            @NonNull
+            @Override
+            public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
+                //全局设置主题颜色（优先级第二低，可以覆盖 DefaultRefreshInitializer 的配置，与下面的ClassicsHeader绑定）
+//                layout.setPrimaryColorsId(R.color.color_0093e8, android.R.color.white);
+                return new ClassicsHeader(context);
+            }
+        });
+        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
+            @NonNull
+            @Override
+            public RefreshFooter createRefreshFooter(@NonNull Context context, @NonNull RefreshLayout layout) {
+//                layout.setPrimaryColorsId(R.color.white);
+                return new ClassicsFooter(context);
+            }
+        });
+
     }
 
 
@@ -296,7 +324,7 @@ public class PullRefreshRecycleView extends LinearLayout {
         return this;
     }
 
-    public PullRefreshRecycleView addHeaderView(View view,boolean  isShowHeader) {
+    public PullRefreshRecycleView addHeaderView(View view, boolean isShowHeader) {
         adapter.addHeaderView(view);
         adapter.setHeaderAndEmpty(isShowHeader);
         return this;

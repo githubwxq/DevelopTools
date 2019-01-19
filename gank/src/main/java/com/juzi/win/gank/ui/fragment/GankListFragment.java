@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -71,6 +72,7 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
 //            }
 //        });
 
+        Log.e("aaa", "" + rv);
         rv.setAdapter(new BaseQuickAdapter<GankBaseResponse.GankBean, BaseViewHolder>(R.layout.item_list_info) {
 
                           @Override
@@ -99,9 +101,9 @@ public class GankListFragment extends BaseFragment<GankListContract.Presenter> i
         );
 
         rv.setEmptyLayoutTV("hhah");
-        TextView  tv=new TextView(getActivity());
+        TextView tv = new TextView(getActivity());
         tv.setText("aaaaaaaaaaaaaaaa");
-        rv.addHeaderView(tv,true);
+        rv.addHeaderView(tv, true);
 
 
     }
