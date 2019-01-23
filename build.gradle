@@ -31,6 +31,7 @@ buildscript {
         //可以持续跟踪和报告构建时间的插件
         classpath "net.rdrei.android.buildtimetracker:gradle-plugin:0.11.+"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
     }
 
     

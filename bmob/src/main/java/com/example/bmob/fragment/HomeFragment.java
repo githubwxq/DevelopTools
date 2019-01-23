@@ -7,16 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.bmob.R;
 import com.example.bmob.R2;
 import com.example.bmob.contract.HomeContract;
 import com.example.bmob.presenter.HomeFragmentPresenter;
-import com.juziwl.uilibrary.pullrefreshlayout.PullRefreshLayout;
-import com.juziwl.uilibrary.pullrefreshlayout.widget.DiDiHeader;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseFragment;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -32,8 +28,7 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     public String currentType = "";
     @BindView(R2.id.rv_data)
     RecyclerView rvData;
-    @BindView(R2.id.prl)
-    PullRefreshLayout prl;
+
     Unbinder unbinder;
 
     public static HomeFragment getInstance(String parmer) {
@@ -60,34 +55,6 @@ public class HomeFragment extends BaseFragment<HomeContract.Presenter> implement
     @Override
     protected void initViews() {
 
-        prl.setHeaderView(new DiDiHeader(getActivity(), prl));
-        prl.setOnRefreshListener(new PullRefreshLayout.OnRefreshListenerAdapter() {
-            @Override
-            public void onRefresh() {
-                prl.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        prl.refreshComplete();
-                    }
-                }, 3000);
-            }
-        });
-
-
-        rvData.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvData.setAdapter(new RecyclerView.Adapter() {
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return new RecyclerView.ViewHolder(getLayoutInflater().inflate(R.layout.item_change_clarity, parent, false)) {
-                };
-            }
-
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            }
-
-            public int getItemCount() {
-                return 8;
-            }
-        });
 
     }
 
