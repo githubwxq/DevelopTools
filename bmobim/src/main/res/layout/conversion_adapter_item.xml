@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="75dp">
+
+        <ImageView
+            android:id="@+id/iv_recent_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:src="@mipmap/common_par_class_icon" />
+
+        <TextView
+            android:id="@+id/tv_recent_name"
+            android:layout_width="wrap_content"
+            android:layout_height="25.0dip"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
+            android:text="444525545454654646"
+            android:layout_marginRight="58.0dip"
+            android:layout_toRightOf="@id/iv_recent_avatar"
+            android:ellipsize="end"
+            android:gravity="left|center"
+            android:singleLine="true"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="2123132132132132132132132132132132.1313"
+            android:id="@+id/tv_recent_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_recent_name"
+            android:layout_marginLeft="@dimen/margin_18"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginRight="@dimen/margin_40"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:layout_toRightOf="@id/iv_recent_avatar"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textSize="@dimen/ts_13" />
+
+        <TextView
+            android:text="今天80.155"
+            android:id="@+id/tv_recent_time"
+            android:layout_width="wrap_content"
+            android:layout_height="25.0dip"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_above="@id/tv_recent_msg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dip"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:singleLine="true"
+            android:textSize="@dimen/ts_10" />
+
+        <TextView
+            android:id="@+id/tv_recent_unread"
+            android:layout_width="wrap_content"
+           android:text="2"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@drawable/orange_oval_par"
+            android:layout_below="@id/tv_recent_time"
+            android:layout_alignParentRight="true"
+            android:textSize="10sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_line"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/height_message"
+        android:background="@color/color_3f3f3f"></View>
+
+</RelativeLayout>

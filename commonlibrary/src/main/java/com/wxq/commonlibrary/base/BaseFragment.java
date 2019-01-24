@@ -21,6 +21,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.baserx.RxBus;
 
@@ -28,6 +29,8 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.weiget.DialogManager;
@@ -176,8 +179,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mPresenter != null)
-            mPresenter.unDisposable();
+
     }
 
     @Override
@@ -185,6 +187,13 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         if (unbinder != null) {
             unbinder.unbind();
         }
+        if (mPresenter != null)
+            mPresenter.unDisposable();
+
+        if (disposable != null) {
+            disposable.dispose();
+        }
+
         super.onDestroy();
     }
 
@@ -201,14 +210,22 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
         }
         return mRootView;
     }
-
+    Disposable disposable;
     private void initRxBus() {
-
-        RxBus.getDefault().take()
-                .compose(this.bindUntilEvent(FragmentEvent.DESTROY)).subscribe(event -> {
-            dealWithRxEvent(event.action, event);
+        disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {
+            @Override
+            public void accept(Event event) {
+                dealWithRxEvent(event.action, event);
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) {
+                Logger.e("rxbus传递出现异常");
+                if (throwable != null) {
+                    Logger.e(throwable.getMessage());
+                }
+            }
         });
-        ;
 
     }
 

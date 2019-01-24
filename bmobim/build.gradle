@@ -19,6 +19,6 @@ android {
 }
 dependencies {
 
-    api rootProject.ext.deps["bmob-im"]
+
 
 }

@@ -24,10 +24,26 @@ import cn.bmob.v3.exception.BmobException;
  * version:1.0
  */
 public class BmobImApplication extends BaseApp {
+
+    private static BmobImApplication INSTANCE;
+
+    public static BmobImApplication INSTANCE() {
+        return INSTANCE;
+    }
+
+    private void setInstance(BmobImApplication app) {
+        setBmobIMApplication(app);
+    }
+
+    private static void setBmobIMApplication(BmobImApplication a) {
+        BmobImApplication.INSTANCE = a;
+    }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Bmob.initialize(this, "ea796f59c1a3d4a34f0b18b7626dd291");
+        Bmob.initialize(this, "0a3266bd5f48099941c32dea0467d6cf");
         // 使用推送服务时的初始化操作
         BmobInstallationManager.getInstance().initialize(new InstallationListener<BmobInstallation>() {
             @Override
@@ -44,10 +60,10 @@ public class BmobImApplication extends BaseApp {
         //初始化bugly
         BuglyUtils.init(this,"bf24009ac5", BuildConfig.DEBUG);
         //初始化im
-//        if (getApplicationInfo().packageName.equals(getMyProcessName())) {
-//            BmobIM.init(this);
-////            BmobIM.registerDefaultMessageHandler(new DemoMessageHandler(this));
-//        }
+        if (getApplicationInfo().packageName.equals(getMyProcessName())) {
+            BmobIM.init(this);
+            BmobIM.registerDefaultMessageHandler(new DemoMessageHandler(this));
+        }
 
 
 

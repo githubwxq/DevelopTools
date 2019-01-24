@@ -20,7 +20,7 @@ import com.wxq.commonlibrary.util.Utils;
  */
 public class AllDataCenterManager {
 
-    private final String DATA_BASE_NAME = "exuecloud.db";
+    private final String DATA_BASE_NAME = "develop.db";
     /**
      * 用户数据
      */

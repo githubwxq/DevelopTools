@@ -123,6 +123,7 @@ dependencies {
     //bmob
     api rootProject.ext.deps["bmob-sdk"]
     api rootProject.ext.deps["bmob-push"]
+    api rootProject.ext.deps["bmob-im"]
 //数据库调试
 //debugCompile 'com.amitshekhar.android:debug
 // -db:1.0.0'
