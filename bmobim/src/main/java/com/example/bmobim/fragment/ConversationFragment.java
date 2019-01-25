@@ -106,7 +106,12 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
 
         @Override
         protected void convert(BaseViewHolder helper, Conversation item) {
-
+            helper.getView(R.id.rl_main).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item.onClick(getContext());
+                }
+            });
         }
     }
 }

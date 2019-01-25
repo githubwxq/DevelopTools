@@ -2,34 +2,37 @@ package com.example.bmobim.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 
-import com.alibaba.android.arouter.facade.annotation.Autowired;
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.router.RouterContent;
-import com.wxq.commonlibrary.util.StringUtils;
-import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.base.BaseActivity;
-import com.example.bmobim.presenter.ChatActivityPresenter;
+import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.example.bmobim.R;
 import com.example.bmobim.contract.ChatContract;
+import com.example.bmobim.presenter.ChatActivityPresenter;
+import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
+import com.wxq.commonlibrary.base.BaseActivity;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import com.example.bmobim.R;
-import com.example.bmobim.R2;
+import cn.bmob.newim.bean.BmobIMConversation;
+import cn.bmob.newim.bean.BmobIMMessage;
 
 /**
- * 创建日期：
- * 描述:
+ * 创建日期：1.25
+ * 描述:聊天页面
  *
- * @author:
+ * @author:wxq
  */
 public class ChatActivity extends BaseActivity<ChatContract.Presenter> implements ChatContract.View {
 
-    public static final String TITLE = "";
+    public static final String TITLE = "聊天";
+    @BindView(R.id.recyclerView)
+    PullRefreshRecycleView recyclerView;
 
 
     public static void navToActivity(Context context) {
@@ -46,7 +49,23 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     protected void initViews() {
+        topHeard.setTitle(TITLE).setLeftListener(v -> onBackPressed());
+        BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
+        mPresenter.setCurrentConversation(conversationEntrance);
     }
+
+
+    @Override
+    public void updateRecycleViewData(List<BmobIMMessage> bmobIMMessageList) {
+//        recyclerView.setAdapter(new BaseMultiItemQuickAdapter<BmobIMMessage,BaseViewHolder>(bmobIMMessageList) {
+//
+//            @Override
+//            protected void convert(BaseViewHolder helper, BmobIMMessage item) {
+//
+//            }
+//        });
+    }
+
 
 
     @Override
@@ -59,6 +78,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     public boolean isNeedHeardLayout() {
         return true;
     }
+
 
 
 }

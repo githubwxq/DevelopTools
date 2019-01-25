@@ -43,6 +43,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.ChatActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+
+        </activity>
         <!--TODO 集成：1.5、配置IM SDK需要的广播和服务-->
         <receiver android:name="cn.bmob.newim.core.ConnectChangeReceiver" >
             <intent-filter>
