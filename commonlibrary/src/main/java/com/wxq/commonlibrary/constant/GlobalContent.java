@@ -17,6 +17,9 @@ public class GlobalContent {
     public static final String ENCODING = "UTF-8";
     public static String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DevelopTools/";
 
+    public static final String AT_SPECIAL_WORD = " ";
+    public static final String AT_WORD = "@";
+
     /**
      * 语音存放路径
      */

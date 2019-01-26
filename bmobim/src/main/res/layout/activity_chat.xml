@@ -10,11 +10,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recyclerView"
+    android:layout_above="@+id/input_panel"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 </com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
 
-
+<com.juziwl.uilibrary.chatview.ChatInput
+    android:id="@+id/input_panel"
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_height="wrap_content"></com.juziwl.uilibrary.chatview.ChatInput>
 
 
 </RelativeLayout>

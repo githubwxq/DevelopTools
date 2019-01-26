@@ -23,6 +23,11 @@ public interface ChatContract {
          * @param
          */
         void updateRecycleViewData(List<Message> bmobIMMessageList);
+        /**
+         * 清空输入框并且滚动到最后
+         * @param
+         */
+        void clearEditAndMoveToBottom();
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -39,7 +44,11 @@ public interface ChatContract {
          * @param msg
          */
         void queryMessages(BmobIMMessage msg);
-
+        /**
+         * 发送文本
+         * * @param msg
+         */
+        void sendTextMessage(String textMessage);
     }
 
 }

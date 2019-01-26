@@ -135,7 +135,9 @@ public class PullRefreshRecycleView extends LinearLayout {
         adapter.setHeaderFooterEmpty(true, false);
         return this;
     }
-
+    public void smoothToLastPosition() {
+        layoutManager.scrollToPosition(adapter.getData().size()-1);
+    }
 
     public OnItemClickListener mOnItemClickListener;
 
