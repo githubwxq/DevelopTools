@@ -99,11 +99,12 @@ public class PrivateConversation extends Conversation{
     public void onClick(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, ChatActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("c", conversation);
-        if (bundle != null) {
-            intent.putExtra(context.getPackageName(), bundle);
-        }
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable("c", conversation);
+//        if (bundle != null) {
+//            intent.putExtra(context.getPackageName(), bundle);
+//        }
+        intent.putExtra("c",conversation);
         context.startActivity(intent);
     }
 

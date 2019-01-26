@@ -1,6 +1,7 @@
 package com.example.bmobim.contract;
 
 
+import com.example.bmobim.bean.Message;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.base.BaseView;
 
@@ -21,7 +22,7 @@ public interface ChatContract {
          * 更新列表数据
          * @param
          */
-        void updateRecycleViewData(List<BmobIMMessage> bmobIMMessageList);
+        void updateRecycleViewData(List<Message> bmobIMMessageList);
     }
 
     interface Presenter extends BasePresenter<View> {

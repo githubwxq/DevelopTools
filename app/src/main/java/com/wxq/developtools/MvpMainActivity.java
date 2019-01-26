@@ -49,7 +49,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
         for (User user : DbManager.getInstance().getDaoSession().getUserDao().queryBuilder().list()) {
 
-            com.orhanobut.logger.Logger.e("token", user.getAccessToken());
+//            com.orhanobut.logger.Logger.e("token", user.getAccessToken());
         }
 
         tvHello.setOnClickListener(new View.OnClickListener() {

@@ -1,9 +1,13 @@
 package com.example.bmobim.bean;
 
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.wxq.commonlibrary.bmob.CommonBmobUser;
 
 import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMMessageType;
+import cn.bmob.newim.bean.BmobIMUserInfo;
+import cn.bmob.v3.BmobUser;
 
 /**
  * author:wxq
@@ -13,26 +17,32 @@ import cn.bmob.newim.bean.BmobIMMessageType;
  * version:1.0
  */
 public abstract class Message implements MultiItemEntity {
-    private  BmobIMMessage bmobIMMessage = null;
+    public   BmobIMMessage bmobIMMessage = null;
+    public String currentUid="";
 
-//    TEXT(1, "txt"),
-//    IMAGE(2, "image"),
-//    VOICE(3, "sound"),
-//    LOCATION(4, "location"),
-//    VIDEO(5, "video");
-
-
-    private int itemType;
+    public  BmobIMUserInfo userInfo;
     public Message(BmobIMMessage message) {
-        if(message.getMsgType().equals(BmobIMMessageType.IMAGE.getType())){
-            this.itemType = BmobIMMessageType.IMAGE.getValue();
+        bmobIMMessage=message;
+        try {
+            currentUid = BmobUser.getCurrentUser(CommonBmobUser.class).getObjectId();
+            userInfo= message.getBmobIMUserInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public boolean isSelfMessage(){
+        if (bmobIMMessage.getFromId().equals(currentUid)) {
+            return true;
+        }else {
+            return false;
         }
 
     }
 
 
-    @Override
-    public int getItemType() {
-        return itemType;
-    }
+    public abstract void showTime(boolean isShow);
+
+    public abstract void updateView(BaseViewHolder helper);
 }

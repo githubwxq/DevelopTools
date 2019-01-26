@@ -10,9 +10,13 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
+import com.example.bmobim.adapter.MessageAdapter;
+import com.example.bmobim.bean.Message;
 import com.example.bmobim.contract.ChatContract;
 import com.example.bmobim.presenter.ChatActivityPresenter;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
 
 import java.util.List;
@@ -33,7 +37,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     public static final String TITLE = "聊天";
     @BindView(R.id.recyclerView)
     PullRefreshRecycleView recyclerView;
-
+    MessageAdapter adapter;
 
     public static void navToActivity(Context context) {
         Intent intent = new Intent(context, ChatActivity.class);
@@ -54,19 +58,24 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
         mPresenter.setCurrentConversation(conversationEntrance);
     }
 
-
     @Override
-    public void updateRecycleViewData(List<BmobIMMessage> bmobIMMessageList) {
-//        recyclerView.setAdapter(new BaseMultiItemQuickAdapter<BmobIMMessage,BaseViewHolder>(bmobIMMessageList) {
-//
-//            @Override
-//            protected void convert(BaseViewHolder helper, BmobIMMessage item) {
-//
-//            }
-//        });
+    public void updateRecycleViewData(List<Message> messageList) {
+        if (adapter==null){
+            adapter=new MessageAdapter(messageList);
+            recyclerView.setAdapter(adapter, new OnRefreshLoadMoreListener() {
+                @Override
+                public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+
+                }
+                @Override
+                public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+
+                }
+            });
+        }else {
+            adapter.notifyDataSetChanged();
+        }
     }
-
-
 
     @Override
     protected ChatContract.Presenter initPresent() {

@@ -25,26 +25,30 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
      */
     public MessageAdapter(List<Message> data) {
         super(data);
-        addItemType(BmobIMMessageType.IMAGE.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.TEXT.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.VOICE.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.LOCATION.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.VIDEO.getValue(), R.layout.conversion_adapter_item);
-
-        addItemType(BmobIMMessageType.IMAGE.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.TEXT.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.VOICE.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.LOCATION.getValue(), R.layout.conversion_adapter_item);
-        addItemType(BmobIMMessageType.VIDEO.getValue(), R.layout.conversion_adapter_item);
-
-
-
-
-
+        addItemType(R.layout.item_chat_sent_message, R.layout.item_chat_sent_message);
+        addItemType(R.layout.item_chat_received_message, R.layout.item_chat_received_message);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, Message item) {
+        int position = mData.indexOf(item);
 
+        item.updateView(helper);
+        item.showTime(shouldShowTime(position));
     }
+
+
+    /**
+     * 显示时间间隔:10分钟
+     */
+    private final long TIME_INTERVAL = 10 * 60 * 1000;
+    private boolean shouldShowTime(int position) {
+        if (position == 0) {
+            return true;
+        }
+        long lastTime = mData.get(position - 1).bmobIMMessage.getCreateTime();
+        long curTime = mData.get(position).bmobIMMessage.getCreateTime();
+        return curTime - lastTime > TIME_INTERVAL;
+    }
+
 }

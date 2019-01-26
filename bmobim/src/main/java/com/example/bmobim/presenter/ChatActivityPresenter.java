@@ -1,5 +1,7 @@
 package com.example.bmobim.presenter;
 
+import com.example.bmobim.bean.Message;
+import com.example.bmobim.bean.TextMessage;
 import com.example.bmobim.contract.ChatContract;
 import com.wxq.commonlibrary.base.RxPresenter;
 
@@ -11,6 +13,7 @@ import com.wxq.commonlibrary.util.ToastUtils;
 
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMMessage;
+import cn.bmob.newim.bean.BmobIMMessageType;
 import cn.bmob.newim.core.BmobIMClient;
 import cn.bmob.newim.listener.MessagesQueryListener;
 import cn.bmob.v3.exception.BmobException;
@@ -27,7 +30,7 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
     /**
      * 集合数据
      */
-    public List<BmobIMMessage> bmobIMMessageList=new ArrayList<>();
+    public List<Message> bmobIMMessageList=new ArrayList<>();
     @Override
     public void setCurrentConversation(BmobIMConversation conversation) {
         mConversationManager= BmobIMConversation.obtain(BmobIMClient.getInstance(), conversation);
@@ -52,7 +55,11 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
             public void done(List<BmobIMMessage> list, BmobException e) {
                 if (e == null) {
                     if (null != list && list.size() > 0) {
-                        bmobIMMessageList.addAll(0,list);
+                        List<Message> messageList=new ArrayList<>();
+                        for (BmobIMMessage bmobIMMessage : list) {
+                            messageList.add(dealWithData(bmobIMMessage));
+                        }
+                        bmobIMMessageList.addAll(0,messageList);
                         mView.updateRecycleViewData(bmobIMMessageList);
                     }
                 } else {
@@ -61,4 +68,18 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
             }
         });
     }
+
+
+    /**
+     * 数据处理写道工具类里面
+     * @param item
+     * @return
+     */
+    public Message dealWithData(BmobIMMessage item){
+        if (item.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
+            return new TextMessage(item);
+        }
+        return null;
+    }
+
 }
