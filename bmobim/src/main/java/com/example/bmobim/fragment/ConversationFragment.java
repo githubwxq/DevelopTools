@@ -82,8 +82,8 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
 
     @Override
     public void onResume() {
-        mPresenter.getConversations();
         super.onResume();
+//        mPresenter.getConversations();
     }
 
     @Override
@@ -128,7 +128,7 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
             helper.setText(R.id.tv_recent_name,item.getcName());
             helper.setText(R.id.tv_recent_msg,item.getLastMessageContent());
             helper.setText(R.id.tv_recent_time, TimeUtils.millis2String(item.getLastMessageTime()));
-            helper.setText(R.id.tv_recent_unread, item.getUnReadCount());
+//            helper.setText(R.id.tv_recent_unread, item.getUnReadCount());
         }
     }
 }

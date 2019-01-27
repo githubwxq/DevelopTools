@@ -2,6 +2,7 @@ package com.example.bmobim.presenter;
 
 import android.text.TextUtils;
 
+import com.example.bmobim.bean.ImageMessage;
 import com.example.bmobim.bean.Message;
 import com.example.bmobim.bean.TextMessage;
 import com.example.bmobim.contract.ChatContract;
@@ -17,9 +18,11 @@ import com.example.bmobim.activity.ChatActivity;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import cn.bmob.newim.bean.BmobIMConversation;
+import cn.bmob.newim.bean.BmobIMImageMessage;
 import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMMessageType;
 import cn.bmob.newim.bean.BmobIMTextMessage;
+import cn.bmob.newim.bean.BmobIMVideoMessage;
 import cn.bmob.newim.core.BmobIMClient;
 import cn.bmob.newim.event.MessageEvent;
 import cn.bmob.newim.listener.MessageSendListener;
@@ -43,8 +46,6 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
     public void setCurrentConversation(BmobIMConversation conversation) {
         mConversationManager= BmobIMConversation.obtain(BmobIMClient.getInstance(), conversation);
     }
-
-
 
     public ChatActivityPresenter(ChatContract.View view) {
         super(view);
@@ -105,10 +106,29 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         Message message = dealWithData(msgEvent.getMessage());
         bmobIMMessageList.add(message);
         mView.updateRecycleViewData(bmobIMMessageList);
+        mView.moveToBottom();
     }
 
+    @Override
+    public void setHasRead() {
+        mConversationManager.setUnreadCount(0);
+    }
 
+    @Override
+    public void sendImageMessage(String path) {
+        BmobIMImageMessage bmobIMImageMessage=new BmobIMImageMessage();
+        bmobIMImageMessage.setLocalPath(path);
+//        bmobIMImageMessage.setRemoteUrl("https://avatars3.githubusercontent.com/u/11643472?v=4&u=df609c8370b3ef7a567457eafd113b3ba6ba3bb6&s=400");
+//        BmobIMImageMessage bmobIMImageMessage=new BmobIMImageMessage(path);
+        mConversationManager.sendMessage(bmobIMImageMessage, listener);
+    }
 
+    @Override
+    public void sendVideoMessage(String path) {
+        BmobIMVideoMessage bmobIMVideoMessage=new BmobIMVideoMessage();
+        bmobIMVideoMessage.setLocalPath(path);
+        mConversationManager.sendMessage(bmobIMVideoMessage, listener);
+    }
 
 
     /**
@@ -128,19 +148,25 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         public void onStart(BmobIMMessage msg) {
             super.onStart(msg);
             bmobIMMessageList.add(dealWithData(msg));
-            mView.clearEdit();
-
+            if (msg.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
+                mView.clearEdit();
+            }
         }
 
         @Override
         public void done(BmobIMMessage msg, BmobException e) {
             mView.updateRecycleViewData(bmobIMMessageList);
-            mView.clearEdit();
+            if (msg.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
+                mView.clearEdit();
+            }
+
             if (e != null) {
                 ToastUtils.showShort(e.getMessage());
             }
         }
     };
+
+
     /**
      * 数据处理写道工具类里面
      * @param item
@@ -150,6 +176,10 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         if (item.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
             return new TextMessage(item);
         }
+        if (item.getMsgType().equals(BmobIMMessageType.IMAGE.getType())) {
+            return new ImageMessage(item);
+        }
+
         return new TextMessage(item);
     }
 

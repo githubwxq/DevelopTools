@@ -3,6 +3,7 @@ package com.juziwl.uilibrary.chatview;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -30,10 +31,16 @@ import android.widget.TextView;
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.chatview.audio.VoiceRecorderHelper;
 import com.juziwl.uilibrary.emoji.ExpressionView;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.permissions.RxPermissions;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.KeyboardUtils;
+import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +48,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import static android.app.Activity.RESULT_OK;
+
 /**
  * 聊天界面输入控件
  */
@@ -402,14 +412,15 @@ public class ChatInput extends RelativeLayout implements TextWatcher, View.OnCli
         BaseActivity activity = (BaseActivity) getContext();
         int id = v.getId();
         if (id == R.id.btn_send) {
-            chatView.sendText();
+            chatView.sendText(getEditText().getText().toString());
         }
         if (id == R.id.btn_add) {
             updateView(inputMode == InputMode.MORE ? InputMode.TEXT : InputMode.MORE);
         }
         if (id == R.id.btn_image) {
             if (activity != null && requestStorage(activity)) {
-                chatView.sendImage();
+                //点击了选图片或者视频
+                goToChoosePhotosOrVideo(activity);
             }
         }
         if (id == R.id.btn_voice) {
@@ -422,11 +433,27 @@ public class ChatInput extends RelativeLayout implements TextWatcher, View.OnCli
             setSendBtn();
         }
         if (id == R.id.btn_video) {
-            chatView.sendVideo();
+            if (activity != null && requestStorage(activity)) {
+                //点击了选图片或者视频
+                goToChoosePhotosOrVideo(activity);
+            }
         }
         if (id == R.id.btnEmoticon) {
             updateView(inputMode == InputMode.EMOTICON ? InputMode.TEXT : InputMode.EMOTICON);
         }
+    }
+
+    private void goToChoosePhotosOrVideo(BaseActivity activity) {
+//        、、为什么rxpermission会报错
+        RxPermissions rxPermissions=new RxPermissions(activity);
+//        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                .subscribe(aBoolean -> {
+//                    if (aBoolean) {
+                        openAlbum(activity);
+//                    } else {
+//                        ToastUtils.showShort(R.string.open_external_storage);
+//                    }
+//                });
     }
 
 
@@ -561,5 +588,62 @@ public class ChatInput extends RelativeLayout implements TextWatcher, View.OnCli
     public void destory() {
         voiceRecorderHelper.onDestroy();
     }
+
+
+    /**
+     * 前往选取图片和视频
+     * @param activity
+     */
+    private void openAlbum(BaseActivity activity) {
+        PictureSelector.create(activity)
+                // 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
+                .openGallery(PictureMimeType.ofAll())
+                // 最大图片选择数量
+                .maxSelectNum(9)
+                // 最小选择数量
+                .minSelectNum(1)
+                // 多选 or 单选
+                .selectionMode(PictureConfig.MULTIPLE)
+                // 是否可预览图片
+                .previewImage(true)
+                // 自定义拍照保存路径
+                .setOutputCameraPath(GlobalContent.imgPath)
+                // 自定义拍视频保存路径
+                .setOutputVideoPath(GlobalContent.VIDEOPATH)
+                // 是否显示拍照按钮
+                .isCamera(true)
+                // 图片列表点击 缩放效果 默认true
+                .isZoomAnim(true)
+                // glide 加载宽高，越小图片列表越流畅，但会影响列表图片浏览的清晰度
+                .glideOverride(160, 160)
+                // 是否显示gif图片
+                .isGif(false)
+                .forResult(PictureConfig.CHOOSE_REQUEST);
+    }
+    /**
+     * 处理拿到的图片和视频
+     * @param
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //选图片
+        if (requestCode == PictureConfig.CHOOSE_REQUEST && resultCode == RESULT_OK) {
+            List<LocalMedia> images = PictureSelector.obtainMultipleResult(data);
+            if (images.size() == 1 && images.get(0).getDuration() > 0) {
+                  //当前选择的是视频 直接返回视频链接
+                 chatView.sendVideo(images.get(0).getPath());
+            } else {
+                //当前选择的是图片集合
+                List<String> list=new ArrayList<>();
+                for (LocalMedia image : images) {
+                    String path = image.getPath();
+                    list.add(path);
+                }
+                chatView.sendImage(list);
+            }
+            return;
+        }
+    }
+
+
 
 }

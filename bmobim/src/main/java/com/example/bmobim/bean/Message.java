@@ -14,6 +14,7 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import java.text.SimpleDateFormat;
 
 import cn.bmob.newim.bean.BmobIMConversation;
+import cn.bmob.newim.bean.BmobIMExtraMessage;
 import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMMessageType;
 import cn.bmob.newim.bean.BmobIMSendStatus;
@@ -29,7 +30,7 @@ import cn.bmob.v3.exception.BmobException;
  * desc:
  * version:1.0
  */
-public abstract class Message implements MultiItemEntity {
+public abstract class Message extends BmobIMExtraMessage implements MultiItemEntity {
     public   BmobIMMessage bmobIMMessage = null;
     public String currentUid="";
     public  BmobIMUserInfo userInfo;

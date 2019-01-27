@@ -18,7 +18,9 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.bmob.BmobImEvent;
+import com.wxq.commonlibrary.util.ToastUtils;
 
+import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
@@ -59,7 +61,12 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
         BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
         mPresenter.setCurrentConversation(conversationEntrance);
         inputPanel.setChatView(this);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        inputPanel.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -74,7 +81,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
                 @Override
                 public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                         mPresenter.getPreMessages();
+                    mPresenter.getPreMessages();
                 }
             });
         } else {
@@ -95,9 +102,9 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     public void dealWithRxEvent(int action, Event event) {
-        if (action== BmobImEvent.RECEIVENEWMESSAGE) {
+        if (action == BmobImEvent.RECEIVENEWMESSAGE) {
             //登入成功 获取会话数据
-            MessageEvent msgEvent=event.getObject();
+            MessageEvent msgEvent = event.getObject();
             mPresenter.receiveNewMessage(msgEvent);
         }
 
@@ -127,9 +134,22 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     }
 
     @Override
-    public void sendImage() {
-
+    public void sendImage(List<String> paths) {
+        for (String path : paths) {
+            File file = new File(path);
+            if (file.exists()) {
+                if (file.length() > 1024 * 1024 * 10) {
+                    ToastUtils.showShort(R.string.chat_file_too_large);
+                } else {
+                    mPresenter.sendImageMessage(path);
+                }
+            } else {
+                ToastUtils.showShort(R.string.chat_file_not_exist);
+            }
+        }
+          ToastUtils.showShort(paths.size()+"张图片");
     }
+
 
     @Override
     public void takePhotos() {
@@ -137,8 +157,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     }
 
     @Override
-    public void sendText() {
-        String textMessage = inputPanel.getEditText().getText().toString();
+    public void sendText( String textMessage) {
         mPresenter.sendTextMessage(textMessage);
     }
 
@@ -148,8 +167,9 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     }
 
     @Override
-    public void sendVideo() {
-
+    public void sendVideo(String path) {
+        ToastUtils.showShort(path);
+        mPresenter.sendVideoMessage(path);
     }
 
     @Override
@@ -170,5 +190,11 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     @Override
     public void showAtPage() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.setHasRead();
+        super.onDestroy();
     }
 }

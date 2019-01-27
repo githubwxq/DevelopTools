@@ -65,6 +65,21 @@ public interface ChatContract {
          * * * @param msg
          */
         void receiveNewMessage(MessageEvent msgEvent);
+        /**
+         * 设置已读
+         * * * @param msg
+         */
+        void setHasRead();
+        /**
+         * 发送图片
+         * * @param msg
+         */
+        void sendImageMessage(String path);
+        /**
+         * 发送小视频
+         * * @param msg
+         */
+        void sendVideoMessage(String path);
     }
 
 }

@@ -45,7 +45,7 @@ ext {
     def dependVersion = [
             support    : "27.1.1",
             retrofit   : "2.2.0",
-            okhttp     : "3.7.0",
+            okhttp     : "3.12.0",
             dagger2    : "2.5",
             butterknife: "8.8.1",
             blockcanary: "1.5.0",
@@ -94,6 +94,7 @@ ext {
             "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
             "retrofit-adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
             "okhttp"                    : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+            "okio"                      : "    implementation 'com.squareup.okio:okio:2.1.0'",
             "okhttp-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
 
             //dagger
@@ -216,7 +217,7 @@ ext {
 
             //bmob相关  bmob-sdk  数据存储相关
             "bmob-push"          : "cn.bmob.android:bmob-push:1.0.2",
-            "bmob-sdk"          : "cn.bmob.android:bmob-sdk:3.6.8-rc4",
+            "bmob-sdk"          : "cn.bmob.android:bmob-sdk:3.6.9",
             "bmob-im"          : "cn.bmob.android:bmob-im:2.1.1@aar",
 
             "SmartRefreshLayout": "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19"

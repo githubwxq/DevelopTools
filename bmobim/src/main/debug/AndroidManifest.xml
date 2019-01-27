@@ -70,7 +70,10 @@
         <meta-data
             android:name="Bmob_APP_KEY"
             android:value="0a3266bd5f48099941c32dea0467d6cf"/>
-
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.example.bmobim.BmobContentProvider">
+        </provider>
     </application>
 
 </manifest>

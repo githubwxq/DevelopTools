@@ -59,7 +59,7 @@ public interface ChatView {
     /**
      * 发送图片消息
      */
-    void sendImage();
+    void sendImage(List<String> paths);
 
     /**
      * 发送图片消息
@@ -69,7 +69,7 @@ public interface ChatView {
     /**
      * 发送文字消息
      */
-    void sendText();
+    void sendText(String text);
 
     /**
      * 发送文件
@@ -79,7 +79,7 @@ public interface ChatView {
     /**
      * 发送小视频消息
      */
-    void sendVideo();
+    void sendVideo(String  path);
 
     /**
      * 发送语音

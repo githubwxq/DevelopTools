@@ -23,18 +23,6 @@ import cn.bmob.newim.bean.BmobIMUserInfo;
 
 public class TextMessage extends Message {
 
-//    @BindView(R.id.tv_time)
-    TextView tvTime;
-//    @BindView(R.id.iv_avatar)
-    ImageView ivAvatar;
-//    @BindView(R.id.tv_message)
-    TextView tvMessage;
-//    @BindView(R.id.iv_fail_resend)
-    ImageView ivFailResend;
-//    @BindView(R.id.tv_send_status)
-    TextView tvSendStatus;
-//    @BindView(R.id.progress_load)
-    ProgressBar progressLoad;
 
     public TextMessage(BmobIMMessage message) {
         super(message);
@@ -53,5 +41,10 @@ public class TextMessage extends Message {
         } else {
             return R.layout.item_chat_received_message;
         }
+    }
+
+    @Override
+    public String getMsgType() {
+        return super.getMsgType();
     }
 }

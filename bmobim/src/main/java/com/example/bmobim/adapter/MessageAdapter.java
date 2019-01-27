@@ -27,8 +27,8 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
         super(data);
         addItemType(R.layout.item_chat_sent_message, R.layout.item_chat_sent_message);
         addItemType(R.layout.item_chat_received_message, R.layout.item_chat_received_message);
-
-
+        addItemType(R.layout.item_chat_sent_image, R.layout.item_chat_sent_image);
+        addItemType(R.layout.item_chat_received_image, R.layout.item_chat_received_image);
     }
 
     @Override
