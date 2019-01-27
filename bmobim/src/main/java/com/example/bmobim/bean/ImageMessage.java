@@ -26,9 +26,8 @@ public class ImageMessage extends Message {
 
     @Override
     public void updateDifferentView(BaseViewHolder helper) {
-        final BmobIMImageMessage message = BmobIMImageMessage.buildFromDB(true, bmobIMMessage);
         ImageView iv_picture=helper.getView(R.id.iv_picture);
-        LoadingImgUtil.loadimg(TextUtils.isEmpty(message.getRemoteUrl()) ? message.getLocalPath():message.getRemoteUrl(),iv_picture,false);
+        LoadingImgUtil.loadimg(bmobIMMessage.getContent(),iv_picture,false);
         iv_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

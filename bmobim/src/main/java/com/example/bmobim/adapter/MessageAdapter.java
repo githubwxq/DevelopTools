@@ -33,8 +33,7 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
 
     @Override
     protected void convert(BaseViewHolder helper, Message item) {
-        int position = mData.indexOf(item);
-        item.setIsShowTime(shouldShowTime(position));
+        item.setIsShowTime(shouldShowTime(helper.getLayoutPosition()));
         item.updateView(helper);
     }
 

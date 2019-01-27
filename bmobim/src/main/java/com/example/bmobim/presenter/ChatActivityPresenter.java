@@ -2,13 +2,16 @@ package com.example.bmobim.presenter;
 
 import android.text.TextUtils;
 
+import com.example.bmobim.bean.ExtraMessageInfo;
 import com.example.bmobim.bean.ImageMessage;
 import com.example.bmobim.bean.Message;
 import com.example.bmobim.bean.TextMessage;
 import com.example.bmobim.contract.ChatContract;
+import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.RxPresenter;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -27,7 +30,9 @@ import cn.bmob.newim.core.BmobIMClient;
 import cn.bmob.newim.event.MessageEvent;
 import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.newim.listener.MessagesQueryListener;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UploadFileListener;
 
 /**
  * 作者
@@ -90,7 +95,7 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         msg.setContent(textMessage);
         //可随意设置额外信息
         Map<String, Object> map = new HashMap<>();
-        map.put("level", "1");
+        map.put("type", ExtraMessageInfo.TEXT);
         msg.setExtraMap(map);
         msg.setExtra("OK");
         mConversationManager.sendMessage(msg, listener);
@@ -116,11 +121,24 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
 
     @Override
     public void sendImageMessage(String path) {
-        BmobIMImageMessage bmobIMImageMessage=new BmobIMImageMessage();
-        bmobIMImageMessage.setLocalPath(path);
-//        bmobIMImageMessage.setRemoteUrl("https://avatars3.githubusercontent.com/u/11643472?v=4&u=df609c8370b3ef7a567457eafd113b3ba6ba3bb6&s=400");
-//        BmobIMImageMessage bmobIMImageMessage=new BmobIMImageMessage(path);
-        mConversationManager.sendMessage(bmobIMImageMessage, listener);
+        BmobFile bmobFile=new BmobFile(new File(path));
+        bmobFile.upload(new UploadFileListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e==null) {
+                    String bmobFileUrl = bmobFile.getUrl();
+                    //TODO 发送消息：6.1、发送文本消息
+                    BmobIMTextMessage msg = new BmobIMTextMessage();
+                    msg.setContent(bmobFileUrl);
+                    //可随意设置额外信息
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("type", ExtraMessageInfo.IAMGE);
+                    msg.setExtraMap(map);
+                    msg.setExtra("OK");
+                    mConversationManager.sendMessage(msg, listener);
+                }
+            }
+        });
     }
 
     @Override
@@ -173,10 +191,13 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
      * @return
      */
     public Message dealWithData(BmobIMMessage item){
-        if (item.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
+
+        ExtraMessageInfo extraMessageInfo=new Gson().fromJson(item.getExtra(),ExtraMessageInfo.class);
+
+        if ((ExtraMessageInfo.TEXT).equals(extraMessageInfo.type)) {
             return new TextMessage(item);
         }
-        if (item.getMsgType().equals(BmobIMMessageType.IMAGE.getType())) {
+        if (ExtraMessageInfo.IAMGE.equals(extraMessageInfo.type)) {
             return new ImageMessage(item);
         }
 
