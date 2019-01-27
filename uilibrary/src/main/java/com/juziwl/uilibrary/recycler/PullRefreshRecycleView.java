@@ -259,9 +259,6 @@ public class PullRefreshRecycleView extends LinearLayout {
         completeRefrishOrLoadMore();
     }
 
-    ;
-
-
     /**
      * 刷新某一个
      */

@@ -20,6 +20,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.bmob.BmobImEvent;
+import com.wxq.commonlibrary.util.TimeUtils;
 
 import java.util.List;
 
@@ -71,6 +72,18 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
             //登入成功 获取会话数据
             mPresenter.getConversations();
         }
+
+        if (action== BmobImEvent.RECEIVENEWMESSAGE) {
+            //登入成功 获取会话数据
+            mPresenter.getConversations();
+        }
+
+    }
+
+    @Override
+    public void onResume() {
+        mPresenter.getConversations();
+        super.onResume();
     }
 
     @Override
@@ -112,6 +125,10 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
                     item.onClick(getContext());
                 }
             });
+            helper.setText(R.id.tv_recent_name,item.getcName());
+            helper.setText(R.id.tv_recent_msg,item.getLastMessageContent());
+            helper.setText(R.id.tv_recent_time, TimeUtils.millis2String(item.getLastMessageTime()));
+            helper.setText(R.id.tv_recent_unread, item.getUnReadCount());
         }
     }
 }

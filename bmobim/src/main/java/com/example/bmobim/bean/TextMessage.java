@@ -41,18 +41,7 @@ public class TextMessage extends Message {
     }
 
     @Override
-    public void showTime(boolean isShow) {
-        tvTime.setVisibility(isShow ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    public void updateView(BaseViewHolder helper) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
-        String time = dateFormat.format(bmobIMMessage.getCreateTime());
-        tvTime=helper.getView(R.id.tv_time);
-        ivAvatar=helper.getView(R.id.iv_avatar);
-        tvTime.setText(time);
-        LoadingImgUtil.loadimg(userInfo.getAvatar(),ivAvatar,true);
+    public void updateDifferentView(BaseViewHolder helper) {
         helper.setText(R.id.tv_message,bmobIMMessage.getContent());
     }
 

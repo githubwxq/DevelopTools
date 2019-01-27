@@ -16,12 +16,15 @@ import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.bmob.BmobImEvent;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bmob.newim.bean.BmobIMConversation;
+import cn.bmob.newim.event.MessageEvent;
 
 /**
  * 创建日期：1.25
@@ -71,19 +74,35 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
                 @Override
                 public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-
+                         mPresenter.getPreMessages();
                 }
             });
         } else {
-            adapter.notifyDataSetChanged();
+            recyclerView.notifyDataSetChanged();
         }
     }
 
     @Override
-    public void clearEditAndMoveToBottom() {
+    public void clearEdit() {
         inputPanel.setText("");
+        moveToBottom();
+    }
+
+    @Override
+    public void moveToBottom() {
         recyclerView.smoothToLastPosition();
     }
+
+    @Override
+    public void dealWithRxEvent(int action, Event event) {
+        if (action== BmobImEvent.RECEIVENEWMESSAGE) {
+            //登入成功 获取会话数据
+            MessageEvent msgEvent=event.getObject();
+            mPresenter.receiveNewMessage(msgEvent);
+        }
+
+    }
+
 
     @Override
     protected ChatContract.Presenter initPresent() {
@@ -145,18 +164,11 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     public void scrollBottom() {
-
+        recyclerView.smoothToLastPosition();
     }
 
     @Override
     public void showAtPage() {
 
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

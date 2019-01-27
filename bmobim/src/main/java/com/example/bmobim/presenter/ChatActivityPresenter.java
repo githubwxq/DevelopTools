@@ -21,6 +21,7 @@ import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMMessageType;
 import cn.bmob.newim.bean.BmobIMTextMessage;
 import cn.bmob.newim.core.BmobIMClient;
+import cn.bmob.newim.event.MessageEvent;
 import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.newim.listener.MessagesQueryListener;
 import cn.bmob.v3.exception.BmobException;
@@ -67,11 +68,12 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
                             messageList.add(dealWithData(bmobIMMessage));
                         }
                         bmobIMMessageList.addAll(0,messageList);
-                        mView.updateRecycleViewData(bmobIMMessageList);
                     }
+
                 } else {
                     ToastUtils.showShort(e.getMessage() + "(" + e.getErrorCode() + ")");
                 }
+                mView.updateRecycleViewData(bmobIMMessageList);
             }
         });
     }
@@ -93,6 +95,22 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         mConversationManager.sendMessage(msg, listener);
     }
 
+    @Override
+    public void getPreMessages() {
+       queryMessages(bmobIMMessageList.get(0).bmobIMMessage);
+    }
+
+    @Override
+    public void receiveNewMessage(MessageEvent msgEvent) {
+        Message message = dealWithData(msgEvent.getMessage());
+        bmobIMMessageList.add(message);
+        mView.updateRecycleViewData(bmobIMMessageList);
+    }
+
+
+
+
+
     /**
      * 消息发送监听器
      */
@@ -110,14 +128,14 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         public void onStart(BmobIMMessage msg) {
             super.onStart(msg);
             bmobIMMessageList.add(dealWithData(msg));
-            mView.clearEditAndMoveToBottom();
+            mView.clearEdit();
 
         }
 
         @Override
         public void done(BmobIMMessage msg, BmobException e) {
             mView.updateRecycleViewData(bmobIMMessageList);
-            mView.clearEditAndMoveToBottom();
+            mView.clearEdit();
             if (e != null) {
                 ToastUtils.showShort(e.getMessage());
             }
@@ -132,7 +150,7 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
         if (item.getMsgType().equals(BmobIMMessageType.TEXT.getType())) {
             return new TextMessage(item);
         }
-        return null;
+        return new TextMessage(item);
     }
 
 }

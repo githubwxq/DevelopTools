@@ -9,6 +9,7 @@ import java.util.List;
 
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMMessage;
+import cn.bmob.newim.event.MessageEvent;
 
 /**
  * 创建日期：
@@ -24,10 +25,15 @@ public interface ChatContract {
          */
         void updateRecycleViewData(List<Message> bmobIMMessageList);
         /**
-         * 清空输入框并且滚动到最后
+         * 清空输入框
          * @param
          */
-        void clearEditAndMoveToBottom();
+        void clearEdit();
+        /**
+         * 滚动到最后
+         * @param
+         */
+        void moveToBottom();
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -49,6 +55,16 @@ public interface ChatContract {
          * * @param msg
          */
         void sendTextMessage(String textMessage);
+        /**
+         * 获取之前的消息
+         * * * @param msg
+         */
+        void getPreMessages();
+        /**
+         * 接收新消息
+         * * * @param msg
+         */
+        void receiveNewMessage(MessageEvent msgEvent);
     }
 
 }

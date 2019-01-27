@@ -11,6 +11,8 @@ import com.example.bmobim.bean.NewFriend;
 import com.example.bmobim.model.BmobUserModel;
 import com.example.bmobim.model.UpdateCacheListener;
 import com.orhanobut.logger.Logger;
+import com.wxq.commonlibrary.baserx.RxBusManager;
+import com.wxq.commonlibrary.bmob.BmobImEvent;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.model.User;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.Map;
 import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMMessageType;
 import cn.bmob.newim.bean.BmobIMUserInfo;
+import cn.bmob.newim.event.IMEvent;
 import cn.bmob.newim.event.MessageEvent;
 import cn.bmob.newim.event.OfflineMessageEvent;
 import cn.bmob.newim.listener.BmobIMMessageHandler;
@@ -100,11 +103,8 @@ public class DemoMessageHandler extends BmobIMMessageHandler {
             //如果需要显示通知栏，SDK提供以下两种显示方式：
             Intent pendingIntent = new Intent(context, MainActivity.class);
             pendingIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-
             //TODO 消息接收：8.5、多个用户的多条消息合并成一条通知：有XX个联系人发来了XX条消息
             //BmobNotificationManager.getInstance(context).showNotification(event, pendingIntent);
-
             //TODO 消息接收：8.6、自定义通知消息：始终只有一条通知，新消息覆盖旧消息
             BmobIMUserInfo info = event.getFromUserInfo();
             //这里可以是应用图标，也可以将聊天头像转成bitmap
@@ -113,7 +113,9 @@ public class DemoMessageHandler extends BmobIMMessageHandler {
                     info.getName(), msg.getContent(), "您有一条新消息", pendingIntent);
         } else {
             //直接发送消息事件
-//            EventBus.getDefault().post(event);
+            BmobImEvent bmobImEvent=new BmobImEvent(BmobImEvent.RECEIVENEWMESSAGE);
+            bmobImEvent.object=event;
+            RxBusManager.getInstance().post(bmobImEvent);
         }
     }
 

@@ -27,14 +27,15 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
         super(data);
         addItemType(R.layout.item_chat_sent_message, R.layout.item_chat_sent_message);
         addItemType(R.layout.item_chat_received_message, R.layout.item_chat_received_message);
+
+
     }
 
     @Override
     protected void convert(BaseViewHolder helper, Message item) {
         int position = mData.indexOf(item);
-
+        item.setIsShowTime(shouldShowTime(position));
         item.updateView(helper);
-        item.showTime(shouldShowTime(position));
     }
 
 
@@ -50,5 +51,4 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
         long curTime = mData.get(position).bmobIMMessage.getCreateTime();
         return curTime - lastTime > TIME_INTERVAL;
     }
-
 }
