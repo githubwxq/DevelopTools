@@ -217,18 +217,20 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
      * @return
      */
     public Message dealWithData(BmobIMMessage item) {
-
         ExtraMessageInfo extraMessageInfo = new Gson().fromJson(item.getExtra(), ExtraMessageInfo.class);
+        if (extraMessageInfo != null) {
 
-        if ((ExtraMessageInfo.TEXT).equals(extraMessageInfo.type)) {
-            return new TextMessage(item);
-        }
-        if (ExtraMessageInfo.IAMGE.equals(extraMessageInfo.type)) {
-            return new ImageMessage(item);
-        }
+            if ((ExtraMessageInfo.TEXT).equals(extraMessageInfo.type)) {
+                return new TextMessage(item);
+            }
+            if (ExtraMessageInfo.IAMGE.equals(extraMessageInfo.type)) {
+                return new ImageMessage(item);
+            }
 
-        if (ExtraMessageInfo.VOICE.equals(extraMessageInfo.type)) {
-            return new VoiceMessage(item);
+            if (ExtraMessageInfo.VOICE.equals(extraMessageInfo.type)) {
+                return new VoiceMessage(item);
+            }
+
         }
 
 

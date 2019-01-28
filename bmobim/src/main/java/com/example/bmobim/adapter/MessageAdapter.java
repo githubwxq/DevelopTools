@@ -3,7 +3,9 @@ package com.example.bmobim.adapter;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
+import com.example.bmobim.bean.ImageMessage;
 import com.example.bmobim.bean.Message;
+import com.example.bmobim.bean.VoiceMessage;
 
 import java.util.List;
 
@@ -38,6 +40,11 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
     protected void convert(BaseViewHolder helper, Message item) {
         item.setIsShowTime(shouldShowTime(helper.getLayoutPosition()));
         item.updateView(helper);
+
+        if (item instanceof ImageMessage) {
+            ((ImageMessage)item).setAdapter(MessageAdapter.this);
+        }
+
     }
 
 

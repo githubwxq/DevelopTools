@@ -37,7 +37,7 @@
             android:layout_height="50dp"
             android:background="@drawable/common_item_selector_color"
             android:gravity="center"
-            android:text="@string/common_close_see"
+            android:text="关闭"
             android:textColor="@color/common_myself_word"
             android:textSize="18sp" />
 
