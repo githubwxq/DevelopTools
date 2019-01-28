@@ -61,6 +61,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
         BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
         mPresenter.setCurrentConversation(conversationEntrance);
         inputPanel.setChatView(this);
+        recyclerView.setLoadMoreEnable(false);
     }
 
     @Override
