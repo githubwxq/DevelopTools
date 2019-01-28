@@ -80,6 +80,10 @@ public interface ChatContract {
          * * @param msg
          */
         void sendVideoMessage(String path);
+        /**
+         * 发送语音
+         */
+        void sendVoiceMessage(long length, String path);
     }
 
 }

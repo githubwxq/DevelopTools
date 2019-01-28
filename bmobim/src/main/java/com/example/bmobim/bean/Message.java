@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.bmobim.R;
+import com.google.gson.Gson;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
@@ -32,13 +33,15 @@ import cn.bmob.v3.exception.BmobException;
  */
 public abstract class Message extends BmobIMExtraMessage implements MultiItemEntity {
     public   BmobIMMessage bmobIMMessage = null;
-    public String currentUid="";
+    public  String currentUid="";
     public  BmobIMUserInfo userInfo;
     public  BmobIMConversation bmobIMConversation;
+    public  ExtraMessageInfo extraMessageInfo;
 
     public Message(BmobIMMessage message) {
         bmobIMMessage=message;
         bmobIMConversation=bmobIMMessage.getBmobIMConversation();
+        extraMessageInfo=new Gson().fromJson(bmobIMMessage.getExtra(),ExtraMessageInfo.class);
         try {
             currentUid = BmobUser.getCurrentUser(CommonBmobUser.class).getObjectId();
             userInfo= message.getBmobIMUserInfo();

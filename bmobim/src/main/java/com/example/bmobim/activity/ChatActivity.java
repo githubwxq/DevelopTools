@@ -174,7 +174,7 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     public void sendVoice(long length, String path) {
-
+        mPresenter.sendVoiceMessage(length,path);
     }
 
     @Override

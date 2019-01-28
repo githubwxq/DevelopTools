@@ -11,7 +11,18 @@ public class ExtraMessageInfo {
     public static final String VOICE = "3";
     public static final String VIDEO = "4";
     public static final String LINK = "5";
-
+    /**
+     * 消息类型
+     */
     public String type;
+
+    /**
+     * 语音时长
+     */
+    public String length;
+
+
+
+
 
 }
