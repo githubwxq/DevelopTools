@@ -23,6 +23,18 @@ public class ExtraMessageInfo {
 
 
 
+    /**
+     * 视频时长
+     */
+    public String videoLength;
+
+    /**
+     * 视频图片
+     */
+    public String videoImage;
+
+
+
 
 
 }

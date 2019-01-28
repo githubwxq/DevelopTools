@@ -630,7 +630,7 @@ public class ChatInput extends RelativeLayout implements TextWatcher, View.OnCli
             List<LocalMedia> images = PictureSelector.obtainMultipleResult(data);
             if (images.size() == 1 && images.get(0).getDuration() > 0) {
                   //当前选择的是视频 直接返回视频链接
-                 chatView.sendVideo(images.get(0).getPath());
+                 chatView.sendVideo(images.get(0).getPath(),images.get(0).getDuration());
             } else {
                 //当前选择的是图片集合
                 List<String> list=new ArrayList<>();

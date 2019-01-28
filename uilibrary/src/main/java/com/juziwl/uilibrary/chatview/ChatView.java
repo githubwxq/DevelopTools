@@ -79,7 +79,7 @@ public interface ChatView {
     /**
      * 发送小视频消息
      */
-    void sendVideo(String  path);
+    void sendVideo(String  path,long length);
 
     /**
      * 发送语音

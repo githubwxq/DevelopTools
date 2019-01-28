@@ -5,6 +5,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
 import com.example.bmobim.bean.ImageMessage;
 import com.example.bmobim.bean.Message;
+import com.example.bmobim.bean.VideoMessage;
 import com.example.bmobim.bean.VoiceMessage;
 
 import java.util.List;
@@ -33,6 +34,9 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
         addItemType(R.layout.item_chat_received_image, R.layout.item_chat_received_image);
         addItemType(R.layout.item_chat_sent_voice, R.layout.item_chat_sent_voice);
         addItemType(R.layout.item_chat_received_voice, R.layout.item_chat_received_voice);
+        addItemType(R.layout.item_chat_sent_video, R.layout.item_chat_sent_video);
+        addItemType(R.layout.item_chat_received_video, R.layout.item_chat_received_video);
+
 
     }
 
@@ -42,7 +46,10 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
         item.updateView(helper);
 
         if (item instanceof ImageMessage) {
-            ((ImageMessage)item).setAdapter(MessageAdapter.this);
+            ((ImageMessage) item).setAdapter(MessageAdapter.this);
+        }
+        if (item instanceof VideoMessage) {
+            ((VideoMessage) item).setAdapter(MessageAdapter.this);
         }
 
     }
@@ -52,6 +59,7 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<Message, BaseViewH
      * 显示时间间隔:10分钟
      */
     private final long TIME_INTERVAL = 10 * 60 * 1000;
+
     private boolean shouldShowTime(int position) {
         if (position == 0) {
             return true;

@@ -40,7 +40,7 @@ public class ImageMessage extends Message {
                 // 前往预览页面
                 List<String> images=new ArrayList<>();
                 for (Message message : messageAdapter.getData()) {
-                    if ((ExtraMessageInfo.IAMGE).equals(message.extraMessageInfo.type)) {
+                    if (message.extraMessageInfo!=null&&(ExtraMessageInfo.IAMGE).equals(message.extraMessageInfo.type)) {
                         images.add(message.bmobIMMessage.getContent());
                     }
                 }

@@ -6,10 +6,12 @@ import com.example.bmobim.bean.ExtraMessageInfo;
 import com.example.bmobim.bean.ImageMessage;
 import com.example.bmobim.bean.Message;
 import com.example.bmobim.bean.TextMessage;
+import com.example.bmobim.bean.VideoMessage;
 import com.example.bmobim.bean.VoiceMessage;
 import com.example.bmobim.contract.ChatContract;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
+import com.tencent.smtt.sdk.TbsVideoUtils;
 import com.wxq.commonlibrary.base.RxPresenter;
 
 import java.io.File;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.example.bmobim.activity.ChatActivity;
+import com.wxq.commonlibrary.util.BitmapUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import cn.bmob.newim.bean.BmobIMConversation;
@@ -33,7 +36,14 @@ import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.newim.listener.MessagesQueryListener;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.ProgressCallback;
 import cn.bmob.v3.listener.UploadFileListener;
+import io.reactivex.ObservableSource;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 作者
@@ -129,7 +139,7 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
             public void done(BmobException e) {
                 if (e == null) {
                     String bmobFileUrl = bmobFile.getUrl();
-                    //TODO 发送消息：6.1、发送文本消息
+                    //TODO 发送消息：6.1、发送图片消息
                     BmobIMTextMessage msg = new BmobIMTextMessage();
                     msg.setContent(bmobFileUrl);
                     //可随意设置额外信息
@@ -144,10 +154,45 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
     }
 
     @Override
-    public void sendVideoMessage(String path) {
-        BmobIMVideoMessage bmobIMVideoMessage = new BmobIMVideoMessage();
-        bmobIMVideoMessage.setLocalPath(path);
-        mConversationManager.sendMessage(bmobIMVideoMessage, listener);
+    public void sendVideoMessage(String videoPath, long length) {
+        String videoImage = BitmapUtils.getVideoThumbnail(videoPath, 1920, 1280);
+        BmobFile bmobImageFile = new BmobFile(new File(videoImage));
+        BmobFile bmobvideoPathFile = new BmobFile(new File(videoPath));
+        bmobImageFile.uploadObservable(new ProgressCallback() {
+            @Override
+            public void onProgress(Integer integer, long l) {
+
+            }
+        }).flatMap(new Function<BmobException, ObservableSource<BmobException>>() {
+            @Override
+            public ObservableSource<BmobException> apply(BmobException e) throws Exception {
+                return bmobvideoPathFile.uploadObservable(new ProgressCallback() {
+                    @Override
+                    public void onProgress(Integer integer, long l) {
+
+                    }
+                });
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<BmobException>() {
+                    @Override
+                    public void accept(BmobException e) throws Exception {
+                        if (e.getErrorCode() == 0) {
+                            //TODO 发送消息：6.1、发送视频消息
+                            BmobIMTextMessage msg = new BmobIMTextMessage();
+                            msg.setContent(bmobvideoPathFile.getUrl());
+                            //可随意设置额外信息
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("type", ExtraMessageInfo.VIDEO);
+                            map.put("videoImage", bmobImageFile.getUrl());
+                            map.put("videoLength", (int) length + "");
+                            msg.setExtraMap(map);
+                            msg.setExtra("OK");
+                            mConversationManager.sendMessage(msg, listener);
+                        }
+                    }
+                });
     }
 
     @Override
@@ -229,6 +274,9 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
 
             if (ExtraMessageInfo.VOICE.equals(extraMessageInfo.type)) {
                 return new VoiceMessage(item);
+            }
+            if (ExtraMessageInfo.VIDEO.equals(extraMessageInfo.type)) {
+                return new VideoMessage(item);
             }
 
         }

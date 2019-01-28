@@ -79,7 +79,7 @@ public interface ChatContract {
          * 发送小视频
          * * @param msg
          */
-        void sendVideoMessage(String path);
+        void sendVideoMessage(String path,long length);
         /**
          * 发送语音
          */

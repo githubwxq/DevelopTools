@@ -168,9 +168,9 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     }
 
     @Override
-    public void sendVideo(String path) {
+    public void sendVideo(String path,long length) {
         ToastUtils.showShort(path);
-        mPresenter.sendVideoMessage(path);
+        mPresenter.sendVideoMessage(path,length);
     }
 
     @Override
