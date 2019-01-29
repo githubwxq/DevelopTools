@@ -5,6 +5,7 @@ import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.util.ToastUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;
@@ -106,16 +107,32 @@ public class BmobUserModel {
 
     //TODO 好友管理：9.12、添加好友
     public void agreeAddFriend(CommonBmobUser friend, SaveListener<String> listener) {
-        Friend f = new Friend();
         CommonBmobUser user = BmobUser.getCurrentUser(CommonBmobUser.class);
-        f.setUser(user);
-        f.setFriendUser(friend);
-        f.save(listener);
+        BmobQuery<Friend> query = new BmobQuery<>();
+        query.addWhereEqualTo("user",user);
+        query.addWhereEqualTo("friendUser",friend);
+        query.findObjects(new FindListener<Friend>() {
+            @Override
+            public void done(List<Friend> list, BmobException e) {
+                if (e==null) {
+                    //她两不是好友
+                    if (list.size()==0) {
+                        Friend f = new Friend();
+                        f.setUser(user);
+                        f.setFriendUser(friend);
+                        f.save(listener);
+                    }else {
+                        ToastUtils.showShort("已经是好友");
+                    }
+                }else {
+                    ToastUtils.showShort(e.getMessage());
+                }
+            }
+        });
     }
 
     /**
      * 查询好友
-     *
      * @param listener
      */
     //TODO 好友管理：9.2、查询好友
@@ -140,6 +157,50 @@ public class BmobUserModel {
             }
         });
     }
+
+
+    /**
+     * TODO 用户管理：2.5、查询用户
+     *
+     * @param username
+     * @param page
+     * @param listener
+     */
+    public void queryUsers(String username, final int page, final FindListener<CommonBmobUser> listener) {
+        BmobQuery<CommonBmobUser> query = new BmobQuery<>();
+        //去掉当前用户
+        try {
+            CommonBmobUser user = BmobUser.getCurrentUser(CommonBmobUser.class);
+            BmobQuery<CommonBmobUser> eq1 = new BmobQuery<CommonBmobUser>();
+            eq1.addWhereNotEqualTo("username", user.getUsername());
+            BmobQuery<CommonBmobUser> eq2 = new BmobQuery<CommonBmobUser>();
+            eq2.addWhereContains("username", username);
+            List<BmobQuery<CommonBmobUser>> andQuerys = new ArrayList<BmobQuery<CommonBmobUser>>();
+            andQuerys.add(eq1);
+//            andQuerys.add(eq2);
+            query.and(andQuerys);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        query.setLimit(10);
+        query.setSkip(10*page);
+        query.order("-createdAt");
+        query.findObjects(new FindListener<CommonBmobUser>() {
+            @Override
+            public void done(List<CommonBmobUser> list, BmobException e) {
+                if (e == null) {
+                    if (list != null && list.size() > 0) {
+                        listener.done(list, e);
+                    } else {
+                        listener.done(list, new BmobException(CODE_NULL, "查无此人"));
+                    }
+                } else {
+                    listener.done(list, e);
+                }
+            }
+        });
+    }
+
 
     /**
      * 删除好友

@@ -1,4 +1,4 @@
-package com.example.bmobim;
+package com.wxq.commonlibrary.bmob;
 
 /**
  * @author :smile

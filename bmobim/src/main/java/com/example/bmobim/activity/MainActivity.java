@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.example.bmobim.R;
 import com.example.bmobim.contract.MainContract;
@@ -53,6 +54,13 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     protected void initViews() {
+        topHeard.setRightListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              startActivity(new Intent(MainActivity.this,ContactActivity.class));
+            }
+        });
+
         fragments.add(ConversationFragment.getInstance(""));
 //        fragments.add(ConversationFragment.getInstance(""));
         title.add("会话");

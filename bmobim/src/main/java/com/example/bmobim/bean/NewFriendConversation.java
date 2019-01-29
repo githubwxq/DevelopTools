@@ -1,9 +1,11 @@
 package com.example.bmobim.bean;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import com.example.bmobim.R;
+import com.wxq.commonlibrary.bmob.Config;
+import com.wxq.commonlibrary.bmob.NewFriend;
+
 /**
  * 新朋友会话
  * Created by Administrator on 2016/5/25.

@@ -1,10 +1,6 @@
 package com.example.bmobim.presenter;
 
-import android.content.Context;
-
 import com.example.bmobim.bean.Conversation;
-import com.example.bmobim.bean.NewFriend;
-import com.example.bmobim.bean.NewFriendConversation;
 import com.example.bmobim.bean.PrivateConversation;
 import com.example.bmobim.contract.ConversationContract;
 import com.wxq.commonlibrary.base.RxPresenter;
@@ -12,8 +8,6 @@ import com.wxq.commonlibrary.base.RxPresenter;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-
-import com.example.bmobim.fragment.ConversationFragment;
 
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;

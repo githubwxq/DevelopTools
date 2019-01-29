@@ -1,6 +1,16 @@
 package com.example.bmobim.bean;
 
+import com.wxq.commonlibrary.bmob.CommonBmobUser;
+import com.wxq.commonlibrary.bmob.Config;
+import com.wxq.commonlibrary.bmob.NewFriend;
+import com.wxq.commonlibrary.util.StringUtils;
+import com.wxq.commonlibrary.util.ToastUtils;
+
+import org.json.JSONObject;
+
 import cn.bmob.newim.bean.BmobIMExtraMessage;
+import cn.bmob.newim.bean.BmobIMMessage;
+import cn.bmob.v3.BmobUser;
 
 
 /**
@@ -21,33 +31,35 @@ public class AddFriendMessage extends BmobIMExtraMessage {
     }
 
     /**
-     * 将BmobIMMessage转成NewFriend
+     * 将BmobIMMessage转成NewFriend 他人 这个对象
      *
      * @return
      */
-//    public static NewFriend convert(BmobIMMessage msg) {
-//        NewFriend add = new NewFriend();
-//        String content = msg.getContent();
-//        add.setMsg(content);
-//        add.setTime(msg.getCreateTime());
-//        add.setStatus(Config.STATUS_VERIFY_NONE);
-//        try {
-//            String extra = msg.getExtra();
-//            if (!TextUtils.isEmpty(extra)) {
-//                JSONObject json = new JSONObject(extra);
-//                String name = json.getString("name");
-//                add.setName(name);
-//                String avatar = json.getString("avatar");
-//                add.setAvatar(avatar);
-//                add.setUid(json.getString("uid"));
-//            } else {
-//                Logger.i("AddFriendMessage的extra为空");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return add;
-//    }
+    public static NewFriend convert(BmobIMMessage msg) {
+        NewFriend add = new NewFriend();
+        String content = msg.getContent();
+        add.setMsg(content);
+        add.setTime(msg.getCreateTime());
+        add.setStatus(Config.STATUS_VERIFY_NONE);
+        //当前用户id
+        add.setStoreId(BmobUser.getCurrentUser(CommonBmobUser.class).getObjectId());
+        try {
+            String extra = msg.getExtra();
+            if (!StringUtils.isEmpty(extra)) {
+                JSONObject json = new JSONObject(extra);
+                String name = json.getString("name");
+                add.setName(name);
+                String avatar = json.getString("avatar");
+                add.setAvatar(avatar);
+                add.setUid(json.getString("uid"));
+            } else {
+               ToastUtils.showShort("AddFriendMessage的extra为空");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return add;
+    }
 
 
     @Override

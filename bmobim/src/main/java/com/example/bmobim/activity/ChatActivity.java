@@ -57,8 +57,9 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     protected void initViews() {
-        topHeard.setTitle(TITLE).setLeftListener(v -> onBackPressed());
+//        topHeard.setTitle(TITLE).setLeftListener(v -> onBackPressed());
         BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
+        topHeard.setTitle(conversationEntrance.getConversationTitle()).setLeftListener(v -> onBackPressed());
         mPresenter.setCurrentConversation(conversationEntrance);
         inputPanel.setChatView(this);
         recyclerView.setLoadMoreEnable(false);
