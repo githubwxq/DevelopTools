@@ -32,30 +32,13 @@ public class VideoMessage extends Message {
     @Override
     public void updateDifferentView(BaseViewHolder helper) {
         ImageView iv_picture=helper.getView(R.id.iv_picture);
-        LoadingImgUtil.loadimg(extraMessageInfo.videoImage,iv_picture,false);
+        if (extraMessageInfo.videoImage!=null) {
+            LoadingImgUtil.loadimg(extraMessageInfo.videoImage,iv_picture,false);
+        }
         iv_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PictureVideoPlayActivity.navToVideoPlay(helper.getConvertView().getContext(), bmobIMMessage.getContent(), extraMessageInfo.videoImage, true, GlobalContent.VIDEOPATH);
-
-//                int currentPositon=-1;
-//                // 前往预览页面
-//                List<String> images=new ArrayList<>();
-//                for (Message message : messageAdapter.getData()) {
-//                    if ((ExtraMessageInfo.IAMGE).equals(message.extraMessageInfo.type)) {
-//                        images.add(message.bmobIMMessage.getContent());
-//                    }
-//                }
-//                currentPositon=images.indexOf(bmobIMMessage.getContent());
-//                StringBuffer stringBuffer=new StringBuffer();
-//                for (int i = 0; i < images.size(); i++) {
-//                    if (i==images.size()-1) {
-//                        stringBuffer.append(images.get(i));
-//                    }else {
-//                        stringBuffer.append(images.get(i)+";");
-//                    }
-//                }
-//                WatchImagesActivity.navToWatchImages(helper.getConvertView().getContext(),stringBuffer.toString(),currentPositon);
             }
         });
     }
