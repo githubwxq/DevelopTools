@@ -1,5 +1,6 @@
 package com.example.bmobim.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,12 +59,21 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     protected void initViews() {
-//        topHeard.setTitle(TITLE).setLeftListener(v -> onBackPressed());
         BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
         topHeard.setTitle(conversationEntrance.getConversationTitle()).setLeftListener(v -> onBackPressed());
         mPresenter.setCurrentConversation(conversationEntrance);
         inputPanel.setChatView(this);
         recyclerView.setLoadMoreEnable(false);
+        //获取权限
+        rxPermissions
+                .request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO)
+                .subscribe(aBoolean -> {
+                    if (aBoolean) {
+
+                    } else {
+                        ToastUtils.showShort("请打开权限否则影响功能");
+                    }
+                });
     }
 
     @Override
@@ -150,7 +160,6 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
                 ToastUtils.showShort(R.string.chat_file_not_exist);
             }
         }
-          ToastUtils.showShort(paths.size()+"张图片");
     }
 
 
@@ -171,7 +180,6 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
 
     @Override
     public void sendVideo(String path,long length) {
-        ToastUtils.showShort(path);
         mPresenter.sendVideoMessage(path,length);
     }
 
