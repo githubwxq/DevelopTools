@@ -30,7 +30,7 @@
             android:src="@mipmap/head"
             android:scaleType="fitXY" />
 
-        <TextView
+        <com.juziwl.uilibrary.emoji.MTextView
             android:id="@+id/tv_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -98,4 +98,21 @@ public class NewFriendManager {
         add.setStatus(statusVerified);
         DbManager.getInstance().getDaoSession().getNewFriendDao().insertOrReplaceInTx(add);
     }
+
+
+    public static void updateNewFriend(String friendId,String storeUid) {
+        NewFriend oldFriend=null;
+        List<NewFriend> infos =getNoVerticalAllFriends(storeUid);
+        for (NewFriend info : infos) {
+            if (info.getUid().equals(friendId)){
+                oldFriend=info;
+            }
+        }
+        if (oldFriend!=null){
+            oldFriend.setStatus(Config.STATUS_VERIFIED);
+            //更新該數據
+            DbManager.getInstance().getDaoSession().getNewFriendDao().insertOrReplaceInTx(oldFriend);
+        }
+
+    }
 }

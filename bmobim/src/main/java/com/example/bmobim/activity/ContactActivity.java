@@ -19,6 +19,8 @@ import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.bmob.BmobImEvent;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.ToastUtils;
@@ -63,16 +65,21 @@ public class ContactActivity extends BaseActivity<ContactContract.Presenter> imp
             public void onClick(View view) {
                 onBackPressed();
             }
-        }, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(context,SearchFriendActivity.class);
-                startActivity(intent);
-            }
+        }, view -> {
+            Intent intent=new Intent(context,SearchFriendActivity.class);
+            startActivity(intent);
         });
 
     }
 
+    @Override
+    public void dealWithRxEvent(int action, Event event) {
+        if (action== BmobImEvent.UPDATEFRIENDLIST) {
+            //更新好友 你同意人家或者人家同意你
+            mPresenter.findFriends();
+        }
+
+    }
 
     @Override
     protected ContactContract.Presenter initPresent() {

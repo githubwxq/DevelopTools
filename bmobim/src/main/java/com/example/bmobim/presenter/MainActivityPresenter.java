@@ -43,7 +43,7 @@ public class MainActivityPresenter extends RxPresenter<MainContract.View> implem
     public void initEventAndData() {
        //登入账号
         final CommonBmobUser user = new CommonBmobUser();
-        user.setUsername("wxq456");
+        user.setUsername("wxq123");
         user.setPassword("111111");
         user.login(new SaveListener<CommonBmobUser>() {
             @Override

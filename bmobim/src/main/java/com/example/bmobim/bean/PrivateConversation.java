@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.example.bmobim.R;
 import com.example.bmobim.activity.ChatActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 import cn.bmob.newim.BmobIM;
@@ -62,20 +63,25 @@ public class PrivateConversation extends Conversation{
     public String getLastMessageContent() {
         if(lastMsg!=null){
             String content =lastMsg.getContent();
-            if(lastMsg.getMsgType().equals(BmobIMMessageType.TEXT.getType()) || lastMsg.getMsgType().equals("agree")){
-                return content;
-            }else if(lastMsg.getMsgType().equals(BmobIMMessageType.IMAGE.getType())){
-                return "[图片]";
-            }else if(lastMsg.getMsgType().equals(BmobIMMessageType.VOICE.getType())){
-                return "[语音]";
-            }else if(lastMsg.getMsgType().equals(BmobIMMessageType.LOCATION.getType())){
-                return"[位置]";
-            }else if(lastMsg.getMsgType().equals(BmobIMMessageType.VIDEO.getType())){
-                return "[视频]";
-            }else{//开发者自定义的消息类型，需要自行处理
+            ExtraMessageInfo extraMessageInfo = new Gson().fromJson(lastMsg.getExtra(), ExtraMessageInfo.class);
+            if (extraMessageInfo==null) {
+                return "[未知]";
+            }else {
+                if ((ExtraMessageInfo.TEXT).equals(extraMessageInfo.type)||lastMsg.getMsgType().equals("agree")) {
+                    return content;
+                }
+                if (ExtraMessageInfo.IAMGE.equals(extraMessageInfo.type)) {
+                    return "[图片]";
+                }
+                if (ExtraMessageInfo.VOICE.equals(extraMessageInfo.type)) {
+                    return "[语音]";
+                }
+                if (ExtraMessageInfo.VIDEO.equals(extraMessageInfo.type)) {
+                    return "[视频]";
+                }
                 return "[未知]";
             }
-        }else{//防止消息错乱
+        }else{  //防止消息错乱
             return "";
         }
     }
@@ -99,11 +105,6 @@ public class PrivateConversation extends Conversation{
     public void onClick(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, ChatActivity.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("c", conversation);
-//        if (bundle != null) {
-//            intent.putExtra(context.getPackageName(), bundle);
-//        }
         intent.putExtra("c",conversation);
         context.startActivity(intent);
     }

@@ -89,7 +89,7 @@ public abstract class Message extends BmobIMExtraMessage implements MultiItemEnt
             if (status == BmobIMSendStatus.SEND_FAILED.getStatus()) {
                 helper.setVisible(R.id.iv_fail_resend,true);
                 helper.setVisible(R.id.progress_load,false);
-            } else if (status== BmobIMSendStatus.SENDING.getStatus()) {
+            } else if (status== BmobIMSendStatus.SENDING.getStatus()||(status== BmobIMSendStatus.NULL.getStatus())) {
                 helper.setVisible(R.id.iv_fail_resend,false);
                 helper.setVisible(R.id.progress_load,true);
             } else {

@@ -2,6 +2,8 @@ package com.example.bmobim.model;
 import android.content.Context;
 import com.example.bmobim.bean.Friend;
 import com.orhanobut.logger.Logger;
+import com.wxq.commonlibrary.baserx.RxBusManager;
+import com.wxq.commonlibrary.bmob.BmobImEvent;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.util.ToastUtils;
 
@@ -124,6 +126,9 @@ public class BmobUserModel {
                     }else {
                         ToastUtils.showShort("已经是好友");
                     }
+                    //直接发送消息事件
+                    BmobImEvent bmobImEvent=new BmobImEvent(BmobImEvent.UPDATEFRIENDLIST);
+                    RxBusManager.getInstance().post(bmobImEvent);
                 }else {
                     ToastUtils.showShort(e.getMessage());
                 }

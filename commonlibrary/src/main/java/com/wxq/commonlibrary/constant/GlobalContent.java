@@ -10,6 +10,10 @@ import android.os.Environment;
 
 public class GlobalContent {
 
+    public static final int P720 = 720;
+    public static final int P1080 = 1080;
+    public static final int P1500 = 1500;
+
     /**
      * 是否登录,家长版需要，暂时设置成true，默认是false
      */

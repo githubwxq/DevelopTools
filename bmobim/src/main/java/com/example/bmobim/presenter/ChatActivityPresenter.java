@@ -133,6 +133,7 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
 
     @Override
     public void sendImageMessage(String path) {
+
         BmobFile bmobFile = new BmobFile(new File(path));
         bmobFile.upload(new UploadFileListener() {
             @Override
@@ -141,6 +142,8 @@ public class ChatActivityPresenter extends RxPresenter<ChatContract.View> implem
                     String bmobFileUrl = bmobFile.getUrl();
                     //TODO 发送消息：6.1、发送图片消息
                     BmobIMTextMessage msg = new BmobIMTextMessage();
+                    msg.getSendStatus();
+//                    msg.set
                     msg.setContent(bmobFileUrl);
                     //可随意设置额外信息
                     Map<String, Object> map = new HashMap<>();

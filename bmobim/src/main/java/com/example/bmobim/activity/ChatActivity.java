@@ -17,6 +17,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.bmob.BmobImEvent;
 import com.wxq.commonlibrary.util.ToastUtils;
 
@@ -197,6 +198,9 @@ public class ChatActivity extends BaseActivity<ChatContract.Presenter> implement
     @Override
     protected void onDestroy() {
         mPresenter.setHasRead();
+        //發通知 更新會話
+        BmobImEvent bmobImEvent=new BmobImEvent(BmobImEvent.UPDATECONVERRSION);
+        RxBusManager.getInstance().post(bmobImEvent);
         super.onDestroy();
     }
 }

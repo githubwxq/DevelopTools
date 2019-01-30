@@ -871,7 +871,7 @@ public class MTextView extends AppCompatTextView {
             atText = "";
         }
 
-        text = SmileyParser.getInstance(this.getContext()).replace(cs, this);
+        text = SmileyParser.getInstance().replace(cs, this);
         useDefault = false;
         obList.clear();
         if (getCachedData(cs + atText + (isExpandable ? ";getMaxLine=" + getMaxLine() : ""), 0) < 0) {

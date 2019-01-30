@@ -25,6 +25,7 @@ import cn.bmob.newim.event.MessageEvent;
 import cn.bmob.newim.event.OfflineMessageEvent;
 import cn.bmob.newim.listener.BmobIMMessageHandler;
 import cn.bmob.newim.notification.BmobNotificationManager;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 /**
@@ -140,9 +141,14 @@ public class DemoMessageHandler extends BmobIMMessageHandler {
             }
         } else if (type.equals(AgreeAddFriendMessage.AGREE)) {//接收到的对方同意添加自己为好友,此时需要做的事情：1、添加对方为好友，2、显示通知
             AgreeAddFriendMessage agree = AgreeAddFriendMessage.convert(msg);
-            addFriend(agree.getFromId());//添加消息的发送方为好友
+
+//            別人已經添加你為好友如果之前他也發了添加好友的請求 更新之前別人發過來的好友的聲請
+            NewFriendManager.updateNewFriend(agree.getFromId(),BmobUser.getCurrentUser(CommonBmobUser.class).getObjectId());
+            addFriend(agree.getFromId());//添加消息的发送方为好友 別人已經添加你為好友 你現在要添加別人為好友
             //这里应该也需要做下校验--来检测下是否已经同意过该好友请求，我这里省略了
             showAgreeNotify(info, agree);
+
+
         } else {
             Toast.makeText(context, "接收到的自定义消息：" + msg.getMsgType() + "," + msg.getContent() + "," + msg.getExtra(), Toast.LENGTH_SHORT).show();
         }
@@ -189,6 +195,8 @@ public class DemoMessageHandler extends BmobIMMessageHandler {
                     public void done(String s, BmobException e) {
                         if (e == null) {
                             Logger.e("success");
+
+
                         } else {
                             Logger.e(e.getMessage());
                         }

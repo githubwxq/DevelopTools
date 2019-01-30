@@ -1,6 +1,5 @@
 package com.juziwl.uilibrary.emoji;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -8,18 +7,19 @@ import android.graphics.drawable.LevelListDrawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.ArrayMap;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ClickableSpan;
+import android.text.style.ImageSpan;
+import android.view.View;
 import android.widget.TextView;
-
-//import com.juziwl.commonlibrary.config.Global;
-//import com.juziwl.commonlibrary.config.GlobalContent;
-//import com.juziwl.commonlibrary.utils.DisplayUtils;
-//import com.juziwl.commonlibrary.utils.LoadingImgUtil;
 import com.juziwl.uilibrary.R;
-//import com.wxq.commonlibrary.glide.LoadingImgUtil;
-//import com.wxq.commonlibrary.util.ScreenUtils;
-//import com.wxq.commonlibrary.util.Utils;
+import com.luck.picture.lib.utils.DisplayUtils;
+import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.util.Utils;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -164,14 +164,12 @@ public class SmileyParser {
         private static SmileyParser instance = new SmileyParser();
     }
 
-    public  static Context mContext;
-    public static SmileyParser getInstance(Context context) {
-        mContext=context;
+    public static SmileyParser getInstance() {
         return InstanceHolder.instance;
     }
 
     public SmileyParser() {
-        mSmileyTexts = mContext.getResources().getStringArray(DEFAULT_SMILEY_TEXTS);
+        mSmileyTexts =Utils.getApp().getResources().getStringArray(DEFAULT_SMILEY_TEXTS);
         mSmileyToRes = buildSmileyToRes();
         mPattern = buildPattern();
     }
@@ -268,52 +266,88 @@ public class SmileyParser {
                 drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
                 return drawable2;
             } else {
-                // TODO: 2018/7/12  不依赖具体的图片加载框架提供回调即可
-                //图片框架加载图片 可以向外面暴露方法给外面实现
+                LoadingImgUtil.getCacheImageBitmap(source, null, null, new LoadingImgUtil.onLoadingImageListener() {
+                            @Override
+                            public void onLoadingComplete(Bitmap result) {
+                                if (result != null) {
+                                    Drawable bitmapDrawable = new BitmapDrawable(textView.getResources(), result);
+                                    drawable.addLevel(1, 1, bitmapDrawable);
+                                    int screenWidth = DisplayUtils.getScreenWidth(textView.getContext());
+                                    double radio = 1;
+                                    if (screenWidth >= GlobalContent.P1500) {
+                                        radio = 3.2;
+                                    } else if (screenWidth >= GlobalContent.P1080) {
+                                        radio = 2.5;
+                                    } else if (screenWidth >= GlobalContent.P720) {
+                                        radio = 1.8;
+                                    }
+                                    int width;
+                                    Object tag = textView.getTag(R.id.common_id_width);
+                                    if (tag != null) {
+                                        width = (int) tag;
+                                    } else {
+                                        width = textView.getWidth();
+                                    }
+                                    double scaleWidth = 0d;
+                                    if (width > 0) {
+                                        scaleWidth = result.getWidth() * radio;
+                                        if (scaleWidth > width) {
+                                            radio = width * 1.0 / result.getWidth();
+                                        }
+                                    }
+                                    drawable.setBounds(0, 0, (int) (result.getWidth() * radio), (int) (result.getHeight() * radio));
 
-//                LoadingImgUtil.getCacheImageBitmap(source, null, null, new LoadingImgUtil.onLoadingImageListener() {
-//                            @Override
-//                            public void onLoadingComplete(Bitmap result) {
-//                                if (result != null) {
-//                                    Drawable bitmapDrawable = new BitmapDrawable(textView.getResources(), result);
-//                                    drawable.addLevel(1, 1, bitmapDrawable);
-//                                    int screenWidth = ScreenUtils.getScreenWidth();
-//                                    double radio = 1;
-//                                    if (screenWidth >= 1500) {
-//                                        radio = 3.2;
-//                                    } else if (screenWidth >= 1080) {
-//                                        radio = 2.5;
-//                                    } else if (screenWidth >= 720) {
-//                                        radio = 1.8;
-//                                    }
-//                                    int width = textView.getWidth();
-//                                    if (width == 0) {
-//                                        Object tag = textView.getTag(R.id.common_id_width);
-//                                        if (tag != null) {
-//                                            width = (int) tag;
-//                                        }
-//                                    }
-//                                    if (width > 0) {
-//                                        double scaleWidth = result.getWidth() * radio;
-//                                        if (scaleWidth > width) {
-//                                            radio = width * 1.0 / result.getWidth();
-//                                        }
-//                                    }
-//                                    drawable.setBounds(0, 0, (int) (result.getWidth() * radio), (int) (result.getHeight() * radio));
-//                                    drawable.setLevel(1);
-//                                    textView.setText(textView.getText());
-//                                    textView.requestLayout();
-//                                    textView.invalidateDrawable(drawable);
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onLoadingFailed() {
-//                            }
-//                        }
-//                );
+                                    drawable.setLevel(1);
+                                    textView.setText(textView.getText());
+//                                    textView.measure(0,0);
+                                    textView.requestLayout();
+                                    textView.invalidateDrawable(drawable);
+                                }
+                            }
+
+                            @Override
+                            public void onLoadingFailed() {
+                            }
+                        }
+                );
             }
             return drawable;
         };
+    }
+
+    public static Html.TagHandler getImageClickableHandler(final OnImageClickListener listener) {
+        return (opening, tag, output, xmlReader) -> {
+            if ("img".equals(tag.toLowerCase(Locale.getDefault()))) {
+                // 获取长度
+                int len = output.length();
+                // 获取图片地址
+                ImageSpan[] images = output.getSpans(len - 1, len, ImageSpan.class);
+                String imgURL = images[0].getSource();
+                // 使图片可点击并监听点击事件
+                output.setSpan(new ClickableImage(imgURL, listener), len - 1, len, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+        };
+    }
+
+    private static class ClickableImage extends ClickableSpan {
+        private String url;
+        private OnImageClickListener listener;
+
+        public ClickableImage(String url, OnImageClickListener listener) {
+            this.url = url;
+            this.listener = listener;
+        }
+
+        @Override
+        public void onClick(View widget) {
+            // 进行图片点击之后的处理
+            if (listener != null) {
+                listener.onImageClick(url);
+            }
+        }
+    }
+
+    public interface OnImageClickListener {
+        void onImageClick(String url);
     }
 }

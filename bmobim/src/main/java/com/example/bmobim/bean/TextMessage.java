@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
+import com.juziwl.uilibrary.emoji.MTextView;
+import com.juziwl.uilibrary.emoji.SmileyParser;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 
 import java.text.SimpleDateFormat;
@@ -23,14 +25,18 @@ import cn.bmob.newim.bean.BmobIMUserInfo;
 
 public class TextMessage extends Message {
 
-
+    private SmileyParser smileyParser;
     public TextMessage(BmobIMMessage message) {
         super(message);
+        smileyParser = SmileyParser.getInstance();
+
     }
 
     @Override
     public void updateDifferentView(BaseViewHolder helper) {
-        helper.setText(R.id.tv_message,bmobIMMessage.getContent());
+        MTextView content=helper.getView(R.id.tv_message);
+        content.setMText(bmobIMMessage.getContent());
+
     }
 
 

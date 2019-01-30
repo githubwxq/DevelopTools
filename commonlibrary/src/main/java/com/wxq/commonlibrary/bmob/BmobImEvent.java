@@ -19,6 +19,16 @@ public class BmobImEvent extends Event {
      */
     public static final int RECEIVENEWMESSAGE = 1001;
 
+   /**
+     * Imh会话列表更新
+     */
+    public static final int UPDATECONVERRSION = 1002;
+
+   /**
+     * Im朋友列表刷新
+     */
+    public static final int UPDATEFRIENDLIST = 1003;
+
 
     public BmobImEvent(int action) {
         super(action);

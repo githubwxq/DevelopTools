@@ -74,9 +74,16 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
         }
 
         if (action== BmobImEvent.RECEIVENEWMESSAGE) {
-            //登入成功 获取会话数据
+            //收到新消息获取会话数据
             mPresenter.getConversations();
         }
+
+          if (action== BmobImEvent.UPDATECONVERRSION) {
+            //更新会话数据
+            mPresenter.getConversations();
+        }
+
+
 
     }
 
@@ -128,7 +135,12 @@ public class ConversationFragment extends BaseFragment<ConversationContract.Pres
             helper.setText(R.id.tv_recent_name,item.getcName());
             helper.setText(R.id.tv_recent_msg,item.getLastMessageContent());
             helper.setText(R.id.tv_recent_time, TimeUtils.millis2String(item.getLastMessageTime()));
-//            helper.setText(R.id.tv_recent_unread, item.getUnReadCount());
+            if (item.getUnReadCount()==0) {
+                helper.setVisible(R.id.tv_recent_unread,false);
+            }else {
+                helper.setVisible(R.id.tv_recent_unread,true);
+            }
+            helper.setText(R.id.tv_recent_unread, item.getUnReadCount()+"");
         }
     }
 }
