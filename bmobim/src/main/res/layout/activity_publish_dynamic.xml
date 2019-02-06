@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.juziwl.uilibrary.layout.ResizeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_EBEBEB" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="60dp">
+
+        <LinearLayout
+            android:id="@+id/rl_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rl_common"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <com.juziwl.uilibrary.edittext.EmojiFilterEditText
+                    android:id="@+id/et_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="写下你要分享的新鲜事"
+                    android:maxLength="1000"
+                    android:maxLines="4"
+                    android:minHeight="90dp"
+                    android:textColor="@color/color_333"
+                    android:textColorHint="@color/common_light_grey11"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_mob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/color_EBEBEB"
+                    android:orientation="horizontal"
+                    android:padding="6dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/lv_img"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                       />
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center">
+
+                    <com.luck.picture.lib.PictureSelectorView
+                        android:id="@+id/pic_select_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</com.juziwl.uilibrary.layout.ResizeRelativeLayout>

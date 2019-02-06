@@ -2,7 +2,6 @@ package com.example.bmobim.bean;
 
 import android.view.View;
 import android.widget.ImageView;
-
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
 import com.example.bmobim.adapter.MessageAdapter;
@@ -10,10 +9,8 @@ import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.luck.picture.lib.PictureVideoPlayActivity;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.bmob.newim.bean.BmobIMMessage;
 
 /**

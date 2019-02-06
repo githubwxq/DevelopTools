@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.imageview.RectImageView;
+import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.util.StringUtils;
 
 
 import java.util.List;
@@ -111,15 +114,12 @@ public class NineGridlayout extends ViewGroup {
                 String image = listData.get(i);
 
                 // TODO: 2018/6/23 0023  占时注释掉
-//                if (image.equals(Global.baseURL)) {
-//                    childrenView.setImageResource(R.mipmap.common_falseimg);
-//                } else {
-//                    LoadingImgUtil.loadimg(StringUtils.getLimitImageUrl(image, (int) (singleWidth / radio),
-//                            (int) (singleHeight / radio), false), childrenView, false);
-//                }
-
-
-                childrenView.layout(left, top, right, bottom);
+                if (StringUtils.isEmpty(image)) {
+                    childrenView.setImageResource(R.mipmap.common_falseimg);
+                } else {
+                    LoadingImgUtil.loadimg(image
+                          , childrenView, false);
+                }childrenView.layout(left, top, right, bottom);
             } else if (getChildAt(i) instanceof LinearLayout) {
                 getChildAt(i).layout(getWidth() - getChildAt(i).getMeasuredWidth() - 10, getWidth() - getChildAt(i).getMeasuredHeight() - 10, getWidth() - 10, getWidth() - 10);
             }

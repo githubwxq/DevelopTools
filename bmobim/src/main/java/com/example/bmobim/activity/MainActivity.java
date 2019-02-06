@@ -11,6 +11,7 @@ import android.view.View;
 import com.example.bmobim.R;
 import com.example.bmobim.contract.MainContract;
 import com.example.bmobim.fragment.ConversationFragment;
+import com.example.bmobim.fragment.DynamicFragment;
 import com.example.bmobim.presenter.MainActivityPresenter;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
@@ -62,9 +63,9 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         });
 
         fragments.add(ConversationFragment.getInstance(""));
-//        fragments.add(ConversationFragment.getInstance(""));
+        fragments.add(DynamicFragment.getInstance(""));
         title.add("会话");
-//        title.add("联系人");
+        title.add("空间");
         viewpage.setOffscreenPageLimit(1);
         adapter = new BaseFragmentAdapter(getSupportFragmentManager(),
                 fragments, title);

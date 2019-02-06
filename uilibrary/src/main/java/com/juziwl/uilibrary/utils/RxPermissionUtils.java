@@ -1,12 +1,10 @@
-//package com.wxq.commonlibrary.util;
-//
+//package com.juziwl.uilibrary.utils;
 //import android.Manifest;
 //import android.app.Activity;
-//
 //import com.tbruyelle.rxpermissions2.RxPermissions;
+//import com.wxq.commonlibrary.R;
 //
 //import java.util.function.Consumer;
-//
 //
 ///**
 // * @author Army
@@ -25,7 +23,7 @@
 //                        }
 //                    } else {
 ////                        CommonDialog.getInstance().showPermissionDialog(activity,
-////                                activity.getString(R.string.open_external_storage));
+//////                                activity.getString(R.string.open_external_storage));
 //                    }
 //                });
 //    }
