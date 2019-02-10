@@ -14,6 +14,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
 import com.example.bmobim.activity.PublishDynamicActivity;
+import com.example.bmobim.adapter.DynamicAdapter;
 import com.example.bmobim.bean.DynamicBean;
 import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.juziwl.uilibrary.emoji.MTextView;
@@ -58,6 +59,7 @@ public class DynamicFragment extends BaseFragment {
     TextView tvPublish;
     @BindView(R.id.recyclerView)
     PullRefreshRecycleView recyclerView;
+    DynamicAdapter adapter;
     Unbinder unbinder;
     int currentPage=0;
     public List<DynamicBean> dynamicBeanList=new ArrayList<>();
@@ -82,43 +84,7 @@ public class DynamicFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        recyclerView.setAdapter(new BaseQuickAdapter<DynamicBean, BaseViewHolder>(R.layout.item_dynamic, dynamicBeanList) {
-            @Override
-            protected void convert(BaseViewHolder helper, DynamicBean item) {
-                ImageView image=helper.getView(R.id.iv_img);
-                LoadingImgUtil.loadimg(item.publishUser.avatar,image,true);
-                helper.setText(R.id.tv_name,item.publishUser.getUsername());
-                helper.setText(R.id.tv_time,TimeUtils.getFriendlyTimeSpanByNow(item.getCreatedAt()));
-                MTextView content=helper.getView(R.id.expandable_text);
-                ImageView iv_video_pic=helper.getView(R.id.iv_video_pic);
-
-                content.setMText(item.content);
-                if (StringUtils.isEmpty(item.pics)) {
-                    helper.setGone(R.id.ngl_pics,false);
-                }else {
-                   helper.setGone(R.id.ngl_pics,true);
-                   NewNineGridlayout piclayout= helper.getView(R.id.ngl_pics);
-                    piclayout.showPic(ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(100), item.pics, new NineGridlayout.onNineGirdItemClickListener() {
-                        @Override
-                        public void onItemClick(int position) {
-                            WatchImagesActivity.navToWatchImages(getActivity(),item.pics,position);
-                        }
-                    });
-                }
-                if (StringUtils.isEmpty(item.video)||StringUtils.isEmpty(item.videoImage)) {
-                    helper.setGone(R.id.rl_video,false);
-                }else {
-                    helper.setGone(R.id.rl_video,true);
-                    LoadingImgUtil.loadimg(item.videoImage,iv_video_pic,false);
-                    iv_video_pic.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            PictureVideoPlayActivity.navToVideoPlay(helper.getConvertView().getContext(), item.video, item.videoImage, true, GlobalContent.VIDEOPATH);
-                        }
-                    });
-                }
-            }
-        }, new OnRefreshLoadMoreListener() {
+        recyclerView.setAdapter(adapter=new DynamicAdapter(dynamicBeanList,getActivity()), new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 getDynamicList(2);
@@ -169,4 +135,6 @@ public class DynamicFragment extends BaseFragment {
                 break;
         }
     }
+
+
 }
