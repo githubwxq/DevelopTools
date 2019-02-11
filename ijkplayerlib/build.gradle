@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-android {
+android { 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
@@ -31,15 +31,32 @@ dependencies {
 //    api project(':ijkplayer-armv7a')
 }
 
-uploadArchives{
-    repositories.mavenDeployer{
-        //这里的url可以换成自己的仓库地址
-        repository(url:"http://192.168.129.198:8081/nexus/content/repositories/AndroidLib/"){
-            authentication(userName:"admin", password:"admin123")
+
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
         }
-        //api "com.juziwl.exue:ijkplayer:0.0.6"
-        pom.version = "0.0.6"
-        pom.artifactId = "ijkplayer"
-        pom.groupId = "com.juziwl.exue"
     }
 }
+
+
+
+
+
+//uploadArchives{
+//    repositories.mavenDeployer{
+//        //这里的url可以换成自己的仓库地址
+//        repository(url:"http://192.168.129.198:8081/nexus/content/repositories/AndroidLib/"){
+//            authentication(userName:"admin", password:"admin123")
+//        }
+//        //api "com.juziwl.exue:ijkplayer:0.0.6"
+//        pom.version = "0.0.6"
+//        pom.artifactId = "ijkplayer"
+//        pom.groupId = "com.juziwl.exue"
+//    }
+//}

@@ -30,6 +30,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.deps["arouter-api"]
+    api(rootProject.ext.deps["arouter-api"]) {
+        exclude group: 'com.android.support'
+    }
 //    annotationProcessor rootProject.ext.deps["arouter-compiler"]
 }
