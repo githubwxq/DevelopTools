@@ -16,10 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.github.chrisbanes.photoview.PhotoView;
 import com.juziwl.uilibrary.R;
-
 import com.juziwl.uilibrary.dialog.DialogViewHolder;
 import com.juziwl.uilibrary.dialog.XXDialog;
 import com.juziwl.uilibrary.viewpage.adapter.BaseViewPagerAdapter;
@@ -46,6 +43,8 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.senab.photoview.PhotoView;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 
 /**
@@ -226,6 +225,7 @@ public class WatchImagesActivity extends BaseActivity {
         BarUtils.setNavBarVisibility(this, false);
         hackyPager = findViewById(R.id.hacky_pager);
         back = findViewById(R.id.back);
+        back.setOnClickListener(v -> onBackPressed());
         pageNumber = findViewById(R.id.page_number);
         int position = getIntent().getIntExtra(FIRST_POSITION, 0);
         String pics = getIntent().getStringExtra(IMAGES);
@@ -311,7 +311,13 @@ public class WatchImagesActivity extends BaseActivity {
                 }
                 return true;
             });
-            photoView.setOnClickListener(view -> finish());
+            photoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+                @Override
+                public void onPhotoTap(View view, float x, float y) {
+                    finish();
+                }
+            });
+//            photoView.setOnClickListener(view -> finish());
 
             return viewGroup;
         }

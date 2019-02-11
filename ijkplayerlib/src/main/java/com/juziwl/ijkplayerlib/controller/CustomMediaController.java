@@ -20,7 +20,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.v4.widget.Space;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -260,7 +259,7 @@ public class CustomMediaController extends LinearLayout {
         Resources res = mContext.getResources();
         int topHeight = dp2px(48);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            Space space = v.findViewById(R.id.space);
+            View space = v.findViewById(R.id.space);
             int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
             int statusBarHeight = res.getDimensionPixelSize(resourceId);
             space.getLayoutParams().height = statusBarHeight;

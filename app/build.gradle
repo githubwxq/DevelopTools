@@ -108,5 +108,6 @@ dependencies {
     //集成推送
     implementation rootProject.ext.deps["jpush"]
     implementation rootProject.ext.deps["jcore"]
+
     implementation project(':commonservice')
 }

@@ -36,7 +36,7 @@ dependencies {
     api rootProject.ext.deps["recyclerview-v7"]
     api rootProject.ext.deps["cardview-v7"]
     api rootProject.ext.deps["support-v4"]
-    api project(path: ':photoview')
+    api rootProject.ext.deps["photoview"]
     api project(':commonlibrary')
     api project(':ijkplayerlib')
 }

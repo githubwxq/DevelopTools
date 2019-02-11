@@ -18,12 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.luck.picture.lib.anim.OptAnimationLoader;
 import com.luck.picture.lib.cameralibrary.util.FileUtil;
 import com.luck.picture.lib.config.PictureConfig;
@@ -50,6 +48,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import uk.co.senab.photoview.PhotoView;
 
 import static com.luck.picture.lib.cameralibrary.JCameraView.TYPE_VIDEO;
 import static com.luck.picture.lib.config.PictureConfig.TYPE_IMAGE;

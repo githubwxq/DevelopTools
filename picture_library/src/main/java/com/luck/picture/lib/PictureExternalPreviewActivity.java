@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.dialog.CustomDialog;
@@ -39,6 +38,8 @@ import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import uk.co.senab.photoview.PhotoView;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * author：luck
@@ -228,13 +229,12 @@ public class PictureExternalPreviewActivity extends PictureBaseActivity implemen
 //                            })
 //                            .into(imageView);
                 }
-                imageView.setOnClickListener(new View.OnClickListener() {
+
+
+                imageView.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
                     @Override
-                    public void onClick(View v) {
-
+                    public void onViewTap(View view, float x, float y) {
                         finish();
-
-
                     }
                 });
 
