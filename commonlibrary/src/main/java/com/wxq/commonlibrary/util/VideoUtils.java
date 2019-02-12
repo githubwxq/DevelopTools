@@ -35,6 +35,17 @@ public class VideoUtils {
                 picTempPath = BitmapUtils.saveBitmap(bitmap);
             }
         }
+        if (picTempPath.isEmpty()) {
+            File file = new File(path);
+            if (file.isFile() && file.exists()) {
+                MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+                retriever.setDataSource(path);
+                Bitmap bitmap = retriever.getFrameAtTime();;
+                picTempPath = BitmapUtils.saveBitmap(bitmap);
+            }
+        }
+
+
         return picTempPath;
     }
 

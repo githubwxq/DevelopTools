@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -62,13 +64,26 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
 
     }
 
+    class ClickSpan extends ClickableSpan {
+        @Override
+        public void onClick(View widget) {
+            Log.e("aaa","aaa");
+          ToastUtils.showShort("aaa");
+        }
+
+        @Override
+        public void updateDrawState(TextPaint ds) {
+            ds.setColor(mContext.getResources().getColor(R.color.common_576b95));
+        }
+    }
+
     @Override
     protected void convert(BaseViewHolder helper, DynamicBean item) {
         ImageView image = helper.getView(R.id.iv_img);
         LoadingImgUtil.loadimg(item.publishUser.avatar, image, true);
         image.setOnClickListener(v -> UserInfoActivity.navToActivity(mContext,item.publishUser));
         TextView tv_name= helper.getView(R.id.tv_name);
-        tv_name.setText(item.publishUser.getUsername());
+        helper.setText(R.id.tv_name, item.publishUser.getUsername());
         helper.setText(R.id.tv_time, TimeUtils.getFriendlyTimeSpanByNow(item.getCreatedAt()));
         MTextView content = helper.getView(R.id.expandable_text);
         ImageView iv_video_pic = helper.getView(R.id.iv_video_pic);
@@ -120,6 +135,7 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
             @Override
             public void onBind(int pos, DynamicComment dynamicComment, NestFullViewHolder holder) {
                  TextView contentView= holder.getView(R.id.tv_comment_receive);
+                 contentView.setMovementMethod(LinkMovementMethod.getInstance());
                  contentView.setText(new SpanUtils().append(dynamicComment.author.getUsername()+"：").setClickSpan(new ClickableSpan() {
                      @Override
                      public void updateDrawState(TextPaint ds) {
