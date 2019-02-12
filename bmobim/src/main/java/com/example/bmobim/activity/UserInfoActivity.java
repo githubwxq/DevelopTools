@@ -3,6 +3,8 @@ package com.example.bmobim.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.util.SpanUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.util.HashMap;
@@ -58,8 +61,9 @@ public class UserInfoActivity extends BaseActivity {
     LinearLayout layoutAll;
 
     CommonBmobUser user;
-    public static void navToActivity(Context context) {
+    public static void navToActivity(Context context,CommonBmobUser otherPeople) {
         Intent intent = new Intent(context, UserInfoActivity.class);
+        intent.putExtra("user",otherPeople);
         context.startActivity(intent);
     }
 
@@ -85,6 +89,15 @@ public class UserInfoActivity extends BaseActivity {
         });
         user= (CommonBmobUser) getIntent().getSerializableExtra("user");
         tvName.setText(user.getUsername());
+//        tvName.setText(new SpanUtils().append(user.getUsername()).setClickSpan(new ClickableSpan() {
+//            @Override
+//            public void onClick(@NonNull View widget) {
+//                ToastUtils.showShort("点击了我");
+//            }
+//        }).create());
+
+
+
         LoadingImgUtil.loadimg(user.avatar,ivAvator,true);
         btnAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override

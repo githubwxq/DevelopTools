@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_comment_receive"
+        android:layout_width="wrap_content"
+        android:textSize="14sp"
+        android:padding="2dp"
+        android:textColor="@color/yellow_300"
+        android:text="24142154453435435"
+        android:layout_height="wrap_content" />
+
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/height_line"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginLeft="@dimen/height_message"-->
+        <!--android:background="@color/color_line" >-->
+    <!--</View>-->
+
+</RelativeLayout>

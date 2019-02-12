@@ -115,25 +115,25 @@ public class NestFullListView extends LinearLayout {
 
                     /* 增加子项点击事件 */
                     final int mPosition = i;
-                    holder.getConvertView().setOnClickListener(new OnClickListener() {
-
-                        @Override
-                        public void onClick(View v) {
-                            if (mOnItemClickListener != null && mAdapter != null) {
-                                mOnItemClickListener.onItemClick(NestFullListView.this, v, mPosition);
-                            }
-                        }
-                    });
-
-                    holder.getConvertView().setOnLongClickListener(new OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            if (mOnItemLongClickListener != null &&mAdapter != null){
-                                mOnItemLongClickListener.onItemLongClick(NestFullListView.this, v, mPosition);
-                            }
-                            return true;
-                        }
-                    });
+//                    holder.getConvertView().setOnClickListener(new OnClickListener() {
+//
+//                        @Override
+//                        public void onClick(View v) {
+//                            if (mOnItemClickListener != null && mAdapter != null) {
+//                                mOnItemClickListener.onItemClick(NestFullListView.this, v, mPosition);
+//                            }
+//                        }
+//                    });
+//
+//                    holder.getConvertView().setOnLongClickListener(new OnLongClickListener() {
+//                        @Override
+//                        public boolean onLongClick(View v) {
+//                            if (mOnItemLongClickListener != null &&mAdapter != null){
+//                                mOnItemLongClickListener.onItemLongClick(NestFullListView.this, v, mPosition);
+//                            }
+//                            return true;
+//                        }
+//                    });
 
                 }
             } else {
