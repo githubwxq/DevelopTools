@@ -43,20 +43,3 @@ configurations.all {
         }
     }
 }
-
-
-
-
-
-//uploadArchives{
-//    repositories.mavenDeployer{
-//        //这里的url可以换成自己的仓库地址
-//        repository(url:"http://192.168.129.198:8081/nexus/content/repositories/AndroidLib/"){
-//            authentication(userName:"admin", password:"admin123")
-//        }
-//        //api "com.juziwl.exue:ijkplayer:0.0.6"
-//        pom.version = "0.0.6"
-//        pom.artifactId = "ijkplayer"
-//        pom.groupId = "com.juziwl.exue"
-//    }
-//}
