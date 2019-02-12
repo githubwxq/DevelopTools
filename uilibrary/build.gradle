@@ -32,6 +32,7 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.deps["SuperTextView"]
     api rootProject.ext.deps["flowlayout"]
     api rootProject.ext.deps["photoview"]
     api rootProject.ext.deps["nineoldandroids"]

@@ -31,7 +31,7 @@ public class VideoUtils {
             if (file.isFile() && file.exists()) {
                 MediaMetadataRetriever retriever = new MediaMetadataRetriever();
                 retriever.setDataSource(path);
-                Bitmap bitmap = retriever.getFrameAtTime();
+                Bitmap bitmap = retriever.getFrameAtTime(1, MediaMetadataRetriever.OPTION_CLOSEST_SYNC );;
                 picTempPath = BitmapUtils.saveBitmap(bitmap);
             }
         }

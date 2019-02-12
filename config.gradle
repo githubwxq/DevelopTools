@@ -1,8 +1,7 @@
 ext {
 
-
 //#isBuildModule 为 true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中 //    true表示作为模块 library false表示作为应用
-    isBuildModule=true
+    isBuildModule = true
 
     isNetTestModule = false
     isArouterTestModule = false
@@ -18,7 +17,6 @@ ext {
     isGankApp = true
 
     isBmobImModule = true
-
 
     /**
      *   所有项目依赖库集合
@@ -60,168 +58,167 @@ ext {
 
     deps = [
             //base
-            "appcompat-v7"              : "com.android.support:appcompat-v7:${dependVersion.support}",
-            "cardview-v7"               : "com.android.support:cardview-v7:${dependVersion.support}",
-            "recyclerview-v7"           : "com.android.support:recyclerview-v7:${dependVersion.support}",
-            "design"                    : "com.android.support:design:${dependVersion.support}",
-            "support-v4"                : "com.android.support:support-v4:${dependVersion.support}",
-            "multidex"                  : "com.android.support:multidex:1.0.1",
+            "appcompat-v7"                 : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "cardview-v7"                  : "com.android.support:cardview-v7:${dependVersion.support}",
+            "recyclerview-v7"              : "com.android.support:recyclerview-v7:${dependVersion.support}",
+            "design"                       : "com.android.support:design:${dependVersion.support}",
+            "support-v4"                   : "com.android.support:support-v4:${dependVersion.support}",
+            "multidex"                     : "com.android.support:multidex:1.0.1",
 
             //glide
-            "glide"                     : "com.github.bumptech.glide:glide:${dependVersion.glide}",
-            "glide-compiler"            : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
-            "glide-okhttp3-integration" : "com.github.bumptech.glide:okhttp3-integration:${dependVersion.glide}",
-            "glide-annotations"         : "com.github.bumptech.glide:annotations:${dependVersion.glide}",
-            "glide-transformations"     : "jp.wasabeef:glide-transformations:3.0.1",
-
-
+            "glide"                        : "com.github.bumptech.glide:glide:${dependVersion.glide}",
+            "glide-compiler"               : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
+            "glide-okhttp3-integration"    : "com.github.bumptech.glide:okhttp3-integration:${dependVersion.glide}",
+            "glide-annotations"            : "com.github.bumptech.glide:annotations:${dependVersion.glide}",
+            "glide-transformations"        : "jp.wasabeef:glide-transformations:3.0.1",
 
             //rx
-            "rxjava"                    : "io.reactivex.rxjava2:rxjava:2.2.2",
-            "rxandroid"                 : "io.reactivex.rxjava2:rxandroid:2.1.0",
-            "rxpermissions"             : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
-            "rxbinding"                 : "com.jakewharton.rxbinding2:rxbinding:${dependVersion.rxbinding}",
-            "rxbinding-support-v4"      : "com.jakewharton.rxbinding2:rxbinding-support-v4:${dependVersion.rxbinding}",
-            "rxlifecycle"               : "com.trello.rxlifecycle2:rxlifecycle:${dependVersion.rxlifecycle}",
-            "rxlifecycle-android"       : "com.trello.rxlifecycle2:rxlifecycle-android:${dependVersion.rxlifecycle}",
-            "rxlifecycle-components"    : "com.trello.rxlifecycle2:rxlifecycle-components:${dependVersion.rxlifecycle}",
+            "rxjava"                       : "io.reactivex.rxjava2:rxjava:2.2.2",
+            "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            "rxpermissions"                : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
+            "rxbinding"                    : "com.jakewharton.rxbinding2:rxbinding:${dependVersion.rxbinding}",
+            "rxbinding-support-v4"         : "com.jakewharton.rxbinding2:rxbinding-support-v4:${dependVersion.rxbinding}",
+            "rxlifecycle"                  : "com.trello.rxlifecycle2:rxlifecycle:${dependVersion.rxlifecycle}",
+            "rxlifecycle-android"          : "com.trello.rxlifecycle2:rxlifecycle-android:${dependVersion.rxlifecycle}",
+            "rxlifecycle-components"       : "com.trello.rxlifecycle2:rxlifecycle-components:${dependVersion.rxlifecycle}",
 
             //retrofit
-            "fastjson"                  : "com.alibaba:fastjson:1.1.60.android",
-            "gson"                      : "com.google.code.gson:gson:2.8.5",
-            "retrofit"                  : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
-            "retrofit-converter-scalars": "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
-            "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
-            "retrofit-adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
-            "okhttp"                    : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
-            "okio"                      : "    implementation 'com.squareup.okio:okio:2.1.0'",
-            "okhttp-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
+            "fastjson"                     : "com.alibaba:fastjson:1.1.60.android",
+            "gson"                         : "com.google.code.gson:gson:2.8.5",
+            "retrofit"                     : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            "retrofit-converter-scalars"   : "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
+            "retrofit-converter-gson"      : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+            "retrofit-adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
+            "okhttp"                       : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+            "okio"                         : "    implementation 'com.squareup.okio:okio:2.1.0'",
+            "okhttp-logging-interceptor"   : "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
 
             //dagger
-            "dagger"                    : "com.google.dagger:dagger:${dependVersion.dagger2}",
-            "dagger-compiler"           : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
-            "javax.annotation-api"      : "javax.annotation:javax.annotation-api:1.2",
+            "dagger"                       : "com.google.dagger:dagger:${dependVersion.dagger2}",
+            "dagger-compiler"              : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
+            "javax.annotation-api"         : "javax.annotation:javax.annotation-api:1.2",
 
             //butterknife
-            "butterknife"               : "com.jakewharton:butterknife:${dependVersion.butterknife}",
-            "butterknife-compiler"      : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+            "butterknife"                  : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+            "butterknife-compiler"         : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
 
             //logger
-            "logger"                    : "com.orhanobut:logger:1.15",
+            "logger"                       : "com.orhanobut:logger:1.15",
 
             //blockcanary
-            "blockcanary-android"       : "com.github.markzhai:blockcanary-android:${dependVersion.blockcanary}",
-            "blockcanary-no-op"         : "com.github.markzhai:blockcanary-no-op:${dependVersion.blockcanary}",
+            "blockcanary-android"          : "com.github.markzhai:blockcanary-android:${dependVersion.blockcanary}",
+            "blockcanary-no-op"            : "com.github.markzhai:blockcanary-no-op:${dependVersion.blockcanary}",
 
             //leakcanary
-            "leakcanary-android"        : "com.squareup.leakcanary:leakcanary-android:${dependVersion.leakcanary}",
-            "leakcanary-android-no-op"  : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}",
+            "leakcanary-android"           : "com.squareup.leakcanary:leakcanary-android:${dependVersion.leakcanary}",
+            "leakcanary-android-no-op"     : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}",
 
             //stetho
-            "stetho"                    : "com.facebook.stetho:stetho:${dependVersion.stetho}",
-            "stetho-okhttp3"            : "com.facebook.stetho:stetho-okhttp3:${dependVersion.stetho}",
+            "stetho"                       : "com.facebook.stetho:stetho:${dependVersion.stetho}",
+            "stetho-okhttp3"               : "com.facebook.stetho:stetho-okhttp3:${dependVersion.stetho}",
 
             //greendao
-            "greendao"                  : "org.greenrobot:greendao:3.2.0",
-            "GreenDaoUpgradeHelper"     : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
+            "greendao"                     : "org.greenrobot:greendao:3.2.0",
+            "GreenDaoUpgradeHelper"        : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
 
             //友盟
-            "umeng-analytics"           : "com.umeng.umsdk:analytics:7.5.4",
-            "umeng-common"           : "com.umeng.umsdk:common:1.5.4",
+            "umeng-analytics"              : "com.umeng.umsdk:analytics:7.5.4",
+            "umeng-common"                 : "com.umeng.umsdk:common:1.5.4",
 
             //nineoldandroidsff
-            "nineoldandroids"           : "com.nineoldandroids:library:2.4.0",
+            "nineoldandroids"              : "com.nineoldandroids:library:2.4.0",
 
             //工具类集合
-            "utilcode"                  : 'com.blankj:utilcode:1.7.1',
+            "utilcode"                     : 'com.blankj:utilcode:1.7.1',
 
             //okgo
-            "okgo"                      : "com.lzy.net:okgo:3.0.4",
-            "okrx2"                     : "com.lzy.net:okrx2:2.0.2",
+            "okgo"                         : "com.lzy.net:okgo:3.0.4",
+            "okrx2"                        : "com.lzy.net:okrx2:2.0.2",
 
             //widget
-            "vlayout"                   : "com.alibaba.android:vlayout:1.0.9@aar",
+            "vlayout"                      : "com.alibaba.android:vlayout:1.0.9@aar",
 
-            "flowlayout"                : "com.hyman:flowlayout-lib:1.1.2",
+            "flowlayout"                   : "com.hyman:flowlayout-lib:1.1.2",
 
-            "ucrop"                     : "com.github.yalantis:ucrop:2.2.1",
+            "ucrop"                        : "com.github.yalantis:ucrop:2.2.1",
 
-            "photoview"                 : "com.github.chrisbanes.photoview:library:1.2.4",
+            "photoview"                    : "com.github.chrisbanes.photoview:library:1.2.4",
 
-            "xrecyclerview"             : "com.jcodecraeer:xrecyclerview:1.5.9",
-            "pullrefreshlayout"             : "com.yan:pullrefreshlayout:2.2.6",
-            "BaseRecyclerViewAdapterHelper"             : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+            "xrecyclerview"                : "com.jcodecraeer:xrecyclerview:1.5.9",
+            "pullrefreshlayout"            : "com.yan:pullrefreshlayout:2.2.6",
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
 
             //recycleview动画
-            "recyclerview-animators"    : "jp.wasabeef:recyclerview-animators:2.3.0",
+            "recyclerview-animators"       : "jp.wasabeef:recyclerview-animators:2.3.0",
 
             //高德地图
-            "amp3d"                     : "com.amap.api:3dmap:5.0.0",
-            "ampLoaction"               : "com.amap.api:location:3.3.0",
-            "ampSearch"                 : "com.amap.api:search:5.0.0",
+            "amp3d"                        : "com.amap.api:3dmap:5.0.0",
+            "ampLoaction"                  : "com.amap.api:location:3.3.0",
+            "ampSearch"                    : "com.amap.api:search:5.0.0",
             //微信
-            "wechatsdk"                 : "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0",
+            "wechatsdk"                    : "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0",
 
             //recyclerview左划删除
-            "SwipeDelMenuLayout"        : "com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0",
+            "SwipeDelMenuLayout"           : "com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0",
 
             //极光推送
-            "jpush"                     : "cn.jiguang.sdk:jpush:3.1.6",
-            "jcore"                     : "cn.jiguang.sdk:jcore:1.2.5",
-            "JPUSH_HUAWEI_PUSH"         : "cn.jiguang.sdk.plugin:huawei:3.0.9",
+            "jpush"                        : "cn.jiguang.sdk:jpush:3.1.6",
+            "jcore"                        : "cn.jiguang.sdk:jcore:1.2.5",
+            "JPUSH_HUAWEI_PUSH"            : "cn.jiguang.sdk.plugin:huawei:3.0.9",
 
             //修改版本号记得修改项目级的build.gradle里的tinkersupport插件的版本号
-            "bugly"                     : "com.tencent.bugly:crashreport_upgrade:1.3.4",
+            "bugly"                        : "com.tencent.bugly:crashreport_upgrade:1.3.4",
 
-            "constraint-layout"         : "com.android.support.constraint:constraint-layout:1.1.2",
+            "constraint-layout"            : "com.android.support.constraint:constraint-layout:1.1.3",
 
-            "eventbus"                  : "org.greenrobot:eventbus:3.1.1",
-            "netty"                     : "io.netty:netty-all:4.1.9.Final",
-            "guava"                     : "com.google.guava:guava:23.0-android",
+            "eventbus"                     : "org.greenrobot:eventbus:3.1.1",
+            "netty"                        : "io.netty:netty-all:4.1.9.Final",
+            "guava"                        : "com.google.guava:guava:23.0-android",
 
             //ijack
-            "ijkplayer-x86"             : "tv.danmaku.ijk.media:ijkplayer-x86:0.8.3",
-            "ijkplayer-java"            : "tv.danmaku.ijk.media:ijkplayer-java:0.8.3",
-            "ijkplayer-armv7a"          : "tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.3",
-            "ijkplayer-armv5"           : "tv.danmaku.ijk.media:ijkplayer-armv5:0.8.3",
+            "ijkplayer-x86"                : "tv.danmaku.ijk.media:ijkplayer-x86:0.8.3",
+            "ijkplayer-java"               : "tv.danmaku.ijk.media:ijkplayer-java:0.8.3",
+            "ijkplayer-armv7a"             : "tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.3",
+            "ijkplayer-armv5"              : "tv.danmaku.ijk.media:ijkplayer-armv5:0.8.3",
             //可以不添加
-            "ijkplayer-exo"             : "tv.danmaku.ijk.media:ijkplayer-exo:0.8.3",
-            "ijkplayer-arm64"           : "tv.danmaku.ijk.media:ijkplayer-arm64:0.8.3",
-            "ijkplayer-x86_64"          : "tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.3",
+            "ijkplayer-exo"                : "tv.danmaku.ijk.media:ijkplayer-exo:0.8.3",
+            "ijkplayer-arm64"              : "tv.danmaku.ijk.media:ijkplayer-arm64:0.8.3",
+            "ijkplayer-x86_64"             : "tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.3",
 
             //二维码
-            "zxing"                     : "cn.yipianfengye.android:zxing-library:2.2",
+            "zxing"                        : "cn.yipianfengye.android:zxing-library:2.2",
 
-            "BRVAH"                     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
-            "loadingView"               : "com.wang.avi:library:2.1.3",
-
+            "BRVAH"                        : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
+            "loadingView"                  : "com.wang.avi:library:2.1.3",
 
             //调试软件
-            "pandora"                   : "com.github.whataa:pandora:1.0.0",
-            "pandora-no-op"             : "com.github.whataa:pandora-no-op:v1.0.0",
-            "debug-db"                  : "com.amitshekhar.android:debug-db:1.0.4",
+            "pandora"                      : "com.github.whataa:pandora:1.0.0",
+            "pandora-no-op"                : "com.github.whataa:pandora-no-op:v1.0.0",
+            "debug-db"                     : "com.amitshekhar.android:debug-db:1.0.4",
 
             //J神的rxrelay2，出现异常仍然可以处理
-            "rxrelay"                   : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
-
+            "rxrelay"                      : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
 
             //组件化依赖
-            "arouter-api"               : "com.alibaba:arouter-api:1.3.1",
-            "arouter-compiler"          : "com.alibaba:arouter-compiler:1.1.4",
+            "arouter-api"                  : "com.alibaba:arouter-api:1.3.1",
+            "arouter-compiler"             : "com.alibaba:arouter-compiler:1.1.4",
 
             //ui调试框架
-            "sak-autopilot"          : "com.wanjian:sak-autopilot:0.3.0",
-            "Android-PickerView"          : "com.contrarywind:Android-PickerView:3.2.7",
-            "banner"          : "com.youth.banner:banner:1.4.10",
-            "zxing"          : "cn.yipianfengye.android:zxing-library:2.2",
+            "sak-autopilot"                : "com.wanjian:sak-autopilot:0.3.0",
+            "Android-PickerView"           : "com.contrarywind:Android-PickerView:3.2.7",
+            "banner"                       : "com.youth.banner:banner:1.4.10",
+            "zxing"                        : "cn.yipianfengye.android:zxing-library:2.2",
 
             //bmob相关  bmob-sdk  数据存储相关
-            "bmob-push"          : "cn.bmob.android:bmob-push:1.0.2",
-            "bmob-sdk"          : "cn.bmob.android:bmob-sdk:3.6.9",
-            "bmob-im"          : "cn.bmob.android:bmob-im:2.1.1@aar",
+            "bmob-push"                    : "cn.bmob.android:bmob-push:1.0.2",
+            "bmob-sdk"                     : "cn.bmob.android:bmob-sdk:3.6.9",
+            "bmob-im"                      : "cn.bmob.android:bmob-im:2.1.1@aar",
             //汉字转拼音
-            "tinypinyin"          : "com.github.promeg:tinypinyin:1.0.0",
-            "SmartRefreshLayout": "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19"
+            "tinypinyin"                   : "com.github.promeg:tinypinyin:1.0.0",
+            "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19",
+
+            //https://github.com/chenBingX/SuperTextView/blob/master/README_CN.md
+            "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4"
 
 
     ]

@@ -17,6 +17,7 @@ import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.popupwindow.EasyPopup;
 import com.juziwl.uilibrary.popupwindow.EditPopup;
+import com.juziwl.uilibrary.popupwindow.EditPopupWindow;
 import com.juziwl.uilibrary.popupwindow.XGravity;
 import com.juziwl.uilibrary.popupwindow.YGravity;
 import com.juziwl.uilibrary.tools.UiUtils;
@@ -25,10 +26,12 @@ import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.ConvertUtils;
+import com.wxq.commonlibrary.util.KeyboardUtils;
 import com.wxq.commonlibrary.util.ScreenUtils;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.TimeUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +44,11 @@ import cn.bmob.v3.listener.UpdateListener;
 
 public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder> {
 
-     Activity activity;
-    public DynamicAdapter(List<DynamicBean> dynamicBeanList,   Activity activity) {
+    private Activity activity;
+
+    public DynamicAdapter(List<DynamicBean> dynamicBeanList, Activity activity) {
         super(R.layout.item_dynamic, dynamicBeanList);
-        this.activity=activity;
+        this.activity = activity;
 
     }
 
@@ -90,9 +94,10 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
         });
     }
 
+    private EasyPopup mCirclePop;
 
     private void showCirclePop(View view, DynamicBean item) {
-        EasyPopup mCirclePop = EasyPopup.create()
+        mCirclePop = EasyPopup.create()
                 .setContentView(this.mContext, R.layout.layout_circle_comment)
                 .setAnimationStyle(R.style.RightPopAnim)
                 .setFocusAndOutsideEnable(true)
@@ -103,53 +108,19 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
                             @Override
                             public void onClick(View v) {
                                 ToastUtils.showShort("赞");
-                                showEditPop(v,item);
+
                                 popup.dismiss();
                             }
                         });
                         view.findViewById(R.id.tv_comment).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // 弹出评论popupwindow
-
-
-                                ToastUtils.showShort("评论");
-                                DynamicComment dynamicComment = new DynamicComment();
-                                dynamicComment.author = BmobUser.getCurrentUser(CommonBmobUser.class);
-//                                dynamicComment.otherPeople = null;
-                                dynamicComment.content = "我是啦啦77打断点7775";
-//                                dynamicComment.card = item;
-                                dynamicComment.save(new SaveListener<String>() {
+                                UIHandler.getInstance().postDelayed(new Runnable() {
                                     @Override
-                                    public void done(String s, BmobException e) {
-                                        ToastUtils.showShort("评论保存成功");
-                                        dynamicComment.setObjectId(s);
-                                        item.dynamicCommentList.add(0,dynamicComment);
-                                        item.update(new UpdateListener() {
-                                            @Override
-                                            public void done(BmobException e) {
-                                                if (e == null) {
-                                                    ToastUtils.showShort("更新动态item成功");
-                                                }
-                                            }
-                                        });
-
-//                                        BmobRelation commentRelation = new BmobRelation();
-//                                        commentRelation.add(dynamicComment);
-//                                        item.allComments = commentRelation;
-//                                        item.update(new UpdateListener() {
-//                                            @Override
-//                                            public void done(BmobException e) {
-//                                                if (e == null) {
-//                                                    ToastUtils.showShort("更新动态item成功");
-//                                                }
-//                                            }
-//                                        });
-
+                                    public void run() {
+                                        showCommentEditPop(item);
                                     }
-                                });
-
-
+                                }, 100);
                                 popup.dismiss();
                             }
                         });
@@ -160,7 +131,6 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
         mCirclePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-
             }
 
         });
@@ -168,31 +138,55 @@ public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder
     }
 
 
+    private EditPopupWindow editPop;
 
-
-
-    private void showEditPop(View view, DynamicBean item) {
-        EditPopup editPop = EditPopup.create(mContext)
-                .setContentView(this.mContext, R.layout.layout_circle_comment)
-                .setAnimationStyle(R.style.RightPopAnim)
-                .setFocusAndOutsideEnable(true)
-                .apply();
-
-        editPop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+    private void showCommentEditPop(DynamicBean item) {
+        KeyboardUtils.showSoftInput(activity);
+        editPop = new EditPopupWindow(activity);
+        editPop.setOnViewListener(new EditPopupWindow.OnViewListener() {
             @Override
-            public void onDismiss() {
+            public void initViews(View view, EditPopupWindow popup) {
 
             }
 
+            @Override
+            public void getEditString(String text) {
+                saveComment(item, text);
+            }
         });
-        editPop.showAtLocation(UiUtils.getRootView(activity),Gravity.BOTTOM, 0, 0);
+
+        editPop.showPopup(activity);
     }
 
-
-
-
-
-
-
-
+    /**
+     * 保存评论
+     * @param item
+     * @param text
+     */
+    private void saveComment(DynamicBean item, String text) {
+        DynamicComment dynamicComment = new DynamicComment();
+        dynamicComment.author = BmobUser.getCurrentUser(CommonBmobUser.class);
+        dynamicComment.otherPeople = null;
+        dynamicComment.content = text;
+        dynamicComment.card = item;
+        dynamicComment.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                dynamicComment.setObjectId(s);
+                dynamicComment.card=null;// 不然评论集合数组保存不了嵌套循环了
+                item.dynamicCommentList.add(0, dynamicComment);
+                item.update(new UpdateListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if (e == null) {
+                            ToastUtils.showShort("评论成功");
+                            notifyDataSetChanged();
+                        }else {
+                            ToastUtils.showShort(e.getMessage());
+                        }
+                    }
+                });
+            }
+        });
+    }
 }
