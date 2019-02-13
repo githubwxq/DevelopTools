@@ -138,7 +138,6 @@
             <!--分享的内容-->
             <LinearLayout
                 android:id="@+id/ll_mob"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -269,7 +268,7 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:paddingLeft="10dp"
-                android:text=""
+                android:text="wxq123456"
                 android:textSize="13sp" />
 
             <View
@@ -297,6 +296,7 @@
                 android:background="@color/color_EBEBEB" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_gif_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -305,11 +305,12 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:paddingLeft="10dp"
-                android:text=""
+                android:text="111111"
                 android:textSize="13sp" />
 
             <View
                 android:id="@+id/view2"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/color_EBEBEB" />

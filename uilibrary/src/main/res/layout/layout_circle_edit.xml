@@ -21,6 +21,7 @@
             android:maxLength="1200"
             android:maxLines="5"
             android:minHeight="45dp"
+            android:layout_marginLeft="15dp"
             android:textCursorDrawable="@null"
             android:textSize="16sp" />
 
