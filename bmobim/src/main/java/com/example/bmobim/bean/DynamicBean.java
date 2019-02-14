@@ -42,7 +42,10 @@ public class DynamicBean extends BmobObject {
     public List<DynamicComment> dynamicCommentList=new ArrayList<>();
 
 
-
+    /**
+     * 点赞的人的集合
+     */
+    public List<CommonBmobUser> praiseUsers=new ArrayList<>();
 
 
 }
