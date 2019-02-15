@@ -14,6 +14,7 @@ import com.example.bmobim.fragment.AddressListFragment;
 import com.example.bmobim.fragment.ChooseCityFragment;
 import com.example.bmobim.fragment.ConversationFragment;
 import com.example.bmobim.fragment.DynamicFragment;
+import com.example.bmobim.fragment.MySelfFragment;
 import com.example.bmobim.presenter.MainActivityPresenter;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
@@ -66,15 +67,14 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
         fragments.add(ConversationFragment.getInstance(""));
         fragments.add(DynamicFragment.getInstance(""));
-        fragments.add(AddressListFragment.getInstance(""));
-        fragments.add(ChooseCityFragment.getInstance(""));
+        fragments.add(MySelfFragment.getInstance(""));
+//        fragments.add(AddressListFragment.getInstance(""));
+//        fragments.add(ChooseCityFragment.getInstance(""));
         title.add("会话");
         title.add("空间");
-        title.add("通讯录");
-        title.add("选择城市");
-
-
-        viewpage.setOffscreenPageLimit(1);
+        title.add("我的");
+//        title.add("通讯录");
+//        title.add("选择城市");
         adapter = new BaseFragmentAdapter(getSupportFragmentManager(),
                 fragments, title);
         viewpage.setOffscreenPageLimit(5);

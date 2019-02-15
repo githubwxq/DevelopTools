@@ -26,6 +26,7 @@ public class BaseFragmentAdapter extends FragmentPagerAdapter {
     public BaseFragmentAdapter(FragmentManager fm, List<Fragment> fragmentList, List<String> mTitles) {
         super(fm);
         this.mTitles = mTitles;
+        this.fragmentList = fragmentList;
         setFragments(fm,fragmentList,mTitles);
     }
     //刷新fragment

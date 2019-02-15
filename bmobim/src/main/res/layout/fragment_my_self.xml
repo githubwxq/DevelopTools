@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingtoolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:visibility="visible"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green_200"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="110dp"
+                        android:paddingTop="14dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="14dp">
+
+
+                        <com.juziwl.uilibrary.imageview.RectImageView
+                            android:id="@+id/iv_heard_pic"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@color/yellow_100"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"
+                            app:type="circle" />
+
+
+                        <TextView
+                            android:id="@+id/tv_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@+id/tv_concern"
+                            android:layout_toRightOf="@+id/iv_heard_pic"
+                            android:text="wxq"
+                            android:textColor="@color/color_333"
+                            android:textSize="15sp" />
+
+
+                        <com.coorchice.library.SuperTextView
+                            android:id="@+id/tv_concern"
+                            android:layout_width="80dp"
+                            android:layout_height="22dp"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:text="修改背景"
+                            android:textColor="@color/red_400"
+                            android:textSize="12sp"
+                            app:stv_corner="30dp"
+                            app:stv_solid="@color/white_transparency_150"
+                            app:stv_state_drawable="@mipmap/account_ic_show_pwd"
+                            app:stv_state_drawable_height="10dp"
+                            app:stv_state_drawable_mode="left"
+                            app:stv_state_drawable_width="10dp"
+                            app:stv_state_drawable_padding_left="5dp"
+                            app:stv_stroke_color="@color/red_400"
+                            app:stv_stroke_width="1dp"
+                            app:stv_isShowState="true"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_id_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_user_name"
+                            android:layout_alignLeft="@+id/tv_user_name"
+                            android:layout_marginTop="5dp"
+                            android:text="1111541654"
+                            android:textColor="@color/color_666"
+                            android:textSize="12sp" />
+                         <LinearLayout
+                             android:layout_alignBottom="@+id/iv_heard_pic"
+                             android:background="@color/red_400"
+                             android:layout_below="@+id/tv_id_number"
+                             android:layout_alignLeft="@+id/tv_user_name"
+
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content">
+
+                             <LinearLayout
+                                 android:orientation="vertical"
+                                 android:layout_width="0dp"
+                                 android:gravity="center"
+                                 android:layout_weight="1"
+                                 android:layout_height="match_parent">
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="8"
+                                     android:textSize="12sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+                                   <com.coorchice.library.SuperTextView
+                                     android:text="关注"
+                                       android:textSize="10sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+
+
+
+                             </LinearLayout>
+                             <LinearLayout
+                                 android:orientation="vertical"
+                                 android:layout_width="0dp"
+                                 android:gravity="center"
+                                 android:layout_weight="1"
+                                 android:layout_height="match_parent">
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="8"
+                                     android:textSize="12sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="粉丝"
+                                     android:textSize="10sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+
+
+
+                             </LinearLayout>
+                             <LinearLayout
+                                 android:orientation="vertical"
+                                 android:layout_width="0dp"
+                                 android:gravity="center"
+                                 android:layout_weight="1"
+                                 android:layout_height="match_parent">
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="8"
+                                     android:textSize="12sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="粉丝"
+                                     android:textSize="10sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+
+
+
+                             </LinearLayout>
+                             <LinearLayout
+                                 android:orientation="vertical"
+                                 android:layout_width="0dp"
+                                 android:gravity="center"
+                                 android:layout_weight="1"
+                                 android:layout_height="match_parent">
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="8"
+                                     android:textSize="12sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+                                 <com.coorchice.library.SuperTextView
+                                     android:text="粉丝"
+                                     android:textSize="10sp"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content" />
+
+
+
+
+                             </LinearLayout>
+
+                         </LinearLayout>
+
+
+
+
+
+                    </RelativeLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/color_f7f7f7" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:text="机构简介"
+                        android:textColor="@color/color_333"
+                        android:textSize="13sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="15dp"
+                        android:text="我大丰收.........................................................................."
+                        android:textColor="@color/color_333"
+                        android:textSize="15sp" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/color_f7f7f7" />
+                </LinearLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tab"
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <com.juziwl.uilibrary.tablayout.SlidingTabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    app:tl_indicator_width_equal_title="true"
+                    app:tl_tab_space_equal="true"
+                    app:tl_textsize="15sp"></com.juziwl.uilibrary.tablayout.SlidingTabLayout>
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/viewpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/rl_setting"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@color/pink_200"
+                        />
+
+                    <TextView
+                        android:layout_marginLeft="55dp"
+                        android:text="设置"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                      <ImageView
+                          android:layout_marginRight="15dp"
+                          android:src="@mipmap/right_arrow"
+                          android:layout_centerVertical="true"
+                          android:layout_alignParentRight="true"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/gray_ee"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</LinearLayout>

@@ -135,6 +135,4 @@ public class DynamicFragment extends BaseFragment {
                 break;
         }
     }
-
-
 }
