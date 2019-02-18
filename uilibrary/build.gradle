@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 //apply plugin: 'me.tatarka.retrolambda'
 
 
-
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -27,7 +26,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    compileOptions.encoding="UTF-8"
+    compileOptions.encoding = "UTF-8"
 }
 
 dependencies {
@@ -46,5 +45,7 @@ dependencies {
     api rootProject.ext.deps["loadingView"]
     api rootProject.ext.deps["SmartRefreshLayout"]
     api project(path: ':picture_library')
+    api project(path: ':pickerview')
     implementation project(':commonlibrary')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

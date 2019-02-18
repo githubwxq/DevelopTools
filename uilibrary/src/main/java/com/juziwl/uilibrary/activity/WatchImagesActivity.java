@@ -85,6 +85,7 @@ public class WatchImagesActivity extends BaseActivity {
 
     private boolean canImageSave = true;
     private boolean isShowHeadIcon = false;
+
     public static final String IMAGELONGCLICK = "WatchImagesActivity.imagelongclick",
             ACTIVITYFINISH = "WatchImagesActivity.activityfinish";
     /**

@@ -2,32 +2,32 @@ package com.example.bmobim.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.bigkoo.pickerview.AreaPickerView;
+import com.bigkoo.pickerview.model.Province;
 import com.example.bmobim.R;
 import com.example.bmobim.contract.MainContract;
-import com.example.bmobim.fragment.AddressListFragment;
-import com.example.bmobim.fragment.ChooseCityFragment;
 import com.example.bmobim.fragment.ConversationFragment;
 import com.example.bmobim.fragment.DynamicFragment;
 import com.example.bmobim.fragment.MySelfFragment;
 import com.example.bmobim.presenter.MainActivityPresenter;
-import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
-import com.juziwl.uilibrary.viewpage.adapter.BaseViewPagerAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
-import com.wxq.commonlibrary.base.BaseFragment;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 创建日期：
@@ -80,7 +80,13 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         viewpage.setOffscreenPageLimit(5);
         viewpage.setAdapter(adapter);
 
+
+//        testAddress();
+
+
     }
+
+
 
 
     @Override
@@ -93,5 +99,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     public boolean isNeedHeardLayout() {
         return true;
     }
+
 
 }

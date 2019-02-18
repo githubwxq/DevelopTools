@@ -13,6 +13,7 @@ import com.example.module_login.bean.Material;
 import com.example.module_login.bean.User;
 import com.example.module_login.contract.SplashContract;
 import com.example.module_login.presenter.SplashActivityPresent;
+import com.juziwl.uilibrary.activity.ChooseMapAddressActivity;
 import com.luck.picture.lib.PictureSelectAdapter;
 import com.luck.picture.lib.PictureSelectorView;
 import com.luck.picture.lib.config.PictureConfig;
@@ -59,19 +60,21 @@ public class SplashActivity extends BaseActivity<SplashContract.Presenter> imple
         BarUtils.setStatusBarVisibility(this, false);
         //点击背景如果当前有广告
         click(ivBg, o -> {
+            ChooseMapAddressActivity.navToActivity(this);
 //            LoginActivity.navToActivity(this);
 //            finish();
-            if (selectList.size()>0) {
-                uploadHeardPic();
-            }else{
-//                uploadCard();
-//                upLoadComment();
-
-//                queryMaterialList();
-
-                ARouter.getInstance().build(RouterContent.BMOB_PUBLISHCARD).navigation();
-                finish();
-            }
+//            if (selectList.size()>0) {
+//                uploadHeardPic();
+//            }else{
+////                uploadCard();
+////                upLoadComment();
+//
+////                queryMaterialList();
+//
+////                ARouter.getInstance().build(RouterContent.BMOB_PUBLISHCARD).navigation();
+//                ChooseMapAddressActivity.navToActivity(this);
+//                finish();
+//            }
 
 
         });

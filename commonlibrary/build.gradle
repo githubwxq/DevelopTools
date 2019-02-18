@@ -142,6 +142,11 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    //高德地图
+    api rootProject.ext.deps["amp3d"]
+    api rootProject.ext.deps["ampLoaction"]
+    api rootProject.ext.deps["ampSearch"]
+
 //
 //    api rootProject.ext.deps["bmob-sdk"]
 //    api rootProject.ext.deps["bmob-push"]

@@ -34,6 +34,11 @@ android {
             storeFile file('./keystore/DevelopTools.jks')
             storePassword '111111'
         }
+//        MD5: C1:2E:B5:7D:B4:D1:B4:25:12:24:C1:F3:AA:3D:19:64
+//        SHA1: 69:20:39:88:79:7D:CF:1E:88:60:DA:B5:93:7C:E2:0E:CD:15:04:31
+//        SHA256: 5C:6F:73:9C:D7:B4:2F:02:9A:5D:D5:7E:D1:4A:EC:6A:6A:06:54:40:27:66:F0:EF:3E:B0:B8:EF:A3:77:4B:23
+//        签名算法名称: SHA256withRSA
+//        版本: 3
         release {
             keyAlias 'DevelopTools'
             keyPassword '111111'

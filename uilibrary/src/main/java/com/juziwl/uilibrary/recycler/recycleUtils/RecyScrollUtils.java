@@ -1,5 +1,6 @@
 package com.juziwl.uilibrary.recycler.recycleUtils;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -55,6 +56,5 @@ public class RecyScrollUtils {
         int firstItemBottom = layoutManager.getDecoratedBottom(firstVisibItem);
         return (itemCount - firstItemPosition - 1)* itemHeight - recycleViewHeight;
     }
-
 
 }

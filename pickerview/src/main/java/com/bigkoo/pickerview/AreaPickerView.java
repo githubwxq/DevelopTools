@@ -1,6 +1,7 @@
 package com.bigkoo.pickerview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,6 +17,10 @@ import com.bigkoo.pickerview.model.Province;
 import com.bigkoo.pickerview.view.AreaWheelOptions;
 import com.bigkoo.pickerview.view.BasePickerView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -499,6 +504,7 @@ public class AreaPickerView extends BasePickerView implements View.OnClickListen
 
         /**
          * 只有isDialog为false有效
+         *
          * @param isDark
          * @return
          */
@@ -517,3 +523,60 @@ public class AreaPickerView extends BasePickerView implements View.OnClickListen
     }
 
 }
+
+    //使用法
+//    private void testAddress() {
+//        InputStream open = null;
+//        try {
+//            open = getAssets().open("address/fullareajson.txt");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        Gson gson = new Gson();
+//        List<Province> provincesTem = gson.fromJson(new InputStreamReader(open), new TypeToken<List<Province>>() {
+//        }.getType());
+//
+//
+//        provinces.addAll(provincesTem);
+//        showAreaSelectDialog();
+//
+//
+//    }
+//
+//
+//    private AreaPickerView areaPickerView;
+//    private List<Province> provinces = new ArrayList<>();
+//
+//    //    /**
+////     * 区域
+////     */
+//    public void showAreaSelectDialog() {
+////        dealWithSoftWindow(); 、、处理输入框
+//        if (areaPickerView == null) {
+//            areaPickerView = new AreaPickerView.Builder(this, areaSelectListener)
+//                    //设置选中项文字颜色
+//                    .setTextColorCenter(Color.BLACK)
+//                    .setContentTextSize(20)
+//                    .setTitleText("")
+//                    .setCancelColor(Color.parseColor("#157efb"))
+//                    .setSubmitColor(Color.parseColor("#157efb"))
+//                    .setSubmitText("完成")
+//                    .setTitleBgColor(ContextCompat.getColor(this, R.color.green_300))
+//                    .setSelectOptions(0, 0, 0)
+//                    .build();
+//            areaPickerView.setPicker(provinces);
+//        }
+//        areaPickerView.show();
+//    }
+//
+//    private AreaPickerView.OnOptionsSelectListener areaSelectListener = (options1, options2, options3, view) -> {
+//        boolean isSlect = (options1 > -1 && options1 < provinces.size()) && (options2 > -1 && options2 < provinces.get(options1).city.size())
+//                && (options3 > -1 && options3 < provinces.get(options1).city.get(options2).area.size());
+//        if (isSlect) {
+//            //返回的分别是三个级别的选中位置
+//            Province province = provinces.get(options1);
+//
+//        } else {
+//
+//        }
+//    };
