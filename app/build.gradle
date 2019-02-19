@@ -91,6 +91,7 @@ dependencies {
     debugApi(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
+    implementation project(':module_login')
 
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     //butterknife

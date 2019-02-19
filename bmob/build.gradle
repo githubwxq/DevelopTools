@@ -6,11 +6,11 @@ if (rootProject.ext.isBmobModule) {
 apply from: "../common_component_build.gradle"
 android {
     useLibrary 'org.apache.http.legacy'
-    defaultConfig {
-        applicationId rootProject.ext.android.bmobApplicationId
-
-
-    }
+//    defaultConfig {
+//        applicationId rootProject.ext.android.developtoolsApplicationId
+//
+//
+//    }
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
