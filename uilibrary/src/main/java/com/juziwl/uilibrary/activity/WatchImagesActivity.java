@@ -34,6 +34,7 @@ import com.wxq.commonlibrary.util.ThreadExecutorManager;
 import com.wxq.commonlibrary.util.TimeUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
+import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -328,4 +329,5 @@ public class WatchImagesActivity extends BaseActivity {
     public boolean isNeedHeardLayout() {
         return false;
     }
+
 }

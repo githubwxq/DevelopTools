@@ -46,6 +46,8 @@ dependencies {
     api rootProject.ext.deps["SmartRefreshLayout"]
     api project(path: ':picture_library')
     api project(path: ':pickerview')
+    api project(path: ':nicevideoplayer')
+
     implementation project(':commonlibrary')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
