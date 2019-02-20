@@ -18,20 +18,17 @@ import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.juziwl.uilibrary.notification.NotificationUtils;
 import com.juziwl.uilibrary.progressbar.MyProgressBarSecond;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.model.User;
+import com.wxq.commonlibrary.router.RouterContent;
 import com.wxq.commonlibrary.util.ClipboardUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
-import com.wxq.mvplibrary.model.User;
-import com.wxq.mvplibrary.router.RouterContent;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
-
 
 public class UIMainActivity extends BaseActivity {
 

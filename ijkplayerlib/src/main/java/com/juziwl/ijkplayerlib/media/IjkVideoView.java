@@ -36,17 +36,14 @@ import android.widget.FrameLayout;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.juziwl.ijkplayerlib.R;
 import com.juziwl.ijkplayerlib.services.MediaPlayerService;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import tv.danmaku.ijk.media.exo.IjkExoMediaPlayer;
 import tv.danmaku.ijk.media.player.AndroidMediaPlayer;
 import tv.danmaku.ijk.media.player.IMediaPlayer;

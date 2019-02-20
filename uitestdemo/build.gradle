@@ -1,4 +1,4 @@
-if (!rootProject.ext.isUiTestModule) {
+if (rootProject.ext.isUiTestModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -8,7 +8,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
-            if (!rootProject.ext.isUiTestModule) {
+            if (rootProject.ext.isUiTestModule) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'

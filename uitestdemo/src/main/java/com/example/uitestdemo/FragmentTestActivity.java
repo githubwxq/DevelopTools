@@ -4,12 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-
-import com.juziwl.uilibrary.recycler.xrecyclerview.progressindicator.indicator.LineScaleIndicator;
-import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
-
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -10,11 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.AppUtils;
 import com.wxq.commonlibrary.util.ClipboardUtils;
 import com.wxq.commonlibrary.util.LogUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
+
 
 import java.util.List;
 

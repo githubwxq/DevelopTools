@@ -1,6 +1,6 @@
 include ':app', ':commonlibrary', ':uilibrary',':gank', ':bmobim',
         ':commonservice',
-        ':bmob', ':module_login', ':picture_library',':ijkplayerlib',':pickerview'
+        ':bmob', ':module_login', ':picture_library',':ijkplayerlib',':pickerview', ':uitestdemo'
 
 
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',

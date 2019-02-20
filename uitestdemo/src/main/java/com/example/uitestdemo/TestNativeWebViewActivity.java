@@ -12,15 +12,12 @@ import android.widget.TextView;
 
 import com.juziwl.uilibrary.nativewebview.NativeWebView;
 import com.juziwl.uilibrary.nativewebview.WebViewListener;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import static android.view.KeyEvent.KEYCODE_BACK;
-
 public class TestNativeWebViewActivity extends BaseActivity {
 
 

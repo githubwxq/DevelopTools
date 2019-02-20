@@ -1,17 +1,27 @@
 package com.example.uitestdemo;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.orhanobut.logger.Logger;
-import com.wxq.mvplibrary.base.BaseFragment;
-import com.wxq.mvplibrary.base.BasePresenter;
+import com.wxq.commonlibrary.base.BaseFragment;
+import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +34,13 @@ public class TwoFragment extends BaseFragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.rv_one)
+    RecyclerView rvOne;
+    @BindView(R.id.rv_two)
+    RecyclerView rvTwo;
+    @BindView(R.id.rv_three)
+    RecyclerView rvThree;
+    Unbinder unbinder;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -73,6 +90,56 @@ public class TwoFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
+        rvOne.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvTwo.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvThree.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        List<User> list=new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User user=new User();
+            list.add(user);
+            list.add(user);
+            list.add(user);
+        }
+
+
+
+
+
+
+        rvOne.setAdapter(new BaseQuickAdapter<User,BaseViewHolder>(R.layout.poiitem_item,list) {
+
+            @Override
+            protected void convert(BaseViewHolder helper, User item) {
+
+            }
+        });
+
+
+          rvTwo.setAdapter(new BaseQuickAdapter<User,BaseViewHolder>(R.layout.poiitem_item,list) {
+
+            @Override
+            protected void convert(BaseViewHolder helper, User item) {
+
+            }
+        });
+
+
+          rvThree.setAdapter(new BaseQuickAdapter<User,BaseViewHolder>(R.layout.poiitem_item,list) {
+
+            @Override
+            protected void convert(BaseViewHolder helper, User item) {
+
+            }
+        });
+
+
+
+
+
+
+
+
 
     }
 
@@ -87,9 +154,12 @@ public class TwoFragment extends BaseFragment {
         super.onResume();
         Logger.d(getClass().getSimpleName() + " twofragment onResume");
     }
+
     @Override
     public void onFragmentResume() {
         super.onFragmentResume();
         Logger.d(getClass().getSimpleName() + " twofragment onFragmentResume");
     }
+
+
 }

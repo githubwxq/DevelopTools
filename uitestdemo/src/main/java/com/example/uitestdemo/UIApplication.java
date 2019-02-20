@@ -2,11 +2,9 @@ package com.example.uitestdemo;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.wxq.mvplibrary.base.IAppLife;
-import com.wxq.mvplibrary.base.IModuleConfig;
-
+import com.wxq.commonlibrary.base.IAppLife;
+import com.wxq.commonlibrary.base.IModuleConfig;
 import java.util.List;
 
 /**
@@ -16,7 +14,7 @@ import java.util.List;
  * desc: 主的application
  * version:1.0
  */
-public class UIApplication implements IModuleConfig,IAppLife {
+public class UIApplication implements IModuleConfig, IAppLife {
 
 
     @Override

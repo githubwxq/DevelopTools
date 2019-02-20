@@ -16,17 +16,12 @@ import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.multimedia.AudioObj;
 import com.juziwl.uilibrary.recycler.viewpagerecycle.MySnapHelper;
 import com.juziwl.uilibrary.viewpage.pageindicator.IndicatorView;
-import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
-import com.wxq.mvplibrary.router.RouterContent;
-
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.router.RouterContent;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
-
 @Route(path = RouterContent.UI_MAIN)
 public class MainUiTestActivity extends BaseActivity {
 

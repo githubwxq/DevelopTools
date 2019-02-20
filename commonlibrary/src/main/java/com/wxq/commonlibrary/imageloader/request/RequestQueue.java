@@ -77,6 +77,7 @@ public class RequestQueue {
         for (int i = 0; i < threadCount; i++) {
             RequestDispatcher requestDispatcher = new RequestDispatcher(mRequestQueue,"线程"+i);
             mDispachers[i] = requestDispatcher;
+            // 开启线程分发队列请求
             mDispachers[i].start();
         }
     }

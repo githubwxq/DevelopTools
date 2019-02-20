@@ -2,10 +2,9 @@ package com.example.uitestdemo;
 
 import android.util.Log;
 
+import com.wxq.commonlibrary.base.BaseApp;
 import com.wxq.commonlibrary.util.AppUtils;
 import com.wxq.commonlibrary.util.Utils;
-import com.wxq.mvplibrary.base.BaseApp;
-
 /**
  * Created by 王晓清.
  * data 2018/9/2.

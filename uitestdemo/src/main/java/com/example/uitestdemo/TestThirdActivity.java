@@ -1,7 +1,8 @@
 package com.example.uitestdemo;
 
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
+
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 
 public class TestThirdActivity extends BaseActivity {
 

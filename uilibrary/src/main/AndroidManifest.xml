@@ -25,9 +25,11 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application>
-        <activity android:name=".activity.ChooseMapAddressActivity"
+        <activity android:name=".activity.WatchVideoActivity"></activity>
+        <activity
+            android:name=".activity.ChooseMapAddressActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.WatchImagesActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

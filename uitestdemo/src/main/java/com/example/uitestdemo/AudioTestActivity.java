@@ -14,15 +14,12 @@ import com.juziwl.uilibrary.multimedia.AudioPlayerUtil;
 import com.juziwl.uilibrary.multimedia.AudioRecorderUtil;
 import com.juziwl.uilibrary.multimedia.MediaUtils;
 import com.juziwl.uilibrary.multimedia.NewRecordAudioLayout;
+import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.mvplibrary.base.BaseActivity;
-import com.wxq.mvplibrary.base.BasePresenter;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

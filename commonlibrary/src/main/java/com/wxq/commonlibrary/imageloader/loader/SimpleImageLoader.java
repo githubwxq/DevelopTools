@@ -70,9 +70,10 @@ public class SimpleImageLoader {
 
 
     public void displayImage(ImageView imageView, String uri, DisplayConfig displayConfig,ImageListener imageListener) {
-//         实力话请求添加到队列
+//         实力化请求添加到队列
         BitmapRequest bitmapRequest=new BitmapRequest(imageView,uri,displayConfig,imageListener);
         mRequestQueue.addRequest(bitmapRequest);
+
     }
 
 
