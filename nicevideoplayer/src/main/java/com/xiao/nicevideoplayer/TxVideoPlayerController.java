@@ -353,7 +353,7 @@ public class TxVideoPlayerController
     @Override
     public void onClick(View v) {
         if (v == mCenterStart) {
-            if (mNiceVideoPlayer.isIdle()) {
+            if (mNiceVideoPlayer.isIdle()) { //空闲的;
                 mNiceVideoPlayer.start();
             }
         } else if (v == mBack) {
@@ -483,7 +483,7 @@ public class TxVideoPlayerController
         long position = mNiceVideoPlayer.getCurrentPosition();
         long duration = mNiceVideoPlayer.getDuration();
         int bufferPercentage = mNiceVideoPlayer.getBufferPercentage();
-        mSeek.setSecondaryProgress(bufferPercentage);
+        mSeek.setSecondaryProgress(bufferPercentage); //缓存进度
         int progress = (int) (100f * position / duration);
         mSeek.setProgress(progress);
         mPosition.setText(NiceUtil.formatTime(position));

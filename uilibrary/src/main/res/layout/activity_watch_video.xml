@@ -8,7 +8,7 @@
     <com.xiao.nicevideoplayer.NiceVideoPlayer
         android:id="@+id/video_player"
         android:layout_width="match_parent"
-        android:layout_height="300dp"></com.xiao.nicevideoplayer.NiceVideoPlayer>
+        android:layout_height="200dp"></com.xiao.nicevideoplayer.NiceVideoPlayer>
 
 
 

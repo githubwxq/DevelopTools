@@ -93,16 +93,17 @@ public class NiceVideoPlayer extends FrameLayout
 
     private Context mContext;
     private AudioManager mAudioManager;
-    private IMediaPlayer mMediaPlayer;
+    private IMediaPlayer mMediaPlayer;  // 原生或者ijk 播放类
     private FrameLayout mContainer;
     private NiceTextureView mTextureView;
-    private NiceVideoPlayerController mController;
+    private NiceVideoPlayerController mController;  // 相互持有
     private SurfaceTexture mSurfaceTexture;
     private Surface mSurface;
     private String mUrl;
     private Map<String, String> mHeaders;
     private int mBufferPercentage;
-    private boolean continueFromLastPosition = true;
+    // 从上次的保存位置播放
+    private boolean continueFromLastPosition = false;
     private long skipToPosition;
 
     public NiceVideoPlayer(Context context) {
@@ -129,6 +130,11 @@ public class NiceVideoPlayer extends FrameLayout
         mHeaders = headers;
     }
 
+
+    /**
+     * 两个类相互持有彼此的对象  mvc
+     * @param controller
+     */
     public void setController(NiceVideoPlayerController controller) {
         mContainer.removeView(mController);
         mController = controller;
@@ -172,6 +178,8 @@ public class NiceVideoPlayer extends FrameLayout
     public void start() {
         if (mCurrentState == STATE_IDLE) {
             NiceVideoPlayerManager.instance().setCurrentNiceVideoPlayer(this);
+
+            //初始化 声音 播放器
             initAudioManager();
             initMediaPlayer();
             initTextureView();
@@ -400,7 +408,7 @@ public class NiceVideoPlayer extends FrameLayout
     private void openMediaPlayer() {
         // 屏幕常亮
         mContainer.setKeepScreenOn(true);
-        // 设置监听
+        // 设置监听  各种监听
         mMediaPlayer.setOnPreparedListener(mOnPreparedListener);
         mMediaPlayer.setOnVideoSizeChangedListener(mOnVideoSizeChangedListener);
         mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
@@ -442,8 +450,10 @@ public class NiceVideoPlayer extends FrameLayout
         @Override
         public void onPrepared(IMediaPlayer mp) {
             mCurrentState = STATE_PREPARED;
+            // 准备好了 当前开播状态了
             mController.onPlayStateChanged(mCurrentState);
-            LogUtil.d("onPrepared ——> STATE_PREPARED");
+            LogUtil.d("onPrepared ——> STATE_PREPARED");  // 准备好了
+
             mp.start();
             // 从上次的保存位置播放
             if (continueFromLastPosition) {

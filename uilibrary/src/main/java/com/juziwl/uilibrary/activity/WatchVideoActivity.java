@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.juziwl.uilibrary.R;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.xiao.nicevideoplayer.NiceVideoPlayer;
 import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 import com.xiao.nicevideoplayer.TxVideoPlayerController;
@@ -32,17 +34,13 @@ public class WatchVideoActivity extends BaseActivity {
         videoPlayer=findViewById(R.id.video_player);
         videoPlayer.setPlayerType(NiceVideoPlayer.TYPE_IJK);
         String videoUrl = "http://bmob-cdn-23627.b0.upaiyun.com/2019/02/17/75d757d89b8c4a63a8262210bd11d044.mp4";
-
+//        String videoUrl = "http://bmob-cdn-23627.b0.upaiyun.com/2019/02/20/90706b3359c34ac4a887aff6a4c3aef0.mp4";
         videoPlayer.setUp(videoUrl, null);
         TxVideoPlayerController controller = new TxVideoPlayerController(this);
         controller.setTitle("办公室小野开番外了，居然在办公室开澡堂！老板还点赞？");
         controller.setLenght(98000);
-//        controller.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showToast("111111");
-//            }
-//        });
+        ImageView image= controller.imageView();
+        LoadingImgUtil.loadimg("http://bmob-cdn-23627.b0.upaiyun.com/2019/02/20/8e58dfa28a594ae9acdaca5c8edf8327.jpg",image,false);
         videoPlayer.setController(controller);
     }
 
