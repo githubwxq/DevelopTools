@@ -1,6 +1,7 @@
 package com.juziwl.uilibrary.recycler.recycleUtils;
 
 import android.annotation.SuppressLint;
+import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -57,4 +58,32 @@ public class RecyScrollUtils {
         return (itemCount - firstItemPosition - 1)* itemHeight - recycleViewHeight;
     }
 
+
+
+    public int getCurrentViewIndex( LinearLayoutManager mLineManager) {
+        int firstVisibleItem = mLineManager.findFirstVisibleItemPosition();
+        int lastVisibleItem = mLineManager.findLastVisibleItemPosition();
+        int currentIndex = firstVisibleItem;
+        int lastHeight = 0;
+        for (int i = firstVisibleItem; i <= lastVisibleItem; i++) {
+            View view = mLineManager.getChildAt(i - firstVisibleItem);
+            if (null == view) {
+                continue;
+            }
+            int[] location = new int[2];
+            view.getLocationOnScreen(location);
+            Rect localRect = new Rect();
+            view.getLocalVisibleRect(localRect);
+            int showHeight = localRect.bottom - localRect.top;
+            if (showHeight > lastHeight) {
+                currentIndex = i;
+                lastHeight = showHeight;
+            }
+        }
+
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        }
+        return currentIndex;
+    }
 }
