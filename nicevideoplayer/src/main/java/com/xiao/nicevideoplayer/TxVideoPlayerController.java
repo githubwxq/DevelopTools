@@ -22,6 +22,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.crypto.interfaces.PBEKey;
+
 /**
  * Created by XiaoJianjun on 2017/6/21.
  * 仿腾讯视频热点列表页播放器控制器.
@@ -354,6 +356,10 @@ public class TxVideoPlayerController
     public void onClick(View v) {
         if (v == mCenterStart) {
             if (mNiceVideoPlayer.isIdle()) { //空闲的;
+//                点击播放回调
+                if (controlClickListener!=null) {
+                    controlClickListener.clickCenterPlayIcon();
+                }
                 mNiceVideoPlayer.start();
             }
         } else if (v == mBack) {
@@ -528,4 +534,19 @@ public class TxVideoPlayerController
     protected void hideChangeBrightness() {
         mChangeBrightness.setVisibility(View.GONE);
     }
+
+    public TxVideoPlayerController setControlClickListener(ControlClickListener controlClickListener) {
+        this.controlClickListener = controlClickListener;
+        return this;
+    }
+
+    public ControlClickListener controlClickListener;
+
+    public interface ControlClickListener{
+
+        void clickCenterPlayIcon();
+
+    }
+
+
 }

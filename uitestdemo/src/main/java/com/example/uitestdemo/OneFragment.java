@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.juziwl.uilibrary.activity.VideoListActivity;
 import com.juziwl.uilibrary.activity.WatchVideoActivity;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseFragment;
@@ -103,7 +104,8 @@ public class OneFragment extends BaseFragment {
         btnDispatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WatchVideoActivity.navToActivity(getActivity());
+//                WatchVideoActivity.navToActivity(getActivity());
+                VideoListActivity.navToActivity(getActivity());
             }
         });
     }
