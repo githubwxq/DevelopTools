@@ -16,14 +16,14 @@ public class FragmentTestActivity extends BaseActivity {
 
     @BindView(R2.id.viewpage)
     ViewPager viewpage;
-
     List<Fragment> fragmentList=new ArrayList<>();
 
     @Override
     protected void initViews() {
         fragmentList.add(new OneFragment());
         fragmentList.add(new TwoFragment());
-        viewpage.setOffscreenPageLimit(2);
+        fragmentList.add(new ViewLifeCycleFragment());
+        viewpage.setOffscreenPageLimit(3);
         viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -48,10 +48,5 @@ public class FragmentTestActivity extends BaseActivity {
         return null;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

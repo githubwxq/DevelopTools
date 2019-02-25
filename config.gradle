@@ -33,7 +33,7 @@ ext {
             bmobApplicationId           : "com.example.bmob",
             wanandroidId                : "com.heqijun.module_wanandroid",
 
-            minSdkVersion               : 17,
+            minSdkVersion               : 21,
             targetSdkVersion            : 27,
             versionCode                 : 1,
             versionName                 : "1",
