@@ -1,6 +1,8 @@
 package com.example.uitestdemo;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.dispatch.MyDispatchButton;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -116,11 +119,27 @@ public class OneFragment extends BaseFragment {
         super.lazyLoadData(view);
         Logger.d(getClass().getSimpleName() + " onefragment 对用户第一次可见");
     }
-
+    android.os.Handler handler = new Handler(){
+        @Override
+        public void handleMessage(final Message msg) {
+            //这里接受并处理消息
+            ToastUtils.showShort("3333");
+        }
+    };
     @Override
     public void onResume() {
         super.onResume();
         Logger.d(getClass().getSimpleName() + " tonefragment onResume");
+
+//        UIHandler.getInstance()
+        //发送消息
+        Message message=Message.obtain();
+//        handler.sendMessage(message);
+        handler.sendMessageDelayed(message,3000);
+//        handler.post(runnable);runnable
+
+
+
     }
 
     @Override
