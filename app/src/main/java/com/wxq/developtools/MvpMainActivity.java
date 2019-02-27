@@ -17,6 +17,7 @@ import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.dbmanager.DbManager;
 import com.wxq.commonlibrary.model.User;
 import com.wxq.commonlibrary.router.RouterContent;
+import com.wxq.commonlibrary.util.VersionUtils;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -180,7 +181,9 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
                         }
                         //不管是否获取全部权限，进入主页面
 //                        initCountDown();
-                        ChooseMapAddressActivity.navToActivity(MvpMainActivity.this);
+//                        ChooseMapAddressActivity.navToActivity(MvpMainActivity.this);
+
+
                     }
                 });
 

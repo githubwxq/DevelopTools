@@ -19,6 +19,8 @@ import com.wxq.commonlibrary.dispatch.MyDispatchButton;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
 
+import java.lang.reflect.Proxy;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -118,6 +120,7 @@ public class OneFragment extends BaseFragment {
     public void lazyLoadData(View view) {
         super.lazyLoadData(view);
         Logger.d(getClass().getSimpleName() + " onefragment 对用户第一次可见");
+
     }
     android.os.Handler handler = new Handler(){
         @Override

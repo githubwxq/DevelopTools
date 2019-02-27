@@ -24,6 +24,8 @@ public class GlobalContent {
     public static final String AT_SPECIAL_WORD = " ";
     public static final String AT_WORD = "@";
 
+    public static final String  APKFILENAME = "common.apk";
+
     /**
      * 语音存放路径
      */
