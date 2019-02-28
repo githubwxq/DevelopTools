@@ -6,11 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import com.juziwl.uilibrary.customview.TestCustomView;
+import com.juziwl.uilibrary.customview.ObjectAnimationCustomView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -25,8 +23,8 @@ import butterknife.Unbinder;
  */
 public class ViewLifeCycleFragment extends BaseFragment {
 
-    @BindView(R.id.tv_view)
-    TestCustomView tvView;
+    @BindView(R.id.tv_obj_view)
+    ObjectAnimationCustomView tv_obj_view;
     @BindView(R.id.control)
     Button control;
     Unbinder unbinder;
@@ -51,22 +49,8 @@ public class ViewLifeCycleFragment extends BaseFragment {
         control.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvView.start();
+                tv_obj_view.start();
             }
         });
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

@@ -32,9 +32,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.wxq.commonlibrary.util.Utils;
-
-public class TestCustomView extends View {
+public class ObjectAnimationCustomView extends View {
 
     public String TAG = "CustomView";
 
@@ -81,7 +79,7 @@ public class TestCustomView extends View {
 
 
 
-    public TestCustomView setInnerRadius(int innerRadius) {
+    public ObjectAnimationCustomView setInnerRadius(int innerRadius) {
         this.innerRadius = innerRadius;
         return this;
     }
@@ -90,15 +88,15 @@ public class TestCustomView extends View {
     public int innerMinRadius = 40;
 
 
-    public TestCustomView(Context context) {
+    public ObjectAnimationCustomView(Context context) {
         this(context, null);
     }
 
-    public TestCustomView(Context context, AttributeSet attrs) {
+    public ObjectAnimationCustomView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TestCustomView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ObjectAnimationCustomView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mCurrentContext = context;
         initView(context);
@@ -282,7 +280,7 @@ public class TestCustomView extends View {
     }
 
 
-    public TestCustomView setTotalTime(int totalTime) {
+    public ObjectAnimationCustomView setTotalTime(int totalTime) {
         this.totalTime = totalTime;
         return this;
     }
