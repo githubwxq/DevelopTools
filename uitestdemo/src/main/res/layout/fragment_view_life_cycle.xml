@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.juziwl.uilibrary.customview.CustomLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,20 +8,22 @@
 >
 
     <!-- TODO: Update blank fragment layout -->
-    <com.juziwl.uilibrary.customview.CustomView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@color/blue_200"
-      />
- <com.juziwl.uilibrary.customview.CustomView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@color/blue_200"
-      />
- <com.juziwl.uilibrary.customview.CustomView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <com.juziwl.uilibrary.customview.TestCustomView
+        android:id="@+id/tv_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@color/blue_200"
       />
 
-</com.juziwl.uilibrary.customview.CustomLayout>
+<Button
+    android:layout_below="@+id/tv_view"
+    android:id="@+id/control"
+    android:text="开始"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+
+
+    />
+
+
+</RelativeLayout>
