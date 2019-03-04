@@ -184,14 +184,26 @@ public class SuperEditText extends android.support.v7.widget.AppCompatEditText {
 }
 
 
+//设置搜索  xml 中 android:imeOptions="actionSearch"
 
+//editText.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+//        editText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+//        input.setOnEditorActionListener((v, actionId, event) -> {
+//         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//         if (input.getText().length() >= 6 && input.getText().length() <= GlobalContent.MAX_PHONE_LENGTH) {
+//         Bundle bundle = new Bundle();
+//         bundle.putString(AddContactsActivity.EXTRA_PHONE, input.getText().toString());
+//         interactiveListener.onInteractive(AddContactsActivity.ACTION_SEARCH, bundle);
+//         } else {
+//         ToastUtils.showToast(R.string.incorrect_phone_or_exueno);
+//         }
+//         return true;
+//         }
+//         return false;
+//         });
 
 //、、代码设置只能输入数字setInputType(EditorInfo.TYPE_CLASS_PHONE);
-
-
 //android:digits 属性， 这种方式可以指出要支持的字符android:digits="0123456789abcdefghijklmnopqrstuvwxyz"
-
-
 
 //以下代码提供给activity使用 点击非edittext区域隐藏
 //
