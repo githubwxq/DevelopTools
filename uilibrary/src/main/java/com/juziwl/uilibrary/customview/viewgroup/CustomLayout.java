@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.customview;
+package com.juziwl.uilibrary.customview.viewgroup;
 
 import android.content.Context;
 import android.graphics.Canvas;

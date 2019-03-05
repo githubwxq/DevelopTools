@@ -1,16 +1,12 @@
 package com.example.uitestdemo;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import com.juziwl.uilibrary.customview.ObjectAnimationCustomView;
+import com.juziwl.uilibrary.customview.view.ObjectAnimationCustomView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
@@ -52,5 +48,13 @@ public class ViewLifeCycleFragment extends BaseFragment {
                 tv_obj_view.start();
             }
         });
+
+
+
+
+
+
+
+
     }
 }

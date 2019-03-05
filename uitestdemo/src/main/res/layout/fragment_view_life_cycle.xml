@@ -8,14 +8,14 @@ android:orientation="vertical"
 >
 
     <!-- TODO: Update blank fragment layout -->
-    <com.juziwl.uilibrary.customview.TextCustomView
+    <com.juziwl.uilibrary.customview.view.TextCustomView
         android:id="@+id/tv_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/blue_200"
       />
 
-     <com.juziwl.uilibrary.customview.ObjectAnimationCustomView
+     <com.juziwl.uilibrary.customview.view.ObjectAnimationCustomView
         android:id="@+id/tv_obj_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +33,14 @@ android:orientation="vertical"
 
 
     />
+
+
+    <com.juziwl.uilibrary.customview.view.PathView
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 
 
 </LinearLayout>

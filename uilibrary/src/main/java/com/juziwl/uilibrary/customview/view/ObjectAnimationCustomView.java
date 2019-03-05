@@ -17,7 +17,7 @@
  *
  */
 
-package com.juziwl.uilibrary.customview;
+package com.juziwl.uilibrary.customview.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
