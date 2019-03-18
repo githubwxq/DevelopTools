@@ -1,5 +1,4 @@
-include ':app', ':commonlibrary', ':uilibrary', ':gank', ':bmobim',
+include ':app', ':commonlibrary', ':uilibrary', ':bmobim',
         ':commonservice',
-        ':bmob', ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':uitestdemo', ':nicevideoplayer'
-
-//  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',
+        ':bmob', ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer'
+//  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' , ':uitestdemo'

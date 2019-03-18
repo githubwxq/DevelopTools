@@ -24,8 +24,8 @@ ext {
      *
      */
     android = [
-            compileSdkVersion           : 27,
-            buildToolsVersion           : '27.0.3',
+            compileSdkVersion           : 28,
+            buildToolsVersion           : '28.0.3',
             developtoolsApplicationId   : "com.wxq.developtools",
             nettestdemoApplicationId    : "com.example.nettestdemo",
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",
@@ -34,7 +34,7 @@ ext {
             wanandroidId                : "com.heqijun.module_wanandroid",
 
             minSdkVersion               : 21,
-            targetSdkVersion            : 27,
+            targetSdkVersion            : 28,
             versionCode                 : 1,
             versionName                 : "1",
 
@@ -49,7 +49,7 @@ ext {
             blockcanary: "1.5.0",
             leakcanary : "1.5.4",
             stetho     : "1.5.0",
-            rxlifecycle: "2.0.1",
+            rxlifecycle: "2.2.1",
             rxbinding  : "2.0.0",
             glide      : "4.3.0",
             rxbinding  : "2.0.0",

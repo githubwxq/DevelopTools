@@ -20,9 +20,9 @@
     <item name="common_gridview" type="id" />
     <item name="common_webview" type="id" />
 
-    <item name="common_about_version_code" type="id">false</item>
-    <item name="common_split" type="id">false</item>
-    <item name="common_main_radio" type="id">true</item>
+    <item name="common_about_version_code" type="id"></item>
+    <item name="common_split" type="id"></item>
+    <item name="common_main_radio" type="id"></item>
     <item name="common_auto_focus" type="id" />
     <item name="common_decode" type="id" />
     <item name="common_decode_failed" type="id" />

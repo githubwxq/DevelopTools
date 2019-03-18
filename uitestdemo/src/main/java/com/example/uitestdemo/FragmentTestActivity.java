@@ -50,4 +50,8 @@ public class FragmentTestActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }

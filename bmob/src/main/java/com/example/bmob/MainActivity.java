@@ -43,10 +43,10 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
-    @OnClick({R.id.tv_add, R.id.tv_delete, R.id.tv_update, R.id.tv_query})
+    @OnClick({R2.id.tv_add, R2.id.tv_delete, R2.id.tv_update, R2.id.tv_query})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.tv_add:
+            case R2.id.tv_add:
                 User  user=new User();
                 user.name="wxq";
                 user.age="18";
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
                     }
                 });
                 break;
-            case R.id.tv_delete:
+            case R2.id.tv_delete:
 
                 User p3 = new User();
                 p3.setObjectId("81122a163f");
@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity {
                 });
 
                 break;
-            case R.id.tv_update:
+            case R2.id.tv_update:
                 User p2 = new User();
                 p2.name="wwwwxxxxxqqqq";
                 p2.update("0a41079828", new UpdateListener() {
@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity {
                 });
 
                 break;
-            case R.id.tv_query:
+            case R2.id.tv_query:
 //查找Person表里面id为6b6c11c537的数据
                 BmobQuery<User> bmobQuery = new BmobQuery<User>();
                 bmobQuery.getObject("0a41079828", new  QueryListener<User>() {

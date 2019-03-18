@@ -45,7 +45,7 @@ public class DottedUnderlineSpan extends ReplacementSpan {
 
         // https://code.google.com/p/android/issues/detail?id=29944
         // canvas.drawLine can't draw dashes when hardware acceleration is enabled,
-        // but canvas.drawPath can
+        // but canvas.drawPath can    从哪里到哪里 按照字长度决定
         Path path = new Path();
         path.moveTo(x, y + mOffsetY);
         path.lineTo(x + mSpanLength, y + mOffsetY);

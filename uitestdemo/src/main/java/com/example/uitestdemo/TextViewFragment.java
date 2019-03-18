@@ -56,24 +56,7 @@ public class TextViewFragment extends BaseFragment {
         SpannableStringBuilder spannableString=new SpannableStringBuilder("0123456");
 //        spannableString.setSpan(dottedUnderlineSpan,0,4,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         spannableString.setSpan(iconTextSpan,1,2, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-
         tvWithImage1.setText(spannableString);
-
     }
 
-
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder1.unbind();
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder1 = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 }
