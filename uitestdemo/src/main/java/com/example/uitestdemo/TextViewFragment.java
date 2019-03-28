@@ -1,5 +1,6 @@
 package com.example.uitestdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -13,7 +14,10 @@ import com.juziwl.uilibrary.textview.stytle.DottedUnderlineSpan;
 import com.juziwl.uilibrary.textview.stytle.IconTextSpan;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.model.User;
 import com.wxq.commonlibrary.util.SpanUtils;
+import com.wxq.commonlibrary.util.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,19 +48,32 @@ public class TextViewFragment extends BaseFragment {
         return R.layout.fragment_text_view;
     }
 
+
+    TestIntentMode intentMode;
+
     @Override
     protected void initViews() {
         tvWithImage.setText(new SpanUtils().append("测试图片的位子").appendImage(R.mipmap.back_img).create());
 //        tvWithImage1.setText(new SpanUtils().append("测试图片的位子").appendImage(R.mipmap.back_img,SpanUtils.ALIGN_TOP).create());
         tvWithImage2.setText(new SpanUtils().append("测试图片的位子").appendImage(R.mipmap.back_img,SpanUtils.ALIGN_CENTER).create());
-
         IconTextSpan iconTextSpan = new IconTextSpan(getActivity(),"热热热");
         DottedUnderlineSpan dottedUnderlineSpan = new DottedUnderlineSpan(R.color.green_800,"01234");
-
         SpannableStringBuilder spannableString=new SpannableStringBuilder("0123456");
 //        spannableString.setSpan(dottedUnderlineSpan,0,4,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         spannableString.setSpan(iconTextSpan,1,2, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         tvWithImage1.setText(spannableString);
+
+
+
+
+
     }
 
+    @Override
+    public void dealWithRxEvent(int action, Event event) {
+        super.dealWithRxEvent(action, event);
+        if (action==999) {
+            ToastUtils.showShort(intentMode.name);
+        }
+    }
 }

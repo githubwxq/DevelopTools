@@ -4,6 +4,10 @@ if (rootProject.ext.isUiTestModule) {
     apply plugin: 'com.android.library'
 }
 apply from: "../common_component_build.gradle"
+
+//配置插件
+//apply plugin: 'com.neenbedankt.android-apt'
+
 android {
     sourceSets {
         main {
@@ -17,8 +21,12 @@ android {
     }
 }
 
+
 dependencies {
-
-
-    implementation 'com.android.support:support-v4:27.1.1'
+    api rootProject.ext.deps["support-v4"]
+    annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
+    //    、、测试 butterknife
+    implementation project(':inject')
+    implementation project(':inject_annotion')
+    annotationProcessor project(':inject_compiler')
 }

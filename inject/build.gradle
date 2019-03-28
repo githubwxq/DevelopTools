@@ -3,20 +3,20 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
-
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
-    }
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -26,12 +26,11 @@ android {
         }
     }
 
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api(rootProject.ext.deps["arouter-api"]) {
-        exclude group: 'com.android.support'
-    }
-    //    annotationProcessor rootProject.ext.deps["arouter-compiler"]
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.deps["support-v4"]
+    api rootProject.ext.deps["appcompat-v7"]
 }

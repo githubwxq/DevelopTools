@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.uitestdemo.TestActivity">
+    tools:context=".TestMemoryFragment">
 
-
+    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/tv"
+        android:visibility="gone"
+        android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-      />
+        android:text="内存" />
 
     <com.juziwl.uilibrary.imageview.ZoomImageView
-        android:background="@color/green_200"
+        android:id="@+id/iv_go"
         android:scaleType="matrix"
+        android:background="@color/green_200"
         android:src="@mipmap/common_banner_onloading"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
