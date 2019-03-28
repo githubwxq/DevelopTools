@@ -92,12 +92,12 @@ public class BindViewProcessor  extends AbstractProcessor {
         //声明一个缓存的map集合   键  是Activity   值  是当前Activity 里面含有BndView成员变量的集合
         Map<TypeElement,List<FieldViewBinding>> targetMap=new HashMap<>();
         //编译时 只能通过文件输出打印，不能通过Log，System.out.print打印
-        FileUtils.print("------------>    ");
+//        FileUtils.print("------------>    ");
         //for循环带有BindView注解的Element
         //将每个Element进行分组。分组的形式 是将在一个Activit的Element分为一组
         for(Element element:roundEnvironment.getElementsAnnotatedWith(BindView.class))
         {
-            FileUtils.print("elment   "+element.getSimpleName().toString());
+//            FileUtils.print("elment   "+element.getSimpleName().toString());
 //         enClosingElement可以理解成Element
             TypeElement enClosingElement= (TypeElement) element.getEnclosingElement();
             // List<FieldViewBinding>   当前Activity 含有注解的成员变量集合
