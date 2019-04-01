@@ -2,20 +2,24 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DevelopTools.iml" filepath="$PROJECT_DIR$/DevelopTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DevelopTools.iml" filepath="$PROJECT_DIR$/.idea/DevelopTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bmob/bmob.iml" filepath="$PROJECT_DIR$/bmob/bmob.iml" />
       <module fileurl="file://$PROJECT_DIR$/bmobim/bmobim.iml" filepath="$PROJECT_DIR$/bmobim/bmobim.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonlibrary/commonlibrary.iml" filepath="$PROJECT_DIR$/commonlibrary/commonlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonservice/commonservice.iml" filepath="$PROJECT_DIR$/commonservice/commonservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gank/gank.iml" filepath="$PROJECT_DIR$/gank/gank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/design_pattern/design_pattern.iml" filepath="$PROJECT_DIR$/design_pattern/design_pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/groovy/groovy.iml" filepath="$PROJECT_DIR$/groovy/groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" filepath="$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject/inject.iml" filepath="$PROJECT_DIR$/inject/inject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject_annotion/inject_annotion.iml" filepath="$PROJECT_DIR$/inject_annotion/inject_annotion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject_compiler/inject_compiler.iml" filepath="$PROJECT_DIR$/inject_compiler/inject_compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_wanandroid/module_wanandroid.iml" filepath="$PROJECT_DIR$/module_wanandroid/module_wanandroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/uilibrary/uilibrary.iml" filepath="$PROJECT_DIR$/uilibrary/uilibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uitestdemo/uitestdemo.iml" filepath="$PROJECT_DIR$/uitestdemo/uitestdemo.iml" />
     </modules>
   </component>
 </project>

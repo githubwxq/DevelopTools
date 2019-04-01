@@ -1,4 +1,4 @@
-include ':app', ':commonlibrary', ':uilibrary', ':bmobim', ':inject_annotion', ':inject', ':inject_compiler',
+include ':app', ':commonlibrary', ':uilibrary', ':bmobim', ':inject_annotion', ':inject', ':inject_compiler', ':design_pattern', ':groovy',
         ':commonservice',
-        ':bmob', ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer',':uitestdemo'
+        ':bmob', ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer' ,':uitestdemo'
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' ,
