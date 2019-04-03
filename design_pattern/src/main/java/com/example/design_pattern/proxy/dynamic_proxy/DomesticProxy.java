@@ -16,7 +16,7 @@ import java.lang.reflect.Proxy;
  */
 public class DomesticProxy {
 
-    //设计一个类变量记住代理类要代理的目标对象
+    //设计一个类变量记住代理类要代理的目标对象  需要代理的目标
     private Domestic ldh = new Domestic();
 
     public People getProxy() {

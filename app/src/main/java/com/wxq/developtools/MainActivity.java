@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @NeedLogin(tipeType = NeedLogin.SHOW_DIALOG,loginActivity = MvpMainActivity.class )
+    @NeedLogin(tipeType = NeedLogin.SHOW_TOAST,loginActivity = MvpMainActivity.class )
     public static void naveToActivity(Context context){
         context.startActivity(new Intent(context,MainActivity.class));
     }

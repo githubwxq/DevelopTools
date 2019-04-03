@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.trackpoint.AopUtil;
+import com.example.trackpoint.annotation.SingleClick;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
+import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
 
@@ -37,11 +39,19 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 MainActivity.naveToActivity(MvpMainActivity.this);
             }
         });
-
+        tv_hello2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            @SingleClick
+            public void onClick(View v) {
+                Logger.e("wxq ","tv_hello2背点机了");
+                showToast("111");
+            }
+        });
 //
 //
 //        //配置
