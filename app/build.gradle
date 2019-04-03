@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 //apply from: 'tinker-support.gradle'
 //apply plugin: 'com.jakewharton.butterknife'
 apply from: "../pgyer.gradle"
+//引入aspectj插件 测试登入，添加埋点之类的
+apply plugin: 'com.hujiang.android-aspectjx'
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -92,8 +95,9 @@ dependencies {
     debugApi(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
+    // 添加aspect module
+    implementation project(':trackpoint')
     implementation project(':module_login')
-
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     //butterknife
     implementation rootProject.ext.deps["butterknife"]
@@ -103,9 +107,8 @@ dependencies {
     //dragger
     annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //最顶层依赖activity已经封装过 整个架构模式确定结束
-    api project(':commonlibrary')
-    api project(':uilibrary')
-
+    implementation project(':commonlibrary')
+    implementation project(':uilibrary')
     if (!rootProject.ext.isBuildModule) {
 //        implementation project(':uitestdemo')
 //        implementation project(':sdktestdemo')
@@ -115,6 +118,5 @@ dependencies {
     //集成推送
     implementation rootProject.ext.deps["jpush"]
     implementation rootProject.ext.deps["jcore"]
-
-    implementation project(':commonservice')
+//    implementation project(':commonservice')
 }

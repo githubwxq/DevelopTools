@@ -4,20 +4,11 @@ import android.Manifest;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.commonservice.ServiceCallBack;
-import com.example.commonservice.sdk.bean.SdkBean;
-import com.example.commonservice.sdk.service.SdkService;
-import com.juziwl.uilibrary.activity.ChooseMapAddressActivity;
+import com.example.trackpoint.AopUtil;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
-import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
-import com.wxq.commonlibrary.dbmanager.DbManager;
-import com.wxq.commonlibrary.model.User;
-import com.wxq.commonlibrary.router.RouterContent;
-import com.wxq.commonlibrary.util.VersionUtils;
+
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -41,6 +32,16 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
     @Override
     protected void initViews() {
+
+        AopUtil.init(this);
+
+        tvHello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.naveToActivity(MvpMainActivity.this);
+            }
+        });
+
 //
 //
 //        //配置

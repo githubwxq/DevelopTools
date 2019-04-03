@@ -1,11 +1,15 @@
 package com.wxq.developtools;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.module_login.activity.LoginActivity;
+import com.example.trackpoint.annotation.NeedLogin;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayerManager;
 import com.juziwl.uilibrary.niceplayer.TxVideoPlayerController;
@@ -37,6 +41,12 @@ public class MainActivity extends BaseActivity {
         com.orhanobut.logger.Logger.e("text","text");
 
     }
+
+    @NeedLogin(tipeType = NeedLogin.SHOW_DIALOG,loginActivity = MvpMainActivity.class )
+    public static void naveToActivity(Context context){
+        context.startActivity(new Intent(context,MainActivity.class));
+    }
+
 
     @Override
     protected int attachLayoutRes() {

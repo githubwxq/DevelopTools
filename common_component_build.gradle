@@ -38,6 +38,7 @@ dependencies {
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     api rootProject.ext.deps["butterknife"]
     api rootProject.ext.deps["constraint-layout"]
-    api project(':commonservice')
+
+//    api project(':commonservice')
 
 }

@@ -34,6 +34,11 @@ buildscript {
 //        引入apt插件
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
+        //aspectjtools插件
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
+
+
+
     }
 
     

@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.commonservice.ServiceCallBack;
-import com.example.commonservice.sdk.service.SdkService;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.multimedia.AudioObj;
@@ -72,7 +70,7 @@ public class MainUiTestActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
 
-                        SdkService service= (SdkService) ARouter.getInstance().build(RouterContent.SDK_SERVICE).navigation();
+//                        SdkService service= (SdkService) ARouter.getInstance().build(RouterContent.SDK_SERVICE).navigation();
 
 //                        service.getDataBack(new ServiceCallBack<String>() {
 //                            @Override
@@ -82,7 +80,7 @@ public class MainUiTestActivity extends BaseActivity {
 //                            }
 //                        });
 
-                        service.setDataBack("我跳转到ui页面去了");
+//                        service.setDataBack("我跳转到ui页面去了");
                     }
                 });
             }

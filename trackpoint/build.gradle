@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.hujiang.android-aspectjx'
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        ndk { abiFilters "armeabi-v7a" }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+}
+aspectjx {
+    //AspectJX功能 是否生效
+    enabled true
+}
+
+aspectjx {
+    //排除所有package路径中包含`android.support`的class文件及库（jar文件）
+    exclude 'android.support'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //support基本库依赖
+    implementation rootProject.ext.deps["support-v4"]
+    implementation rootProject.ext.deps["appcompat-v7"]
+    implementation 'org.aspectj:aspectjrt:1.8.13'
+}
