@@ -18,6 +18,20 @@
         android:layout_marginTop="8dp"
       />
 
+       <TextView
+        android:id="@+id/tv2"
+           android:text="13213213213213"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+      />
+
+
+
+
     <com.juziwl.uilibrary.imageview.ZoomImageView
         android:background="@color/green_200"
         android:scaleType="matrix"

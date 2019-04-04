@@ -40,6 +40,16 @@ public class MainActivity extends BaseActivity {
 //        init();
         com.orhanobut.logger.Logger.e("text","text");
 
+        Class<View.OnClickListener> onClickListenerClass = View.OnClickListener.class;
+
+        ivTestPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
 
     @NeedLogin(tipeType = NeedLogin.SHOW_TOAST,loginActivity = MvpMainActivity.class )

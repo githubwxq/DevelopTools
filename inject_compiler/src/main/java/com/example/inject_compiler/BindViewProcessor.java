@@ -137,7 +137,7 @@ public class BindViewProcessor  extends AbstractProcessor {
             //遵循Javapoet规范，MainActivity为类类型  在这里封装成ClassName
             ClassName className=ClassName.bestGuess(complite);
 //          ViewBinder类型
-            ClassName  viewBinder=ClassName.get("com.example.inject","ViewBinder");
+            ClassName  viewBinder=ClassName.get("com.example.inject.compile","ViewBinder");
 //            开始构建java文件
 //            从外层包名  类名开始构建
             TypeSpec.Builder result=TypeSpec.classBuilder(complite+"$$ViewBinder")

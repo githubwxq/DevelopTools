@@ -1,13 +1,11 @@
-package com.example.inject;
-
+package com.example.inject.compile;
 import android.app.Activity;
-import android.view.View;
 
 /**
  * author:wxq
  * email:805380422@qq.com
  * time:2019/03/28
- * desc:
+ * desc:代码运行时候 此刻已经编译结束 编译的类已经存在
  * version:1.0
  */
 public class InjectView {

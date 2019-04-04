@@ -1,4 +1,4 @@
-package com.example.inject;
+package com.example.inject.compile;
 
 /**
  * author:wxq
