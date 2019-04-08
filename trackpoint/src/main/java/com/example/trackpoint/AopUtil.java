@@ -17,7 +17,7 @@ public class AopUtil {
     /**
      * 是否登录
      */
-    public boolean isLogin = false;
+    public boolean isLogin = true;
 
     private AopUtil(Context context) {
         this.context = context;

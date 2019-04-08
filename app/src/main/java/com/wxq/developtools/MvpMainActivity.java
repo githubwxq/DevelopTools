@@ -10,6 +10,12 @@ import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.datacenter.PublicPreference;
+import com.wxq.commonlibrary.eventbus.EventBus;
+import com.wxq.commonlibrary.eventbus.Subscribe;
+import com.wxq.commonlibrary.eventbus.TestEvent;
+import com.wxq.commonlibrary.eventbus.ThreadMode;
+import com.wxq.commonlibrary.util.ToastUtils;
 
 
 import butterknife.BindView;
@@ -37,6 +43,8 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
 
         AopUtil.init(this);
 
+        EventBus.getDefault().register(this);
+
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
 
@@ -50,8 +58,13 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
             public void onClick(View v) {
                 Logger.e("wxq ","tv_hello2背点机了");
                 showToast("111");
+               // EventBus.getDefault().post(new TestEvent("wxq","18"));
+                EventBus.getDefault().post("1321231");
             }
         });
+
+
+
 //
 //
 //        //配置
@@ -226,4 +239,21 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     public void showRx() {
 
     }
+
+    @Subscribe(threadMode= ThreadMode.MainThread)
+    public void getEvent(TestEvent testEvent) {
+      tv_hello2.setText(testEvent.name+testEvent.age);
+
+
+    }
+
+    @Subscribe(threadMode= ThreadMode.MainThread)
+    public void getEvent2(String name) {
+        ToastUtils.showShort("getEvent2"+name);
+
+    }
+
+
+
+
 }
