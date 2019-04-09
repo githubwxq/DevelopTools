@@ -244,7 +244,6 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     public void getEvent(TestEvent testEvent) {
       tv_hello2.setText(testEvent.name+testEvent.age);
 
-
     }
 
     @Subscribe(threadMode= ThreadMode.MainThread)
