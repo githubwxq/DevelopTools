@@ -68,18 +68,23 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
+
     //support基本库依赖
     api rootProject.ext.deps["support-v4"]
     api rootProject.ext.deps["appcompat-v7"]
     api rootProject.ext.deps["multidex"]
+
     //butterknife
     api rootProject.ext.deps["butterknife"]
     annotationProcessor rootProject.ext.deps["butterknife-compiler"]
+
     //stetho
     api rootProject.ext.deps["stetho"]
     api rootProject.ext.deps["stetho-okhttp3"]
+
     //logger
     api rootProject.ext.deps["logger"]
+
     //glide
     api(rootProject.ext.deps["glide"]) {
         exclude group: 'com.android.support'
@@ -88,9 +93,11 @@ dependencies {
     api rootProject.ext.deps["glide-okhttp3-integration"]
     api rootProject.ext.deps["glide-annotations"]
     api rootProject.ext.deps["glide-transformations"]
+
     //rxjava
     api rootProject.ext.deps["rxjava"]
     api rootProject.ext.deps["rxandroid"]
+
     //权限
     api rootProject.ext.deps["rxpermissions"]
     api rootProject.ext.deps["rxbinding"]
@@ -99,6 +106,7 @@ dependencies {
     api rootProject.ext.deps["rxlifecycle-android"]
     api rootProject.ext.deps["rxlifecycle-components"]
     api rootProject.ext.deps["fastjson"]
+
     //    retrofit2
     api rootProject.ext.deps["retrofit"]
     api rootProject.ext.deps["retrofit-adapter-rxjava"]
@@ -106,39 +114,37 @@ dependencies {
     api rootProject.ext.deps["okhttp"]
     api rootProject.ext.deps["okhttp-logging-interceptor"]
     api rootProject.ext.deps["gson"]
+
     //统计库 友盟 和bugly一起
     api rootProject.ext.deps["umeng-analytics"]
     api rootProject.ext.deps["umeng-common"]
     api rootProject.ext.deps["bugly"]
+
     //okgo
     api rootProject.ext.deps["okgo"]
     api rootProject.ext.deps["okrx2"]
-    //arouter
 
+    //arouter
     api(rootProject.ext.deps["arouter-api"]) {
         exclude group: 'com.android.support'
     }
-
-
-    annotationProcessor  rootProject.ext.deps["arouter-compiler"]
+    annotationProcessor rootProject.ext.deps["arouter-compiler"]
 
     //greendao
     api rootProject.ext.deps["greendao"]
     api rootProject.ext.deps["GreenDaoUpgradeHelper"]
+
     //bmob
     api(rootProject.ext.deps["bmob-sdk"]) {
         exclude group: 'com.android.support'
     }
-
-      api(rootProject.ext.deps["bmob-push"]) {
+    api(rootProject.ext.deps["bmob-push"]) {
         exclude group: 'com.android.support'
     }
-
-      api(rootProject.ext.deps["bmob-im"]) {
+    api(rootProject.ext.deps["bmob-im"]) {
         exclude group: 'com.android.support'
     }
-
-     api(rootProject.ext.deps["tinypinyin"]) {
+    api(rootProject.ext.deps["tinypinyin"]) {
         exclude group: 'com.android.support'
     }
 
@@ -147,24 +153,47 @@ dependencies {
     api rootProject.ext.deps["ampLoaction"]
     api rootProject.ext.deps["ampSearch"]
 
-//
-//    api rootProject.ext.deps["bmob-sdk"]
-//    api rootProject.ext.deps["bmob-push"]
-//    api rootProject.ext.deps["bmob-im"]
-//    api rootProject.ext.deps["tinypinyin"]
-//
+    //
 
-//数据库调试
-//debugCompile 'com.amitshekhar.android:debug
-// -db:1.0.0'
-//    api rootProject.ext.deps["recyclerview-v7"]
-//    api rootProject.ext.deps["cardview-v7"]
-//    api rootProject.ext.deps["constraint-layout"]
-//    api rootProject.ext.deps["design"]
-//dagger
-//    provided rootProject.ext.deps["javax.annotation-api"]
-//    api rootProject.ext.deps["dagger"]
-//    annotationProcessor rootProject.ext.deps["dagger-compiler"]
+    //    api rootProject.ext.deps["bmob-sdk"]
+
+    //    api rootProject.ext.deps["bmob-push"]
+
+    //    api rootProject.ext.deps["bmob-im"]
+
+    //    api rootProject.ext.deps["tinypinyin"]
+
+    //
+
+    //数据库调试
+
+    //debugCompile 'com.amitshekhar.android:debug
+
+    // -db:1.0.0'
+
+    //    api rootProject.ext.deps["recyclerview-v7"]
+
+    //    api rootProject.ext.deps["cardview-v7"]
+
+    //    api rootProject.ext.deps["constraint-layout"]
+
+    //    api rootProject.ext.deps["design"]
+
+    //dagger
+
+    //    provided rootProject.ext.deps["javax.annotation-api"]
+
+    //    api rootProject.ext.deps["dagger"]
+
+    //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
+
+    //appium 自动化测试依赖
+//     api rootProject.ext.deps["java-client"]
+//
+//    api('org.seleniumhq.selenium:selenium-java:2.41.0')
+//    implementation files('libs/java-client-7.0.0-sources.jar')
+//    implementation files('libs/selenium-java-2.44.0.jar')
+//    implementation files('libs/selenium-server-standalone-2.44.0.jar')
 }
 
 //configurations.all {
