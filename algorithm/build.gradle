@@ -1,7 +1,8 @@
 apply plugin: 'java-library'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api  rootProject.ext.deps["java-client"]
 }
 
 sourceCompatibility = "7"

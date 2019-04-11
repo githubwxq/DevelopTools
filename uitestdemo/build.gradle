@@ -23,7 +23,7 @@ android {
 
 
 dependencies {
-    api rootProject.ext.deps["support-v4"]
+//    api rootProject.ext.deps["support-v4"]
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
     //    、、测试 butterknife
     implementation project(':inject')

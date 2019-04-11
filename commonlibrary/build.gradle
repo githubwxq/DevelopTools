@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 
-greendao{
+greendao {
     schemaVersion 1
     daoPackage 'com.wxq.commonlibrary.dao'
     targetGenDir 'src/main/java'
@@ -188,12 +188,20 @@ dependencies {
     //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
 
     //appium 自动化测试依赖
-//     api rootProject.ext.deps["java-client"]
-//
-//    api('org.seleniumhq.selenium:selenium-java:2.41.0')
-//    implementation files('libs/java-client-7.0.0-sources.jar')
-//    implementation files('libs/selenium-java-2.44.0.jar')
-//    implementation files('libs/selenium-server-standalone-2.44.0.jar')
+//    api  rootProject.ext.deps["java-client"]
+//    api(rootProject.ext.deps["java-client"]) {
+//       exclude group: 'org.openqa.selenium'
+//    }
+    //
+
+    //    api('org.seleniumhq.selenium:selenium-java:2.41.0')
+
+    //    implementation files('libs/java-client-7.0.0-sources.jar')
+
+    //    implementation files('libs/selenium-java-2.44.0.jar')
+
+    //    implementation files('libs/selenium-server-standalone-2.44.0.jar')
+//    api files('libs/java-client-7.0.0-sources.jar')
 }
 
 //configurations.all {
