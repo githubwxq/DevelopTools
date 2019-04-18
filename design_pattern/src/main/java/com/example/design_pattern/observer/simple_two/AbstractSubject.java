@@ -1,4 +1,4 @@
-package com.example.design_pattern.observer;
+package com.example.design_pattern.observer.simple_two;
 import java.util.ArrayList;
 import java.util.List;
 

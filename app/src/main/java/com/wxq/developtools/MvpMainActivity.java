@@ -1,6 +1,7 @@
 package com.wxq.developtools;
 
 import android.Manifest;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.wxq.commonlibrary.eventbus.Subscribe;
 import com.wxq.commonlibrary.eventbus.TestEvent;
 import com.wxq.commonlibrary.eventbus.ThreadMode;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.commonlibrary.util.UIHandler;
 
 
 import butterknife.BindView;
@@ -211,6 +213,13 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
                     }
                 });
 
+        UIHandler.getInstance().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                startService(new Intent(MvpMainActivity.this, LocalService.class));
+//                startService(new Intent(MvpMainActivity.this, RemoteService.class));
+            }
+        },3000);
 
     }
 

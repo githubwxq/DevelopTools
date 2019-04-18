@@ -50,4 +50,6 @@ dependencies {
     implementation rootProject.ext.deps["support-v4"]
     implementation rootProject.ext.deps["appcompat-v7"]
     implementation 'org.aspectj:aspectjrt:1.8.13'
+    implementation project(':commonlibrary')
+
 }

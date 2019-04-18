@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -33,6 +34,16 @@
         <meta-data android:name="com.amap.api.v2.apikey" android:value="70503dabb7507dd8ff8126f312fbce84">
 
         </meta-data>
+
+
+        <service android:name=".LocalService"></service>
+        <service
+            android:name=".RemoteService"
+            android:process=":remoteprocess"
+            ></service>
+        <service android:name=".JobHandleService" android:permission="android.permission.BIND_JOB_SERVICE"></service>
+
+
 
     </application>
 

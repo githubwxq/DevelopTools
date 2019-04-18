@@ -1,4 +1,4 @@
-package com.example.design_pattern.observer;
+package com.example.design_pattern.observer.simple_two;
 
 public class Client {
 	public static void main(String[] args) {

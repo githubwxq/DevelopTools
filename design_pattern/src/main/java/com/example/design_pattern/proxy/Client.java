@@ -1,14 +1,10 @@
 package com.example.design_pattern.proxy;
 
-import com.example.design_pattern.observer.ConcreteObserver;
-import com.example.design_pattern.observer.ConcreteSubject;
-import com.example.design_pattern.observer.Observer;
 import com.example.design_pattern.proxy.dynamic_proxy.DomesticProxy;
 import com.example.design_pattern.proxy.dynamic_proxy.DynamicProxy;
 import com.example.design_pattern.proxy.static_proxy.Domestic;
-import com.example.design_pattern.proxy.static_proxy.Oversea;
 import com.example.design_pattern.proxy.static_proxy.People;
-import java.lang.reflect.InvocationHandler;
+
 import java.lang.reflect.Proxy;
 
 /**

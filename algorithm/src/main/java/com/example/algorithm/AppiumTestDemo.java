@@ -52,21 +52,14 @@ public class AppiumTestDemo {
 //        cap.setCapability("noReset", "True");
         cap.setCapability("resetKeyboard", "True");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);//把以上配置传到appium服务端并连接手机
-
 //设置全局隐式等待30S
 //        driver.manage().timeouts().implicitlyWait(160, TimeUnit.SECONDS);
-//
         Thread.sleep(5000);
-
         System.out.println("-------------------------------");
-
         TouchAction release = new TouchAction(driver).press(PointOption.point(1000, 500)).moveTo(PointOption.point(100, 500)).perform().release();
         release.wait(2000);
         TouchAction release2 =  new TouchAction(driver).press(PointOption.point(1000, 500)).moveTo(PointOption.point(100, 500)).perform().release();
         release2.wait(2000);
-
-
-
     }
 
 
