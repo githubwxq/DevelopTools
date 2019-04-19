@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.inject.compile.InjectView;
 import com.example.inject.runtime.InjectUtils;
@@ -170,12 +171,9 @@ public class TestActivity extends AppCompatActivity {
             }).subscribleMain().subscrible(new NewObserver<Integer>() {
             @Override
             public void onNext(Integer bitmap) {
-
+                ToastUtils.showShort("currentInt"+bitmap);
             }
         });
-
-
-
 
     }
 
