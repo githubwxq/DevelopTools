@@ -12,33 +12,27 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-      />
+        android:text="11111111"
+        android:textSize="25sp" />
 
-       <TextView
+    <TextView
         android:id="@+id/tv2"
-           android:text="13213213213213"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-      />
-
-
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="13213213213213"
+        android:textSize="25sp" />
 
 
     <com.juziwl.uilibrary.imageview.ZoomImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/green_200"
         android:scaleType="matrix"
-        android:src="@mipmap/common_banner_onloading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:src="@mipmap/common_banner_onloading" />
 
 
 </LinearLayout>

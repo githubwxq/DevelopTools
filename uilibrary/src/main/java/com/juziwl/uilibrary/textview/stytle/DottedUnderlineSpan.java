@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.style.ReplacementSpan;
 
 /**
@@ -42,10 +44,13 @@ public class DottedUnderlineSpan extends ReplacementSpan {
         canvas.drawText(text, start, end, x, y, paint);
         if(!mLengthIsCached)
             mSpanLength = paint.measureText(mSpan);
-
+        CharSequence ellipsize = TextUtils.ellipsize("wwwww", (TextPaint) paint, 180, TextUtils.TruncateAt.END);
         // https://code.google.com/p/android/issues/detail?id=29944
         // canvas.drawLine can't draw dashes when hardware acceleration is enabled,
         // but canvas.drawPath can    从哪里到哪里 按照字长度决定
+//        canvas.drawText("wwwww", x, ellipsize.length(), x + mSpanLength, (float) y, paint);
+
+
         Path path = new Path();
         path.moveTo(x, y + mOffsetY);
         path.lineTo(x + mSpanLength, y + mOffsetY);
