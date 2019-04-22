@@ -18,11 +18,11 @@ public class CallerMap<T, R> extends CallerWithUpstream<T, R> {
     }
 
     @Override
-    protected void callActual(Callee<R> callee) {
+    protected void callActual(Callee<R> callee) { //最新的callee 观察者 ，先调用上一个被观察的
         source.call(new MapCallee<>(callee, mFunction));
     }
 
-    static class MapCallee<T, R> implements Callee<T> {
+    static class MapCallee<T, R> implements Callee<T> {   //手动创建的观察者被上一次的被上一次观察对象使用 然后会回调数据回来 这个数据来自于上一个被观察者发送的数据
 
         private final Callee<R> mCallee;
 

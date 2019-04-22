@@ -10,7 +10,7 @@ package com.wxq.commonlibrary.rxjavaimitate.imitate2;
 
 public abstract class CallerWithUpstream<T, R> extends Caller<R> implements CallerSource<T> {
 
-    protected final Caller<T> source;
+    protected final Caller<T> source;  //上一個被观察者
 
     public CallerWithUpstream(Caller<T> source) {
         this.source = source;

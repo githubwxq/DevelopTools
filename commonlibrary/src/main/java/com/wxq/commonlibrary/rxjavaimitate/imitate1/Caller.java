@@ -5,7 +5,7 @@ package com.wxq.commonlibrary.rxjavaimitate.imitate1;
  *
  * @author SXDSF
  * @date 2017/7/3 上午12:47
- * @desc 打电话的人
+ * @desc 打电话的人   被观察者 Observable
  */
 
 public class Caller<T> {
@@ -25,6 +25,8 @@ public class Caller<T> {
         return receiver;
     }
 
+
+    // OnSubscribe
     public interface OnCall<T> extends Action1<Receiver<T>> {
 
     }

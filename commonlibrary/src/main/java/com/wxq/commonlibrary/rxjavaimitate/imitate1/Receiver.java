@@ -5,7 +5,7 @@ package com.wxq.commonlibrary.rxjavaimitate.imitate1;
  *
  * @author SXDSF
  * @date 2017/7/3 上午12:49
- * @desc 接收信息的人
+ * @desc 接收信息的人  subscriber
  */
 
 public abstract class Receiver<T> implements Callee<T>, Calling {

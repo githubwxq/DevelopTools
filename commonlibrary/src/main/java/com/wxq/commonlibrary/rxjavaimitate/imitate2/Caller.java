@@ -5,7 +5,7 @@ package com.wxq.commonlibrary.rxjavaimitate.imitate2;
  *
  * @author SXDSF
  * @date 2017/11/5 下午11:24
- * @desc 打电话的人
+ * @desc 打电话的人  Observable
  */
 
 public abstract class Caller<T> {
@@ -14,8 +14,12 @@ public abstract class Caller<T> {
         return new CallerCreate<>(callerOnCall);
     }
 
+    /**
+     * 调用call方法
+     * @param callee
+     */
     public void call(Callee<T> callee) {
-        callActual(callee);
+        callActual(callee); // 子类实现callactural
     }
 
     protected abstract void callActual(Callee<T> callee);

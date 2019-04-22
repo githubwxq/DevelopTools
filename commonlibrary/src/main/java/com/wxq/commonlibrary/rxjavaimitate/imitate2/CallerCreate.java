@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public final class CallerCreate<T> extends Caller<T> {
 
+    //被观察者
     private CallerOnCall<T> mCallerOnCall;
 
     public CallerCreate(CallerOnCall<T> callerOnCall) {
@@ -20,8 +21,11 @@ public final class CallerCreate<T> extends Caller<T> {
 
     @Override
     protected void callActual(Callee<T> callee) {
+        //观察者被放到了emitter里面
         CreateEmitter<T> tCreateEmitter = new CreateEmitter<>(callee);
         callee.onCall(tCreateEmitter);
+        //回调外面 实现方法 然后 手动调用 tCreateEmitter onnext方法传递数据  由于emitter当中有callee
+        // 会调用callee的方法 receive方法数据到后面监听到了
         mCallerOnCall.call(tCreateEmitter);
     }
 
@@ -36,6 +40,7 @@ public final class CallerCreate<T> extends Caller<T> {
         @Override
         public void onReceive(T t) {
             if (!isReleased()) {
+//                、、手抖动调用next方法
                 mCallee.onReceive(t);
             }
         }

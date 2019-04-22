@@ -5,7 +5,7 @@ package com.wxq.commonlibrary.rxjavaimitate.imitate2;
  *
  * @author SXDSF
  * @date 2017/11/5 下午11:36
- * @desc 接电话的人
+ * @desc 接电话的人 Callee
  */
 
 public interface Callee<T> {
