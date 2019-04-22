@@ -179,6 +179,7 @@ public class UserPreference {
      * sharepreference名称和用户的id绑定
      */
     public void setUserid(Context ctx, String uid) {
+
         if (TextUtils.isEmpty(uid)) {
             uid = "error_userinfo";
         }

@@ -119,7 +119,8 @@ ext {
 
             //greendao
             "greendao"                     : "org.greenrobot:greendao:3.2.0",
-            "GreenDaoUpgradeHelper"        : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
+//            "GreenDaoUpgradeHelper"        : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
+            "GreenDaoUpgradeHelper"        : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.1.0",
 
             //友盟
             "umeng-analytics"              : "com.umeng.umsdk:analytics:7.5.4",
@@ -202,7 +203,7 @@ ext {
             //组件化依赖
             "arouter-api"                  : "com.alibaba:arouter-api:1.3.1",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:1.1.4",
-            "aspectjrt"             : "org.aspectj:aspectjrt:1.8.9",
+            "aspectjrt"                    : "org.aspectj:aspectjrt:1.8.9",
 
             //ui调试框架
             "sak-autopilot"                : "com.wanjian:sak-autopilot:0.3.0",
@@ -219,19 +220,10 @@ ext {
             "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19",
 
             //appium 测试依赖库 配合selenum-java-2.44
-            "java-client"           : "com.github.appium:java-client:7.0.0",
-
-
-
-
-
+            "java-client"                  : "com.github.appium:java-client:7.0.0",
 
             //https://github.com/chenBingX/SuperTextView/blob/master/README_CN.md
             "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4"
-
-
-
-
 
 
     ]
@@ -239,7 +231,6 @@ ext {
 
 //红鸟网络Android团队Blog ui库  可参考
 //https://hndeveloper.github.io/2017/github-android-ui.html
-
 
 //【资料汇总】Android 资源知识大全
 //https://github.com/Arisono/android-bookmark

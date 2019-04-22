@@ -40,8 +40,8 @@ public class TestClass {
                 .build();
 
         JavaFile javaFile = JavaFile.builder("com.example.inject_compiler", helloWorld).build();
-//        File outputFile = new File("src/"); //输出文件
-        File outputFile = new File("/"); //输出文件
+        File outputFile = new File("inject_compiler/src/main/java"); //输出文件
+//        File outputFile = new File("/"); //输出文件
 
         try {
             javaFile.writeTo(outputFile);

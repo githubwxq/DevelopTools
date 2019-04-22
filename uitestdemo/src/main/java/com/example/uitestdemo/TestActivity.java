@@ -27,7 +27,9 @@ import com.example.inject_annotion.BindView;
 import com.juziwl.uilibrary.textview.stytle.DottedUnderlineSpan;
 import com.luck.picture.lib.utils.DisplayUtils;
 import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.model.User;
 import com.wxq.commonlibrary.rxjavaframwork.Func1;
 import com.wxq.commonlibrary.rxjavaframwork.NewObserver;
 import com.wxq.commonlibrary.rxjavaframwork.Observable;
@@ -63,6 +65,13 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         InjectView.bind(this);           // 动态文件生成
 //        InjectUtils.inject(this);        //反射
+
+//        for (int i = 0; i < 5; i++) {
+//            AllDataCenterManager.getInstance().getDaoSession("wxq.db").insert(new User("wxq"));
+//        }
+
+
+//        System.out.print("size2"+size2);
 
 
 //        String str = "1+2=<edit>2+3=<age>2+3=<name>" +

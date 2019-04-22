@@ -13,6 +13,8 @@ import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
 
+import java.io.File;
+
 /**基类app对象
  * @author wxq
  */
@@ -22,6 +24,10 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
     public static boolean isDebug = false;
     private ApplicationDelegate applicationDelegate;
 
+    @Override
+    public File getDatabasePath(String name) {
+        return super.getDatabasePath(name);   //只要在这个位置根据数据库名称返回相应位置就哦了。
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
