@@ -1,7 +1,8 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate2.backpressure;
 
-import com.sxdsf.async.imitate2.Function;
-import com.sxdsf.async.imitate2.Switcher;
+
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Function;
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Switcher;
 
 /**
  * com.sxdsf.async.imitate2.backpressure.Telephoner

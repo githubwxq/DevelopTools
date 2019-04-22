@@ -1,6 +1,5 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate2.backpressure;
-
-import com.sxdsf.async.imitate2.Emitter;
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Emitter;
 
 /**
  * com.sxdsf.async.imitate2.backpressure.TelephonerEmitter

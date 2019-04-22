@@ -1,4 +1,4 @@
-package com.example;
+package com.example.inject_compiler;
 
 import com.example.inject_annotion.BindView;
 import com.example.inject_compiler.FieldViewBinding;

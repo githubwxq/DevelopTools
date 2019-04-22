@@ -1,6 +1,5 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate2.backpressure;
-
-import com.sxdsf.async.imitate2.Switcher;
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Switcher;
 
 import java.util.concurrent.atomic.AtomicLong;
 

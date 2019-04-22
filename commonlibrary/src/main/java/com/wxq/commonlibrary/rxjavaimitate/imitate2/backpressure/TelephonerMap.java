@@ -1,6 +1,6 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate2.backpressure;
 
-import com.sxdsf.async.imitate2.Function;
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Function;
 
 /**
  * com.sxdsf.async.imitate2.TelephonerMap
