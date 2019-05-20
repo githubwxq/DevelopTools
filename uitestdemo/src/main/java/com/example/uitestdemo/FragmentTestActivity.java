@@ -24,8 +24,8 @@ public class FragmentTestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-//        fragmentList.add(new OneFragment());
-        fragmentList.add(new TestMemoryFragment());
+        fragmentList.add(new OneFragment());
+//        fragmentList.add(new TestMemoryFragment());
         fragmentList.add(new ViewLocationFragment());
         fragmentList.add(new ViewLifeCycleFragment());
         viewpage.setOffscreenPageLimit(3);

@@ -96,3 +96,36 @@ public class MyDispatchLinearLayout extends LinearLayout {
 //2 public boolean onTouchEvent(MotionEvent ev);
 //Android中默认情况下事件传递是由最终的view的接收到，传递过程是从父布局到子布局，也就是从Activity到ViewGroup到View的过程，默认情况，ViewGroup起到的是透传作用。
 //Android中事件传递过程（按箭头方向）如下图,图片来自[qiushuiqifei]，谢谢[qiushuiqifei]整理。
+
+//
+//4.1 View
+//        1.分发事件 dispatchTouchEvent
+//        2.处理事件 onTouchEvent
+//        4.2 ViewGroup
+//        1.分发事件 dispatchTouchEvent
+//        2.拦截事件 onInterceptTouchEvent
+//        3.处理事件 onTouchEvent
+//        4.3 Activity
+//        1.分发事件 dispatchTouchEvent
+//        2.处理事件 onTouchEvent
+
+
+
+
+/**
+ * 触摸事件
+ * 如果返回结果为false表示不消费该事件，并且也不会截获接下来的事件序列，事件会继续传递
+ * 如果返回为true表示当前View消费该事件，阻止事件继续传递
+ *
+ * 在这里要强调View的OnTouchListener。如果View设置了该监听，那么OnTouch()将会回调。
+ * 如果返回为true那么该View的OnTouchEvent将不会在执行 这是因为设置的OnTouchListener执行时的优先级要比onTouchEvent高。
+ * 优先级：OnTouchListener > onTouchEvent > onClickListener
+ * @param event
+ * @return
+ */
+
+
+
+
+
+
