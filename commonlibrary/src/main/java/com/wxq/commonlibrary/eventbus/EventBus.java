@@ -47,18 +47,18 @@ public class EventBus {
      *
      * @param activity
      */
-    public void register(Object activity) {
+    public void register(Object activity) {  // 一旦注册就把他放到hashmap里面去 键为
         List<SubscribleMethod> list = cacheMap.get(activity);
         if (list == null) {
             //没有的话
             list = getSubscribleMethods(activity);
-            cacheMap.put(activity, list);
+            cacheMap.put(activity, list);   //缓存的map 每个类的对象 最后需要调用这个类的方法的时候 invock
         }
     }
 
     private List<SubscribleMethod> getSubscribleMethods(Object activity) {
         List<SubscribleMethod> list = new ArrayList<>();
-        //反射处理
+        //反射处理 获取类
         Class<?> classType = activity.getClass();
         while (classType != null) {
             String className = classType.getName();
@@ -73,11 +73,8 @@ public class EventBus {
             Method[] methods = classType.getDeclaredMethods();
             //getMethods(),该方法是获取本类以及父类或者父接口中所有的公共方法(public修饰符修饰的)
             Log.w("wxq", "methods.length==" + methods.length);
-
             for (Method method : methods) {
-
                 //获取有注解的方法
-
                 Subscribe subscribe = method.getAnnotation(Subscribe.class);
                 if (subscribe == null) {
                     continue;
