@@ -17,7 +17,7 @@ import com.wxq.commonlibrary.imageloader.request.BitmapRequest;
 public abstract class AbstractLoader implements Loader {
 
     /**
-     * 缓存大家都有
+     * 缓存大家都有      单列可以到处使用它的配置 比较方便
      */
     private BitmapCache bitmapCache = SimpleImageLoader.getInstance().getConfig().getBitmapCache();
 
@@ -28,12 +28,12 @@ public abstract class AbstractLoader implements Loader {
     private DisplayConfig displayConfig = SimpleImageLoader.getInstance().getConfig().getDisplayConfig();
 
     @Override
-    public void loadImage(BitmapRequest request) {
+    public void loadImage(BitmapRequest request) {  //  加载图片loadImage  之前   之后 相同操作采用抽象类封装一层
         //调用成不管你是如何获取缓存 反正我只要结果
         Bitmap bitmap = bitmapCache.get(request);
         if (bitmap == null) {
             showLoadingImage(request);
-            //开始加载图片
+            //开始加载图片  之前之后
             bitmap = onLoad(request);
             //开始缓存图片
             cacheBitmap(request, bitmap);
@@ -69,7 +69,7 @@ public abstract class AbstractLoader implements Loader {
             imageView.setImageResource(displayConfig.faildImage);
         }
         //监听
-        //回调 给圆角图片  特殊图片进行扩展
+        //回调 给圆角图片  特殊图片进行扩展  自行扩展 通过接口的形式
         if (request.imageListener != null) {
             request.imageListener.onComplete(imageView, bitmap, request.getImageUrl());
         }

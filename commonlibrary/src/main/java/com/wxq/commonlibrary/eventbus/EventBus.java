@@ -75,6 +75,9 @@ public class EventBus {
             Log.w("wxq", "methods.length==" + methods.length);
 
             for (Method method : methods) {
+
+                //获取有注解的方法
+
                 Subscribe subscribe = method.getAnnotation(Subscribe.class);
                 if (subscribe == null) {
                     continue;
