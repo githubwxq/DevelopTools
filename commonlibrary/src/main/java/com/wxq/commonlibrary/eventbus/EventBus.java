@@ -164,7 +164,7 @@ public class EventBus {
 
         Method method=subscribleMethod.getMethod();
 
-//        event 参数传递
+//        event 参数传递    某个activityClass
         try {
             if (event.getClass()== subscribleMethod.getaClassType()) {
                 method.invoke(activityClass,event);

@@ -1,4 +1,5 @@
 package com.wxq.commonlibrary.base;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
@@ -14,6 +15,9 @@ import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**基类app对象
  * @author wxq
@@ -44,24 +48,43 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         super.onCreate();
         mContext = this;
         isDebug = setIsDebug();
-        //工具初始化
-        Utils.init(this);
-        AllDataCenterManager.init(this);
-        initLog();
-        Stetho.initializeWithDefaults(this);
-        Thread.setDefaultUncaughtExceptionHandler(this);
-        // 打印日志
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(this);
-        //通过反射调用其他application
-        applicationDelegate.onCreate(this);
+        //判断主线程防止多次初始化
+        if (getPackageName().equals(getCurrentProcessName(this))) {
+            //工具初始化
+            Utils.init(this);
+            AllDataCenterManager.init(this);
+            initLog();
+            Stetho.initializeWithDefaults(this);
+            Thread.setDefaultUncaughtExceptionHandler(this);
+            // 打印日志
+            ARouter.openLog();
+            ARouter.openDebug();
+            ARouter.init(this);
+            //通过反射调用其他application
+            applicationDelegate.onCreate(this);
+            // 关闭andrioid p 反射弹框
+            closeAndroidPDialog();
+        }
     }
-
-    //初始化简单的app全局的dragger
-    private void initDagger() {
-
-
+    private void closeAndroidPDialog(){
+        try {
+            Class aClass = Class.forName("android.content.pm.PackageParser$Package");
+            Constructor declaredConstructor = aClass.getDeclaredConstructor(String.class);
+            declaredConstructor.setAccessible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Class cls = Class.forName("android.app.ActivityThread");
+            Method declaredMethod = cls.getDeclaredMethod("currentActivityThread");
+            declaredMethod.setAccessible(true);
+            Object activityThread = declaredMethod.invoke(null);
+            Field mHiddenApiWarningShown = cls.getDeclaredField("mHiddenApiWarningShown");
+            mHiddenApiWarningShown.setAccessible(true);
+            mHiddenApiWarningShown.setBoolean(activityThread, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 //    private void initX5WebView() {
@@ -138,7 +161,27 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
+    }
 
+    /**
+     * 是否是主进程
+     */
+    public static boolean isMainProcess(Context context) {
+        return context.getPackageName().equals(getCurrentProcessName(context));
+    }
+
+    private static String getCurrentProcessName(Context context) {
+        int pid = android.os.Process.myPid();
+        String processName = "";
+        ActivityManager manager = (ActivityManager) context.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+        if (manager != null) {
+            for (ActivityManager.RunningAppProcessInfo process : manager.getRunningAppProcesses()) {
+                if (process.pid == pid) {
+                    processName = process.processName;
+                }
+            }
+        }
+        return processName;
     }
 
 
