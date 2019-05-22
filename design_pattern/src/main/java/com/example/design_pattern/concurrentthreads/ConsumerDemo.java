@@ -26,7 +26,7 @@ public class ConsumerDemo implements Runnable {
         while (true) {
             try {
                 System.out.println(consumerName + "开始消费任务---" + queue.take());//消费者从阻塞队列中消费一个随机数
-                Thread.sleep(100);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

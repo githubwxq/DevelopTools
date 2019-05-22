@@ -17,40 +17,40 @@ public class BlockQueueDemo {
     public static void main(String[] args) {
 
 
-        BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>(2); //定长为2的阻塞队列
+        BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>(1); //定长为2的阻塞队列
         ExecutorService service = Executors.newCachedThreadPool();  //缓存线程池
 
-        //创建3个生产者：
-//        ProducterDemo p1 = new ProducterDemo("车鉴定web端",queue);
-//        ProducterDemo p2 = new ProducterDemo("车鉴定APP端",queue);
-//        ProducterDemo p3 = new ProducterDemo("车鉴定接口端",queue);
-//        ProducterDemo p4 = new ProducterDemo("车鉴定M栈",queue);
-//
-//        //创建三个消费者：
-//        ConsumerDemo c1 = new ConsumerDemo("消费者1111111",queue);
-//        ConsumerDemo c2 = new ConsumerDemo("消费者2222222",queue);
-//        service.execute(p1);
-//        service.execute(p2);
-//        service.execute(p3);
-//        service.execute(c1);
+//        创建3个生产者：
+        ProducterDemo p1 = new ProducterDemo("车鉴定web端",queue);
+        ProducterDemo p2 = new ProducterDemo("车鉴定APP端",queue);
+        ProducterDemo p3 = new ProducterDemo("车鉴定接口端",queue);
+        ProducterDemo p4 = new ProducterDemo("车鉴定M栈",queue);
+
+        //创建三个消费者：
+        ConsumerDemo c1 = new ConsumerDemo("消费者1111111",queue);
+        ConsumerDemo c2 = new ConsumerDemo("消费者2222222",queue);
+        service.execute(p1);
+        service.execute(p2);
+        service.execute(p3);
+        service.execute(c1);
 //        service.execute(c2);
-        try {
-            System.out.print("begin");
-            queue.put(1);
-            queue.put(2);
-            queue.put(3); // 线程阻塞了
-//            queue.put(3);
-//            queue.put(4);
-//            queue.put(5);
-            System.out.print("stop");
-        } catch (InterruptedException e) {
-            System.out.print(e.getMessage());
-            e.printStackTrace();
-        }
-//        System.out.print(queue.poll()+"取出一个");
-        for (Integer integer : queue) {
-            System.out.print(integer+"=========");
-        }
+//        try {
+//            System.out.print("begin");
+//            queue.put(1);
+//            queue.put(2);
+//            queue.put(3); // 主线程被线程阻塞了
+////            queue.put(3);
+////            queue.put(4);
+////            queue.put(5);
+//            System.out.print("stop");
+//        } catch (InterruptedException e) {
+//            System.out.print(e.getMessage());
+//            e.printStackTrace();
+//        }
+////        System.out.print(queue.poll()+"取出一个");
+//        for (Integer integer : queue) {
+//            System.out.print(integer+"=========");
+//        }
 
     }
 
