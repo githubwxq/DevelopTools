@@ -78,6 +78,8 @@ public class FragmentTestActivity extends BaseActivity {
             public void run() {
                 Intent intent=new Intent(FragmentTestActivity.this,MyService.class);
                 bindService(intent,connection,BIND_AUTO_CREATE);
+//                startActivity();
+
             }
         },2000);
 

@@ -22,6 +22,12 @@ public class MyService  extends Service {
 
 public  MyBinder binder=new MyBinder();
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.i("wxq","onCreate");
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -31,11 +37,6 @@ public  MyBinder binder=new MyBinder();
     }
 
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.i("wxq","onCreate");
-    }
 
     @Override
     public void onStart(Intent intent, int startId) {
@@ -54,6 +55,11 @@ public  MyBinder binder=new MyBinder();
         Log.i("wxq","onDestroy");
 
 
+    }
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.i("wxq","onUnbind");
+        return super.onUnbind(intent);
     }
 
     public  class MyBinder extends Binder{
