@@ -138,6 +138,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/util_code_provider_paths" />
         </provider>
+
+        <service android:name=".service.MyService"/>
+
+
     </application>
 </manifest>
 

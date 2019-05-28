@@ -1,11 +1,20 @@
 package com.example.uitestdemo;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.service.MyService;
+import com.wxq.commonlibrary.util.UIHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +26,25 @@ public class FragmentTestActivity extends BaseActivity {
     @BindView(R2.id.viewpage)
     ViewPager viewpage;
     List<Fragment> fragmentList=new ArrayList<>();
+
+    private MyService.MyBinder binder;
+
+    private ServiceConnection connection=new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.i("wxq","onServiceConnected");
+
+            binder=(MyService.MyBinder)service;
+            binder.createProgressDialog();
+            binder.onProgressUpdate();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Log.i("wxq","onServiceDisconnected");
+        }
+    };
+
 
 
 
@@ -41,6 +69,27 @@ public class FragmentTestActivity extends BaseActivity {
             }
         });
         viewpage.setCurrentItem(0);
+
+
+//        、、测试service
+
+        UIHandler.getInstance().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(FragmentTestActivity.this,MyService.class);
+                bindService(intent,connection,BIND_AUTO_CREATE);
+//                startActivity();
+
+            }
+        },2000);
+
+        UIHandler.getInstance().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+             unbindService(connection);
+            }
+        },20000);
+
     }
 
     @Override
