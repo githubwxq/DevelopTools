@@ -64,13 +64,11 @@ public class SimpleImageLoader {
     public void displayImage(ImageView imageView, String uri) {
         displayImage(imageView,uri,null,null);
 
-
-
     }
 
 
     public void displayImage(ImageView imageView, String uri, DisplayConfig displayConfig,ImageListener imageListener) {
-//         实力化请求添加到队列
+//         实力化封装请求  请求对应图片 url 以及 配置 回调等等 请求添加到队列
         BitmapRequest bitmapRequest=new BitmapRequest(imageView,uri,displayConfig,imageListener);
         mRequestQueue.addRequest(bitmapRequest);
 

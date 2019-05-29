@@ -19,7 +19,7 @@ public class BubbleSort {
         for (int i = 0; i < arr.length; i++) {
             for(int j=i+1;j<arr.length;j++){
                 if(asc){ //升序
-                    if (arr[i]>arr[j]) {
+                    if (arr[i]>arr[j]) {  // 升序最初尽量要最小 然后换位子 确保 每次这个都是最小的
                         swap(arr,i,j);
                     }
                 }else {
@@ -40,6 +40,35 @@ public class BubbleSort {
         arr[j]=temp;
 
     }
+
+    /**
+     * 自己写下
+     * @param arrs
+     */
+    public  static void  sort(int[] arrs){
+        for (int i = 0; i < arrs.length; i++) {
+
+            for (int j=i+1;j<arrs.length;j++){
+
+                if (arrs[i]>arrs[j]){
+                    //冲销到打
+                    int temp=arrs[i];
+                    arrs[i]=arrs[j];
+                    arrs[j]=temp;
+
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+
+
 
     public static void main(String[] args) {
         int[] arr = {1,3,2,5,9,10,53,33,55};

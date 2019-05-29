@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * author:wxq
  * email:805380422@qq.com
  * time:2018/11/07
- * desc:阻塞队列
+ * desc:阻塞队列 管理类  增删改
  * version:1.0
  */
 public class RequestQueue {
@@ -73,7 +73,7 @@ public class RequestQueue {
      * 开启转发器
      */
     private void startDispatchers() {
-        mDispachers = new RequestDispatcher[threadCount];
+        mDispachers = new RequestDispatcher[threadCount]; // 线程处理者
         for (int i = 0; i < threadCount; i++) {
             RequestDispatcher requestDispatcher = new RequestDispatcher(mRequestQueue,"线程"+i);
             mDispachers[i] = requestDispatcher;

@@ -11,10 +11,10 @@ import java.util.concurrent.BlockingQueue;
  * author:wxq
  * email:805380422@qq.com
  * time:2018/11/07
- * desc:转发器请求转发线程 不断重请求队列中获取请求
+ * desc:转发器 线程 请求转发线程 不断重请求队列中获取请求 然后处理加载
  * version:1.0
  */
-public class RequestDispatcher extends Thread {
+public class RequestDispatcher extends Thread { // 自定义线程 获取资源然后处理  大家共用同一个 队列
     /**
      * 传递过来的
      */
@@ -44,7 +44,10 @@ public class RequestDispatcher extends Thread {
                 Log.e("wxq", "当前线程" + tag + "处理request" + request.getSerialNo());
                 //处理请求对象  判断是本地 还是其他的
                 String schema = parseSchema(request.getImageUrl());
+                // 写工厂 获取不同的加载器 更具类别获取 不同加载器材    接口加抽象 （抽象思维）
                 Loader loader = LoaderManager.getmInstance().getLoader(schema);
+
+
                 loader.loadImage(request);
             } catch (InterruptedException e) {
                 e.printStackTrace();
