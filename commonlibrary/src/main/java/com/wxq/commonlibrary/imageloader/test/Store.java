@@ -21,22 +21,24 @@ public class Store {
         count++;
         System.out.println(Thread.currentThread().getName() + "存入仓库，当前货物数：" + count);
         this.notify(); //  消费线程唤醒它
-
-
     }
 
-    public synchronized void remove() throws InterruptedException {
 
+//    public  void printLog() throws InterruptedException {
+//        System.out.print("LOG ==LOG");
+//        wait();
+//
+//    }
+
+    public synchronized void remove() throws InterruptedException {
         if (count <= 0) {
             System.out.print("仓库 is empty");
             System.out.println(Thread.currentThread().getName() + "等待中。。。。");
             this.wait();
-
         }
         count--;
         System.out.println(Thread.currentThread().getName() + "取出货物，当前货物数：" + count);
         this.notify();//  消费线程唤醒它
-
     }
 
     class Producer extends Thread {
@@ -52,7 +54,7 @@ public class Store {
 
                 try {
                     store.add();
-                    Thread.sleep(5000);
+                    Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -77,7 +79,7 @@ public class Store {
             while (true) {
                 try {
                     store.remove();
-                    Thread.sleep(10000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -94,14 +96,18 @@ public class Store {
         Thread producer2 = s.new Producer(s);//成员内部类需通过对象访问
         Thread consume1 = s.new Consume(s);
         Thread consume2 = s.new Consume(s);
+//        Thread consume3 = s.new Consume(s);
         producer1.setName("producer1");
         producer2.setName("producer2");
         consume1.setName("consume1");
         consume2.setName("consume2");
+//        consume3.setName("consume3");
         producer1.start();
         producer2.start();
         consume1.start();
         consume2.start();
+
+//        consume3.start();
 
     }
 
