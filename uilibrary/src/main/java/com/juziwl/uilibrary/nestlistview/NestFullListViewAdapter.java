@@ -28,7 +28,7 @@ public abstract class NestFullListViewAdapter<T> {
     }
 
     /**
-     * 被FullListView调用
+     * 被FullListView调用  数据和控件的适配给我们外面的实现
      *
      * @param i
      * @param holder

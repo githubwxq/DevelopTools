@@ -112,7 +112,7 @@ public class InjectUtils {
                 Map<String,Method> methodMap=new HashMap<>();
 
 
-                methodMap.put(callMethod,method); //method activity中申明的类
+                methodMap.put(callMethod,method); //method activity中申明的方法进行管理好为了 呆伙
 
                 try {
                     Method valueMethod=anntionType.getDeclaredMethod("value");

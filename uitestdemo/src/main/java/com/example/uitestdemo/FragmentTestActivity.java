@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.MainThread;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
+import com.example.trackpoint.annotation.Background;
+import com.example.trackpoint.annotation.UiThread;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.service.MyService;
@@ -80,6 +83,8 @@ public class FragmentTestActivity extends BaseActivity {
                 bindService(intent,connection,BIND_AUTO_CREATE);
 //                startActivity();
 
+//                 gotothread();
+
             }
         },2000);
 
@@ -89,6 +94,27 @@ public class FragmentTestActivity extends BaseActivity {
              unbindService(connection);
             }
         },20000);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        Log.e("wexcq","我是主线程"+Thread.currentThread().getName());
+
+        gotothread();
+    }
+
+    @Background
+    private void gotothread() {
+          Log.e("wexcq","我是子线程"+Thread.currentThread().getName());
 
     }
 

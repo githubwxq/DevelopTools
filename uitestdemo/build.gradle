@@ -28,5 +28,6 @@ dependencies {
     //    、、测试 butterknife
     implementation project(':inject')
     implementation project(':inject_annotion')
+    implementation project(':trackpoint')
     annotationProcessor project(':inject_compiler')
 }
