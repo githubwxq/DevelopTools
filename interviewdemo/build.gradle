@@ -1,8 +1,8 @@
-if (rootProject.ext.isInterviewModule) {
+//if (rootProject.ext.isInterviewModule) {
     apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+//} else {
+//    apply plugin: 'com.android.library'
+//}
 apply from: "../common_component_build.gradle"
 
 //配置插件
