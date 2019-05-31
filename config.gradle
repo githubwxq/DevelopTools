@@ -9,6 +9,7 @@ ext {
     isBaoLiModule = false
     isSdkModule = true
 
+    isInterviewModule=true
     //true为应用  false 为依赖库
     //bmob当前为应用成无任何代码只有常见配置
     isBmobModule = false

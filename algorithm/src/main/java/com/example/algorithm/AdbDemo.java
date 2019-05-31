@@ -18,7 +18,9 @@ public class AdbDemo {
             @Override
             public void run() {
                 System.out.println("wwwwww");
-                String adbHome="D:/develop_soft/androidsdk/platform-tools/";
+            
+                
+                String adbHome="C:/Users/wxq/AppData/Local/Android/Sdk/platform-tools/";
 //                String cmd=adbHome+"adb version";  adbdevices
                 String cmd=adbHome+"adb -s 4d82c1ef shell input touchscreen tap 733 417";
                 Process process;
@@ -49,7 +51,7 @@ public class AdbDemo {
         try {
             String temp="";
             while ((temp=br.readLine())!=null){
-                result+=temp+"\n";
+                result+=temp+"/n";
             }
         } catch (IOException e) {
             e.printStackTrace();
