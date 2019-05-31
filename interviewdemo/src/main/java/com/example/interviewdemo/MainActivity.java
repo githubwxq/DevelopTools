@@ -1,5 +1,6 @@
 package com.example.interviewdemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView tv_test;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +23,15 @@ public class MainActivity extends AppCompatActivity {
                 testMianShi();
             }
         });
+
+
     }
+
 
     /**
      * 测试面试题目
      */
     private void testMianShi() {
-
-
+       startActivity(new Intent(this,LeakActivity.class));
     }
 }
