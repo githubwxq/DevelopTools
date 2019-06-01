@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.interviewdemo.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +26,11 @@ public class LeakActivity extends AppCompatActivity {
             ImageView imageView=new ImageView(this);
             imageViews.add(imageView);
         }
+
 //        、、开启县城
         LeakThread leakThread = new LeakThread();
         leakThread.start();
-
+        tv_test=findViewById(R.id.tv_test);
         tv_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
