@@ -50,8 +50,8 @@ public class JobHandleService extends JobService {
 //Log.i("INFO", "remoteSericeWork:"+isRemoteServiceWork);
         if (!isLocalServiceWork ||
                 !isRemoteServiceWork) {
-            this.startService(new Intent(this, LocalService.class));
-            this.startService(new Intent(this, RemoteService.class));
+//            this.startService(new Intent(this, LocalService.class));
+//            this.startService(new Intent(this, RemoteService.class));
             Toast.makeText(this, "process start", Toast.LENGTH_SHORT).show();
         }
         return true;
