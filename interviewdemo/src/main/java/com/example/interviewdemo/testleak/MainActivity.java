@@ -34,6 +34,6 @@ public class MainActivity extends AppCompatActivity {
      * 测试面试题目
      */
     private void testMianShi() {
-       startActivity(new Intent(this,LeakActivity.class));
+       startActivity(new Intent(this, ThreadLeakActivity.class));
     }
 }

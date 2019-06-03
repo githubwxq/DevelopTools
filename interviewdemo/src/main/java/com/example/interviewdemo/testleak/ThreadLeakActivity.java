@@ -12,7 +12,7 @@ import com.example.interviewdemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeakActivity extends AppCompatActivity {
+public class ThreadLeakActivity extends AppCompatActivity {
 
     List<ImageView> imageViews=new ArrayList<>();
 
@@ -34,11 +34,9 @@ public class LeakActivity extends AppCompatActivity {
         tv_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LeakActivity.this.startActivity(new Intent(LeakActivity.this,SingleLeakActivity.class));
+                ThreadLeakActivity.this.startActivity(new Intent(ThreadLeakActivity.this,SingleLeakActivity.class));
             }
         });
-
-
 
     }
 
@@ -56,7 +54,31 @@ public class LeakActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-//        imageViews.clear();
+
+//      imageViews.clear();
         super.onDestroy();
+
     }
 }
+
+
+///**
+//     * 正确处理方式
+//     */
+//private static class MyThread extends Thread {
+//    SoftReference<Activity> context;
+//
+//    MyThread(Activity activity) {
+//        context = new SoftReference<>(activity);
+//    }
+//
+//    @Override
+//    public void run() {
+//        SystemClock.sleep(1000 * 15);
+//        String endTime = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss SSS", Locale.getDefault()).format(new Date());
+//        Log.i("bqt", "【结束休息】" + endTime);//即使Activity【onDestroy被回调了】，这条日志仍会打出来
+//        if (context.get() != null) {
+//            context.get().runOnUiThread(() -> Toast.makeText(context.get(), "结束休息", Toast.LENGTH_SHORT).show());
+//        }
+//    }
+//}
