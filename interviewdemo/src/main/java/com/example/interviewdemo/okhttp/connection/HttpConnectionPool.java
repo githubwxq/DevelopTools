@@ -78,7 +78,7 @@ public class HttpConnectionPool {
     /**
      * 获取相同主机名和端口号的Http连接
      */
-    public HttpConnection get(String host, int port) {
+    public synchronized HttpConnection get(String host, int port) {
         Iterator<HttpConnection> iterator = connections.iterator();
         while (iterator.hasNext()) {
             HttpConnection connection = iterator.next();

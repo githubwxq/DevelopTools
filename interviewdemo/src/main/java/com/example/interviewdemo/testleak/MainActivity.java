@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                testMianShi();
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 50; i++) {
                     get();
 //                    post();
                 }
