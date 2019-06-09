@@ -1,4 +1,4 @@
-package com.example.design_pattern.duty;
+package com.example.design_pattern.duty.simple;
 
 public class Client {
 	public static void main(String[] args) {

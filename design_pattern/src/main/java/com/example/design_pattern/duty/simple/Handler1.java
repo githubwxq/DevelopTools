@@ -1,4 +1,4 @@
-package com.example.design_pattern.duty;
+package com.example.design_pattern.duty.simple;
 /**
  * 具体处理者
  * @author Administrator
