@@ -50,6 +50,8 @@ public class User {
             return false;
         }
 
+
+
         User user = (User) obj;
         if(this.name.equals(user.name)&&this.age == user.age) {
             return true;
@@ -211,11 +213,13 @@ public class User {
         Map map=new HashMap();
         map.put(userA,1);
         map.put(userB,2);
-        map.put(userC,3);
+        map.put(userC,5);
+        System.out.println("map=========" +    map.put(userB,3));
 
 
         System.out.println("map.get(userA)" + map.get(userA));
         System.out.println("map.get(userB)" + map.get(userB));
+        System.out.println("map.get(userC)" + map.get(userC));
 
 
         System.out.println("userA equals userB:" + userA.equals(userB));

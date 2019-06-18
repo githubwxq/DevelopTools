@@ -26,7 +26,7 @@ public class Call {
 
     //是否执行过
     boolean executed;
-    //是否退出了
+    //是否退出了  对整个请求来说的
     boolean canceled;
 
 
@@ -71,7 +71,7 @@ public class Call {
      * 异步请求任务
      */
     final class AsyncCall implements Runnable {
-        private final Callback callback;
+        private final Callback callback;  //每一个对应一个 异步结果
         public AsyncCall(Callback callback) {
             this.callback = callback;
         }

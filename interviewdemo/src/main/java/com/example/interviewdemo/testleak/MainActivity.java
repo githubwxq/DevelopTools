@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //                testMianShi();
                 for (int i = 0; i < 50; i++) {
                     get();
-//                    post();
+                    post();
                 }
 //                get();
 //                post();
