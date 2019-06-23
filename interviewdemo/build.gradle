@@ -26,8 +26,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
     //    、、测试 butterknife
-    implementation project(':inject')
-    implementation project(':inject_annotion')
-    implementation project(':trackpoint')
-    annotationProcessor project(':inject_compiler')
+//    implementation project(':inject')
+//    implementation project(':inject_annotion')
+//    implementation project(':trackpoint')
+//    annotationProcessor project(':inject_compiler')
 }

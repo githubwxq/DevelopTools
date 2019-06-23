@@ -1,7 +1,7 @@
-include ':app', ':commonlibrary', ':uilibrary', ':inject_annotion', ':inject', ':inject_compiler', ':design_pattern', ':groovy', ':algorithm', ':trackpoint', ':interviewdemo',
+include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':algorithm', ':trackpoint', ':interviewdemo',
 
         ':bmob', ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer' ,':uitestdemo'
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' ,
 //':commonservice',
-//, ':bmobim'
+//, ':bmobim'      ':inject_annotion', ':inject', ':inject_compiler',
 

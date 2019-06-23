@@ -12,7 +12,7 @@ public interface SplashContract {
 
     interface Presenter extends BasePresenter<SplashContract.View> {
 
-
+          public void  getCode();
 
     }
 }

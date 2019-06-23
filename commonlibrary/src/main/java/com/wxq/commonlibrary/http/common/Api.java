@@ -38,7 +38,7 @@ public class Api {
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new NetworkInterceptor())
                 .addInterceptor(logInterceptor)
-                .addInterceptor(new RetryIntercepter(3))
+//                .addInterceptor(new RetryIntercepter(3))
 //                .addInterceptor(new TestNetInterceptor())
 //                .addInterceptor(new MyTokenInterceptor())
 //                .addInterceptor(tokenInterceptor)

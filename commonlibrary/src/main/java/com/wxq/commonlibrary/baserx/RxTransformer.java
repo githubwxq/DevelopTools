@@ -4,6 +4,9 @@ package com.wxq.commonlibrary.baserx;
 
 import com.wxq.commonlibrary.base.BaseView;
 
+import org.reactivestreams.Publisher;
+
+import io.reactivex.Flowable;
 import io.reactivex.FlowableTransformer;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -18,7 +21,6 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class RxTransformer {
-
     /**
      * 无参数  仅做切换线程
      *
@@ -70,14 +72,19 @@ public class RxTransformer {
     }
 
     public static <T> FlowableTransformer<T, T> transformFlowWithLoading(final BaseView view) {
-        return observable -> observable.subscribeOn(Schedulers.io())
-                .doOnSubscribe(disposable -> {
-                    view.showLoadingDialog();//显示进度条
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
-                    view.dismissLoadingDialog();//隐藏进度条
-                }).compose(view.bindToLife());
+        return new FlowableTransformer<T, T>() {
+            @Override
+            public Publisher<T> apply(Flowable<T> observable) {
+                return observable.subscribeOn(Schedulers.io())
+                        .doOnSubscribe(disposable -> {
+                            view.showLoadingDialog();//显示进度条
+                        })
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doFinally(() -> {
+                            view.dismissLoadingDialog();//隐藏进度条
+                        }).compose(view.bindToLife());
+            }
+        };
     }
    public static <T> FlowableTransformer<T, T> transformFlow(final BaseView view) {
         return observable -> observable.subscribeOn(Schedulers.io())

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.ImageView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_login.R;
 import com.example.module_login.R2;
 import com.example.module_login.bean.Card;
@@ -13,7 +12,6 @@ import com.example.module_login.bean.Material;
 import com.example.module_login.bean.User;
 import com.example.module_login.contract.SplashContract;
 import com.example.module_login.presenter.SplashActivityPresent;
-import com.juziwl.uilibrary.activity.ChooseMapAddressActivity;
 import com.luck.picture.lib.PictureSelectAdapter;
 import com.luck.picture.lib.PictureSelectorView;
 import com.luck.picture.lib.config.PictureConfig;
@@ -21,15 +19,13 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.utils.DisplayUtils;
 import com.luck.picture.lib.utils.ImageSeclctUtils;
 import com.orhanobut.logger.Logger;
+import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.constant.GlobalContent;
-import com.wxq.commonlibrary.router.RouterContent;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.commonlibrary.util.DensityUtil;
 import com.wxq.commonlibrary.util.FileUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.base.BaseActivity;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +56,8 @@ public class SplashActivity extends BaseActivity<SplashContract.Presenter> imple
         BarUtils.setStatusBarVisibility(this, false);
         //点击背景如果当前有广告
         click(ivBg, o -> {
-            ChooseMapAddressActivity.navToActivity(this);
+            mPresenter.getCode();
+//            ChooseMapAddressActivity.navToActivity(this);
 //            LoginActivity.navToActivity(this);
 //            finish();
 //            if (selectList.size()>0) {

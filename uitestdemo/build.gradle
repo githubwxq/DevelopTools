@@ -26,8 +26,8 @@ dependencies {
 //    api rootProject.ext.deps["support-v4"]
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
     //    、、测试 butterknife
-    implementation project(':inject')
-    implementation project(':inject_annotion')
-    implementation project(':trackpoint')
-    annotationProcessor project(':inject_compiler')
+//    implementation project(':inject')
+//    implementation project(':inject_annotion')
+//    implementation project(':trackpoint')
+//    annotationProcessor project(':inject_compiler')
 }
