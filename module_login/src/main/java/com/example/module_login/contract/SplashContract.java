@@ -5,6 +5,7 @@ import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.base.BaseView;
 
 public interface SplashContract {
+
     interface View extends BaseView {
 
 
@@ -12,7 +13,10 @@ public interface SplashContract {
 
     interface Presenter extends BasePresenter<SplashContract.View> {
 
-          public void  getCode();
+        void  getCode();
 
+        void register();
+
+        void getHomeData();
     }
 }

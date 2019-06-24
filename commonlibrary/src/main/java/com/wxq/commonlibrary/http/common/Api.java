@@ -1,7 +1,6 @@
 
 package com.wxq.commonlibrary.http.common;
 
-import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.wxq.commonlibrary.constant.GlobalContent;
 
 import java.util.concurrent.TimeUnit;
@@ -39,8 +38,9 @@ public class Api {
                 .addNetworkInterceptor(new NetworkInterceptor())
                 .addInterceptor(logInterceptor)
 //                .addInterceptor(new RetryIntercepter(3))
+                .addInterceptor(new KlookHeardInterceptor())
 //                .addInterceptor(new TestNetInterceptor())
-//                .addInterceptor(new MyTokenInterceptor())
+                .addInterceptor(new KlookTokenInterceptor())
 //                .addInterceptor(tokenInterceptor)
                 .build();
         retrofit = new Retrofit.Builder()

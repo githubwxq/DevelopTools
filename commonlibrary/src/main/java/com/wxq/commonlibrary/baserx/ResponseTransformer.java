@@ -11,7 +11,7 @@ public class ResponseTransformer {
 
     public static <T> FlowableTransformer<KlookResponseData<T>, T> handleResult() {
         return upstream -> upstream
-                .onErrorResumeNext(new ErrorResumeFunction<>())
+//                .onErrorResumeNext(new ErrorResumeFunction<>())
                 .flatMap(new ResponseFunction<>());
     }
 

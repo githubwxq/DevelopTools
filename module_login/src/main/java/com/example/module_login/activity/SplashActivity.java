@@ -50,13 +50,22 @@ public class SplashActivity extends BaseActivity<SplashContract.Presenter> imple
     PictureSelectorView picSelectView;
     private static final int COLUME = 3;
     private static final int MAXSELECTNUM = 30;
+    int i=0;
     @Override
     protected void initViews() {
         //设置全屏
         BarUtils.setStatusBarVisibility(this, false);
         //点击背景如果当前有广告
         click(ivBg, o -> {
-            mPresenter.getCode();
+//            if (i==0) {
+//                mPresenter.getCode();
+//                i++;
+//            }else {
+//                mPresenter.register();
+//            }
+
+            mPresenter.getHomeData();
+
 //            ChooseMapAddressActivity.navToActivity(this);
 //            LoginActivity.navToActivity(this);
 //            finish();
