@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.juziwl.uilibrary.tools.ViewHolder;
 import com.juziwl.uilibrary.tools.recyclerview.click.OnItemClickListener;
 import com.juziwl.uilibrary.tools.recyclerview.click.OnItemLongClickListener;
@@ -129,3 +128,49 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         return mDatas;
     }
 }
+
+
+////多布局文件
+//private final class MultipleLayoutAdapter extends CommonAdapter<News>{
+//
+//    public MultipleLayoutAdapter(Context context, int layoutResId, List<News> data) {
+//        super(context, layoutResId, data);
+//    }
+//    //多种布局重写此方法即可
+//    @Override public int getLayoutResId(News item, int position) {
+//        int layoutResId = -1;
+//        switch (item.getNewsType()){
+//            case News.TYPE_NONE_PICTURE: //布局样式一
+//                layoutResId = R.layout.item_none_picture;
+//                break;
+//            case News.TYPE_SINGLE_PICTURE: //布局样式二
+//                layoutResId = R.layout.item_single_picture;
+//                break;
+//            case News.TYPE_MULTIPLE_PICTURE: //布局样式三
+//                layoutResId = R.layout.item_multiple_picture;
+//                break;
+//
+//            更多的布局样式 ...
+//        }
+//        return layoutResId;
+//    }
+//
+//    @Override public void onUpdate(BaseAdapterHelper helper, News item, int position) {
+//        switch (item.getNewsType()){
+//            case News.TYPE_NONE_PICTURE: //布局样式一
+//                helper.setText(R.id.xxx, item.getTitle())
+//                        .setImageUrl(R.id.xxx,item.getCoverUrl());
+//                break;
+//            case News.TYPE_SINGLE_PICTURE: //布局样式二
+//                helper.setText(R.id.xxx, item.getTitle())
+//                        .setImageUrl(R.id.xxx,item.getCoverUrl());
+//                break;
+//            case News.TYPE_MULTIPLE_PICTURE: //布局样式三
+//                helper.setText(R.id.xxx, item.getTitle())
+//                        .setImageUrl(R.id.xxx,item.getCoverUrl());
+//                break;
+//
+//            更多的布局样式 ...
+//        }
+//    }
+//}
