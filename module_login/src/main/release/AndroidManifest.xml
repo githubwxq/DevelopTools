@@ -3,25 +3,24 @@
     package="com.example.module_login">
 
     <application>
-        <!--TODO 集成：1.2、添加推送所需要的服务和广播-->
+        <activity android:name=".activity.KlookLoginActivity"></activity>
+        <!-- TODO 集成：1.2、添加推送所需要的服务和广播 -->
         <service
-            android:label="PushService"
             android:name="cn.bmob.push.lib.service.PushService"
-            android:process=":bmobpush"
-            android:exported="true">
+            android:exported="true"
+            android:label="PushService"
+            android:process=":bmobpush">
             <intent-filter>
-                <action android:name="cn.bmob.push.lib.service.PushService"/>
+                <action android:name="cn.bmob.push.lib.service.PushService" />
             </intent-filter>
-        </service>
-
-        <!-- 用于进程保活 -->
+        </service> <!-- 用于进程保活 -->
         <service
             android:name="cn.bmob.push.lib.service.PushNotifyService"
-            android:process=":bmobpush" >
-        </service>
+            android:process=":bmobpush"></service>
 
-        <receiver android:name="cn.bmob.push.PushReceiver" >
+        <receiver android:name="cn.bmob.push.PushReceiver">
             <intent-filter>
+
                 <!-- 系统启动完成后会调用 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <!-- 解锁完成后会调用 -->
@@ -29,20 +28,17 @@
                 <!-- 监听网络连通性 -->
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver>
-
-        <!-- 第3步中创建的消息接收器，在这里进行注册 -->
-        <receiver android:name="com.example.module_login.push.MyPushMessageReceiver">
-            <intent-filter >
-                <action android:name="cn.bmob.push.action.MESSAGE"/>
+        </receiver> <!-- 第3步中创建的消息接收器，在这里进行注册 -->
+        <receiver android:name=".push.MyPushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.bmob.push.action.MESSAGE" />
             </intent-filter>
-        </receiver>
-
-        <!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
+        </receiver> <!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
         <receiver
             android:name="cn.bmob.push.PushNotifyReceiver"
-            android:process=":bmobpush" >
+            android:process=":bmobpush">
             <intent-filter>
+
                 <!-- 接收心跳广播的action -->
                 <action android:name="cn.bmob.push.action.HEARTBEAT" />
                 <!-- 接收唤醒广播的action -->
@@ -50,18 +46,15 @@
             </intent-filter>
         </receiver>
 
-
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".activity.SplashActivity"></activity>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegisterActivity"></activity>
-
-
+        <activity android:name=".activity.RegisterActivity" />
     </application>
 
 </manifest>

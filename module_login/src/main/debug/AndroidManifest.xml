@@ -11,13 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
         <activity android:name=".activity.SplashActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".activity.GuideActivity"></activity>
+
+
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GuideActivity"></activity>
+
+
     </application>
 
 </manifest>
