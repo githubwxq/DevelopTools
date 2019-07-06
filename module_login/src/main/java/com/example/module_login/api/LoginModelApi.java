@@ -26,6 +26,10 @@ public interface LoginModelApi {
     Flowable<KlookResponseData<HomePageData>> homepage();
 
 
+    @POST("/app/login/login")
+    Flowable<KlookResponseData<String>> login(@Body HashMap<String,String> data);
+
+
 
 
 

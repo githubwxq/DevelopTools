@@ -1,17 +1,14 @@
 package com.wxq.developtools;
 
 import android.Manifest;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.trackpoint.AopUtil;
-import com.example.trackpoint.annotation.SingleClick;
+
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
-import com.wxq.commonlibrary.datacenter.PublicPreference;
 import com.wxq.commonlibrary.eventbus.EventBus;
 import com.wxq.commonlibrary.eventbus.Subscribe;
 import com.wxq.commonlibrary.eventbus.TestEvent;
@@ -19,9 +16,11 @@ import com.wxq.commonlibrary.eventbus.ThreadMode;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
 
-
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
+
+//import com.example.trackpoint.AopUtil;
+//import com.example.trackpoint.annotation.SingleClick;
 
 /**
  * Created by wxq on 2018/6/28.
@@ -43,7 +42,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
     @Override
     protected void initViews() {
 
-        AopUtil.init(this);
+//        AopUtil.init(this);
 
         EventBus.getDefault().register(this);
 
@@ -56,7 +55,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
         });
         tv_hello2.setOnClickListener(new View.OnClickListener() {
             @Override
-            @SingleClick
+//            @SingleClick
             public void onClick(View v) {
                 Logger.e("wxq ","tv_hello2背点机了");
                 showToast("111");

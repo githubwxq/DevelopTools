@@ -1,8 +1,15 @@
 package com.example.module_login.presenter;
 
+import com.example.module_login.api.LoginModelApi;
 import com.example.module_login.bean.User;
 import com.example.module_login.contract.RegisterContract;
 import com.wxq.commonlibrary.base.RxPresenter;
+import com.wxq.commonlibrary.baserx.ResponseTransformer;
+import com.wxq.commonlibrary.baserx.RxSubscriber;
+import com.wxq.commonlibrary.baserx.RxTransformer;
+import com.wxq.commonlibrary.http.common.Api;
+
+import java.util.HashMap;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -35,5 +42,40 @@ public class RegisterActivityPresent extends RxPresenter<RegisterContract.View> 
                 }
             }
         });
+    }
+
+    @Override
+    public void signUp(String phoneNumber, String passWord, String code) {
+        HashMap<String,String> hashMap=new HashMap<>();
+        hashMap.put("checkCode",code);
+        hashMap.put("password",passWord);
+        hashMap.put("phone",phoneNumber);
+        hashMap.put("username","XXXX");
+        Api.getInstance()
+                .getApiService(LoginModelApi.class).register(hashMap)
+                . compose(RxTransformer.transformFlowWithLoading(mView))
+                .compose(ResponseTransformer.handleResult())
+                .subscribe(new RxSubscriber<Object>() {
+                    @Override
+                    protected void onSuccess(Object o) {
+                        mView.showToast("注册成功");
+                        mView.registerSuccess();
+                    }
+                });
+    }
+
+    @Override
+    public void sendCodeMessage(String phomeNumber) {
+        Api.getInstance()
+                .getApiService(LoginModelApi.class)
+                .sendsms(phomeNumber)
+                .compose(RxTransformer.transformFlowWithLoading(mView))
+                .compose(ResponseTransformer.handleResult())
+                .subscribe(new RxSubscriber<Object>() {
+                    @Override
+                    protected void onSuccess(Object o) {
+                        mView.startTimeDown();
+                    }
+                });
     }
 }

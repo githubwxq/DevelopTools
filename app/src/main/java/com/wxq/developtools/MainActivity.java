@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.trackpoint.annotation.NeedLogin;
+//import com.example.trackpoint.annotation.NeedLogin;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayer;
 import com.juziwl.uilibrary.niceplayer.NiceVideoPlayerManager;
 import com.juziwl.uilibrary.niceplayer.TxVideoPlayerController;
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @NeedLogin(tipeType = NeedLogin.SHOW_TOAST, loginActivity = MvpMainActivity.class)
+//    @NeedLogin(tipeType = NeedLogin.SHOW_TOAST, loginActivity = MvpMainActivity.class)
     public static void naveToActivity(Context context) {
         context.startActivity(new Intent(context, MainActivity.class));
     }

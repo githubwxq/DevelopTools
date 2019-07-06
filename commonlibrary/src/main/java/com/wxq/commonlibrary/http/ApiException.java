@@ -4,6 +4,7 @@ public class ApiException extends Exception {
     private String displayMessage;
 
     public ApiException(int code, String displayMessage) {
+        super(displayMessage);
         this.code = code;
         this.displayMessage = displayMessage;
     }
