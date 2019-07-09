@@ -6,6 +6,7 @@ import com.wxq.commonlibrary.base.RxPresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
+import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.http.common.Api;
 
 import java.util.HashMap;
@@ -37,6 +38,7 @@ public class KlookLoginActivityPresent extends RxPresenter<LoginContract.View> i
                 .subscribe(new RxSubscriber<String>() {
                     @Override
                     protected void onSuccess(String s) {
+                        AllDataCenterManager.getInstance().token=s;
                         mView.showToast("登录成功");
                         mView.naveToMainActivity();
                     }

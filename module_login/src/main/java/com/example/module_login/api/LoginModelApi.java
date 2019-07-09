@@ -1,6 +1,5 @@
 package com.example.module_login.api;
 
-import com.example.module_login.bean.HomePageData;
 import com.wxq.commonlibrary.model.KlookResponseData;
 
 import java.util.HashMap;
@@ -21,9 +20,9 @@ public interface LoginModelApi {
     Flowable<KlookResponseData<Object>> register(@Body HashMap<String,String> parmer);
 
 
-
-    @POST("/app/homePage/homepage")
-    Flowable<KlookResponseData<HomePageData>> homepage();
+//
+//    @POST("/app/homePage/homepage")
+//    Flowable<KlookResponseData<HomePageData>> homepage();
 
 
     @POST("/app/login/login")

@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_login.R;
 import com.example.module_login.R2;
 import com.example.module_login.contract.LoginContract;
@@ -35,8 +36,8 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
     @Override
     public void naveToMainActivity() {
         showToast("前往首页 arouter前往首页开发");
-
-
+        ARouter.getInstance().build("/klook/main").navigation();
+        finish();
     }
 
     @Override

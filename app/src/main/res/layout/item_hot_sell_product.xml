@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_marginLeft="15dp"
+    android:layout_width="300dp"
+    android:layout_height="200dp">
+
+    <ImageView
+        android:layout_above="@+id/tv_product_name"
+        android:id="@+id/iv_bg"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:text="中国.。。。"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+
+
+</RelativeLayout>
+
+
+</RelativeLayout>

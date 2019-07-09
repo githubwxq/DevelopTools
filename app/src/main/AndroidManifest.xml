@@ -2,50 +2,52 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wxq.developtools">
 
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".MvpMainActivity"
+        <activity android:name=".KLookMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
+            android:launchMode="singleTask">
 
 
-    <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            >
 
         </activity>
+        <activity
+            android:name=".MvpMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-        <meta-data android:name="com.amap.api.v2.apikey" android:value="70503dabb7507dd8ff8126f312fbce84">
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
 
-        </meta-data>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="70503dabb7507dd8ff8126f312fbce84"></meta-data>
 
-
-        <service android:name=".LocalService"></service>
+        <service android:name=".LocalService" />
         <service
             android:name=".RemoteService"
-            android:process=":remoteprocess"
-            ></service>
-        <service android:name=".JobHandleService" android:permission="android.permission.BIND_JOB_SERVICE"></service>
-
-
-
+            android:process=":remoteprocess" />
+        <service
+            android:name=".JobHandleService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

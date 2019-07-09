@@ -18,7 +18,6 @@
       <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/trackpoint/trackpoint.iml" filepath="$PROJECT_DIR$/trackpoint/trackpoint.iml" />
       <module fileurl="file://$PROJECT_DIR$/uilibrary/uilibrary.iml" filepath="$PROJECT_DIR$/uilibrary/uilibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/uitestdemo/uitestdemo.iml" filepath="$PROJECT_DIR$/uitestdemo/uitestdemo.iml" />
     </modules>

@@ -1,7 +1,7 @@
 package com.example.module_login.presenter;
 
 import com.example.module_login.api.LoginModelApi;
-import com.example.module_login.bean.HomePageData;
+//import com.example.module_login.bean.HomePageData;
 import com.example.module_login.contract.SplashContract;
 import com.wxq.commonlibrary.base.RxPresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
@@ -93,21 +93,7 @@ public class SplashActivityPresent extends RxPresenter<SplashContract.View> impl
 
     @Override
     public void getHomeData() {
-        Api.getInstance()
-                .getApiService(LoginModelApi.class).homepage()
-                . compose(RxTransformer.transformFlowWithLoading(mView))
-                .compose(ResponseTransformer.handleResult())
-                .subscribe(new Consumer<HomePageData>() {
-                    @Override
-                    public void accept(HomePageData s) throws Exception {
-                        ToastUtils.showShort("HomePageData"+ s.hotCities.size());
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        ToastUtils.showShort("HomePageData"+ "出错了");
-                    }
-                });
+
     }
 
 
