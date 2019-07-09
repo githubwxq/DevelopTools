@@ -66,7 +66,7 @@ public class GlobalContent {
      * baseurl
      */
 //    public static final String BASE_URL = "http://www.wanandroid.com/tools/mockapi/2547/";
-    public static final String BASE_URL = "http://47.52.238.97:28081/";
+    public static final String BASE_URL = "http://39.98.211.162:28081/";
 
 
     public static final int REFRESH = 0;
