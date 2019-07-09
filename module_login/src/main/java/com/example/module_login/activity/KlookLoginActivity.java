@@ -34,7 +34,9 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
 
     @Override
     public void naveToMainActivity() {
-        showToast("前往首页");
+        showToast("前往首页 arouter前往首页开发");
+
+
     }
 
     @Override
@@ -50,7 +52,6 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
                 }else {
                     mPresenter.loginWithAccountAndPwd(tel,pwd);
                 }
-
             }
         });
     }
