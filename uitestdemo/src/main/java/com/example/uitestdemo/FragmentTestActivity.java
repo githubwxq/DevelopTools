@@ -3,16 +3,12 @@ package com.example.uitestdemo;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.MainThread;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-import com.example.trackpoint.annotation.Background;
-import com.example.trackpoint.annotation.UiThread;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.service.MyService;
@@ -22,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
+//import com.example.trackpoint.annotation.Background;
+//import com.example.trackpoint.annotation.UiThread;
 
 public class FragmentTestActivity extends BaseActivity {
 
@@ -55,7 +53,8 @@ public class FragmentTestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        fragmentList.add(new OneFragment());
+//        fragmentList.add(new OneFragment());
+        fragmentList.add(new VlayoutFragment());
 //        fragmentList.add(new TestMemoryFragment());
         fragmentList.add(new ViewLocationFragment());
         fragmentList.add(new ViewLifeCycleFragment());
@@ -112,7 +111,7 @@ public class FragmentTestActivity extends BaseActivity {
         gotothread();
     }
 
-    @Background
+//    @Background
     private void gotothread() {
           Log.e("wexcq","我是子线程"+Thread.currentThread().getName());
 

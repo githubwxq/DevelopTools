@@ -2,11 +2,7 @@ package com.example.uitestdemo;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +11,6 @@ import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.UIHandler;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class TestMemoryFragment extends BaseFragment {
@@ -70,7 +65,7 @@ public class TestMemoryFragment extends BaseFragment {
         ivGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(),TestActivity.class));
+//                getActivity().startActivity(new Intent(getActivity(),TestActivity.class));
             }
         });
     }
