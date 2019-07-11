@@ -18,11 +18,11 @@ import java.util.List;
 /**
  * 测试
  */
-public class BannerAdapter extends BaseDelegateAdapter<String, BaseDelegateViewHolder> {
+public class StaggeredGridLayoutAdapter extends BaseDelegateAdapter<String, BaseDelegateViewHolder> {
 
     public static final int CURRENTTYPE=1;
 
-    public BannerAdapter(Context context, @Nullable List<String> data ) {
+    public StaggeredGridLayoutAdapter(Context context, @Nullable List<String> data ) {
         super(context,R.layout.adapter_item, data);
     }
 
@@ -53,8 +53,8 @@ public class BannerAdapter extends BaseDelegateAdapter<String, BaseDelegateViewH
     }
 
 
-    //    @Override
-//    public int getItemViewType(int position) {
-//        return CURRENTTYPE;
-//    }
+        @Override
+    public int getItemViewType(int position) {
+        return CURRENTTYPE;
+    }
 }
