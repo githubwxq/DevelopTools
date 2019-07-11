@@ -65,7 +65,6 @@ public class VlayoutFragment extends BaseFragment {
         VirtualLayoutManager virtualLayoutManager=new VirtualLayoutManager(mContext);
         recycler.setLayoutManager(virtualLayoutManager);
         delegateAdapter = new DelegateAdapter(virtualLayoutManager, true);
-
         RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         recycler.setRecycledViewPool(viewPool);
         viewPool.setMaxRecycledViews(StaggeredGridLayoutAdapter.CURRENTTYPE,strageStrings.size());
@@ -73,15 +72,10 @@ public class VlayoutFragment extends BaseFragment {
         viewPool.setMaxRecycledViews(SingleLayoutAdapter.CURRENTTYPE,1);
         viewPool.setMaxRecycledViews(GridLayoutAdapter.CURRENTTYPE,grideStrings.size());
         LinkedList<DelegateAdapter.Adapter> adapters = new LinkedList<>();
-
-//        adapters.add(new StaggeredGridLayoutAdapter(mContext,strageStrings));
-//        adapters.add(new LinearLayoutAdapter(mContext,linearStrings));
-//        adapters.add(new SingleLayoutAdapter(mContext,singleStrings));
+        adapters.add(new StaggeredGridLayoutAdapter(mContext,strageStrings));
+        adapters.add(new LinearLayoutAdapter(mContext,linearStrings));
         adapters.add(new GridLayoutAdapter(mContext,grideStrings));
-
-
-
-
+        adapters.add(new SingleLayoutAdapter(mContext,singleStrings));
 
         delegateAdapter.setAdapters(adapters);
         recycler.setAdapter(delegateAdapter);
