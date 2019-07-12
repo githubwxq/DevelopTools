@@ -22,6 +22,7 @@ import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.ProductActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.HomePageData;
 import com.wxq.developtools.model.HotCitiesBean;
@@ -138,7 +139,7 @@ public class ExploreFragment extends BaseFragment {
             helper.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showToast("前往推荐");
+                    ProductActivity.navToActivity(mContext,((RecomentProductsBean)item).id);
                 }
             });
 
@@ -176,7 +177,8 @@ public class ExploreFragment extends BaseFragment {
                     helper.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            showToast("前往热卖");
+//                            showToast("前往热卖");
+                            ProductActivity.navToActivity(mContext,item.id);
                         }
                     });
                 }

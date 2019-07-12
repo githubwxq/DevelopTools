@@ -21,6 +21,7 @@ import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.CollectionBean;
+import com.wxq.developtools.model.CollectionData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,8 +80,7 @@ public class MyCollectionActivity extends BaseActivity {
                         getData(page, rows);
                     }
                 });
-
-
+        getData(page, rows);
     }
 
     /**
@@ -118,9 +118,10 @@ public class MyCollectionActivity extends BaseActivity {
                 .pageCollectProduct(page, rows)
                 .compose(RxTransformer.transformFlowWithLoading(this))
                 .compose(ResponseTransformer.handleResult())
-                .safeSubscribe(new RxSubscriber<List<CollectionBean>>() {
+                .safeSubscribe(new RxSubscriber<CollectionData>() {
                     @Override
-                    protected void onSuccess(List<CollectionBean> data) {
+                    protected void onSuccess(CollectionData collectionData) {
+                        List<CollectionBean> data=collectionData.list;
                         if (page == 1) {
                             collectionBeans.clear();
                         } else {

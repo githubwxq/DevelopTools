@@ -2,8 +2,9 @@ package com.wxq.developtools.api;
 
 import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.developtools.model.AreaAndCountry;
-import com.wxq.developtools.model.CollectionBean;
+import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
+import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public interface KlookApi {
 
 
     @POST("/app/collect/pageCollectProduct/{page}/{rows}")
-    Flowable<KlookResponseData<List<CollectionBean>>> pageCollectProduct(@Path("page")int page, @Path("rows")int rows);
+    Flowable<KlookResponseData<CollectionData>> pageCollectProduct(@Path("page")int page, @Path("rows")int rows);
 
 
 
@@ -42,9 +43,35 @@ public interface KlookApi {
     Flowable<KlookResponseData<Object>> saveProduct(@Path("productId")String productId);
 
 
+    /**
+     * s商品详情页面
+     * @param id
+     * @return
+     */
+    @POST("/app/product/findProductById/{id}")
+    Flowable<KlookResponseData<ProductDetailBean>> findProductById(@Path("id")String id);
 
 
 
+
+    /**
+     * 商品详情信息页面 推荐商品
+     * @param
+     * @return
+     */
+    @POST("/app/product/listProductInfoRecommend/{productId}")
+    Flowable<KlookResponseData<Object>> listProductInfoRecommend(@Path("productId")String productId);
+
+
+
+
+    /**
+     * 分页查询商品列表
+     * @param
+     * @return
+     */
+    @POST("/app/product/pageProductByCondition/{page}/{rows}")
+    Flowable<KlookResponseData<CollectionData>> pageProductByCondition(@Path("page")int page, @Path("rows")int rows,@Body HashMap<String,String> data);
 
 
 
