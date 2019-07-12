@@ -48,7 +48,7 @@
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="保存"
+                    android:text=""
 
                     android:textColor="@color/color_3f3f3f"
                     android:textSize="12sp" />

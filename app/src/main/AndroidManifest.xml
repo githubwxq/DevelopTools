@@ -13,14 +13,19 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".KLookMainActivity"
+
+        <activity android:name=".activity.KLookMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:launchMode="singleTask">
-
-
-
         </activity>
+
+
+
+
+        <activity android:name=".activity.MyOrderActivity"></activity>
+        <activity android:name=".activity.MyCollectionActivity" />
+        <activity android:name=".activity.EditPersonActivity" />
         <activity
             android:name=".MvpMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -35,11 +40,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="70503dabb7507dd8ff8126f312fbce84"></meta-data>
+            android:value="70503dabb7507dd8ff8126f312fbce84" />
 
         <service android:name=".LocalService" />
         <service

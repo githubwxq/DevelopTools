@@ -1,4 +1,4 @@
-package com.wxq.developtools;
+package com.wxq.developtools.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -10,6 +10,11 @@ import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.developtools.fragment.DestinationFragment;
+import com.wxq.developtools.fragment.ExploreFragment;
+import com.wxq.developtools.fragment.MySelfFragment;
+import com.wxq.developtools.fragment.OrderFragment;
+import com.wxq.developtools.R;
 
 import java.util.ArrayList;
 import java.util.List;

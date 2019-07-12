@@ -1,14 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExploreFragment">
+    android:orientation="vertical"
+    tools:context=".fragment.MySelfFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="myself_fragment" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/heard_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
 
-</FrameLayout>
+        <TextView
+            android:layout_toRightOf="@+id/heard_icon"
+            android:id="@+id/tv_name"
+            android:text="wxq"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_pingzheng"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="18dp"
+            android:textSize="16sp"
+            android:text="使用凭证"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/green_100"
+        />
+
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_collect"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="18dp"
+            android:textSize="16sp"
+            android:text="我的收藏"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/green_100"
+        />
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_order"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="18dp"
+            android:textSize="16sp"
+            android:text="我的订单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/green_100"
+        />
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_help"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="18dp"
+            android:textSize="16sp"
+            android:text="帮助"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/green_100"
+        />
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_about"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:textColor="@color/color_333"
+            android:layout_marginLeft="18dp"
+            android:textSize="16sp"
+            android:text="关于"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/green_100"
+        />
+
+
+
+
+
+</LinearLayout>

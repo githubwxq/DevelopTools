@@ -17,7 +17,7 @@ public class MyApplication extends BaseApp {
     public void onCreate() {
         super.onCreate();
         //初始化bugly
-        BuglyUtils.init(this,"bd7d7fa0c2",BuildConfig.DEBUG);
+        BuglyUtils.init(this,"1400183086",BuildConfig.DEBUG);
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
     }
