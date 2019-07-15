@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProductActivity">
+
+    <ImageView
+        android:id="@+id/iv_cover_pic"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/timg"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="20sp"
+        android:id="@+id/tv_title"
+        android:text="产品标题"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="15dp"
+        android:text="35"
+        android:id="@+id/tv_price"
+        android:textSize="24sp"
+        android:textColor="#EC4836"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+<View
+    android:background="@color/color_f7f7f7"
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_marginTop="15dp"
+            android:text="商品简介"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:background="@color/color_f7f7f7"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_marginTop="15dp"
+            android:text="商品描述"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_describe"
+            android:textSize="15sp"
+            android:layout_marginTop="7dp"
+            android:text="商品描述"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_marginLeft="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+
+        android:layout_marginTop="15dp"
+        android:text="费用包含"
+        android:textColor="@color/color_333"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_include"
+        android:layout_marginTop="7dp"
+        android:text="费用简介"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_marginTop="15dp"
+            android:text="费用不包含"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_not_include"
+            android:layout_marginTop="7dp"
+            android:text="费用不包含"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_marginTop="15dp"
+            android:text="预定须知"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_you_know"
+            android:layout_marginTop="7dp"
+            android:text="费用不包含"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_marginTop="15dp"
+            android:text="常见问题"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_marginTop="7dp"
+            android:text="常见问题"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

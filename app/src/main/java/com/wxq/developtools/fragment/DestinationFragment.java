@@ -125,7 +125,7 @@ public class DestinationFragment extends BaseFragment {
         map.put("appCountrySearchDT", parmer);
         Api.getInstance()
                 .getApiService(KlookApi.class).findCountryAndCity(map)
-//                .compose(RxTransformer.transformFlowWithLoading(this))
+                .compose(RxTransformer.transformFlow(this))
                 .compose(ResponseTransformer.handleResult())
                 .subscribe(new RxSubscriber<List<AreaAndCountry>>() {
                     @Override

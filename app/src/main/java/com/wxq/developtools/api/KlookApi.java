@@ -4,6 +4,7 @@ import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
+import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
 
@@ -50,6 +51,21 @@ public interface KlookApi {
      */
     @POST("/app/product/findProductById/{id}")
     Flowable<KlookResponseData<ProductDetailBean>> findProductById(@Path("id")String id);
+
+
+    /**
+     * 根据商品获取评论数据
+     * @param id
+     * @return
+     */
+
+    /**
+     * 分页查询商品列表
+     * @param
+     * @return
+     */
+    @POST("/app/comment/pageProductComment/{productId}/{page}/{rows}")
+    Flowable<KlookResponseData<ProductCommentData>> pageProductComment(@Path("page")int page, @Path("rows")int rows, @Path("productId")String productId);
 
 
 
