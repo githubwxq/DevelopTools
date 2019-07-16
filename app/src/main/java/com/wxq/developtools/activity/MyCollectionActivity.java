@@ -132,6 +132,7 @@ public class MyCollectionActivity extends BaseActivity {
                             }
                         }
                         collectionBeans.addAll(data);
+                        recyclerView.notifyDataSetChanged();
                     }
 
                     @Override

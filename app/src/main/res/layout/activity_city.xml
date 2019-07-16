@@ -3,7 +3,121 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".activity.CityActivity">
+<ImageView
+    android:id="@+id/city_bg"
+    android:layout_width="match_parent"
+    android:layout_height="300dp" />
 
+    <TextView
+        android:layout_marginTop="127dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_city_name"
+        android:textColor="@color/white"
+        android:text="巴利达"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/tv_city_name"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:background="@color/color_333"
+            android:layout_width="15dp"
+            android:layout_height="15dp" />
+
+        <View
+            android:layout_marginLeft="5dp"
+            android:background="@color/gray_ee"
+            android:layout_gravity="center_vertical"
+            android:layout_width="1dp"
+            android:layout_height="12dp"/>
+
+
+
+
+    </LinearLayout>
+    
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_below="@+id/city_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_food"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="95dp" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="95dp"/>
+        
+
+         <ImageView
+            android:id="@+id/iv_jingdian"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="95dp" />
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_waanle"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="95dp" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="95dp"/>
+
+
+        <ImageView
+            android:id="@+id/iv_jiaotong"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="95dp" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+    
+    
+    
+    
+    
+    
 </RelativeLayout>

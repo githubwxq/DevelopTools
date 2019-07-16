@@ -13,7 +13,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".activity.ProductActivity"></activity>
+        <activity android:name=".activity.ConfirmOrderActivity"></activity>
+        <activity android:name=".activity.ProductActivity" />
         <activity android:name=".activity.ShopCarActivity" />
         <activity android:name=".activity.CityActivity" />
         <activity

@@ -63,6 +63,18 @@ public class NewNineGridlayout extends LinearLayout {
         classPic.setonNineGirdItemClickListener(listener);
     }
 
+
+
+    /**
+     * 设置图片宽度以及监听等
+     */
+    public void showPic(int nineGridViewWidth,  List<String> list, NineGridlayout.onNineGirdItemClickListener listener) {
+
+        classPic.setTotalWidth(nineGridViewWidth);
+        classPic.setImagesData(list, false, 0, 0);
+        classPic.setonNineGirdItemClickListener(listener);
+    }
+
     /**
      * 设置图片宽度以及监听等
      */
@@ -87,6 +99,14 @@ public class NewNineGridlayout extends LinearLayout {
         classPic.setImagesData(list, b, width, height);
         classPic.setonNineGirdItemClickListener(listener);
     }
-
+    /**
+     * 该方法是空间用的
+     * b 是否来自空间
+     */
+    public void showPic(int nineGridViewWidth,   List<String> list, NineGridlayout.onNineGirdItemClickListener listener, boolean b, int width, int height) {
+        classPic.setTotalWidth(nineGridViewWidth);
+        classPic.setImagesData(list, b, width, height);
+        classPic.setonNineGirdItemClickListener(listener);
+    }
 
 }

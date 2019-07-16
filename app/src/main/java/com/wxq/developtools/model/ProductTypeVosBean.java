@@ -1,6 +1,8 @@
 package com.wxq.developtools.model;
 
-public  class ProductTypeVosBean {
+import java.io.Serializable;
+
+public  class ProductTypeVosBean  implements Serializable {
             /**
              * id : 
              * name : 

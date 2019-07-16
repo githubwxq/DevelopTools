@@ -1,8 +1,9 @@
 package com.wxq.developtools.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ProductCommentData {
+public class ProductCommentData implements Serializable {
 
 
 

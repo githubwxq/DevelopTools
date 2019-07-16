@@ -8,14 +8,13 @@ import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.dialog.DialogViewHolder;
 import com.juziwl.uilibrary.dialog.XXDialog;
@@ -34,7 +33,6 @@ import com.wxq.commonlibrary.util.ThreadExecutorManager;
 import com.wxq.commonlibrary.util.TimeUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
-import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,8 +40,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -98,6 +94,9 @@ public class WatchImagesActivity extends BaseActivity {
     public static void navToWatchImages(Context context, String imgs, int firstPosition) {
         navToWatchImages(context, imgs, firstPosition, false, "", true);
     }
+
+
+
 
     public static void navToWatchImages(Context context, String imgs, int firstPosition, boolean isShowHeadIcon) {
         navToWatchImages(context, imgs, firstPosition, isShowHeadIcon, "", true);

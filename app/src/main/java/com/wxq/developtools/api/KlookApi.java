@@ -2,11 +2,14 @@ package com.wxq.developtools.api;
 
 import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.developtools.model.AreaAndCountry;
+import com.wxq.developtools.model.BaseListModeData;
 import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
+import com.wxq.developtools.model.InsertShopCarModelParmer;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
+import com.wxq.developtools.model.ShopCarBean;
 
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +91,42 @@ public interface KlookApi {
      */
     @POST("/app/product/pageProductByCondition/{page}/{rows}")
     Flowable<KlookResponseData<CollectionData>> pageProductByCondition(@Path("page")int page, @Path("rows")int rows,@Body HashMap<String,String> data);
+
+
+
+    /**
+     * 分页查询购物车
+     * @param
+     * @return
+     */
+    @POST("/app/shopcart/pageShopCart/{page}/{rows}")
+    Flowable<KlookResponseData<BaseListModeData<ShopCarBean>>> pageShopCart(@Path("page")int page, @Path("rows")int rows);
+
+
+
+    /**
+     * 分页查询购物车
+     * @param
+     * @return
+     */
+    @POST("/app/shopcart/insert")
+    Flowable<KlookResponseData<Object>> insertShopCart(@Body InsertShopCarModelParmer parmer);
+
+
+
+
+  /**
+     * 分页查询购物车
+     * @param
+     * @return
+     */
+    @POST("/app/shopcart/delete/{id}")
+    Flowable<KlookResponseData<Object>> deletetShopCart(@Path("id") String id);
+
+
+
+
+
 
 
 

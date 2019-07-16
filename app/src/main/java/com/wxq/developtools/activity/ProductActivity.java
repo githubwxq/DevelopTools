@@ -2,8 +2,8 @@ package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
+import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
+import com.luck.picture.lib.utils.DisplayUtils;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
@@ -29,23 +32,27 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.CommentBean;
+import com.wxq.developtools.model.InsertShopCarModelParmer;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
+import com.wxq.developtools.model.ProductPackageVosBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Flowable;
 import io.reactivex.functions.BiFunction;
 
 public class ProductActivity extends BaseActivity {
+    List<CommentBean> commentBeanList = new ArrayList<>();
+    int page = 1;
+    int rows = 10;
+    String id;
 
 
-    @BindView(R.id.rv_list)
-    PullRefreshRecycleView rvList;
+    PullRefreshRecycleView commen_list;
     @BindView(R.id.iv_back)
     ImageView ivBack;
     @BindView(R.id.iv_collect)
@@ -58,12 +65,8 @@ public class ProductActivity extends BaseActivity {
     TextView tvGoBuy;
     @BindView(R.id.ll_bottom)
     LinearLayout llBottom;
-
-
     @BindView(R.id.rl_top)
     RelativeLayout rlTop;
-
-
     ImageView iv_cover_pic;
     TextView tv_title;
     TextView tv_price;
@@ -72,9 +75,7 @@ public class ProductActivity extends BaseActivity {
     TextView tv_not_include;
     TextView tv_you_know;
     TextView tv_question;
-
     RecyclerView recycler_view;
-
     ProductDetailBean productDetailBean;
 
     public static void navToActivity(Context context, String id) {
@@ -83,20 +84,39 @@ public class ProductActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
-    List<CommentBean> commentBeanList = new ArrayList<>();
-
     private void updateHeard(ProductDetailBean productDetailBean) {
         LoadingImgUtil.loadimg(productDetailBean.cover,iv_cover_pic,false);
         tv_title.setText(productDetailBean.name);
         tv_price.setText("¥"+productDetailBean.price);
         tv_describe.setText(productDetailBean.description);
         tv_include.setText(productDetailBean. priceInclude);
-        tv_not_include.setText(productDetailBean. priceUninclude);
-        tv_you_know.setText(productDetailBean.k);
+        tv_not_include.setText(productDetailBean.priceUninclude);
+        tv_you_know.setText(productDetailBean.mustUnderstand);
+        tv_question.setText(productDetailBean.problem);
+        List<ProductPackageVosBean> packageVos = productDetailBean.productPackageVos;
+        if (packageVos.size()>0) {
+            packageVos.get(0).isSelect=true;
+        }
 
+        recycler_view.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recycler_view.setAdapter(new BaseQuickAdapter<ProductPackageVosBean,BaseViewHolder>(R.layout.product_taocan, packageVos) {
+            @Override
+            protected void convert(BaseViewHolder helper, ProductPackageVosBean item) {
+                helper.setText(R.id.tv_taocan,item.name);
+                helper.getView(R.id.tv_taocan).setSelected(item.isSelect);
+                helper.getView(R.id.tv_taocan).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        for (ProductPackageVosBean packageVo : packageVos) {
+                            packageVo.isSelect=false;
+                        }
+                        item.isSelect=true;
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
-
-
 
     @Override
     protected void initViews() {
@@ -112,14 +132,23 @@ public class ProductActivity extends BaseActivity {
         tv_not_include = heardView.findViewById(R.id.tv_not_include);
         tv_you_know = heardView.findViewById(R.id.tv_you_know);
         tv_question = heardView.findViewById(R.id.tv_question);
+        commen_list=findViewById(R.id.commen_list);
 
 
-
-
-        rvList.addHeaderView(heardView, true).setAdapter(new BaseQuickAdapter<CommentBean, BaseViewHolder>(R.layout.product_comment, commentBeanList) {
+        commen_list.setAdapter(new BaseQuickAdapter<CommentBean, BaseViewHolder>(R.layout.product_comment, commentBeanList) {
             @Override
             protected void convert(BaseViewHolder helper, CommentBean item) {
-
+//                helper.setText(R.id.iv_user_pic.)
+                LoadingImgUtil.loadimg(item.head,helper.getView(R.id.iv_user_pic),true);
+                helper.setText(R.id.tv_comment_content,item.content);
+                NewNineGridlayout nineGridlayout= helper.getView(R.id.nine_layout);
+                nineGridlayout.showPic(DisplayUtils.getScreenWidth(mContext), item.pics, new NineGridlayout.onNineGirdItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        ToastUtils.showShort(position+"位子");
+//                        WatchImagesActivity.navToWatchImages();
+                    }
+                });
             }
         }, new OnRefreshLoadMoreListener() {
             @Override
@@ -133,14 +162,12 @@ public class ProductActivity extends BaseActivity {
                 page = 1;
                 getComment();
             }
-        });
+        }).addHeaderView(heardView, true);
 
         getData();
     }
 
-    int page = 1;
-    int rows = 10;
-    String id;
+
 
     public void getComment() {
         Api.getInstance().getApiService(KlookApi.class)
@@ -153,13 +180,13 @@ public class ProductActivity extends BaseActivity {
                     commentBeanList.clear();
                 } else {
                     if (productCommentData.list.size() < rows) {
-                        rvList.setLoadMoreEnable(false);
+                        commen_list.setLoadMoreEnable(false);
                     } else {
-                        rvList.setLoadMoreEnable(true);
+                        commen_list.setLoadMoreEnable(true);
                     }
                 }
                 commentBeanList.addAll(productCommentData.list);
-                rvList.notifyDataSetChanged();
+                commen_list.notifyDataSetChanged();
             }
         });
 
@@ -185,7 +212,7 @@ public class ProductActivity extends BaseActivity {
         }).compose(RxTransformer.transformFlowWithLoading(this)).subscribe(new RxSubscriber<String>() {
             @Override
             protected void onSuccess(String s) {
-                rvList.notifyDataSetChanged();
+                commen_list.notifyDataSetChanged();
                 updateHeard(productDetailBean);
             }
         });
@@ -221,15 +248,31 @@ public class ProductActivity extends BaseActivity {
                 break;
             case R.id.iv_shop_car:
                 // 查看购物车
+//               。。
+
 
                 break;
             case R.id.tv_add_card:
                 // 添加到购物车
+                addShopCar(id);
+
                 break;
             case R.id.tv_go_buy:
                 // 前往购买
                 break;
         }
+    }
+
+    private void addShopCar(String id) {
+        InsertShopCarModelParmer insertShopCarModelParmer=new InsertShopCarModelParmer();
+//        insertShopCarModelParmer.num=
+
+
+
+//        Api.getInstance() .getApiService(KlookApi.class)
+
+
+
     }
 
     private void saveProduct() {
@@ -246,14 +289,5 @@ public class ProductActivity extends BaseActivity {
                         }
                     });
         }
-
-
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

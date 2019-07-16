@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".activity.ShopCarActivity">
 
+    <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
+        android:id="@+id/shop_product_list"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@drawable/selector_keyboard_add"
+            android:gravity="center_vertical"
+            android:text="全选" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总计："
+                android:textColor="@color/color_666"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥0"
+                android:textColor="@color/orange_900"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_go_buy"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@color/orange_900"
+            android:gravity="center"
+            android:text="去下单"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
 </RelativeLayout>

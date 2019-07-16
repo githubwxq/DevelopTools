@@ -7,11 +7,10 @@
     tools:context=".activity.ProductActivity">
 
     <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
-        android:id="@+id/rv_list"
+        android:id="@+id/commen_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_bottom">
-
 
     </com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
 

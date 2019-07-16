@@ -215,12 +215,13 @@ public class PullRefreshRecycleView extends LinearLayout {
      * @param adapter           自己处理数据源问题
      * @param onRefreshListener
      */
-    public void setAdapter(BaseQuickAdapter adapter, OnRefreshLoadMoreListener onRefreshListener) {
+    public PullRefreshRecycleView setAdapter(BaseQuickAdapter adapter, OnRefreshLoadMoreListener onRefreshListener) {
         pullRefreshLayout.setOnRefreshLoadMoreListener(onRefreshListener);
         this.adapter = adapter;
         this.adapter.setEmptyView(loadView);
         rv_list.setAdapter(this.adapter);
 
+        return this;
     }
 
 
