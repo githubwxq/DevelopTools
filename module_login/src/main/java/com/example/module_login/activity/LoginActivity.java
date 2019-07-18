@@ -23,7 +23,7 @@ import butterknife.BindView;
 import cn.bmob.v3.BmobUser;
 
 /*
- *登录页面1
+ *登录页面2
  * */
 public class LoginActivity extends BaseActivity<LoginContract.Presenter> implements LoginContract.View {
 
