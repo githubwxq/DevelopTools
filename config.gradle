@@ -224,7 +224,13 @@ ext {
             "java-client"                  : "com.github.appium:java-client:7.0.0",
 
             //https://github.com/chenBingX/SuperTextView/blob/master/README_CN.md
-            "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4"
+            "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4",
+
+            "wechat-sdk"                : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
+
+
+
+
 
 
     ]

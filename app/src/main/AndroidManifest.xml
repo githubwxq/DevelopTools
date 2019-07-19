@@ -52,6 +52,20 @@
         <service
             android:name=".JobHandleService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="com.wxq.developtools"/>
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

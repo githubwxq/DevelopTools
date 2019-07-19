@@ -63,8 +63,15 @@ android {
             }
         }
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 
 }
+
+
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
@@ -152,6 +159,10 @@ dependencies {
     api rootProject.ext.deps["amp3d"]
     api rootProject.ext.deps["ampLoaction"]
     api rootProject.ext.deps["ampSearch"]
+    //微信SDK接入
+    api rootProject.ext.deps["wechat-sdk"]
+
+    implementation (name: 'alipaySdk-15.6.4-20190611174359-noUtdid', ext: 'aar')
 
     //
 
