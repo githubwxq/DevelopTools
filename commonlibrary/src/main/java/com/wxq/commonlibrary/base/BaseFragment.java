@@ -19,11 +19,11 @@ import android.view.ViewGroup;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.baserx.RxBus;
+import com.wxq.commonlibrary.weiget.DialogManager;
 
 import java.util.List;
 
@@ -31,9 +31,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-
-import com.wxq.commonlibrary.baserx.Event;
-import com.wxq.commonlibrary.weiget.DialogManager;
 
 /**
  * Created by long on 2016/5/31.
@@ -408,5 +405,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     public void finishActivity() {
         getActivity().onBackPressed();
     }
+
+
+
 
 }

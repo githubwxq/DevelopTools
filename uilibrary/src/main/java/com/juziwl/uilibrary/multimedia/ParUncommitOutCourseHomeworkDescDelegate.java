@@ -27,7 +27,7 @@
 //import com.juziwl.uilibrary.otherview.LineWaveVoiceView;
 //import com.juziwl.uilibrary.progressbar.RecordCircleProgressButton;
 //import com.juziwl.uilibrary.utils.CommonDialog;
-//import com.juziwl.uilibrary.utils.PermissionUtils;
+//import com.juziwl.uilibrary.utils.RxPermissionUtils;
 //import com.juziwl.xiaoxin.R;
 //import com.juziwl.xiaoxin.model.ParOutCourseHomeworkDetail;
 //import com.juziwl.xiaoxin.ui.homework.activity.ParUncommitOutCourseHomeworkDescActivity;
@@ -138,7 +138,7 @@
 //        picSelectView.setLoginType(Global.loginType);
 //        picSelectView.setChooseMode(PictureMimeType.ofImage());
 //        picSelectView.initData(getActivity(), 3, 9, DisplayUtils.getScreenWidth() - DisplayUtils.dip2px(30),
-//                () -> PermissionUtils.requestExternalPhotoAudioPermission(getActivity(), getActivity().rxPermissions,
+//                () -> RxPermissionUtils.requestExternalPhotoAudioPermission(getActivity(), getActivity().rxPermissions,
 //                        o -> picSelectView.getOnAddPicClickListener().onAddPicClick()));
 //        picSelectView.setOnImageDeleteListener(position -> interactiveListener.onInteractive(ParUncommitOutCourseHomeworkDescActivity.ACTION_IMAGE_DELETE, null));
 //        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) progress.getLayoutParams();
@@ -150,7 +150,7 @@
 //        click(actionVoice, o -> {
 //            emojiRelative.setVisibility(View.GONE);
 //            CommonTools.hideInput(input);
-//            PermissionUtils.requestAudioPermission(getActivity(), getActivity().rxPermissions, o1 -> {
+//            RxPermissionUtils.requestAudioPermission(getActivity(), getActivity().rxPermissions, o1 -> {
 //                MediaUtil.getInstance().stop();
 //                rlRecordVoice.setVisibility(View.VISIBLE);
 //            });

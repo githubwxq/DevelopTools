@@ -4,15 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.github.yuweiguocn.library.greendao.MigrationHelper;
 import com.wxq.commonlibrary.dao.DaoMaster;
 import com.wxq.commonlibrary.dao.DaoSession;
-import com.wxq.commonlibrary.dao.UserDao;
-import com.wxq.commonlibrary.model.User;
-import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.util.Utils;
+import com.wxq.commonlibrary.model.UserInfo;
 
 /**
  * @author wxq
@@ -42,6 +38,9 @@ public class AllDataCenterManager {
      * 接口需要的token
      */
     public String token;
+
+
+    public UserInfo userInfo;
 
     private static Application sApplication;
 

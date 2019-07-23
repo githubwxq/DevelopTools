@@ -173,7 +173,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
             unregisterReceiver(broadcastReceiver);
         }
         if (localBroadcastReceiver!=null) {
-            unregisterReceiver(localBroadcastReceiver);
+            LocalBroadcastManager.getInstance(this).unregisterReceiver(localBroadcastReceiver);
         }
     }
     @Override

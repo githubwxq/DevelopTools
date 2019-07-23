@@ -158,11 +158,13 @@ dependencies {
     api rootProject.ext.deps["ampLoaction"]
     api rootProject.ext.deps["ampSearch"]
 
+
     //微信SDK接入
     api rootProject.ext.deps["wechat-sdk"]
     api(name: 'alipaySdk', ext: 'aar')
 
-    //
+    //七牛sdk上传文件啥的
+    api rootProject.ext.deps["qiniu"]
 
     //    api rootProject.ext.deps["bmob-sdk"]
 

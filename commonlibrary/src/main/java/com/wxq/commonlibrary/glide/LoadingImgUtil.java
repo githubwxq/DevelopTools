@@ -21,7 +21,6 @@ import com.bumptech.glide.request.target.ImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
-
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.BuildConfig;
 import com.wxq.commonlibrary.R;
@@ -31,6 +30,8 @@ import com.wxq.commonlibrary.util.Utils;
 
 import java.io.File;
 import java.util.WeakHashMap;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * @author ztn
@@ -57,13 +58,16 @@ public class LoadingImgUtil {
             imageView.setImageResource(resId);
             return;
         }
+
         RequestOptions options = new RequestOptions()
                 .placeholder(resId)
                 .error(resId)
                 .fallback(resId)
-//                .dontTransform()
                 .skipMemoryCache(false)
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+        if (isShowHead) {
+            options .transform(new CropCircleTransformation());
+        }
         Glide.with(imageView.getContext())
                 .load(replaceImageUrlHost(url))
                 .apply(options)

@@ -1,5 +1,6 @@
 package com.wxq.developtools.api;
 
+import com.alibaba.fastjson.JSONObject;
 import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.BaseListModeData;
@@ -10,6 +11,7 @@ import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
 import com.wxq.developtools.model.ShopCarBean;
+import com.wxq.commonlibrary.model.UserInfo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -115,13 +117,44 @@ public interface KlookApi {
 
 
 
-  /**
+   /**
      * 分页查询购物车
      * @param
      * @return
      */
     @POST("/app/shopcart/delete/{id}")
     Flowable<KlookResponseData<Object>> deletetShopCart(@Path("id") String id);
+
+
+    /**
+     * 获取用户信息
+     * @return
+     */
+    @POST("/app/user/findUserById")
+    Flowable<KlookResponseData<UserInfo>> findUserById();
+
+    /**
+     * 获取用户信息
+     * @return
+     */
+    @POST("/app/qiniu/getQiniuToken")
+    Flowable<KlookResponseData<String>> getQiniuToken();
+
+
+
+    /**
+     * 更新头像   图片地址 以及用户id
+     * @return
+     */
+    @POST("/app/user/updateHead")
+    Flowable<KlookResponseData<Object>> updateHead(@Body HashMap<String, JSONObject> data);
+
+
+
+
+
+
+
 
 
 

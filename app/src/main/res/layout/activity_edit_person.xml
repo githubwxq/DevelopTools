@@ -25,6 +25,7 @@
             android:id="@+id/iv_heard"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true" />
 

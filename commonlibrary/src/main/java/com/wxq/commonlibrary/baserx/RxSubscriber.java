@@ -33,6 +33,7 @@ public abstract class RxSubscriber<T> implements Subscriber<T> {
     public void onSubscribe(Subscription s) {
         s.request(Long.MAX_VALUE);
     }
+
     @Override
     public void onComplete() {
 
@@ -42,7 +43,6 @@ public abstract class RxSubscriber<T> implements Subscriber<T> {
     @Override
     public void onError(Throwable e) {
         try {
-
             if (!NetworkUtils.isAvailableByPing()) {
                 if (!dealHttpException(NO_NETWORK, "", e)) {
                     ToastUtils.showShort(R.string.common_useless_network);

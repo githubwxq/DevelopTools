@@ -81,4 +81,9 @@ public class GlobalContent {
 
     public static final String WEIXIN_MCHID ="" ;
 
+
+//  、、七牛云图片地址默认根路径
+    public static final String SEVENCLOUDDIR ="http://test.image.lwbudoo.cn/" ;
+
+
 }

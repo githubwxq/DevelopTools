@@ -8,13 +8,20 @@ import android.widget.TextView;
 
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.baserx.ResponseTransformer;
+import com.wxq.commonlibrary.baserx.RxSubscriber;
+import com.wxq.commonlibrary.baserx.RxTransformer;
+import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
+import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.EditPersonActivity;
 import com.wxq.developtools.activity.MyCollectionActivity;
+import com.wxq.developtools.api.KlookApi;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 
 public class MySelfFragment extends BaseFragment {
@@ -33,13 +40,41 @@ public class MySelfFragment extends BaseFragment {
     RelativeLayout rlHelp;
     @BindView(R.id.rl_about)
     RelativeLayout rlAbout;
-    Unbinder unbinder;
+
+    String picPath="";
+
 
     public static MySelfFragment newInstance() {
         MySelfFragment fragment = new MySelfFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
+    }
+
+
+
+
+    @Override
+    public void onFragmentResume() {
+      //更新用户信息
+        getUserInfo();
+    }
+
+    private void getUserInfo() {
+        Api.getInstance()
+                .getApiService(KlookApi.class).findUserById()
+                .compose(RxTransformer.transformFlowWithLoading(this))
+                .compose(ResponseTransformer.handleResult())
+                .subscribe(new RxSubscriber<UserInfo>() {
+                    @Override
+                    protected void onSuccess(UserInfo data) {
+                        AllDataCenterManager.getInstance().userInfo=data;
+                        // 显示试图
+                        tvName.setText(data.phone);
+                        picPath=data.head;
+                        LoadingImgUtil.loadimg(picPath,heardIcon,true);
+                    }
+                });
     }
 
     @Override
@@ -62,10 +97,10 @@ public class MySelfFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.heard_icon:
-                EditPersonActivity.navToActivity(mContext);
+                EditPersonActivity.navToActivity(mContext,picPath);
                 break;
             case R.id.tv_name:
-                EditPersonActivity.navToActivity(mContext);
+                EditPersonActivity.navToActivity(mContext,picPath);
                 break;
             case R.id.rl_pingzheng:
 

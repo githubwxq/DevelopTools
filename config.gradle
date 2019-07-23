@@ -227,6 +227,7 @@ ext {
             "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4",
 
             "wechat-sdk"                : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
+            "qiniu"                : "com.qiniu:qiniu-android-sdk:7.3.15",
 
 
 

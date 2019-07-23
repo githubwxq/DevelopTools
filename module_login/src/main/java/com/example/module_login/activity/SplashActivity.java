@@ -92,7 +92,7 @@ public class SplashActivity extends BaseActivity<SplashContract.Presenter> imple
             @Override
             public void onClick() {
                 // 选择图片和视频
-                ImageSeclctUtils.openBulm(SplashActivity.this, selectList);
+                ImageSeclctUtils.openAlbum(SplashActivity.this, selectList);
             }
         });
     }

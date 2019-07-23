@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.wxq.commonlibrary.R;
+import com.wxq.commonlibrary.base.BaseActivity;
 
 /**
  * Created by 王晓清.
@@ -51,6 +52,8 @@ public class TopBarHeard extends LinearLayout {
         tv_header_layout_right = (TextView) view.findViewById(R.id.tv_header_layout_right);
         iv_header_layoutleft = (ImageView) view.findViewById(R.id.iv_header_layoutleft);
         iv_header_layout_right = (ImageView) view.findViewById(R.id.iv_header_layout_right);
+        iv_header_layoutleft.setOnClickListener(v -> ((BaseActivity)context).onBackPressed());
+
     }
 
     public TopBarHeard setTitle(String title, float size, int colorId) {
