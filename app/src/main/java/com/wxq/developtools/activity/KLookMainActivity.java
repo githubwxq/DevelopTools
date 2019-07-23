@@ -1,26 +1,26 @@
 package com.wxq.developtools.activity;
 
-import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.juziwl.uilibrary.design.BottomNavigationViewHelper;
+import com.juziwl.uilibrary.BottomNavigationViewHelper;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.developtools.R;
 import com.wxq.developtools.fragment.DestinationFragment;
 import com.wxq.developtools.fragment.ExploreFragment;
 import com.wxq.developtools.fragment.MySelfFragment;
 import com.wxq.developtools.fragment.OrderFragment;
-import com.wxq.developtools.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 @Route(path = "/klook/main")
 public class KLookMainActivity extends BaseActivity {
@@ -31,6 +31,7 @@ public class KLookMainActivity extends BaseActivity {
     BottomNavigationView navigation;
 
     List<Fragment> fragmentList=new ArrayList<>();
+    MenuItem prevMenuItem;
 
     @Override
     protected void initViews() {
@@ -57,6 +58,27 @@ public class KLookMainActivity extends BaseActivity {
         fragmentList.add(MySelfFragment.newInstance());
         viewPage.setOffscreenPageLimit(fragmentList.size());
         viewPage.setAdapter(new BaseFragmentAdapter(getSupportFragmentManager(),fragmentList));
+        viewPage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+            @Override
+            public void onPageSelected(int position) {
+                if (prevMenuItem != null) {
+                    prevMenuItem.setChecked(false);
+                } else {
+                    navigation.getMenu().getItem(0).setChecked(false);
+                }
+                navigation.getMenu().getItem(position).setChecked(true);
+                prevMenuItem = navigation.getMenu().getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 
@@ -75,10 +97,5 @@ public class KLookMainActivity extends BaseActivity {
         return null;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

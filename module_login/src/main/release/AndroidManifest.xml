@@ -3,7 +3,9 @@
     package="com.example.module_login">
 
     <application>
-        <activity android:name=".activity.KlookLoginActivity">
+        <activity android:name=".activity.KlookLoginActivity"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
