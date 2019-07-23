@@ -18,6 +18,12 @@ android {
             }
         }
     }
+    //aar 文件导入
+    repositories {
+        flatDir {
+            dirs 'libs', '../commonlibrary/libs'
+        }
+    }
 }
 
 

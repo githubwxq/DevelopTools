@@ -10,6 +10,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -17,12 +18,11 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.umeng.analytics.MobclickAgent;
+import com.wxq.commonlibrary.baserx.Event;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.RxHelp;
 import com.wxq.commonlibrary.util.ToastUtils;
-import com.wxq.commonlibrary.baserx.Event;
-import com.wxq.commonlibrary.baserx.RxBus;
-import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.weiget.DialogManager;
 import com.wxq.commonlibrary.weiget.TopBarHeard;
 
@@ -168,9 +168,17 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         }
     }
 
-
+    public void unRegisterBroadcast(){
+        if (broadcastReceiver!=null) {
+            unregisterReceiver(broadcastReceiver);
+        }
+        if (localBroadcastReceiver!=null) {
+            unregisterReceiver(localBroadcastReceiver);
+        }
+    }
     @Override
     protected void onDestroy() {
+        unRegisterBroadcast();
         if (mPresenter != null) {
             mPresenter.detachView();
         }

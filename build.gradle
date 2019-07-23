@@ -38,10 +38,7 @@ buildscript {
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
 
 
-
     }
-
-    
 
 
 }
@@ -55,15 +52,17 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven { url 'http://developer.huawei.com/repo/' }
-        maven {url 'http://maven.aliyun.com/nexus/content/repositories/releases/'}
-        maven {url 'https://dl.bintray.com/polyv/android'}
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url 'https://dl.bintray.com/polyv/android' }
         maven { url "https://dl.google.com/dl/android/maven2" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://jitpack.io" }
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
-
         maven { url 'https://dl.bintray.com/umsdk/release' }
+        flatDir {
+            dirs 'libs'
+        }
     }
     tasks.withType(Javadoc) { //兼容中文字符
         options {
@@ -79,30 +78,27 @@ task clean(type: Delete) {
 }
 
 
-
-
-
 //————————————————————————自定义gradlew脚本——————————————————
-task hello{//定义一个任务Task名为hello
-    doLast{//添加一个动作Action，表示在Task执行完毕后回调doLast闭包中的代码
-        println'Hello World'//输出字符串，单双号均可
+task hello {//定义一个任务Task名为hello
+    doLast {//添加一个动作Action，表示在Task执行完毕后回调doLast闭包中的代码
+        println 'Hello World'//输出字符串，单双号均可
     }
 }
 
-task printStringVar{
-    def name="wxq"
+task printStringVar {
+    def name = "wxq"
     println '获取变量：${name}'
 
 }
 
 //List
 task printList {
-    def numList = [1,2,3,4,5,6];//定义一个List
+    def numList = [1, 2, 3, 4, 5, 6];//定义一个List
 
     println numList[1]//输出第二个元素
     println numList[-1]//输出最后一个元素
     println numList[1..3]//输出第二个到第四个元素
-    numList.each{
+    numList.each {
         println it//输出每个元素
     }
 }

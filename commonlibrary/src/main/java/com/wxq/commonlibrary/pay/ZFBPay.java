@@ -47,7 +47,7 @@ public class ZFBPay {
             public void run() {
                 // 构造PayTask 对象
                 PayTask alipay = new PayTask(activity);
-                // 调用支付接口，获取支付结果
+                // 调用支付接口，获取支付结果APPID
                 String result = alipay.pay(payInfo, true);
 
                 Message msg = mHandler.obtainMessage(SDK_PAY_FLAG);
@@ -59,7 +59,7 @@ public class ZFBPay {
             }
         };
 
-        // 必须异步调用
+        // 必须异步调用um
         Thread payThread = new Thread(payRunnable);
         payThread.start();
     }

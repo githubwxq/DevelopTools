@@ -6,6 +6,7 @@
 //
 //import com.umeng.analytics.MobclickAgent;
 //import com.umeng.commonsdk.UMConfigure;
+//import com.wxq.commonlibrary.R;
 //import com.wxq.commonlibrary.channel.DNChannelHelper;
 //
 ///**
