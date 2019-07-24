@@ -1,17 +1,17 @@
 package com.wxq.developtools.api;
 
-import com.alibaba.fastjson.JSONObject;
 import com.wxq.commonlibrary.model.KlookResponseData;
+import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.BaseListModeData;
 import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
 import com.wxq.developtools.model.InsertShopCarModelParmer;
+import com.wxq.developtools.model.PackageBean;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
 import com.wxq.developtools.model.ShopCarBean;
-import com.wxq.commonlibrary.model.UserInfo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -147,9 +147,17 @@ public interface KlookApi {
      * @return
      */
     @POST("/app/user/updateHead")
-    Flowable<KlookResponseData<Object>> updateHead(@Body HashMap<String, JSONObject> data);
+    Flowable<KlookResponseData<Object>> updateHead(@Body HashMap<String, String> data);
 
 
+
+
+    /**
+     * 商品套餐详情
+     * @return
+     */
+    @POST("/app/product/findProductPackageDetailById/{productPackageId}")
+    Flowable<KlookResponseData<PackageBean>> findProductPackageDetailById(@Path("productPackageId") String id);
 
 
 

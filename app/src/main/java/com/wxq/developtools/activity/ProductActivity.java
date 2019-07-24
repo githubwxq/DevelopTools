@@ -32,7 +32,6 @@ import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.CommentBean;
-import com.wxq.developtools.model.InsertShopCarModelParmer;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.ProductPackageVosBean;
@@ -93,6 +92,8 @@ public class ProductActivity extends BaseActivity {
         tv_not_include.setText(productDetailBean.priceUninclude);
         tv_you_know.setText(productDetailBean.mustUnderstand);
         tv_question.setText(productDetailBean.problem);
+        ivCollect.setSelected(productDetailBean.isCollection());
+
         List<ProductPackageVosBean> packageVos = productDetailBean.productPackageVos;
         if (packageVos.size()>0) {
             packageVos.get(0).isSelect=true;
@@ -134,7 +135,6 @@ public class ProductActivity extends BaseActivity {
         tv_question = heardView.findViewById(R.id.tv_question);
         commen_list=findViewById(R.id.commen_list);
 
-
         commen_list.setAdapter(new BaseQuickAdapter<CommentBean, BaseViewHolder>(R.layout.product_comment, commentBeanList) {
             @Override
             protected void convert(BaseViewHolder helper, CommentBean item) {
@@ -163,6 +163,12 @@ public class ProductActivity extends BaseActivity {
                 getComment();
             }
         }).addHeaderView(heardView, true);
+
+        // recycleview 监听
+
+
+
+
 
         getData();
     }
@@ -244,7 +250,13 @@ public class ProductActivity extends BaseActivity {
                 onBackPressed();
                 break;
             case R.id.iv_collect:
-                saveProduct();
+                if (productDetailBean.isCollection()) {
+                    cancelProduct();
+                }else {
+                    saveProduct();
+                }
+
+
                 break;
             case R.id.iv_shop_car:
                 // 查看购物车
@@ -254,26 +266,18 @@ public class ProductActivity extends BaseActivity {
                 break;
             case R.id.tv_add_card:
                 // 添加到购物车
-                addShopCar(id);
+                ConfirmOrderActivity.navToActivity(this,productDetailBean);
+
 
                 break;
             case R.id.tv_go_buy:
                 // 前往购买
+                ConfirmOrderActivity.navToActivity(this,productDetailBean);
+
                 break;
         }
     }
 
-    private void addShopCar(String id) {
-        InsertShopCarModelParmer insertShopCarModelParmer=new InsertShopCarModelParmer();
-//        insertShopCarModelParmer.num=
-
-
-
-//        Api.getInstance() .getApiService(KlookApi.class)
-
-
-
-    }
 
     private void saveProduct() {
         if (productDetailBean != null) {
@@ -286,8 +290,31 @@ public class ProductActivity extends BaseActivity {
                         @Override
                         protected void onSuccess(Object o) {
                             ToastUtils.showShort("收藏成功");
+                            productDetailBean.isCollect="1";
+                            ivCollect.setSelected(productDetailBean.isCollection());
                         }
                     });
         }
     }
+
+    private void cancelProduct() {
+        Api.getInstance()
+                .getApiService(KlookApi.class)
+                .deleteProduct(productDetailBean.id)
+                .compose(RxTransformer.transformFlowWithLoading(this))
+                .compose(ResponseTransformer.handleResult())
+                .subscribe(new RxSubscriber<Object>() {
+                    @Override
+                    protected void onSuccess(Object o) {
+                        ToastUtils.showShort("取消收藏成功");
+                        productDetailBean.isCollect="0";
+                        ivCollect.setSelected(productDetailBean.isCollection());
+                    }
+                });
+
+
+    }
+
+
+
 }

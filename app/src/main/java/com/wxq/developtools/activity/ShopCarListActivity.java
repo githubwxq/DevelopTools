@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class ShopCarActivity extends BaseActivity {
+public class ShopCarListActivity extends BaseActivity {
 
 
     @BindView(R.id.shop_product_list)

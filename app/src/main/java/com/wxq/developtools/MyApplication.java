@@ -2,6 +2,7 @@ package com.wxq.developtools;
 import android.content.Intent;
 import android.os.Process;
 
+import com.example.module_login.activity.KlookLoginActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.util.ActivityUtils;
 import com.wxq.commonlibrary.util.BuglyUtils;
@@ -31,7 +32,7 @@ public class MyApplication extends BaseApp {
     public void dealWithException(Thread thread, Throwable throwable, String error) {
         final Intent intent2 = new Intent();
         intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent2.setClass(this,MainActivity.class);
+        intent2.setClass(this, KlookLoginActivity.class);
         startActivity(intent2);
         MobclickAgent.onKillProcess(getApplicationContext());
         ActivityUtils.finishAllActivitiesExceptNewest();

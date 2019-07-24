@@ -13,16 +13,17 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".activity.ConfirmOrderActivity"></activity>
+        <activity android:name=".activity.ConfirmOrderTwoActivity"></activity>
+        <activity android:name=".activity.ConfirmOrderActivity" />
         <activity android:name=".activity.ProductActivity" />
-        <activity android:name=".activity.ShopCarActivity" />
+        <activity android:name=".activity.ShopCarListActivity" />
         <activity android:name=".activity.CityActivity" />
         <activity
             android:name=".activity.KLookMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustNothing"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".activity.MyOrderActivity" />
         <activity android:name=".activity.MyCollectionActivity" />
         <activity android:name=".activity.EditPersonActivity" />
@@ -54,19 +55,18 @@
             android:name=".JobHandleService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="com.wxq.developtools"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="com.wxq.developtools" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

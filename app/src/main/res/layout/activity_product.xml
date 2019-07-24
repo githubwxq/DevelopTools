@@ -18,7 +18,6 @@
         android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/green_100"
         android:gravity="center_vertical">
 
         <ImageView
@@ -26,8 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:padding="10dp"
-            android:src="@mipmap/right_arrow" />
+            android:src="@mipmap/icon_back_white" />
 
 
         <ImageView
@@ -37,19 +35,18 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="60dp"
-            android:src="@mipmap/right_arrow" />
+            android:src="@drawable/collection_select" />
 
 
         <ImageView
-
             android:id="@+id/iv_shop_car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:padding="10dp"
-            android:src="@mipmap/right_arrow" />
+
+            android:src="@mipmap/shop_icon" />
 
 
     </RelativeLayout>
@@ -62,14 +59,16 @@
         android:layout_alignParentBottom="true">
 
         <LinearLayout
+            android:id="@+id/ll_connect_kefu"
             android:layout_width="75dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
+                android:src="@mipmap/kefu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"

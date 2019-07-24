@@ -49,4 +49,11 @@ public class ProductDetailBean implements Serializable {
     public List<ProductPackageVosBean> productPackageVos;
 
 
+    public boolean isCollection(){
+        if (isCollect.equals("1")){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -130,11 +130,9 @@ public class EditPersonActivity extends BaseActivity {
                                     String currentUrlPath=SEVENCLOUDDIR+response.get("hash").toString();
                                     LoadingImgUtil.loadimg(picPath,ivHeard,true);
 //                                    UpdateHeardParmer parmer1=new UpdateHeardParmer(response.get("hash").toString(),AllDataCenterManager.getInstance().userInfo.id);
-                                    HashMap<String, com.alibaba.fastjson.JSONObject> map = new HashMap<>();
-                                    com.alibaba.fastjson.JSONObject jsonObject=new com.alibaba.fastjson.JSONObject();
-                                    jsonObject.put("head",response.get("hash").toString());
-                                    jsonObject.put("id",AllDataCenterManager.getInstance().userInfo.id);
-                                    map.put("dto",jsonObject);
+                                    HashMap<String, String> map = new HashMap<>();
+                                    map.put("head",response.get("hash").toString());
+                                    map.put("id",AllDataCenterManager.getInstance().userInfo.id);
                                      Api.getInstance().getApiService(KlookApi.class).updateHead(map)
                                              .compose(ResponseTransformer.handleResult())
                                              .subscribe(new RxSubscriber<Object>() {

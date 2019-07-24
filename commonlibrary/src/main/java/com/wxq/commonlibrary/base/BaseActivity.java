@@ -18,6 +18,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.umeng.analytics.MobclickAgent;
+import com.wxq.commonlibrary.R;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.util.AppManager;
@@ -64,6 +65,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
             topHeard = new TopBarHeard(this);
+            topHeard.setBackgroundColor(getResources().getColor(R.color.white));
             linearLayout.addView(topHeard);
             linearLayout.addView(LayoutInflater.from(this).inflate(attachLayoutRes(), null), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
             setContentView(linearLayout);

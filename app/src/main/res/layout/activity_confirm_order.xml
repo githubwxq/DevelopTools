@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="adsasdfasadsffa"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:text="adsasdfasadsffa" />
 
 
     <TextView
@@ -27,13 +27,16 @@
         android:textSize="14sp" />
 
     <TextView
+        android:id="@+id/tv_package_name"
         android:layout_width="130dp"
         android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/orange_gray_bg_select"
+
         android:gravity="center"
         android:text="一日游"
+        android:textColor="@color/orange_black_color_select"
+        android:background="@drawable/orange_gray_bg_select"
         android:textIsSelectable="true" />
 
 
@@ -46,26 +49,30 @@
         android:textSize="14sp" />
 
     <LinearLayout
-        android:paddingBottom="17dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="17dp">
 
         <TextView
             android:id="@+id/tv_is_adult"
             android:layout_width="75dp"
             android:layout_height="30dp"
+            android:background="@drawable/orange_gray_bg_select"
             android:gravity="center"
             android:text="成人"
-            android:textColor="@color/orange_black_color_select" />
+            android:textColor="@color/orange_black_color_select"
+
+            />
 
         <TextView
             android:id="@+id/tv_is_child"
             android:layout_width="75dp"
             android:layout_height="30dp"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/orange_gray_bg_select"
             android:gravity="center"
             android:text="儿童"
             android:textColor="@color/orange_black_color_select" />
@@ -73,19 +80,89 @@
 
     </LinearLayout>
 
-   <View
-       android:background="@color/color_f7f7f7"
-       android:layout_width="match_parent"
-       android:layout_height="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/color_f7f7f7" />
 
     <TextView
-        android:text="出发日期"
-        android:textSize="16sp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="出发日期"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_time"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"></LinearLayout>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/color_f7f7f7" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="购买数量"
+            android:textColor="@color/color_333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ku_cun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/shop_choose_view"
+            android:text="库存100件"
+            android:textColor="@color/color_666"
+            android:textSize="13sp" />
+
+       <com.juziwl.uilibrary.otherview.ShopNumberChooseView
+           android:id="@+id/shop_choose_view"
+           android:layout_alignParentRight="true"
+           android:layout_marginRight="20dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"></com.juziwl.uilibrary.otherview.ShopNumberChooseView>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_f7f7f7"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:id="@+id/tv_confirm"
+            android:gravity="center"
+            android:background="#EC4836"
+            android:layout_alignParentRight="true"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+        
+    </RelativeLayout>
 
 </LinearLayout>
