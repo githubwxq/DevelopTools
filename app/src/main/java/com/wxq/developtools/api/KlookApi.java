@@ -15,6 +15,7 @@ import com.wxq.developtools.model.PersonInfo;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
+import com.wxq.developtools.model.SaveCommentParmer;
 import com.wxq.developtools.model.ShopCarBean;
 
 import java.util.HashMap;
@@ -208,6 +209,18 @@ public interface KlookApi {
      */
     @POST("/app/order/pageOrder/{page}/{rows}")
     Flowable<KlookResponseData<BaseListModeData<OrderBean>>> pageOrder(@Path("page")int page, @Path("rows")int rows);
+
+
+
+    @POST("/app/comment/save")
+    Flowable<KlookResponseData<Object>> saveComment(@Body SaveCommentParmer parmer);
+
+
+
+
+
+
+
 
 
 

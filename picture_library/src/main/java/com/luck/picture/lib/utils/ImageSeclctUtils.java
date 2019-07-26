@@ -132,7 +132,8 @@ public class ImageSeclctUtils {
     public static void openAlbum(Activity activity, List<LocalMedia> localMedias) {
         PictureSelector.create(activity)
                 // 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
-                .openGallery(PictureMimeType.ofAll())
+//                .openGallery(PictureMimeType.ofAll())
+                .openGallery(PictureMimeType.ofImage())
                 // 最大图片选择数量
                 .maxSelectNum(9)
                 // 最小选择数量

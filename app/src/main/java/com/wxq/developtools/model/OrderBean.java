@@ -28,5 +28,12 @@ public class OrderBean {
     public String ticketType;
     public String pic="";
 
+    public String getTicketDescribe() {
+        if (ticketType.equals("1")){
+            return "成人"+num;
+        }else {
+            return "儿童"+num;
+        }
 
+    }
 }

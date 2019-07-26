@@ -188,6 +188,10 @@ public class PictureSelectorView extends RelativeLayout {
     private PictureSelectAdapter.onAddPicClickListener onAddPicClickListener = new PictureSelectAdapter.onAddPicClickListener() {
         @Override
         public void onAddPicClick() {
+
+//            。。
+
+
             if (mode) {
                 // 进入相册 以下是例子：不需要的api可以不写
                 PictureSelector.create(activity)

@@ -4,8 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activity.PublishCommentActivity">
 
+    <com.juziwl.uilibrary.edittext.SuperEditText
+        android:id="@+id/et_text"
+        android:layout_marginTop="4dp"
+        android:padding="18dp"
+        android:hint="输入你想要评论的内容吧"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.juziwl.uilibrary.edittext.SuperEditText>
+    
+    <com.luck.picture.lib.PictureSelectorView
+        android:layout_below="@+id/et_text"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/pic_select_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.luck.picture.lib.PictureSelectorView>
 
 
 

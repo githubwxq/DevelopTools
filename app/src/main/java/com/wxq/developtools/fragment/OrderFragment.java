@@ -18,6 +18,7 @@ import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.PublishCommentActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.BaseListModeData;
 import com.wxq.developtools.model.OrderBean;
@@ -66,11 +67,13 @@ public class OrderFragment extends BaseFragment {
                 helper.setText(R.id.tv_order_time,"下单时间  "+item.createTime);
                 helper.setText(R.id.tv_title,item.productName);
                 helper.setText(R.id.tv_time,item.orderDate);
-                helper.setText(R.id.tv_type,item.ticketType);
+                helper.setText(R.id.tv_type,item.getTicketDescribe());
+                helper.setText(R.id.tv_price,"¥"+item.flowNum);
                 helper.getView(R.id.tv_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                             //前往评论页面
+                        PublishCommentActivity.navToActivity(mContext,item.productId);
                     }
                 });
                 helper.getView(R.id.tv_state).setOnClickListener(new View.OnClickListener() {
