@@ -266,13 +266,13 @@ public class ProductActivity extends BaseActivity {
                 break;
             case R.id.tv_add_card:
                 // 添加到购物车
-                ConfirmOrderActivity.navToActivity(this,productDetailBean);
+                ConfirmOrderActivity.navToActivity(this,productDetailBean,ConfirmOrderActivity.ADDCARD);
 
 
                 break;
             case R.id.tv_go_buy:
                 // 前往购买
-                ConfirmOrderActivity.navToActivity(this,productDetailBean);
+                ConfirmOrderActivity.navToActivity(this,productDetailBean,ConfirmOrderActivity.RESERVE);
 
                 break;
         }

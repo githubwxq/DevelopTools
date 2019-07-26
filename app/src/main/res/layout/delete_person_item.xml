@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    >
+   <ImageView
+
+       android:src="@mipmap/jian_red"
+       android:id="@+id/iv_delete"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="name"
+        android:layout_marginLeft="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/color_666"
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="idcard"
+        android:layout_marginLeft="15dp"
+        android:textSize="14sp"
+        android:textColor="@color/color_666"
+        android:id="@+id/tv_id_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

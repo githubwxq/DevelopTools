@@ -30,6 +30,9 @@ import butterknife.OnClick;
 public class ConfirmOrderActivity extends BaseActivity {
 
 
+    public static int RESERVE=1;
+    public static int ADDCARD=2;
+
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.tv_package_name)
@@ -47,11 +50,14 @@ public class ConfirmOrderActivity extends BaseActivity {
     @BindView(R.id.tv_confirm)
     TextView tvConfirm;
 
-    public static void navToActivity(Context context, ProductDetailBean data) {
+    public static void navToActivity(Context context, ProductDetailBean data,int type) {
         Intent intent = new Intent(context, ConfirmOrderActivity.class);
         intent.putExtra("productDetailBean", data);
+        intent.putExtra("type", type);
         context.startActivity(intent);
     }
+
+    int type;
 
     /**
      * 商品详情对象
@@ -91,6 +97,8 @@ public class ConfirmOrderActivity extends BaseActivity {
     @Override
     protected void initViews() {
         productDetailBean = (ProductDetailBean) getIntent().getSerializableExtra("productDetailBean");
+        type=getIntent().getIntExtra("type",0);
+
         //获取套餐详情  获取当前套餐id
         for (ProductPackageVosBean productPackageVo : productDetailBean.productPackageVos) {
             if (productPackageVo.isSelect) {
@@ -164,8 +172,13 @@ public class ConfirmOrderActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_confirm:
-                //确认订单 前往再次确定页面
-                ConfirmOrderTwoActivity.navToActivity(this,productPackageVosBean,productDetailBean,vosBean,buyNumber);
+                if (type==ADDCARD) {
+                    //加入购物车
+
+                }else {
+                    //确认订单 前往支付页面
+                    ConfirmAndPayActivity.navToActivity(this,productPackageVosBean,productDetailBean,vosBean,buyNumber);
+                }
                 break;
 
             case R.id.tv_is_adult:

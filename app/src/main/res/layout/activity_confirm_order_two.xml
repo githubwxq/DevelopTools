@@ -6,191 +6,282 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color_f7f7f7"
-    tools:context=".activity.ConfirmOrderTwoActivity">
+    tools:context=".activity.ConfirmAndPayActivity">
 
-    <LinearLayout
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="17dp"
-        android:padding="15dp"
-        android:background="@drawable/shape_corners_4_solid_ffffff"
-        android:orientation="vertical"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="17dp"
+                android:padding="15dp"
+                android:background="@drawable/shape_corners_4_solid_ffffff"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-         <TextView
-             android:id="@+id/tv_title"
-             tools:text="泰国普吉岛2日游"
-             android:textSize="16sp"
-             android:textColor="@color/color_333"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    tools:text="泰国普吉岛2日游"
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="套餐类型："
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_package_type"
+                        android:layout_marginLeft="10dp"
+                        tools:text="啊啊啊啊"
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="出游人群："
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_people"
+                        android:layout_marginLeft="10dp"
+                        tools:text="成人*N"
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="出行日期："
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_marginLeft="10dp"
+                        tools:text="2019-01"
+                        android:textColor="@color/color_666"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+                android:background="@drawable/shape_corners_4_solid_ffffff"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="出行人"
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_marginTop="18dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/color_666"
+                        android:id="@+id/tv_add_people_label"
+                        android:textSize="14sp"
+                        tools:text="添加n为出行人"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:id="@+id/tv_choose_people"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/orange_black_color_select"
+                        android:background="@drawable/orange_gray_bg_select"
+                        android:text="选择出行人"
+                        android:layout_width="84dp"
+                        android:layout_height="30dp" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_f7f7f7"
+                    />
+
+                <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
+                    tools:visibility="gone"
+                    android:id="@+id/recycler_people_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+                android:background="@drawable/shape_corners_4_solid_ffffff"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="买家留言"
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.juziwl.uilibrary.edittext.DeletableEditText
+                    android:id="@+id/et_liuyan"
+                    android:hint="选填，请先和商家协商一致"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    android:textColor="@color/color_999"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+            </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:background="@drawable/shape_corners_4_solid_ffffff"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
-                android:text="套餐类型："
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_package_type"
-                android:layout_marginLeft="10dp"
-                tools:text="啊啊啊啊"
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
+                android:text="支付方式"
+                android:textSize="16sp"
+                android:textColor="@color/color_333"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <RelativeLayout
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:id="@+id/rl_weixing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+
+                    android:id="@+id/iv_weixing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="40dp"
+                    android:text="微信支付"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                   <ImageView
+                       android:src="@drawable/choose_select"
+                       android:layout_alignParentRight="true"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_f7f7f7"
+                />
+
+
+            <RelativeLayout
+                android:paddingTop="15dp"
+                android:paddingBottom="12dp"
+                android:id="@+id/rl_zhifubao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+
+                    android:id="@+id/iv_zhifubao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="40dp"
+                    android:text="支付宝"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@drawable/choose_select"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </LinearLayout>
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="出游人群："
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_people"
-                android:layout_marginLeft="10dp"
-                tools:text="成人*N"
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="出行日期："
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_marginLeft="10dp"
-                tools:text="2019-01"
-                android:textColor="@color/color_666"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:padding="15dp"
-        android:background="@drawable/shape_corners_4_solid_ffffff"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="出行人"
-            android:textSize="16sp"
-            android:textColor="@color/color_333"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RelativeLayout
-            android:layout_marginTop="18dp"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-              android:layout_centerVertical="true"
-                android:textColor="@color/color_666"
-                android:id="@+id/tv_add_people_label"
-                android:textSize="14sp"
-                tools:text="添加n为出行人"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <TextView
-                android:id="@+id/tv_choose_people"
-                android:gravity="center"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/orange_black_color_select"
-                android:background="@drawable/orange_gray_bg_select"
-                android:text="选择出行人"
-                android:layout_width="84dp"
-                android:layout_height="30dp" />
-
-
-        </RelativeLayout>
-
-        <View
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/color_f7f7f7"
-            />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_people_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:padding="15dp"
-        android:background="@drawable/shape_corners_4_solid_ffffff"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="买家留言"
-            android:textSize="16sp"
-            android:textColor="@color/color_333"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <com.juziwl.uilibrary.edittext.DeletableEditText
-            android:id="@+id/et_liuyan"
-            android:hint="选填，请先和商家协商一致"
-            android:text=""
-            android:textSize="14sp"
-            android:layout_marginTop="20dp"
-            android:background="@null"
-            android:textColor="@color/color_999"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
-    </LinearLayout>
-
-<View
+    <View
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"

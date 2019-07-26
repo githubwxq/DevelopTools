@@ -75,10 +75,11 @@ public class GlobalContent {
     public static final String ACCESSTOKEN = "AccessToken";
 
 
-  // 微信支付相关
-    public static final String WEIXIN_APPID = "";
+  // 微信支付相关 包子
 
+    public static final String WEIXIN_APPID = "wx6fc0584cba2079c5";
 
+    // 微信商户id
     public static final String WEIXIN_MCHID ="" ;
 
 

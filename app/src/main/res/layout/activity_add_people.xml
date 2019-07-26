@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="15dp"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddPeopleActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_marginLeft="18dp"
+            android:text="真实姓名"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_333"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_name"
+            android:layout_marginLeft="26dp"
+            android:hint="请输入真实姓名"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/color_f7f7f7"
+    />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_marginLeft="18dp"
+            android:text="联系电话"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_333"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_phone"
+            android:layout_marginLeft="26dp"
+            android:hint="请输入联系电话"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f7f7f7"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_marginLeft="18dp"
+            android:text="身份证号"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_333"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_shengfeng"
+            android:layout_marginLeft="26dp"
+            android:hint="请输入居民身份证"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f7f7f7"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_marginLeft="18dp"
+            android:text="护照号"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_333"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_huzhao"
+         android:layout_marginLeft="40dp"
+            android:hint="请输入护照号"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f7f7f7"
+        />
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_marginLeft="18dp"
+            android:text="护照号"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_333"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <com.juziwl.uilibrary.edittext.SuperEditText
+            android:id="@+id/et_email"
+         android:layout_marginLeft="40dp"
+            android:hint="请输入邮箱"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_f7f7f7"
+        />
+
+
+
+
+    
+
+    
+
+
+
+
+
+</LinearLayout>

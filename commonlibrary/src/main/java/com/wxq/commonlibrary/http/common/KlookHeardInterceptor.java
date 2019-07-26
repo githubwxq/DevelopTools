@@ -1,5 +1,7 @@
 package com.wxq.commonlibrary.http.common;
 
+import android.util.Log;
+
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.util.StringUtils;
@@ -17,6 +19,7 @@ public class KlookHeardInterceptor implements Interceptor {
         Request request = chain.request();
         if (!StringUtils.isEmpty(AllDataCenterManager.getInstance().token)) {
             Request.Builder builder = request.newBuilder().header(GlobalContent.ACCESSTOKEN,AllDataCenterManager.getInstance().token);
+            Log.i("token",AllDataCenterManager.getInstance().token);
             return chain.proceed(builder.build());
         }
         return chain.proceed(request);

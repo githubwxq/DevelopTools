@@ -23,12 +23,11 @@ import java.util.Random;
 
 public class WeiXinPay {
     private static WeiXinPay instance = null;
-    private String appId = "", mchId = "";
+    private String appId = "", partnerId = "";
 
     private WeiXinPay() {
-
             appId = GlobalContent.WEIXIN_APPID;
-            mchId = GlobalContent.WEIXIN_MCHID;
+        partnerId = GlobalContent.WEIXIN_MCHID;
     }
 
     public static WeiXinPay getInstance() {
@@ -83,7 +82,7 @@ public class WeiXinPay {
 
     private void genPayReq(PayReq req, Map<String, String> result, String apiKey) {
         req.appId = appId;
-        req.partnerId = mchId;
+        req.partnerId = partnerId;
         req.prepayId = result.get("prepay_id");
         req.packageValue = "Sign=WXPay";
         req.nonceStr = genNonceStr();

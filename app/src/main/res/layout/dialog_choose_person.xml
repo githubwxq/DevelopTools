@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F6"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="取消"
+                android:padding="5dp"
+                android:textColor="@color/color_666"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:text="确定"
+                android:padding="5dp"
+                android:textColor="@color/color_666"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/rl_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/add"
+                android:text="新增"
+                android:textColor="#EC4836 " />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/color_f7f7f7" />
+        
+        <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="208dp"></com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
+        
+        
+        
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名"
+                android:textColor="@color/color_333"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/choose_select" />
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/color_666"
+                android:textSize="12sp"
+                tools:text="联系电话   134256779837" />
+            <TextView
+                android:id="@+id/tv_shengfeng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_phone"
+                android:textColor="@color/color_666"
+                android:textSize="12sp"
+                tools:text="身份证号   32028765431934" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

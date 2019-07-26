@@ -5,3 +5,4 @@ include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':
 //':commonservice',
 //, ':bmobim'      ':inject_annotion', ':inject', ':inject_compiler', , ':trackpoint'
 
+//include ':amm_sdk_sample'

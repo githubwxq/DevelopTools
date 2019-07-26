@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public class ProductDetailBean implements Serializable {
-
-
     @Override
     public String toString() {
         return "ProductDetailBean{" +

@@ -24,8 +24,6 @@ public class Api {
     private Retrofit retrofit;
 
     public Api() {
-        //token拦截器
-//        TokenInterceptor tokenInterceptor=new TokenInterceptor();
         //日志拦截器
         HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor("okgo");
         logInterceptor.setColorLevel(Level.WARNING);

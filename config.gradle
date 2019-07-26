@@ -158,7 +158,7 @@ ext {
             "ampLoaction"                  : "com.amap.api:location:3.3.0",
             "ampSearch"                    : "com.amap.api:search:5.0.0",
             //微信
-            "wechatsdk"                    : "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0",
+//            "wechatsdk"                    : "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0",
 
             //recyclerview左划删除
             "SwipeDelMenuLayout"           : "com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0",

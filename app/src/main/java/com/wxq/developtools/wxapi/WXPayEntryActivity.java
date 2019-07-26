@@ -1,8 +1,8 @@
 package com.wxq.developtools.wxapi;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
@@ -12,17 +12,19 @@ import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import com.wxq.developtools.R;
+import com.wxq.commonlibrary.constant.GlobalContent;
+import com.wxq.commonlibrary.util.AppManager;
+import com.wxq.commonlibrary.util.ToastUtils;
 
-public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
+public class WXPayEntryActivity extends FragmentActivity implements IWXAPIEventHandler {
     private static final String TAG = "MicroMsg.SDKSample.WXPayEntryActivity";
     private IWXAPI api;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pay_result);
-        api = WXAPIFactory.createWXAPI(this, "你的appid");
+        AppManager.getInstance().addActivity(this);
+        api = WXAPIFactory.createWXAPI(this, GlobalContent.WEIXIN_APPID);
         api.handleIntent(getIntent(), this);
     }
 
@@ -46,5 +48,22 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
             builder.setMessage(String.valueOf(resp.errCode));
             builder.show();
         }
+
+        if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
+            if (resp.errCode == 0) {
+                ToastUtils.showShort("支付成功");
+                sendBroadcast(new Intent("com.Pay"));
+                finish();
+            } else if (resp.errCode == -1) {
+                ToastUtils.showShort("支付失败");
+                sendBroadcast(new Intent("com.Pay.error"));
+                finish();
+            } else if (resp.errCode == -2) {
+                ToastUtils.showShort("支付取消");
+                sendBroadcast(new Intent("com.Pay.cancle"));
+                finish();
+            }
+        }
+
     }
 }

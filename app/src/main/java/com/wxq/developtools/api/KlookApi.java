@@ -2,12 +2,16 @@ package com.wxq.developtools.api;
 
 import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.commonlibrary.model.UserInfo;
+import com.wxq.developtools.model.AddShopCarParmer;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.BaseListModeData;
 import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
-import com.wxq.developtools.model.InsertShopCarModelParmer;
+import com.wxq.developtools.model.OrderBean;
 import com.wxq.developtools.model.PackageBean;
+import com.wxq.developtools.model.PayParmer;
+import com.wxq.developtools.model.PayResultData;
+import com.wxq.developtools.model.PersonInfo;
 import com.wxq.developtools.model.ProductCommentData;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.Region;
@@ -96,34 +100,7 @@ public interface KlookApi {
 
 
 
-    /**
-     * 分页查询购物车
-     * @param
-     * @return
-     */
-    @POST("/app/shopcart/pageShopCart/{page}/{rows}")
-    Flowable<KlookResponseData<BaseListModeData<ShopCarBean>>> pageShopCart(@Path("page")int page, @Path("rows")int rows);
 
-
-
-    /**
-     * 分页查询购物车
-     * @param
-     * @return
-     */
-    @POST("/app/shopcart/insert")
-    Flowable<KlookResponseData<Object>> insertShopCart(@Body InsertShopCarModelParmer parmer);
-
-
-
-
-   /**
-     * 分页查询购物车
-     * @param
-     * @return
-     */
-    @POST("/app/shopcart/delete/{id}")
-    Flowable<KlookResponseData<Object>> deletetShopCart(@Path("id") String id);
 
 
     /**
@@ -161,12 +138,76 @@ public interface KlookApi {
 
 
 
+    /**
+     * 设置用户账户
+     * @return
+     */
+    @POST("/app/user/saveUserAccount")
+    Flowable<KlookResponseData<PersonInfo>> saveUserAccount(@Body HashMap<String, String> data);
+
+
+    /**
+     * 获取用户列表
+     * @return
+     */
+    @POST("/app/user/findUserAccountByUserId")
+    Flowable<KlookResponseData<List<PersonInfo>>> findUserAccountByUserId();
+
+
+
+    /**
+     * 支付宝支付
+     * @return
+     */
+    @POST("/app/buy/alipay")
+    Flowable<KlookResponseData<PayResultData>> alipay(@Body PayParmer payParmer);
+
+
+  /**
+     * 支付宝支付
+     * @return
+     */
+    @POST("/app/buy/wechatpay")
+    Flowable<KlookResponseData<PayResultData>> wechatpay(@Body PayParmer payParmer);
 
 
 
 
+    /**
+     * 添加销售店
+     * @return
+     */
+    @POST("/app/shopcart/insert")
+    Flowable<KlookResponseData<PayResultData>> insertShopCart(@Body AddShopCarParmer payParmer);
 
 
+     /**
+     * 删除购物车
+     * @return
+     */
+    @POST("/app/shopcart/delete/{id}")
+    Flowable<KlookResponseData<Object>> deleteShopCart(@Path("id") String payParmer);
+
+
+
+    /**
+     * 分页查询购物车
+     * @param
+     * @return
+     */
+    @POST("/app/shopcart/pageShopCart/{page}/{rows}")
+    Flowable<KlookResponseData<BaseListModeData<ShopCarBean>>> pageShopCart(@Path("page")int page, @Path("rows")int rows);
+
+
+
+
+    /**
+     * 分页查询我的订单
+     * @param
+     * @return
+     */
+    @POST("/app/order/pageOrder/{page}/{rows}")
+    Flowable<KlookResponseData<BaseListModeData<OrderBean>>> pageOrder(@Path("page")int page, @Path("rows")int rows);
 
 
 

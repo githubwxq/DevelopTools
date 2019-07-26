@@ -113,9 +113,9 @@ public class HttpLoggingInterceptor implements Interceptor {
                 for (int i = 0, count = headers.size(); i < count; i++) {
                     String name = headers.name(i);
                     // Skip headers from the request body as they are explicitly logged above.
-                    if (!"Content-Type".equalsIgnoreCase(name) && !"Content-Length".equalsIgnoreCase(name)) {
+//                    if (!"Content-Type".equalsIgnoreCase(name) && !"Content-Length".equalsIgnoreCase(name)) {
                         log("\t" + name + ": " + headers.value(i));
-                    }
+//                    }
                 }
 
                 log(" ");
@@ -158,6 +158,9 @@ public class HttpLoggingInterceptor implements Interceptor {
                         byte[] bytes = toByteArray(responseBody.byteStream());
                         MediaType contentType = responseBody.contentType();
                         String body = new String(bytes, getCharset(contentType));
+
+
+
                         log("\tbody:" + body);
                         responseBody = ResponseBody.create(responseBody.contentType(), bytes);
                         return response.newBuilder().body(responseBody).build();
