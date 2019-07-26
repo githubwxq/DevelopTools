@@ -3,8 +3,6 @@ package com.wxq.developtools.wxapi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
 
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -41,13 +39,6 @@ public class WXPayEntryActivity extends FragmentActivity implements IWXAPIEventH
 
     @Override
     public void onResp(BaseResp resp) {
-        Log.d("wxq", "onPayFinish, errCode = " + resp.errCode);
-        if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("支付结果");
-            builder.setMessage(String.valueOf(resp.errCode));
-            builder.show();
-        }
 
         if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             if (resp.errCode == 0) {

@@ -96,12 +96,13 @@ public class PublishCommentActivity extends BaseActivity {
                         // 图片创建集合
                         if (selectList.size() > 0) {
                             needUpHash.clear();
-                            upLoadQiNiu(selectList.get(picNum), token);
-                            emitter.onNext(needUpHash);
+                            upLoadQiNiu(selectList.get(picNum), token,emitter);
+//                            emitter.onNext(needUpHash);
                         } else {
                             emitter.onNext(new ArrayList<>());
+                            emitter.onComplete();
                         }
-                        emitter.onComplete();
+
                     }
                 }, BackpressureStrategy.ERROR);
             }
@@ -120,13 +121,14 @@ public class PublishCommentActivity extends BaseActivity {
             @Override
             protected void onSuccess(Object o) {
                 ToastUtils.showShort("评论成功");
+                finish();
             }
         });
 
 
     }
 
-    private void upLoadQiNiu(LocalMedia localMedia, String token) {
+    private void upLoadQiNiu(LocalMedia localMedia, String token, FlowableEmitter<List<String>> emitter) {
         UploadManager uploadManager = new UploadManager();
         uploadManager.put(new File(localMedia.getPath()), null, token, new UpCompletionHandler() {
             @Override
@@ -137,11 +139,12 @@ public class PublishCommentActivity extends BaseActivity {
                         needUpHash.add(response.get("hash").toString());
                         picNum++;
                         if (picNum < selectList.size()) {
-                            upLoadQiNiu(selectList.get(picNum), token);
+                            upLoadQiNiu(selectList.get(picNum), token, emitter);
                         } else {
                             picNum = 0;
                             flag = true;
-                            return;
+                            emitter.onNext(needUpHash);
+                            emitter.onComplete();
                         }
                     }
                 } catch (JSONException e) {

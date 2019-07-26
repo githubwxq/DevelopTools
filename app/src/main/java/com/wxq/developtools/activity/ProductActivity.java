@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
@@ -28,6 +29,7 @@ import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.util.BarUtils;
+import com.wxq.commonlibrary.util.ConvertUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
@@ -142,13 +144,29 @@ public class ProductActivity extends BaseActivity {
                 LoadingImgUtil.loadimg(item.head,helper.getView(R.id.iv_user_pic),true);
                 helper.setText(R.id.tv_comment_content,item.content);
                 NewNineGridlayout nineGridlayout= helper.getView(R.id.nine_layout);
-                nineGridlayout.showPic(DisplayUtils.getScreenWidth(mContext), item.pics, new NineGridlayout.onNineGirdItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        ToastUtils.showShort(position+"位子");
-//                        WatchImagesActivity.navToWatchImages();
-                    }
-                });
+                if (item.pics!=null) {
+                    nineGridlayout.setVisibility(View.VISIBLE);
+
+                    nineGridlayout.showPic(DisplayUtils.getScreenWidth(mContext)- ConvertUtils.dp2px(80), item.pics, new NineGridlayout.onNineGirdItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            StringBuilder stringBuilder=new StringBuilder();
+                            for (int i = 0; i < item.pics.size(); i++) {
+                                if (i==item.pics.size()-1) {
+                                    stringBuilder.append(item.pics.get(i));
+                                }else {
+                                    stringBuilder.append(item.pics.get(i)+";");
+                                }
+                            }
+                            WatchImagesActivity.navToWatchImages(mContext,stringBuilder.toString(),position);
+                        }
+                    });
+
+                }else {
+                    nineGridlayout.setVisibility(View.GONE);
+                }
+
+
             }
         }, new OnRefreshLoadMoreListener() {
             @Override
