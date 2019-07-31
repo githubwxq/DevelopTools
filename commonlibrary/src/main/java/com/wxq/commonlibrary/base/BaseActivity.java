@@ -187,6 +187,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         if (disposable != null) {
             disposable.dispose();
         }
+        unbinder.unbind();
         super.onDestroy();
     }
 
