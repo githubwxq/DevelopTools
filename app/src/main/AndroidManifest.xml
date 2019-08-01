@@ -20,6 +20,10 @@
         <activity android:name=".activity.ConfirmOrderActivity" />
         <activity android:name=".activity.ProductActivity" />
         <activity android:name=".activity.ShopCarListActivity" />
+        <activity android:name=".activity.CustomerServiceActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"   />
         <activity android:name=".activity.CityActivity" />
         <activity
             android:name=".activity.KLookMainActivity"

@@ -16,6 +16,7 @@ import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.CustomerServiceActivity;
 import com.wxq.developtools.activity.EditPersonActivity;
 import com.wxq.developtools.activity.MyCollectionActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -112,7 +113,7 @@ public class MySelfFragment extends BaseFragment {
 
                 break;
             case R.id.rl_help:
-
+                CustomerServiceActivity.navToActivity(mContext);
                 break;
             case R.id.rl_about:
 
