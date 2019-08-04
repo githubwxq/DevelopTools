@@ -46,6 +46,11 @@ public class ProductDetailBean implements Serializable {
     public String videoUrl;
     public List<ProductPackageVosBean> productPackageVos;
 
+    public String  lat; //经度
+    public String  lng; // 维度
+
+
+
 
     public boolean isCollection(){
         if (isCollect.equals("1")){

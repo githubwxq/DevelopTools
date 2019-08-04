@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/iv_cover_pic"
         android:scaleType="centerCrop"
-        android:src="@mipmap/timg"
+
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
@@ -19,7 +19,7 @@
         android:layout_marginLeft="15dp"
         android:textSize="20sp"
         android:id="@+id/tv_title"
-        android:text="产品标题"
+        tools:text="产品标题"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -27,7 +27,7 @@
     <TextView
         android:layout_marginTop="6dp"
         android:layout_marginLeft="15dp"
-        android:text="35"
+        tools:text="35"
         android:id="@+id/tv_price"
         android:textSize="24sp"
         android:textColor="#EC4836"
@@ -58,12 +58,10 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
+            tools:visibility="gone"
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-
-
 
     </LinearLayout>
 
@@ -208,8 +206,11 @@
         android:layout_height="10dp"
         android:background="@color/color_f7f7f7"
         />
-
-
+    <com.amap.api.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
     <TextView
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"

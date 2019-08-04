@@ -103,6 +103,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
+
     <!-- bmob相关权限 -->
     <!--比目数据SDK所需的权限-->
     <!--允许联网 -->
@@ -117,16 +118,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--允许读取手机状态 用于创建BmobInstallation-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-
     <!--推送所需的权限-->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <!--8.0安裝apk需要权限-->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-
-
     <!--微信支付权限-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
@@ -147,6 +143,13 @@
         </provider>
 
         <service android:name=".service.MyService"/>
+
+        <!--//高德地图需要的key-->
+        <!--<meta-data-->
+            <!--android:name="com.amap.api.v2.apikey"-->
+            <!--android:value="b0988fe00f9010eb67ac04e20e9df79c"/>-->
+
+
 
 
     </application>

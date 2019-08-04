@@ -64,8 +64,7 @@ public class PublishCommentActivity extends BaseActivity {
         });
         productId = getIntent().getStringExtra("productId");
         picSelectView.initData(this, 3, 9, DisplayUtils.getScreenWidth(this) - DensityUtil.dip2px(this, 40));
-        picSelectView.setSelectModel(PictureMimeType.ofImage());
-
+        picSelectView.setChooseMode(PictureMimeType.ofImage());
     }
 
     List<LocalMedia> selectList; //选中的图片集合

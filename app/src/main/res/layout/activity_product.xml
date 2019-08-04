@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ProductActivity">
-
     <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
         android:id="@+id/commen_list"
         android:layout_width="match_parent"

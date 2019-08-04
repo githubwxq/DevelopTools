@@ -157,6 +157,13 @@ ext {
             "amp3d"                        : "com.amap.api:3dmap:5.0.0",
             "ampLoaction"                  : "com.amap.api:location:3.3.0",
             "ampSearch"                    : "com.amap.api:search:5.0.0",
+            "map2d"                    : "com.amap.api:map2d:latest.integration",
+            "navi-3dmap"                    : "com.amap.api:navi-3dmap:latest.integration",
+
+
+            //百度地图
+
+
             //微信
 //            "wechatsdk"                    : "com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0",
 

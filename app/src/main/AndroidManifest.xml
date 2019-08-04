@@ -52,7 +52,8 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="70503dabb7507dd8ff8126f312fbce84" />
+            android:value="b0988fe00f9010eb67ac04e20e9df79c" />
+
 
         <service android:name=".LocalService" />
         <service
