@@ -1,11 +1,9 @@
 package com.example.module_login.bean;
 
-import java.util.List;
-
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.datatype.BmobGeoPoint;
-import cn.bmob.v3.datatype.BmobRelation;
+//import cn.bmob.v3.BmobUser;
+//import cn.bmob.v3.datatype.BmobFile;
+//import cn.bmob.v3.datatype.BmobGeoPoint;
+//import cn.bmob.v3.datatype.BmobRelation;
 
 /**
  * author:wxq
@@ -14,7 +12,7 @@ import cn.bmob.v3.datatype.BmobRelation;
  * desc:
  * version:1.0
  */
-public class User extends BmobUser{
+public class User{
 
     public String phoneNumber;
 
@@ -28,25 +26,29 @@ public class User extends BmobUser{
     public Integer gender;
 
 
-    /**
-     * 用户当前位置
-     */
-    public BmobGeoPoint address;
+
+//    /**
+//     * 别名
+//     */
+//    public List<String> alias;
+//
+//    /**
+//     * 关注的人
+//     */
+//    public BmobRelation careUserList;
+//
+//
+//    /**
+//     * 用户当前位置
+//     */
+//    public BmobGeoPoint address;
+//
+//
+//    /**
+//     * 头像
+//     */
+//    public BmobFile avatar;
 
 
-    /**
-     * 头像
-     */
-    public BmobFile avatar;
 
-
-    /**
-     * 别名
-     */
-    public List<String> alias;
-
-    /**
-     * 关注的人
-     */
-    public BmobRelation careUserList;
 }

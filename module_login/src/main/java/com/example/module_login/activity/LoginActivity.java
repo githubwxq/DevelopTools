@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_login.R;
 import com.example.module_login.R2;
-import com.example.module_login.bean.User;
 import com.example.module_login.contract.LoginContract;
 import com.example.module_login.presenter.LoginActivityPresent;
 import com.juziwl.uilibrary.edittext.EditTextWithDel;
@@ -21,8 +20,9 @@ import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import butterknife.BindView;
-import cn.bmob.v3.BmobUser;
 import io.reactivex.functions.Consumer;
+
+//import cn.bmob.v3.BmobUser;
 
 /*
  *登录页面3
@@ -115,10 +115,10 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter> impleme
     @Override
     protected void onResume() {
         super.onResume();
-        User currentUser = BmobUser.getCurrentUser(User.class);
-        if (currentUser!=null) {
-            currentUser.getUsername();
-
-        }
+//        User currentUser = BmobUser.getCurrentUser(User.class);
+//        if (currentUser!=null) {
+//            currentUser.getUsername();
+//
+//        }
     }
 }

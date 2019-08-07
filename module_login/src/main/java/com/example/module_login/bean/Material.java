@@ -1,7 +1,5 @@
 package com.example.module_login.bean;
 
-import cn.bmob.v3.BmobObject;
-
 /**
  * author:wxq
  * email:805380422@qq.com
@@ -9,7 +7,9 @@ import cn.bmob.v3.BmobObject;
  * desc:
  * version:1.0
  */
-public class Material extends BmobObject {
+
+//extends BmobObject
+public class Material  {
 
     public String sourse_name;
     public String source_type;

@@ -149,7 +149,7 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
         tv_you_know = heardView.findViewById(R.id.tv_you_know);
         tv_question = heardView.findViewById(R.id.tv_question);
         commen_list = findViewById(R.id.commen_list);
-        mapView = heardView.findViewById(R.id.map);
+//        mapView = heardView.findViewById(R.id.map);
 
         commen_list.setAdapter(new BaseQuickAdapter<CommentBean, BaseViewHolder>(R.layout.product_comment, commentBeanList) {
             @Override
@@ -368,8 +368,8 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mapView.onCreate(savedInstanceState); // 此方法必须重写
-        initMap();
+//        mapView.onCreate(savedInstanceState); // 此方法必须重写
+
     }
 
     /**
@@ -407,7 +407,7 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
     @Override
     protected void onResume() {
         super.onResume();
-        mapView.onResume();
+//        mapView.onResume();
     }
 
     /**
@@ -416,19 +416,19 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
     @Override
     protected void onPause() {
         super.onPause();
-        mapView.onPause();
+//        mapView.onPause();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
+//        mapView.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapView.onDestroy();
+//        mapView.onDestroy();
     }
 
 }

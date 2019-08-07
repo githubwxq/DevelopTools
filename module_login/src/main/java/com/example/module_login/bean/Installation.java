@@ -1,13 +1,13 @@
 package com.example.module_login.bean;
 
-import cn.bmob.v3.BmobInstallation;
-import cn.bmob.v3.datatype.BmobGeoPoint;
+//import cn.bmob.v3.BmobInstallation;
+//import cn.bmob.v3.datatype.BmobGeoPoint;
 
-
-public class Installation extends BmobInstallation {
+//extends BmobInstallation
+public class Installation  {
 
     private User user;
-    private BmobGeoPoint location;
+//    private BmobGeoPoint location;
 
 
     public User getUser() {
@@ -18,11 +18,11 @@ public class Installation extends BmobInstallation {
         this.user = user;
     }
 
-    public BmobGeoPoint getLocation() {
-        return location;
-    }
-
-    public void setLocation(BmobGeoPoint location) {
-        this.location = location;
-    }
+//    public BmobGeoPoint getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(BmobGeoPoint location) {
+//        this.location = location;
+//    }
 }

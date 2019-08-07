@@ -2,7 +2,7 @@ package com.example.module_login;
 
 import com.wxq.commonlibrary.base.BaseApp;
 
-import cn.bmob.v3.Bmob;
+//import cn.bmob.v3.Bmob;
 
 /**
  * author:wxq
@@ -15,7 +15,7 @@ public class LoginModuleApplication extends BaseApp {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bmob.initialize(this, "ea796f59c1a3d4a34f0b18b7626dd291");
+//        Bmob.initialize(this, "ea796f59c1a3d4a34f0b18b7626dd291");
 
     }
 

@@ -53,7 +53,6 @@ android {
 
 
     buildTypes {
-
         release {
             minifyEnabled false
             signingConfig signingConfigs.release
@@ -61,7 +60,6 @@ android {
         }
         debug {
             signingConfig signingConfigs.debug
-
         }
     }
 
@@ -73,6 +71,7 @@ android {
     dexOptions {
         jumboMode = true
     }
+
     dexOptions {
         maxProcessCount 4
         javaMaxHeapSize "8g"
