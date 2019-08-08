@@ -127,3 +127,54 @@ dependencies {
     implementation rootProject.ext.deps["jcore"]
 //    implementation project(':commonservice')
 }
+
+
+//多环境配置问题采用以下避免修改代码然后打包
+//flavorDimensions "trumpchi"
+//// 分环境打包配置
+//productFlavors {
+//    //开发环境打包配置
+//    dev {
+//        applicationId "com.cloudy.component.store"
+//        manifestPlaceholders = [
+//                UMENG_CHANNEL_VALUE: "dev",
+//                JPUSH_CHANNEL      : "dev",
+//        ]
+//        buildConfigField "boolean" , "isReport" , "false"
+//    }
+//    //测试环境打包配置
+//    pre {
+//        applicationId "com.cloudy.component.store"
+//        manifestPlaceholders = [
+//                UMENG_CHANNEL_VALUE: "test",
+//                JPUSH_CHANNEL      : "test",
+//        ]
+//        buildConfigField "boolean" , "isReport" , "false"
+//    }
+//    //生产环境打包配置
+//    prod {
+//        applicationId "com.cloudy.component.store"
+//        manifestPlaceholders = [
+//                UMENG_CHANNEL_VALUE: "prod",
+//                JPUSH_CHANNEL      : "prod",
+//        ]
+//        buildConfigField "boolean" , "isReport" , "true"
+//    }
+//}
+//
+//sourceSets { //默认的源码等文件路径配置
+//    dev {
+//        java.srcDirs = ['src/dev', 'src/dev/java', 'src/dev/java/']
+//    }
+//    pre {
+//        java.srcDirs = ['src/pre', 'src/pre/java', 'src/pre/java/']
+//    }
+//    prod {
+//        java.srcDirs = ['src/prod', 'src/prod/java', 'src/prod/java/']// java源代码目录
+//    }
+//    main {
+//        jniLibs.srcDirs = ['libs']  // 设置so包地址
+//        res.srcDirs = ['src/main/res', 'src/main/res/person', 'src/main/res/vhall']// resource目录
+//    }
+//}
+//
