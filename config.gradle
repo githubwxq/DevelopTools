@@ -9,7 +9,7 @@ ext {
     isBaoLiModule = false
     isSdkModule = true
 
-    isInterviewModule=true
+    isInterviewModule = true
     //true为应用  false 为依赖库
     //bmob当前为应用成无任何代码只有常见配置
     isBmobModule = false
@@ -157,8 +157,8 @@ ext {
             "amp3d"                        : "com.amap.api:3dmap:5.0.0",
             "ampLoaction"                  : "com.amap.api:location:3.3.0",
             "ampSearch"                    : "com.amap.api:search:5.0.0",
-            "map2d"                    : "com.amap.api:map2d:latest.integration",
-            "navi-3dmap"                    : "com.amap.api:navi-3dmap:latest.integration",
+            "map2d"                        : "com.amap.api:map2d:latest.integration",
+            "navi-3dmap"                   : "com.amap.api:navi-3dmap:latest.integration",
 
 
             //百度地图
@@ -193,32 +193,26 @@ ext {
             "ijkplayer-exo"                : "tv.danmaku.ijk.media:ijkplayer-exo:0.8.3",
             "ijkplayer-arm64"              : "tv.danmaku.ijk.media:ijkplayer-arm64:0.8.3",
             "ijkplayer-x86_64"             : "tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.3",
-
             //二维码
             "zxing"                        : "cn.yipianfengye.android:zxing-library:2.2",
-
+            "bga-qrcode-zxing"             : "cn.bingoogolapple:bga-qrcode-zxing:1.3.6",
             "BRVAH"                        : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${dependVersion.brvah}",
             "loadingView"                  : "com.wang.avi:library:2.1.3",
-
             //调试软件
             "pandora"                      : "com.github.whataa:pandora:1.0.0",
             "pandora-no-op"                : "com.github.whataa:pandora-no-op:v1.0.0",
             "debug-db"                     : "com.amitshekhar.android:debug-db:1.0.4",
-
             //J神的rxrelay2，出现异常仍然可以处理
             "rxrelay"                      : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
-
             //组件化依赖
             "arouter-api"                  : "com.alibaba:arouter-api:1.3.1",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:1.1.4",
             "aspectjrt"                    : "org.aspectj:aspectjrt:1.8.9",
-
             //ui调试框架
             "sak-autopilot"                : "com.wanjian:sak-autopilot:0.3.0",
             "Android-PickerView"           : "com.contrarywind:Android-PickerView:3.2.7",
             "banner"                       : "com.youth.banner:banner:1.4.10",
             "zxing"                        : "cn.yipianfengye.android:zxing-library:2.2",
-
             //bmob相关  bmob-sdk  数据存储相关
             "bmob-push"                    : "cn.bmob.android:bmob-push:1.0.2",
             "bmob-sdk"                     : "cn.bmob.android:bmob-sdk:3.6.9",
@@ -226,20 +220,12 @@ ext {
             //汉字转拼音
             "tinypinyin"                   : "com.github.promeg:tinypinyin:1.0.0",
             "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19",
-
             //appium 测试依赖库 配合selenum-java-2.44
             "java-client"                  : "com.github.appium:java-client:7.0.0",
-
             //https://github.com/chenBingX/SuperTextView/blob/master/README_CN.md
             "SuperTextView"                : "com.github.chenBingX:SuperTextView:3.1.4",
-
-            "wechat-sdk"                : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
-            "qiniu"                : "com.qiniu:qiniu-android-sdk:7.3.15",
-
-
-
-
-
+            "wechat-sdk"                   : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
+            "qiniu"                        : "com.qiniu:qiniu-android-sdk:7.3.15",
 
     ]
 }

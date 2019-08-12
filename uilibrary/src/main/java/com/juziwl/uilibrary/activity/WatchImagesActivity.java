@@ -192,7 +192,7 @@ public class WatchImagesActivity extends BaseActivity {
                         String absolutePath = image.getAbsolutePath();
                         MediaScannerConnection.scanFile(WatchImagesActivity.this,
                                 new String[]{absolutePath}, new String[]{"image/png"}, (path, uri) -> {
-                                    int start = path.indexOf("/orange/");
+                                    int start = path.indexOf("/savepictures/");
                                     int end = path.lastIndexOf("/");
                                     ToastUtils.showShort("图片已保存至" + path.substring(start + 1, end) + "/文件夹");
                                 });

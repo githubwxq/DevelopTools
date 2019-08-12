@@ -25,9 +25,10 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application>
-        <activity android:name=".activity.VideoListActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            />
+        <activity android:name=".activity.ScanActivity"></activity>
+        <activity
+            android:name=".activity.VideoListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
             android:name=".activity.WatchVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />

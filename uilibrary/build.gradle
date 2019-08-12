@@ -51,9 +51,12 @@ dependencies {
     api rootProject.ext.deps["recyclerview-animators"]
     api rootProject.ext.deps["loadingView"]
     api rootProject.ext.deps["SmartRefreshLayout"]
-    api ('com.alibaba.android:vlayout:1.2.8@aar') {
-        transitive = true
-    }
+    api rootProject.ext.deps["bga-qrcode-zxing"]
+    api rootProject.ext.deps["vlayout"]
+//
+//    api ('com.alibaba.android:vlayout:1.2.8@aar') {
+//        transitive = true
+//    }
     api project(path: ':picture_library')
     api project(path: ':pickerview')
     api project(path: ':nicevideoplayer')

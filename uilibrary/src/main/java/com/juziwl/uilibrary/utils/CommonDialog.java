@@ -10,14 +10,15 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.juziwl.uilibrary.R;
+import com.wxq.commonlibrary.util.JumpPermissionManagement;
+import com.wxq.commonlibrary.util.ScreenUtils;
+
 //
 //import com.juziwl.commonlibrary.config.Global;
 //import com.juziwl.commonlibrary.utils.DisplayUtils;
 //import com.juziwl.commonlibrary.utils.JumpPermissionManagement;
-import com.juziwl.uilibrary.R;
-import com.wxq.commonlibrary.util.ConvertUtils;
-import com.wxq.commonlibrary.util.JumpPermissionManagement;
-import com.wxq.commonlibrary.util.ScreenUtils;
 
 
 /**
@@ -63,6 +64,7 @@ public class CommonDialog {
                 e.printStackTrace();
             }
         }
+
         dialog = new Dialog(context, R.style.common_textDialogStyle);
         LayoutInflater inflater = LayoutInflater.from(context);
         try {
