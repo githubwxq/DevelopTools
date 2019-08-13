@@ -1,5 +1,6 @@
 package com.example.module_login.activity;
 
+import android.Manifest;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.util.StringUtils;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 
 /**
  * 登入页面
@@ -32,11 +34,14 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
     TextView mTvToSignUp;
 
 
-
     @Override
     public void naveToMainActivity() {
-        showToast("前往首页 arouter前往首页开发");
+//        showToast("前往首页 arouter前往首页开发");
         ARouter.getInstance().build("/klook/main").navigation();
+
+//        ScanActivity.navToActivity(this);
+
+
         finish();
     }
 
@@ -48,10 +53,21 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
             public void onClick(View v) {
                 String tel = mEtAccount.getText().toString();
                 String pwd = mEtPwd.getText().toString();
-                if (StringUtils.isBlank(tel)||   StringUtils.isBlank(pwd)) {
+                if (StringUtils.isBlank(tel) || StringUtils.isBlank(pwd)) {
                     showToast("请输入手机号或密码");
-                }else {
-                    mPresenter.loginWithAccountAndPwd(tel,pwd);
+                } else {
+                    rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
+                            , Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.CAMERA
+                    ).subscribe(new Consumer<Boolean>() {
+                        @Override
+                        public void accept(Boolean aBoolean) throws Exception {
+                            mPresenter.loginWithAccountAndPwd(tel, pwd);
+                        }
+                    });
                 }
             }
         });

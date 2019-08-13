@@ -18,14 +18,10 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.juziwl.uilibrary.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import java.util.List;
 
@@ -59,40 +55,53 @@ public class PullRefreshRecycleView extends LinearLayout {
     private TextView mTvEmpty;
 
 
+    public int page = 1;
+
+    public int rows = 10;
+
+    ClassicsHeader classHeard;
+    MyLoadingFoot classFoot;
     private void initView(Context context) {
         mContext = context;
         //加载布局
         view = View.inflate(context, R.layout.layout_pull_refrish_list, this);
         pullRefreshLayout = findViewById(R.id.refreshLayout);
         rv_list = findViewById(R.id.rv_list);
+        classHeard=findViewById(R.id.header);
+        classFoot=findViewById(R.id.foot);
+
         loadView = LayoutInflater.from(context).inflate(R.layout.layout_load_view, null, false);
         emptyView = LayoutInflater.from(context).inflate(R.layout.layout_empty_view, null, false);
         mIvEmpty = emptyView.findViewById(R.id.iv_empty);
         mTvEmpty = emptyView.findViewById(R.id.tv_empty);
-
         layoutManager = new LinearLayoutManager(this.getContext()); //默认是线性向下 可以手动给重新设置
         //添加头和尾
         rv_list.setLayoutManager(layoutManager);
 
+        rv_list.setNestedScrollingEnabled(false);
 
-        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
-            @NonNull
-            @Override
-            public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
-                //全局设置主题颜色（优先级第二低，可以覆盖 DefaultRefreshInitializer 的配置，与下面的ClassicsHeader绑定）
-//                layout.setPrimaryColorsId(R.color.color_0093e8, android.R.color.white);
-                return new ClassicsHeader(context);
-            }
-        });
-        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
-            @NonNull
-            @Override
-            public RefreshFooter createRefreshFooter(@NonNull Context context, @NonNull RefreshLayout layout) {
-//                layout.setPrimaryColorsId(R.color.white);
-                return new ClassicsFooter(context);
-            }
-        });
+        pullRefreshLayout.setEnableLoadMoreWhenContentNotFull(false);
+//        classHeard.setFinishDuration(0);//设置Footer 的 “刷新完成” 显示时间为0
+//        classFoot.setFinishDuration(0);//设置Footer 的 “加载完成” 显示时间为0
 
+
+//        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
+//            @NonNull
+//            @Override
+//            public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
+//                //全局设置主题颜色（优先级第二低，可以覆盖 DefaultRefreshInitializer 的配置，与下面的ClassicsHeader绑定）
+////                layout.setPrimaryColorsId(R.color.color_0093e8, android.R.color.white);
+//                return new ClassicsHeader(context);
+//            }
+//        });
+//        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
+//            @NonNull
+//            @Override
+//            public RefreshFooter createRefreshFooter(@NonNull Context context, @NonNull RefreshLayout layout) {
+////                layout.setPrimaryColorsId(R.color.white);
+//                return new ClassicsFooter(context);
+//            }
+//        });
     }
 
 
@@ -135,8 +144,9 @@ public class PullRefreshRecycleView extends LinearLayout {
         adapter.setHeaderFooterEmpty(true, false);
         return this;
     }
+
     public void smoothToLastPosition() {
-        layoutManager.scrollToPosition(adapter.getData().size()-1);
+        layoutManager.scrollToPosition(adapter.getData().size() - 1);
     }
 
     public OnItemClickListener mOnItemClickListener;
@@ -203,7 +213,7 @@ public class PullRefreshRecycleView extends LinearLayout {
         setRefreshEnable(false);
         setLoadMoreEnable(false);
         this.adapter = adapter;
-        this.adapter.setEmptyView(loadView);
+        this.adapter.setEmptyView(emptyView);
         rv_list.setAdapter(this.adapter);
 
     }
@@ -216,11 +226,76 @@ public class PullRefreshRecycleView extends LinearLayout {
      * @param onRefreshListener
      */
     public PullRefreshRecycleView setAdapter(BaseQuickAdapter adapter, OnRefreshLoadMoreListener onRefreshListener) {
-        pullRefreshLayout.setOnRefreshLoadMoreListener(onRefreshListener);
-        this.adapter = adapter;
-        this.adapter.setEmptyView(loadView);
-        rv_list.setAdapter(this.adapter);
+        pullRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                onRefreshListener.onLoadMore(refreshLayout);
+            }
 
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page = 1;
+                onRefreshListener.onRefresh(refreshLayout);
+            }
+        });
+        this.adapter = adapter;
+        this.adapter.setEmptyView(emptyView);
+        rv_list.setAdapter(this.adapter);
+        return this;
+    }
+
+
+    /**
+     * 封装页page row 到控件里面
+     *
+     * @param adapter
+     * @param onRefreshListener
+     * @return
+     */
+    public PullRefreshRecycleView setAdapter(BaseQuickAdapter adapter, RefrishAndLoadMoreListener onRefreshListener) {
+
+        pullRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                onRefreshListener.refrishOrLoadMore(page, rows);
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page = 1;
+                onRefreshListener.refrishOrLoadMore(page, rows);
+            }
+        });
+        this.adapter = adapter;
+        this.adapter.setEmptyView(emptyView);
+        rv_list.setAdapter(this.adapter);
+        return this;
+    }
+
+    public PullRefreshRecycleView updataData(List list) {
+        if (adapter != null) {
+            if (page == 1) {
+                adapter.getData().clear();
+                adapter.getData().addAll(list);
+            } else {
+                adapter.getData().addAll(list);
+            }
+            notifyDataSetChanged();
+            if (pullRefreshLayout != null) {
+                UIHandler.getInstance().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (list == null || list.size() < rows) {
+                            pullRefreshLayout.finishLoadMoreWithNoMoreData();
+                        } else {
+                            pullRefreshLayout.setEnableLoadMore(true);
+                        }
+                    }
+                }, 500);
+            }
+        }
         return this;
     }
 
@@ -314,7 +389,6 @@ public class PullRefreshRecycleView extends LinearLayout {
         return this;
     }
 
-
     /**
      * 删除全部的头和尾
      */
@@ -373,7 +447,6 @@ public class PullRefreshRecycleView extends LinearLayout {
     public PullRefreshRecycleView completeRefrishOrLoadMore() {
         pullRefreshLayout.finishRefresh();//结束刷新
         pullRefreshLayout.finishLoadMore();//结束加载
-        adapter.setEmptyView(emptyView);
         return this;
     }
 
@@ -427,5 +500,13 @@ public class PullRefreshRecycleView extends LinearLayout {
     public SmartRefreshLayout getPullRefreshLayout() {
         return pullRefreshLayout;
     }
+
+
+    RefrishAndLoadMoreListener refrishAndLoadMoreListener;
+
+    public interface RefrishAndLoadMoreListener {
+        void refrishOrLoadMore(int page, int rows);
+    }
+
 
 }

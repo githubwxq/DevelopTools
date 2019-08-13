@@ -219,7 +219,8 @@ ext {
             "bmob-im"                      : "cn.bmob.android:bmob-im:2.1.1@aar",
             //汉字转拼音
             "tinypinyin"                   : "com.github.promeg:tinypinyin:1.0.0",
-            "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19",
+            "SmartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
+
             //appium 测试依赖库 配合selenum-java-2.44
             "java-client"                  : "com.github.appium:java-client:7.0.0",
             //https://github.com/chenBingX/SuperTextView/blob/master/README_CN.md
