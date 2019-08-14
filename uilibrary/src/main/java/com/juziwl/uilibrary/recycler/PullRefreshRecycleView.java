@@ -30,29 +30,29 @@ import java.util.List;
  */
 public class PullRefreshRecycleView extends LinearLayout {
 
-    Context mContext;
+    public Context mContext;
 
-    View view;
+    public  View view;
 
-    SmartRefreshLayout pullRefreshLayout;
+    public  SmartRefreshLayout pullRefreshLayout;
 
-    RecyclerView rv_list;
+    public  RecyclerView rv_list;
 
-    RecyclerView.LayoutManager layoutManager;
-
-
-    BaseQuickAdapter adapter;
+    public RecyclerView.LayoutManager layoutManager;
 
 
-    boolean isRefrishAndLoadMoreEnable = true; // 默认下拉刷新和家长更多都有
+    public BaseQuickAdapter adapter;
+
+
+    public  boolean isRefrishAndLoadMoreEnable = true; // 默认下拉刷新和家长更多都有
 
     /**
      * 空布局相关
      */
-    private View loadView;//加载布局
-    private View emptyView;
-    private ImageView mIvEmpty;
-    private TextView mTvEmpty;
+    public View loadView;//加载布局
+    public View emptyView;
+    public ImageView mIvEmpty;
+    public TextView mTvEmpty;
 
 
     public int page = 1;

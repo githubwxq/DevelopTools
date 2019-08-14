@@ -561,15 +561,16 @@ public class LoadingImgUtil {
 //        }
 //        return httpUrl;
 //       http://live-1252434968.cossh.myqcloud.com/2d95706f-2977-4611-8ed1-48a0c0694a83/image/1509000498.png
-        if (StringUtils.isEmpty(url)) {
-            return "";
-        }
-        //从e学迁移过来的图片不是完整的地址，需要拼接https://m.imexue.com
-        if (!url.startsWith("http") && (url.startsWith("/data/psmg/") || url.startsWith("/data/pimgs/"))) {
-            return "https://m.imexue.com" + url.replace("/psmg/", "/pimgs/");
-        }
-        return url.replace("/test.img.juziwl.cn/", "/test.view-img.juziwl.cn/")
-                .replace("/dfs.img.jzexueyun.com/", "/dfs.view-img.jzexueyun.com/");
+//        if (StringUtils.isEmpty(url)) {
+//            return "";
+//        }
+//        //从e学迁移过来的图片不是完整的地址，需要拼接https://m.imexue.com
+//        if (!url.startsWith("http") && (url.startsWith("/data/psmg/") || url.startsWith("/data/pimgs/"))) {
+//            return "https://m.imexue.com" + url.replace("/psmg/", "/pimgs/");
+//        }
+//        return url.replace("/test.img.juziwl.cn/", "/test.view-img.juziwl.cn/")
+//                .replace("/dfs.img.jzexueyun.com/", "/dfs.view-img.jzexueyun.com/");
+        return url;
     }
 
     public static boolean isLoadGIF(String path) {

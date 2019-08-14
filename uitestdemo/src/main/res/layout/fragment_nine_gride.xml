@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NineGrideFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.juziwl.uilibrary.ninegridview.NineGridlayoutForHaFu
+        android:id="@+id/ninegride"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      />
+
+   <Button
+       android:layout_alignParentBottom="true"
+       android:id="@+id/add"
+       android:padding="15dp"
+       android:text="添加"
+       android:textSize="25sp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/delete"
+        android:text="删除"
+        android:textSize="25sp"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

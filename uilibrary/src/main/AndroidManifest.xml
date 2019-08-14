@@ -25,13 +25,16 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application>
-        <activity android:name=".activity.ScanActivity"></activity>
+        <activity android:name=".activity.WatchImagesActivity2"></activity>
+        <activity android:name=".activity.ScanActivity" />
         <activity
             android:name=".activity.VideoListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
             android:name=".activity.WatchVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/SlideCloseTheme"
+            />
         <activity
             android:name=".activity.ChooseMapAddressActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
