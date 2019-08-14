@@ -21,6 +21,9 @@ android {
                 JPUSH_PKGNAME: rootProject.ext.android.developtoolsApplicationId,
                 JPUSH_APPKEY : "164fb03b070dc2577cc68e68", //JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                GETUI_APP_ID : "f8NySc60rn7fyuqjKyydT4",
+                GETUI_APP_KEY : "LNwBFcHaE88BVXOn5yJXW8",
+                GETUI_APP_SECRET : "rFnu9RhCGDABpdhqfUcDQ7"
         ]
 
 //       arouter需要配置
@@ -103,7 +106,7 @@ dependencies {
         exclude group: 'com.android.support'
     }
     // 添加aspect module
-//    implementation project(':trackpoint')
+    //    implementation project(':trackpoint')
     implementation project(':module_login')
     annotationProcessor rootProject.ext.deps["arouter-compiler"]
     //butterknife
@@ -125,7 +128,9 @@ dependencies {
     //集成推送
     implementation rootProject.ext.deps["jpush"]
     implementation rootProject.ext.deps["jcore"]
-//    implementation project(':commonservice')
+    implementation rootProject.ext.deps["getui"]
+    //    implementation project(':commonservice')
+    implementation files('libs/json_simple-1.1.jar')
 }
 
 

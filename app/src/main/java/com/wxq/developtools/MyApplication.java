@@ -21,6 +21,8 @@ public class MyApplication extends BaseApp {
         BuglyUtils.init(this,"1400183086",BuildConfig.DEBUG);
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+//        、、初始化个推
+
     }
 
     @Override
