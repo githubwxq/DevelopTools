@@ -23,6 +23,9 @@
         <item name="android:overScrollMode">never</item>
         <item name="android:includeFontPadding">false</item>
         <item name="actionBarSize">@dimen/common_actionbar_size</item>
+        <!--//配置activity布局默认颜色-->
+        <item name="android:windowBackground">@color/color_f7f7f7</item>
+
     </style>
 
     <style name="common_activityAnimation" parent="@android:style/Animation">
