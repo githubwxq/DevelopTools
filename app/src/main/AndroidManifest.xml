@@ -3,9 +3,7 @@
     package="com.wxq.developtools">
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
-    <!--、、个推权限添加-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 、、个推权限添加 -->
     <!-- 个推SDK权限配置开始 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -15,24 +13,17 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <!-- 支持iBeancon 需要蓝牙权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 支持iBeancon 需要蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <!-- 支持个推3.0 电子围栏功能 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 支持个推3.0 电子围栏功能 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 浮动通知权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <!-- 自定义权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 浮动通知权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 自定义权限 -->
     <uses-permission android:name="getui.permission.GetuiService.${applicationId}" />
 
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
-        android:protectionLevel="normal"></permission>
-    <!-- 个推SDK权限配置结束 -->
-
+        android:protectionLevel="normal" />
 
     <application
         android:name=".MyApplication"
@@ -40,20 +31,23 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/common_baseStyle">
-        <activity android:name=".activity.PublishCommentActivity"></activity>
+        android:theme="@style/common_baseStyle"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.CityProductSearchListActivity"></activity>
+        <activity android:name=".activity.CertificateActivity" />
+        <activity android:name=".activity.PublishCommentActivity" />
         <activity android:name=".activity.AddPeopleActivity" />
         <activity android:name=".activity.PeopleListActivity" />
         <activity android:name=".activity.ConfirmAndPayActivity" />
         <activity android:name=".activity.ConfirmOrderActivity" />
         <activity android:name=".activity.ProductActivity" />
         <activity android:name=".activity.ShopCarListActivity" />
-        <activity android:name=".activity.CustomerServiceActivity"
+        <activity
+            android:name=".activity.CustomerServiceActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"   />
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.CityActivity" />
         <activity
             android:name=".activity.KLookMainActivity"
@@ -84,7 +78,6 @@
             android:name="com.amap.api.v2.apikey"
             android:value="b0988fe00f9010eb67ac04e20e9df79c" />
 
-
         <service android:name=".LocalService" />
         <service
             android:name=".RemoteService"
@@ -104,26 +97,17 @@
 
                 <data android:scheme="com.wxq.developtools" />
             </intent-filter>
-        </activity>
-
-        <!--//个推相关配置-->
-
-        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复-->
-        <service android:name=".GeTuiIntentService"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
-
-        <!-- 配置SDK核心服务 -->
+        </activity> <!-- //个推相关配置 -->
+        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
+        <service
+            android:name=".GeTuiIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 配置SDK核心服务 -->
         <!-- process必须指定为":pushservice"，切勿随意更改 -->
         <service
             android:name=".GeTuiPushService"
             android:exported="true"
             android:label="PushService"
-            android:process=":pushservice">
-        </service>
-
-
-
-
+            android:process=":pushservice" />
     </application>
 
 </manifest>

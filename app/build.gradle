@@ -18,12 +18,12 @@ android {
         ndk { abiFilters "armeabi-v7a" }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME: rootProject.ext.android.developtoolsApplicationId,
-                JPUSH_APPKEY : "164fb03b070dc2577cc68e68", //JPush 上注册的包名对应的 Appkey.
-                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                GETUI_APP_ID : "f8NySc60rn7fyuqjKyydT4",
-                GETUI_APP_KEY : "LNwBFcHaE88BVXOn5yJXW8",
-                GETUI_APP_SECRET : "rFnu9RhCGDABpdhqfUcDQ7"
+                JPUSH_PKGNAME   : rootProject.ext.android.developtoolsApplicationId,
+                JPUSH_APPKEY    : "164fb03b070dc2577cc68e68", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL   : "developer-default", //暂时填写默认值即可.
+                GETUI_APP_ID    : "f8NySc60rn7fyuqjKyydT4",
+                GETUI_APP_KEY   : "LNwBFcHaE88BVXOn5yJXW8",
+                GETUI_APP_SECRET: "rFnu9RhCGDABpdhqfUcDQ7"
         ]
 
 //       arouter需要配置
@@ -183,3 +183,4 @@ dependencies {
 //    }
 //}
 //
+

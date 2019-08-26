@@ -16,6 +16,7 @@ import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.CertificateActivity;
 import com.wxq.developtools.activity.CustomerServiceActivity;
 import com.wxq.developtools.activity.EditPersonActivity;
 import com.wxq.developtools.activity.MyCollectionActivity;
@@ -104,13 +105,14 @@ public class MySelfFragment extends BaseFragment {
                 EditPersonActivity.navToActivity(mContext,picPath);
                 break;
             case R.id.rl_pingzheng:
-
+                CertificateActivity.navToActivity(getActivity());
                 break;
             case R.id.rl_collect:
                 MyCollectionActivity.navToActivity(mContext);
                 break;
-            case R.id.rl_order:
 
+            case R.id.rl_order:
+                // 我的订单页面
                 break;
             case R.id.rl_help:
                 CustomerServiceActivity.navToActivity(mContext);

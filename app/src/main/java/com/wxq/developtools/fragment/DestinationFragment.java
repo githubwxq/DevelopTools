@@ -18,8 +18,8 @@ import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.CityVosBean;
@@ -190,7 +190,7 @@ public class DestinationFragment extends BaseFragment {
                         }
                         item.isSelect = true;
                         AreaAndCountryBaseViewHolderBaseQuickAdapter.this.notifyDataSetChanged();
-                        ToastUtils.showShort("前往城市详情");
+                        CityActivity.navToActivity(getActivity(),item.id);
                     });
                 }
             });

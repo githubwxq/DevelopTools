@@ -6,11 +6,29 @@
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".activity.CityActivity">
+    
+
 <ImageView
     android:id="@+id/city_bg"
     android:layout_width="match_parent"
     android:layout_height="300dp" />
 
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="49dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@mipmap/white_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    
+    
     <TextView
         android:layout_marginTop="127dp"
         android:layout_centerHorizontal="true"
@@ -22,7 +40,7 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:background="@color/white"
+        android:background="@drawable/shape_corners_4_solid_ffffff"
         android:layout_marginTop="78dp"
         android:layout_below="@+id/tv_city_name"
         android:layout_marginLeft="36dp"
@@ -32,8 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="36dp">
         <ImageView
+            android:src="@mipmap/search_icon"
             android:layout_marginLeft="10dp"
-            android:background="@color/color_333"
             android:layout_width="15dp"
             android:layout_height="15dp" />
 
@@ -44,7 +62,15 @@
             android:layout_width="1dp"
             android:layout_height="12dp"/>
 
-
+       <TextView
+           android:gravity="center_vertical"
+           android:id="@+id/rt_search_product"
+           android:layout_marginLeft="5dp"
+           android:textSize="12sp"
+           android:hint="搜索该城市商品"
+           android:background="@null"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
 
 
     </LinearLayout>
@@ -61,6 +87,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:src="@mipmap/meishi"
             android:id="@+id/iv_food"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -72,6 +99,7 @@
         
 
          <ImageView
+             android:src="@mipmap/jingdian"
             android:id="@+id/iv_jingdian"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -89,6 +117,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:src="@mipmap/yule"
             android:id="@+id/iv_waanle"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -100,6 +129,7 @@
 
 
         <ImageView
+            android:src="@mipmap/jiaotong"
             android:id="@+id/iv_jiaotong"
             android:layout_weight="1"
             android:layout_width="0dp"

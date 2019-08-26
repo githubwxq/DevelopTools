@@ -5,6 +5,8 @@ import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.model.AddShopCarParmer;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.BaseListModeData;
+import com.wxq.developtools.model.Certificate;
+import com.wxq.developtools.model.CityVosBean;
 import com.wxq.developtools.model.CollectionData;
 import com.wxq.developtools.model.HomePageData;
 import com.wxq.developtools.model.OrderBean;
@@ -64,6 +66,17 @@ public interface KlookApi {
 
 
     /**
+     * 城市详情
+     * @param id
+     * @return
+     */
+    @POST("/app/location/findCityById/{id}")
+    Flowable<KlookResponseData<CityVosBean>> findCityById(@Path("id")String id);
+
+
+
+
+    /**
      * 根据商品获取评论数据
      * @param id
      * @return
@@ -97,7 +110,7 @@ public interface KlookApi {
      * @return
      */
     @POST("/app/product/pageProductByCondition/{page}/{rows}")
-    Flowable<KlookResponseData<CollectionData>> pageProductByCondition(@Path("page")int page, @Path("rows")int rows,@Body HashMap<String,String> data);
+    Flowable<KlookResponseData<BaseListModeData<ProductDetailBean>>> pageProductByCondition(@Path("page")int page, @Path("rows")int rows,@Body HashMap<String,String> data);
 
 
 
@@ -217,6 +230,11 @@ public interface KlookApi {
 
 
 
+
+  //使用凭证列表页面
+
+    @POST("/app/vouche/pageUseVouche/{page}/{rows}")
+    Flowable<KlookResponseData<BaseListModeData<Certificate>>> pageUseVouche(@Path("page")int page, @Path("rows")int rows);
 
 
 

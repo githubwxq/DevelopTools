@@ -37,12 +37,13 @@
             android:layout_height="wrap_content" />
 
         <ImageView
+            android:src="@mipmap/collection_hig_icon"
             android:layout_marginTop="16dp"
             android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
             android:id="@+id/iv_collect_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
 

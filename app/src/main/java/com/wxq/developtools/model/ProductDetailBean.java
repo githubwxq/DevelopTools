@@ -49,6 +49,12 @@ public class ProductDetailBean implements Serializable {
     public String  lat; //经度
     public String  lng; // 维度
 
+    // 搜索页面字段
+    public String  buyNum;
+    public String  commentNum;
+
+
+
 
 
 

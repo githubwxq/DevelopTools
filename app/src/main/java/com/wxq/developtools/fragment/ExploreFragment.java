@@ -22,6 +22,7 @@ import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.activity.ProductActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.HomePageData;
@@ -157,7 +158,7 @@ public class ExploreFragment extends BaseFragment {
                     helper.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            showToast("前往热门城市");
+                            CityActivity.navToActivity(getActivity(),item.id);
                         }
                     });
                 }
