@@ -63,7 +63,6 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
     int rows = 10;
     String id;
 
-
     PullRefreshRecycleView commen_list;
     @BindView(R.id.iv_back)
     ImageView ivBack;
@@ -131,7 +130,7 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
                 });
             }
         });
-        addMarkersToMap(new LatLng(Double.valueOf(productDetailBean.lat), Double.valueOf(productDetailBean.lng)));
+//        addMarkersToMap(new LatLng(Double.valueOf(productDetailBean.lat), Double.valueOf(productDetailBean.lng)));
     }
 
     @Override
@@ -298,6 +297,8 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
 
             case R.id.iv_shop_car:
                 // 查看购物车
+                     ShopCarListActivity.navToActivity(this);
+
                 break;
             case R.id.tv_add_card:
                 // 添加到购物车

@@ -14,6 +14,7 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.PublishCommentActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -102,5 +103,9 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
     @Override
     public void refrishOrLoadMore(int page, int rows) {
         getData(page,rows);
+    }
+    public void onFragmentResume() {
+//        BarUtils.setStatusBarLightMode(getActivity(), true);
+        BarUtils.setStatusBarLightMode(getActivity(), false);
     }
 }

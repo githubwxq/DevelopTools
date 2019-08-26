@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:drawableLeft="@drawable/selector_keyboard_add"
+            android:drawableLeft="@mipmap/un_choose_icon"
             android:gravity="center_vertical"
             android:text="全选" />
 

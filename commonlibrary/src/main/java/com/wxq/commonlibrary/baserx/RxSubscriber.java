@@ -1,5 +1,7 @@
 package com.wxq.commonlibrary.baserx;
 
+import android.util.Log;
+
 import com.wxq.commonlibrary.R;
 import com.wxq.commonlibrary.http.ApiException;
 import com.wxq.commonlibrary.util.NetworkUtils;
@@ -43,6 +45,7 @@ public abstract class RxSubscriber<T> implements Subscriber<T> {
     @Override
     public void onError(Throwable e) {
         try {
+            Log.e("error",e.getMessage());
             if (!NetworkUtils.isAvailableByPing()) {
                 if (!dealHttpException(NO_NETWORK, "", e)) {
                     ToastUtils.showShort(R.string.common_useless_network);

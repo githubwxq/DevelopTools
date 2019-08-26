@@ -18,7 +18,7 @@ public class ShopCarBean {
      * userId :
      */
 
-    public int allPrice;
+    public String allPrice;
     public String coverUrl;
     public String id;
     public String num;
@@ -30,13 +30,13 @@ public class ShopCarBean {
     public String productPackageName;
     public String ticketDate;
     public String ticketType;
-    public int unitPrice;
+    public String unitPrice;
     public String userId;
 
     public boolean isSelect;
 
     public String getMonney() {
-        return Integer.valueOf(num) * unitPrice + "";
+        return    Double.toString(Double.valueOf(unitPrice)* Integer.valueOf(num))+ "";
     }
 
 

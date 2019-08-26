@@ -95,6 +95,17 @@ public class CityProductSearchListActivity extends BaseActivity implements PullR
         } else {
             title.setVisibility(View.VISIBLE);
             llSearch.setVisibility(View.GONE);
+            String title_text="";
+            if ("1".equals(type)) {
+                title_text="美食攻略";
+            }else if ("2".equals(type)){
+                title_text="景点门票";
+            }else if ("3".equals(type)){
+                title_text="当地游乐";
+            }else if ("4".equals(type)){
+                title_text="当地交通";
+            }
+            title.setText(title_text);
         }
         rtSearchProduct.setText("");
         recyclerView.autoRefresh();

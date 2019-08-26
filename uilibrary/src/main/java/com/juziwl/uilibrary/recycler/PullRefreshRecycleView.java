@@ -55,6 +55,9 @@ public class PullRefreshRecycleView extends LinearLayout {
     public TextView mTvEmpty;
 
 
+
+    boolean isNeedEmptyView=true;
+
     public int page = 1;
 
     public int rows = 10;
@@ -213,7 +216,10 @@ public class PullRefreshRecycleView extends LinearLayout {
         setRefreshEnable(false);
         setLoadMoreEnable(false);
         this.adapter = adapter;
-        this.adapter.setEmptyView(emptyView);
+        if (isNeedEmptyView){
+            this.adapter.setEmptyView(emptyView);
+        }
+
         rv_list.setAdapter(this.adapter);
 
     }
@@ -240,7 +246,10 @@ public class PullRefreshRecycleView extends LinearLayout {
             }
         });
         this.adapter = adapter;
-        this.adapter.setEmptyView(emptyView);
+        if (isNeedEmptyView) {
+            this.adapter.setEmptyView(emptyView);
+        }
+
         rv_list.setAdapter(this.adapter);
         return this;
     }
@@ -269,7 +278,10 @@ public class PullRefreshRecycleView extends LinearLayout {
             }
         });
         this.adapter = adapter;
-        this.adapter.setEmptyView(emptyView);
+        if (isNeedEmptyView) {
+            this.adapter.setEmptyView(emptyView);
+        }
+
         rv_list.setAdapter(this.adapter);
         return this;
     }
@@ -508,5 +520,8 @@ public class PullRefreshRecycleView extends LinearLayout {
         void refrishOrLoadMore(int page, int rows);
     }
 
-
+    public PullRefreshRecycleView setNeedEmptyView(boolean needEmptyView) {
+        isNeedEmptyView = needEmptyView;
+        return this;
+    }
 }

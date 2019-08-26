@@ -21,6 +21,7 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.activity.ProductActivity;
@@ -85,6 +86,15 @@ public class ExploreFragment extends BaseFragment {
         super.lazyLoadData(view);
         getData();
     }
+
+    @Override
+    public void onFragmentResume() {
+        super.onFragmentResume();
+//        BarUtils.setStatusBarAlpha(getActivity(), 0);
+        BarUtils.setStatusBarLightMode(getActivity(), false);
+    }
+
+
 
     private void getData() {
         Api.getInstance()

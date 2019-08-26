@@ -188,11 +188,11 @@ public interface KlookApi {
 
 
     /**
-     * 添加销售店
+     * 添加购物车
      * @return
      */
     @POST("/app/shopcart/insert")
-    Flowable<KlookResponseData<PayResultData>> insertShopCart(@Body AddShopCarParmer payParmer);
+    Flowable<KlookResponseData<Object>> insertShopCart(@Body AddShopCarParmer payParmer);
 
 
      /**

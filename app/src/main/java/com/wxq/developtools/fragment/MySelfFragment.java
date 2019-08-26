@@ -15,6 +15,7 @@ import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CertificateActivity;
 import com.wxq.developtools.activity.CustomerServiceActivity;
@@ -60,6 +61,7 @@ public class MySelfFragment extends BaseFragment {
     public void onFragmentResume() {
       //更新用户信息
         getUserInfo();
+        BarUtils.setStatusBarLightMode(getActivity(), false);
     }
 
     private void getUserInfo() {
@@ -122,4 +124,5 @@ public class MySelfFragment extends BaseFragment {
                 break;
         }
     }
+
 }

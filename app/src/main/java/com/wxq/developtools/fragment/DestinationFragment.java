@@ -18,6 +18,7 @@ import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -196,4 +197,9 @@ public class DestinationFragment extends BaseFragment {
             });
         }
     }
+    public void onFragmentResume() {
+        BarUtils.setStatusBarLightMode(getActivity(), false);
+//        BarUtils.setStatusBarColor(getActivity(), getResources().getColor(R.color.white));
+    }
+
 }

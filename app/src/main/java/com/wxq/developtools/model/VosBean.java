@@ -21,6 +21,9 @@ public  class VosBean implements Serializable {
         public String stockNum;
         public String ticketDate;
 
+        public  boolean isSelect=false;
+
+
         public String getTicketTypeName() {
                 if ("1".equals(ticketType)) {
                         return "成人";
