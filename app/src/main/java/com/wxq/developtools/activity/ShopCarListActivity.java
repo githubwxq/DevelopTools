@@ -123,7 +123,7 @@ public class ShopCarListActivity extends BaseActivity implements PullRefreshRecy
         Api.getInstance()
                 .getApiService(KlookApi.class)
                 .pageShopCart(page, rows)
-                .compose(RxTransformer.transformFlowWithLoading(this))
+                .compose(RxTransformer.transformFlow(this))
                 .compose(ResponseTransformer.handleResult())
                 .subscribe(new RxSubscriber<BaseListModeData<ShopCarBean>>() {
                     @Override
@@ -131,25 +131,30 @@ public class ShopCarListActivity extends BaseActivity implements PullRefreshRecy
                         shopProductList.updataData(data.list);
                     }
                 });
-
     }
 
-    boolean isSelectAll=false;
+    boolean isSelectAll = false;
 
     @OnClick({R.id.tv_select_all, R.id.tv_go_buy})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_select_all:
-                isSelectAll=!isSelectAll;
+                isSelectAll = !isSelectAll;
                 for (ShopCarBean bean : shopCarBeanList) {
-                      bean.isSelect=isSelectAll;
+                    bean.isSelect = isSelectAll;
                 }
                 updataTotalMoney();
                 shopProductList.notifyDataSetChanged();
                 break;
             case R.id.tv_go_buy:
-                //前往支付页面
-
+                //前往支付页面 携带购物车信息
+                List<ShopCarBean> carBeans = new ArrayList<>();
+                for (ShopCarBean bean : shopCarBeanList) {
+                    if (bean.isSelect) {
+                        carBeans.add(bean);
+                    }
+                }
+                ConfirmAndPayActivity.navToActivity(this,carBeans );
                 break;
         }
     }

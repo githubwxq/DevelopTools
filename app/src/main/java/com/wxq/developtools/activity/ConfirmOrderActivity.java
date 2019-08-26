@@ -24,6 +24,7 @@ import com.wxq.developtools.model.AddShopCarParmer;
 import com.wxq.developtools.model.PackageBean;
 import com.wxq.developtools.model.ProductDetailBean;
 import com.wxq.developtools.model.ProductPackageVosBean;
+import com.wxq.developtools.model.ShopCarBean;
 import com.wxq.developtools.model.VosBean;
 
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     int buyNumber = 1;
 
     /**
-     * 套餐详情对象
+     * 套餐对象
      */
     ProductPackageVosBean productPackageVosBean;
 
@@ -126,7 +127,7 @@ public class ConfirmOrderActivity extends BaseActivity {
 
         tvIsAdult.setSelected(isAdult);
         tvTitle.setText(productDetailBean.name);
-        rv_data_time.setLayoutManager(new GridLayoutManager(this, 5))
+        rv_data_time.setLayoutManager(new GridLayoutManager(this, 4))
                 .setNeedEmptyView(false)
                 .setAdapter(new BaseQuickAdapter<VosBean, BaseViewHolder>(R.layout.item_date, vosBeanList) {
                     @Override
@@ -231,8 +232,30 @@ public class ConfirmOrderActivity extends BaseActivity {
                     //加入购物车 调用接口 这些数据传到后台
                      addToCardShop();
                 } else {
-                    //确认订单 前往支付页面
-                    ConfirmAndPayActivity.navToActivity(this, productPackageVosBean, productDetailBean, vosBean, buyNumber);
+                    //确认订单 前往支付页面 重组数据
+                    List<ShopCarBean> carBeans = new ArrayList<>();
+
+                    ShopCarBean shopCarBean=new ShopCarBean();
+                    // 商品名称
+                    shopCarBean.productName=        productDetailBean.name;
+                    // 套餐名称
+                    shopCarBean.productPackageName=productPackageVosBean.name;
+                    shopCarBean.ticketType=vosBean.ticketType;
+                    shopCarBean.ticketDate=vosBean.ticketDate;
+                    shopCarBean.num=buyNumber+"";
+                    shopCarBean.unitPrice=vosBean.sellingPrice;
+                    shopCarBean.productId=productDetailBean.id; //商品id
+                    shopCarBean.productPackageId=productPackageVosBean.id; //套餐id
+                    shopCarBean.productPackageDetailId=vosBean.id; //套餐中某个详情id
+
+                    carBeans.add(shopCarBean);
+
+                    ConfirmAndPayActivity.navToActivity(this,carBeans);
+
+
+
+
+
                 }
                 break;
 
@@ -253,11 +276,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     }
 
     private void addToCardShop() {
-        // 添加到购物车
-//        。。
-
         AddShopCarParmer parmer=new AddShopCarParmer(buyNumber+"",productDetailBean.id,vosBean.id,productPackageVosBean.id,vosBean.ticketDate,vosBean.ticketType);
-
         Api.getInstance()
                 .getApiService(KlookApi.class)
                 .insertShopCart(parmer)

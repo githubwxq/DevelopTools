@@ -30,6 +30,7 @@
             android:id="@+id/iv_pic"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="14dp"
             android:layout_toRightOf="@+id/iv_choose" />
 

@@ -16,6 +16,7 @@ import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.ProductActivity;
 import com.wxq.developtools.activity.PublishCommentActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.BaseListModeData;
@@ -64,7 +65,7 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
                 helper.setText(R.id.tv_title,item.productName);
                 helper.setText(R.id.tv_time,item.orderDate);
                 helper.setText(R.id.tv_type,item.getTicketDescribe());
-                helper.setText(R.id.tv_price,"¥"+item.flowNum);
+                helper.setText(R.id.tv_price,"¥"+item.price);
                 helper.getView(R.id.tv_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -76,6 +77,12 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
                     @Override
                     public void onClick(View v) {
 
+                    }
+                });
+                helper.getConvertView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ProductActivity.navToActivity(mContext,item.productId);
                     }
                 });
             }

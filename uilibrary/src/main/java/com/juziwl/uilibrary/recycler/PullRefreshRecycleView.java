@@ -212,7 +212,7 @@ public class PullRefreshRecycleView extends LinearLayout {
      *
      * @param adapter 自己处理数据源问题
      */
-    public void setAdapter(BaseQuickAdapter adapter) {
+    public PullRefreshRecycleView setAdapter(BaseQuickAdapter adapter) {
         setRefreshEnable(false);
         setLoadMoreEnable(false);
         this.adapter = adapter;
@@ -222,6 +222,7 @@ public class PullRefreshRecycleView extends LinearLayout {
 
         rv_list.setAdapter(this.adapter);
 
+        return  this;
     }
 
 

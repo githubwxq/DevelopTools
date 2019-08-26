@@ -27,6 +27,7 @@ public class OrderBean {
     public String productPackageName;
     public String ticketType;
     public String pic="";
+    public String price="";
 
     public String getTicketDescribe() {
         if (ticketType.equals("1")){
@@ -34,6 +35,5 @@ public class OrderBean {
         }else {
             return "儿童"+num;
         }
-
     }
 }
