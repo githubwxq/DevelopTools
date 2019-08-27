@@ -12,7 +12,6 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.AppManager;
-import com.wxq.commonlibrary.util.ToastUtils;
 
 public class WXPayEntryActivity extends FragmentActivity implements IWXAPIEventHandler {
     private static final String TAG = "MicroMsg.SDKSample.WXPayEntryActivity";
@@ -42,15 +41,15 @@ public class WXPayEntryActivity extends FragmentActivity implements IWXAPIEventH
 
         if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             if (resp.errCode == 0) {
-                ToastUtils.showShort("支付成功");
+//                ToastUtils.showShort("支付成功");
                 sendBroadcast(new Intent("com.Pay"));
                 finish();
             } else if (resp.errCode == -1) {
-                ToastUtils.showShort("支付失败");
+//                ToastUtils.showShort("支付失败");
                 sendBroadcast(new Intent("com.Pay.error"));
                 finish();
             } else if (resp.errCode == -2) {
-                ToastUtils.showShort("支付取消");
+//                ToastUtils.showShort("支付取消");
                 sendBroadcast(new Intent("com.Pay.cancle"));
                 finish();
             }

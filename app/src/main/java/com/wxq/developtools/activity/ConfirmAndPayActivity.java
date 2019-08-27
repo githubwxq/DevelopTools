@@ -337,14 +337,19 @@ public class ConfirmAndPayActivity extends BaseActivity {
                 .subscribe(new RxSubscriber<PayResultData>() {
                     @Override
                     protected void onSuccess(PayResultData data) {
-//                        Log.e("wxq", "===============" + data);
-//                        //调用微信支付
-//                        ToastUtils.showShort(data.toString());
-                        WeiXinPay.getInstance().pay(context, data.payInfo, data.weixinPayAppKey);
+                        WeiXinPay.getInstance().pay(context, data.payInfo, data.weixinPayAppKey, new OnPayListener() {
+                            @Override
+                            public void paySuccess(String orderNumber) {
+                                ToastUtils.showShort("支付成功");
+                                finish();
+                            }
+                            @Override
+                            public void payFailure(String message) {
+                                ToastUtils.showShort("支付失败");
+                            }
+                        });
                     }
                 });
-
-
     }
 
 

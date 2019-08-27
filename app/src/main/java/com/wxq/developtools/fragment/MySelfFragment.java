@@ -1,15 +1,12 @@
 package com.wxq.developtools.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONObject;
 import com.gyf.immersionbar.ImmersionBar;
-import com.juziwl.uilibrary.activity.CommonWebActivity;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
@@ -21,7 +18,6 @@ import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CertificateActivity;
-import com.wxq.developtools.activity.CustomerServiceActivity;
 import com.wxq.developtools.activity.EditPersonActivity;
 import com.wxq.developtools.activity.MyCollectionActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -120,9 +116,12 @@ public class MySelfFragment extends BaseFragment {
 
             case R.id.rl_order:
                 // 我的订单页面
+
+
                 break;
             case R.id.rl_help:
-                CustomerServiceActivity.navToActivity(mContext);
+
+
                 break;
             case R.id.rl_about:
 

@@ -1,6 +1,9 @@
 package com.wxq.commonlibrary.pay;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -102,7 +105,12 @@ public class WeiXinPay {
         req.sign =MD5.getMessageDigest(sb.toString().getBytes()).toUpperCase();;
     }
 
-    public void pay(Context mContext, String result, String apiKey) {
+    public void pay(Context mContext, String result, String apiKey,OnPayListener listener) {
+        BroadcastReceiver receiver = new WXPayResultReceiver(listener);
+        IntentFilter filter = new IntentFilter("com.Pay");
+        filter.addAction("com.Pay.error");
+        filter.addAction("com.Pay.cancle");
+        mContext.getApplicationContext().registerReceiver(receiver, filter);
         Log.e("  getSign()", getSign(mContext));
          IWXAPI msgApi = WXAPIFactory.createWXAPI(mContext, GlobalContent.WEIXIN_APPID);
          PayReq req = new PayReq();
@@ -133,5 +141,30 @@ public class WeiXinPay {
         return "";
     }
 
+    class WXPayResultReceiver extends BroadcastReceiver {
 
+        private OnPayListener onPayListener;
+
+        public WXPayResultReceiver(OnPayListener onPayListener) {
+            this.onPayListener = onPayListener;
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            context.unregisterReceiver(this);
+            if (intent.getAction().equals("com.Pay")) {
+                if (onPayListener != null) {
+                    onPayListener.paySuccess("支付成功");
+                }
+            } else if (intent.getAction().equals("com.Pay.error")) {
+                if (onPayListener != null) {
+                    onPayListener.payFailure("支付失败");
+                }
+            } else if (intent.getAction().equals("com.Pay.cancle")) {
+                if (onPayListener != null) {
+                    onPayListener.payFailure("支付取消");
+                }
+            }
+        }
+    }
 }
