@@ -2,10 +2,27 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<com.juziwl.uilibrary.banner.Banner
+    <ImageView
+        android:id="@+id/iv_search"
+        android:layout_marginRight="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/white_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp" />
+
+    <ImageView
+    android:id="@+id/iv_shop_car"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/shop_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp" />
+    <com.juziwl.uilibrary.banner.Banner
     android:id="@+id/banner"
     android:layout_width="match_parent"
-    android:layout_height="300dp"></com.juziwl.uilibrary.banner.Banner>
+    android:layout_height="386dp"></com.juziwl.uilibrary.banner.Banner>
 
 
 </RelativeLayout>

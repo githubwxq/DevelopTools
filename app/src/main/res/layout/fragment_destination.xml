@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
+
     tools:context=".fragment.ExploreFragment">
 
     <RelativeLayout
@@ -19,13 +18,15 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:src="@drawable/main_nav_close" />
+            android:src="@mipmap/close_icon" />
 
 
     </RelativeLayout>
 
     <com.juziwl.uilibrary.edittext.SuperEditText
         android:id="@+id/edit"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:background="@null"
@@ -33,6 +34,8 @@
         android:textSize="20sp" />
 
     <View
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="7dp"
@@ -49,12 +52,16 @@
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:id="@+id/area_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"></android.support.v7.widget.RecyclerView>
 
             <android.support.v7.widget.RecyclerView
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:id="@+id/country_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +69,8 @@
         </LinearLayout>
         <!--//搜索页默认影长-->
         <android.support.v7.widget.RecyclerView
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:background="@color/white"
             android:visibility="gone"
             android:id="@+id/search_result_view"

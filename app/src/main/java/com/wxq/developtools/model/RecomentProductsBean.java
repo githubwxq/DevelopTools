@@ -15,6 +15,6 @@ public  class RecomentProductsBean implements MultiItemEntity {
 
     @Override
     public int getItemType() {
-        return 3;
+        return 0;
     }
 }

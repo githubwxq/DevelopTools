@@ -197,27 +197,27 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
         getData();
     }
 
-
     public void getComment() {
         Api.getInstance().getApiService(KlookApi.class)
                 .pageProductComment(page, rows, id)
                 .compose(ResponseTransformer.handleResult())
-                .compose(RxTransformer.transformFlowWithLoading(this)).subscribe(new RxSubscriber<ProductCommentData>() {
-            @Override
-            protected void onSuccess(ProductCommentData productCommentData) {
-                if (page == 1) {
-                    commentBeanList.clear();
-                } else {
-                    if (productCommentData.list.size() < rows) {
-                        commen_list.setLoadMoreEnable(false);
-                    } else {
-                        commen_list.setLoadMoreEnable(true);
+                .compose(RxTransformer.transformFlow(this))
+                .subscribe(new RxSubscriber<ProductCommentData>() {
+                    @Override
+                    protected void onSuccess(ProductCommentData productCommentData) {
+                        if (page == 1) {
+                            commentBeanList.clear();
+                        } else {
+                            if (productCommentData.list.size() < rows) {
+                                commen_list.setLoadMoreEnable(false);
+                            } else {
+                                commen_list.setLoadMoreEnable(true);
+                            }
+                        }
+                        commentBeanList.addAll(productCommentData.list);
+                        commen_list.notifyDataSetChanged();
                     }
-                }
-                commentBeanList.addAll(productCommentData.list);
-                commen_list.notifyDataSetChanged();
-            }
-        });
+                });
 
     }
 
@@ -297,7 +297,7 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
 
             case R.id.iv_shop_car:
                 // 查看购物车
-                     ShopCarListActivity.navToActivity(this);
+                ShopCarListActivity.navToActivity(this);
 
                 break;
             case R.id.tv_add_card:

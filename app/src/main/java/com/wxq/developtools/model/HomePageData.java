@@ -10,17 +10,15 @@ public class HomePageData {
     public List<HotSellProductsBean> hotSellProducts;
     public List<RecomentProductsBean> recomentProducts;
 
-
-
     public List<MultiItemEntity> getlist(){
         List<MultiItemEntity> list=new ArrayList<>();
+        RecommendBeanWrap recommendBeanWrap=new RecommendBeanWrap();
+        recommendBeanWrap.list=recomentProducts;
+        list.add(recommendBeanWrap);
         HotCitiesBeanWrap hotCitiesBeanWrap=new HotCitiesBeanWrap();
         hotCitiesBeanWrap.hotCitiesBeanList=hotCities;
         list.add(hotCitiesBeanWrap);
-        HotSellProductsBeanWrap hotSellProductsBeanWrap=new HotSellProductsBeanWrap();
-        hotSellProductsBeanWrap.list=hotSellProducts;
-        list.add(hotSellProductsBeanWrap);
-        list.addAll(recomentProducts);
+        list.addAll(hotSellProducts);
         return list;
     }
 

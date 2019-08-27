@@ -667,3 +667,18 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
         return count;
     }
 }
+
+
+//  banner.setImages(bannerStrings)
+//          .setImageLoader(new GlideImageLoader(GlideImageLoader.NORMAL))
+//          .setDelayTime(3000)
+//          .setOnBannerListener(position -> {
+//          AdvertisementData.ListBean listBean = list.get(position);
+//          if (!StringUtils.isEmpty(listBean.advertUrl)) {
+//          OpenHtmlActivity.navToOpenHtmlESchool(getActivity(), listBean.advertId,
+//          GOTOADV, "", "", listBean.advertUrl,
+//          listBean.advertPic, false, OpenHtmlActivity.DEFAULT_CLICK_BANNER_FROM_INTERSHOP);
+//          ClickTrack.adsClickTrack(ClickTrack.INTERGRALADS);
+//          }
+//          })
+//          .start();

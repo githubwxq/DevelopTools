@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/tv_recommend"
         android:layout_marginLeft="15dp"
-        android:text="热卖活动"
+        android:text="热卖"
         android:textSize="22sp"
         android:textColor="@color/color_333"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="70dp" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/hot_sell_recycle_view"
+
+    <RelativeLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
 
-    </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:background="@color/white"
+            android:id="@+id/tv_title"
+            android:layout_below="@+id/iv_bg"
+            android:textSize="16sp"
+              android:gravity="center_vertical"
+            android:text="11111"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+
+        <View
+            android:layout_below="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/color_f7f7f7"
+            />
+
+
+
+    </RelativeLayout>
+
 
 
 

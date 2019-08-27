@@ -2,14 +2,15 @@ package com.wxq.commonlibrary.pay;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.os.Message;
-import android.support.v4.util.ArrayMap;
+import android.text.TextUtils;
 
 import com.alipay.sdk.app.PayTask;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -40,29 +41,45 @@ public class ZFBPay {
         return instance;
     }
 
-    public void pay(final Activity activity, final Handler mHandler, final String payInfo, final OnPayListener onPayListener) {
+    public void pay( Activity activity, String payInfo,  OnPayListener onPayListener) {
         Runnable payRunnable = new Runnable() {
-
             @Override
             public void run() {
-                // 构造PayTask 对象
                 PayTask alipay = new PayTask(activity);
-                // 调用支付接口，获取支付结果APPID
-                String result = alipay.pay(payInfo, true);
-
-                Message msg = mHandler.obtainMessage(SDK_PAY_FLAG);
-                ArrayMap<String, Object> arrayMap = new ArrayMap<>();
-                arrayMap.put("payResult", result);
-                arrayMap.put("listener", onPayListener);
-                msg.obj = arrayMap;
-                mHandler.sendMessage(msg);
+                Map<String, String> result = alipay.payV2(payInfo, true);
+                UIHandler.getInstance().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        PayResult payResultData = new PayResult(result);
+                        String resultInfo = payResultData.getResult();// 同步返回需要验证的信息
+                        String resultStatus = payResultData.getResultStatus();
+                        if (TextUtils.equals(resultStatus, "9000")) {
+                            // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+//                            ToastUtils.showShort("支付成功" + resultInfo);
+                            onPayListener.paySuccess(resultInfo);
+                        } else {
+                            // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+//                            ToastUtils.showShort("支付失败" + payResultData);
+                            onPayListener.payFailure(resultInfo);
+                        }
+                    }
+                });
             }
         };
-
-        // 必须异步调用um
+        // 必须异步调用
         Thread payThread = new Thread(payRunnable);
         payThread.start();
     }
+
+
+    public void pay( Activity activity, final Handler mHandler, final String payInfo, final OnPayListener onPayListener) {
+
+    }
+
+
+
+
+
 
     /**
      * create the order info. 创建订单信息

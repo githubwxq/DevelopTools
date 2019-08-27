@@ -11,6 +11,8 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.juziwl.uilibrary.banner.Banner;
+import com.juziwl.uilibrary.banner.GlideImageLoader;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -24,14 +26,16 @@ import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
+import com.wxq.developtools.activity.CityProductSearchListActivity;
 import com.wxq.developtools.activity.ProductActivity;
+import com.wxq.developtools.activity.ShopCarListActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.HomePageData;
 import com.wxq.developtools.model.HotCitiesBean;
 import com.wxq.developtools.model.HotCitiesBeanWrap;
 import com.wxq.developtools.model.HotSellProductsBean;
-import com.wxq.developtools.model.HotSellProductsBeanWrap;
 import com.wxq.developtools.model.RecomentProductsBean;
+import com.wxq.developtools.model.RecommendBeanWrap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,25 +126,26 @@ public class ExploreFragment extends BaseFragment {
             super(ExploreFragment.this.itemEntities);
             addItemType(TYPE_LEVEL_0,R.layout.layout_top_banner);
             addItemType(TYPE_LEVEL_1,R.layout.layout_hot_city);
-            addItemType(TYPE_LEVEL_2,R.layout.layout_hot_sell);
-            addItemType(TYPE_LEVEL_3,R.layout.layout_recomment_product);
+            addItemType(TYPE_LEVEL_2,R.layout.layout_hot_sell_old);
+            addItemType(TYPE_LEVEL_3,R.layout.layout_hot_sell);
         }
 
         @Override
         protected void convert(BaseViewHolder helper, MultiItemEntity item) {
             if (item.getItemType()==TYPE_LEVEL_0) {
+                dealWithBanner(helper, item);
             }else if (item.getItemType()==TYPE_LEVEL_1){
                 dealWithHotCity(helper, item);
             }else if (item.getItemType()==TYPE_LEVEL_2){
-                dealWithHotSellProducts(helper, item);
+//                dealWithHotSellProducts(helper, item);
             }else if (item.getItemType()==TYPE_LEVEL_3){
-                dealWithRecommend(helper, item);
+                dealWithHotSellProducts(helper, item);
             }
         }
 
-        private void dealWithRecommend(BaseViewHolder helper, MultiItemEntity item) {
-            helper.setText(R.id.tv_title,((RecomentProductsBean)item).name);
-            LoadingImgUtil.loadimg(((RecomentProductsBean)item).cover,(ImageView) helper.getView(R.id.iv_bg),false);
+        private void dealWithHotSellProducts(BaseViewHolder helper, MultiItemEntity item) {
+            helper.setText(R.id.tv_title,((HotSellProductsBean)item).name);
+            LoadingImgUtil.loadimg(((HotSellProductsBean)item).cover,(ImageView) helper.getView(R.id.iv_bg),false);
             if (getData().indexOf(item)==2) {
                 helper.setVisible(R.id.tv_recommend,true);
             }else {
@@ -150,7 +155,7 @@ public class ExploreFragment extends BaseFragment {
             helper.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ProductActivity.navToActivity(mContext,((RecomentProductsBean)item).id);
+                    ProductActivity.navToActivity(mContext,((HotSellProductsBean)item).id);
                 }
             });
 
@@ -176,25 +181,66 @@ public class ExploreFragment extends BaseFragment {
         }
 
 
-        private void dealWithHotSellProducts(BaseViewHolder helper, MultiItemEntity item) {
-            RecyclerView recyclerView=helper.getView(R.id.hot_sell_recycle_view);
-            recyclerView.setFocusable(false);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-            recyclerView.setAdapter(new BaseQuickAdapter<HotSellProductsBean,BaseViewHolder>(R.layout.item_hot_sell_product,((HotSellProductsBeanWrap)(item)).list) {
-                @Override
-                protected void convert(BaseViewHolder helper, HotSellProductsBean item) {
-                    helper.setText(R.id.tv_product_name,item.name);
-                    LoadingImgUtil.loadimg(item.cover,helper.getView(R.id.iv_bg),false);
-                    helper.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-//                            showToast("前往热卖");
-                            ProductActivity.navToActivity(mContext,item.id);
-                        }
-                    });
-                }
-            });
+//        private void dealWithHotSellProducts(BaseViewHolder helper, MultiItemEntity item) {
+//            RecyclerView recyclerView=helper.getView(R.id.hot_sell_recycle_view);
+//            recyclerView.setFocusable(false);
+//            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+//            recyclerView.setAdapter(new BaseQuickAdapter<HotSellProductsBean,BaseViewHolder>(R.layout.item_hot_sell_product,((HotSellProductsBeanWrap)(item)).list) {
+//                @Override
+//                protected void convert(BaseViewHolder helper, HotSellProductsBean item) {
+//                    helper.setText(R.id.tv_product_name,item.name);
+//                    LoadingImgUtil.loadimg(item.cover,helper.getView(R.id.iv_bg),false);
+//                    helper.itemView.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+////                            showToast("前往热卖");
+//                            ProductActivity.navToActivity(mContext,item.id);
+//                        }
+//                    });
+//                }
+//            });
+//        }
+
+    }
+
+    private void dealWithBanner(BaseViewHolder helper, MultiItemEntity item) {
+      List<RecomentProductsBean> list =((RecommendBeanWrap)(item)).list;
+      List<String> bannerStrings=new   ArrayList<String>();
+        for (RecomentProductsBean bean : list) {
+            bannerStrings.add(bean.cover);
+        }
+      Banner banner= helper.getView(R.id.banner);
+        if (banner.isAutoPlay()) {
+            banner.stopAutoPlay();
+        }
+        if (bannerStrings.size() <= 0) {
+            banner.setVisibility(View.GONE);
+        } else {
+            banner.setVisibility(View.VISIBLE);
+            banner.setImages(bannerStrings)
+                    .setImageLoader(new GlideImageLoader(GlideImageLoader.RECT))
+                    .setDelayTime(3000)
+                    .setAutonPlay(true)
+                    .setOnBannerListener(position -> {
+                      ProductActivity.navToActivity(getActivity(),list.get(position).id);
+
+                    })
+                    .start();
         }
 
+
+        helper.getView(R.id.iv_shop_car).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShopCarListActivity.navToActivity(getActivity());
+            }
+        });
+        //前往搜索页面
+        helper.getView(R.id.iv_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CityProductSearchListActivity.navToActivity(getActivity(),"","");
+            }
+        });
     }
 }

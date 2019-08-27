@@ -77,11 +77,11 @@ public class RxTransformer {
             public Publisher<T> apply(Flowable<T> observable) {
                 return observable.subscribeOn(Schedulers.io())
                         .doOnSubscribe(disposable -> {
-                            view.showLoadingDialog();//显示进度条
+                            view.showLoadingDialog();//显示加载框
                         })
                         .observeOn(AndroidSchedulers.mainThread())
                         .doFinally(() -> {
-                            view.dismissLoadingDialog();//隐藏进度条
+                            view.dismissLoadingDialog();//隐藏加载框
                         }).compose(view.bindToLife());
             }
         };

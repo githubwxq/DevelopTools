@@ -1,6 +1,8 @@
 package com.wxq.developtools.model;
 
-public  class HotSellProductsBean  {
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
+public  class HotSellProductsBean implements MultiItemEntity {
         /**
          * cover :
          * id :
@@ -12,4 +14,8 @@ public  class HotSellProductsBean  {
         public String name;
 
 
+        @Override
+        public int getItemType() {
+                return 3;
+        }
 }
