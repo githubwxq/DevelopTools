@@ -9,7 +9,7 @@ import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
-import com.wxq.commonlibrary.baserx.RxBus;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
@@ -104,7 +104,7 @@ public class AddPeopleActivity extends BaseActivity {
                     @Override
                     protected void onSuccess(PersonInfo data) {
                         ToastUtils.showShort("添加用户成功");
-                        RxBus.getDefault().post(new Event(UPDATELIST,data));
+                        RxBusManager.getInstance().post(new Event(UPDATELIST,data));
                         finishActivity();
                     }
                 });

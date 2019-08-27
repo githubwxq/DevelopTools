@@ -12,6 +12,7 @@ import com.example.module_login.R;
 import com.example.module_login.R2;
 import com.example.module_login.contract.LoginContract;
 import com.example.module_login.presenter.KlookLoginActivityPresent;
+import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.util.StringUtils;
 
@@ -71,6 +72,8 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
                 }
             }
         });
+
+        ImmersionBar.with(this).transparentStatusBar().init();
     }
 
     @Override

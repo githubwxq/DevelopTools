@@ -209,13 +209,17 @@ dependencies {
 //    api rootProject.ext.deps["map2d"]
 //    api rootProject.ext.deps["navi-3dmap"]
 
-
     //微信SDK接入
     api rootProject.ext.deps["wechat-sdk"]
     api(name: 'alipaySdk', ext: 'aar')
 
     //七牛sdk上传文件啥的
     api rootProject.ext.deps["qiniu"]
+
+    api rootProject.ext.deps["immersionbar"]
+    api rootProject.ext.deps["immersionbar-components"]
+
+
 
     //    api rootProject.ext.deps["bmob-sdk"]
 

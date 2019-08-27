@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -14,13 +15,14 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
+import com.wxq.developtools.activity.ConfirmAndPayActivity;
 import com.wxq.developtools.activity.ProductActivity;
 import com.wxq.developtools.activity.PublishCommentActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.BaseListModeData;
 import com.wxq.developtools.model.OrderBean;
+import com.wxq.developtools.model.ShopCarBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +68,7 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
                 helper.setText(R.id.tv_time,item.orderDate);
                 helper.setText(R.id.tv_type,item.getTicketDescribe());
                 helper.setText(R.id.tv_price,"¥"+item.price);
+                helper.setText(R.id.tv_state,item.getStateName());
                 helper.getView(R.id.tv_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -76,6 +79,31 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
                 helper.getView(R.id.tv_state).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (OrderBean.WAITPAY.equals( item.status)||OrderBean.PAYFAIL.equals( item.status)) {
+                            // 前往支付页面
+
+
+                            //确认订单 前往支付页面 重组数据
+                            List<ShopCarBean> carBeans = new ArrayList<>();
+
+                            ShopCarBean shopCarBean=new ShopCarBean();
+                            // 商品名称
+                            shopCarBean.productName=        item.productName;
+                            // 套餐名称
+                            shopCarBean.productPackageName=item.productPackageName;
+                            shopCarBean.ticketType=item.ticketType;
+                            shopCarBean.ticketDate=item.ticketDate;
+                            shopCarBean.num=item.num+"";
+                            shopCarBean.unitPrice=item.unitPrice;
+                            shopCarBean.productId=item.productId; //商品id
+                            shopCarBean.productPackageId=item.productPackageId; //套餐id
+                            shopCarBean.productPackageDetailId=item.productPackageDetailId; //套餐中某个详情id
+
+                            carBeans.add(shopCarBean);
+
+                            ConfirmAndPayActivity.navToActivity(getActivity(),carBeans);
+
+                        }
 
                     }
                 });
@@ -112,7 +140,8 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
         getData(page,rows);
     }
     public void onFragmentResume() {
-//        BarUtils.setStatusBarLightMode(getActivity(), true);
-        BarUtils.setStatusBarLightMode(getActivity(), false);
+        ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
+                .statusBarDarkFont(true)
+                .statusBarDarkFont(true).init();
     }
 }

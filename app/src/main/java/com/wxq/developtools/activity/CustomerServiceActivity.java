@@ -7,39 +7,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSONObject;
+import com.gyf.immersionbar.ImmersionBar;
+import com.juziwl.uilibrary.X5utils.OnFileChooserListener;
+import com.juziwl.uilibrary.X5utils.X5WebView;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
-import com.tencent.smtt.sdk.WebSettings;
-import com.tencent.smtt.sdk.WebView;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
- * 客服页面
+ * 客服页面 七陌
  */
 @Route(path = "/klook/customerService")
 public class CustomerServiceActivity extends BaseActivity {
 
 
     @BindView(R.id.webView)
-    WebView mWebView;
+    X5WebView mWebView;
     public static void navToActivity(Context context) {
         Intent intent = new Intent(context, CustomerServiceActivity.class);
         context.startActivity(intent);
     }
     @Override
     protected void initViews() {
-        BarUtils.setStatusBarColor(this, getResources().getColor(R.color.white));
+        ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
+                .statusBarDarkFont(true)
+                .statusBarDarkFont(true).init();
         topHeard.setTitle("客服");
         initWebView();
     }
@@ -47,36 +47,20 @@ public class CustomerServiceActivity extends BaseActivity {
      * 给 WebView  填充内容
      */
     private void initWebView() {
-        WebSettings settings = mWebView.getSettings();
-
-        settings.setJavaScriptEnabled(true);
-        //settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); // 默认使用缓存
-        settings.setCacheMode(WebSettings.LOAD_NO_CACHE);            // 不使用缓存  （注！使用缓存页面会有问题，有时登录不上）
-        settings.setDefaultTextEncodingName("utf-8");
-        settings.setJavaScriptCanOpenWindowsAutomatically(true);//允许js弹出窗口
-        settings.setSupportZoom(false);
-        settings.setBuiltInZoomControls(true);
-        settings.setDomStorageEnabled(true);
-
-        mWebView.setWebChromeClient(new WebChromeClient() {
-
-
-            // Android  4.1以上
-            public void openFileChooser(ValueCallback<Uri> valueCallback, String acceptType, String capture) {
+        mWebView.setOnFileChooserListener(new OnFileChooserListener() {
+            @Override
+            public void openFileChooser(ValueCallback<Uri> valueCallback) {
                 uploadMessage = valueCallback;
-                selectImage();
+                 selectImage();
             }
 
-            // Android 5.0以上
             @Override
-            public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback,
-                                             WebChromeClient.FileChooserParams fileChooserParams) {
-                uploadMessageAboveL = filePathCallback;
+            public boolean onShowFileChooser(ValueCallback<Uri[]> valueCallbacks, WebChromeClient.FileChooserParams fileChooserParams) {
+                uploadMessageAboveL = valueCallbacks;
                 selectImage(fileChooserParams);
                 return true;
             }
         });
-
 
         JSONObject left = new JSONObject();
         left.put("url", "http://fs-im-kefu.7moor.com/im/219b1c10-97bc-11e9-a2c7-034767220935/2019-07-24%2016:42:30/1563957750037/73738147.jpg?imageView2/2/w/10000");
@@ -105,14 +89,13 @@ public class CustomerServiceActivity extends BaseActivity {
 
 
         JSONObject extras = new JSONObject();
-        extras.put("生产日期","2019-1-1");
+        extras.put("生产日期","2019-8-27");
         extras.put("质保期","180天");
 
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("nickName", "文庆昵称");
         jsonObject.put("cardInfo", productInfo);
-
 
         String deviceName = "安卓";
         String userId = "user1234";
@@ -125,11 +108,8 @@ public class CustomerServiceActivity extends BaseActivity {
         String url = String.format("https://ykf-webchat.7moor.com/wapchat.html?accessId=219b1c10-97bc-11e9-a2c7-034767220935" +
                         "&urlTitle=%s&clientId=%s&fromUrl=%s&otherParams=%s&customField=%s",
                 deviceName, userId, fromDevice, otherParams,customField);
-
         mWebView.loadUrl(url);
 
-
-        Log.e("aaa", url);
 
     }
 
@@ -147,7 +127,6 @@ public class CustomerServiceActivity extends BaseActivity {
         }
         intent.setAction(action);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-
         if (fileChooserParams != null && fileChooserParams.getAcceptTypes() != null
                 && fileChooserParams.getAcceptTypes().length > 0 && !"".equals(fileChooserParams.getAcceptTypes()[0])) {
             intent.setType("image/*");
@@ -210,6 +189,13 @@ public class CustomerServiceActivity extends BaseActivity {
         return null;
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        String lastPageUrl = mWebView.popLastPageUrl();
+        if (lastPageUrl != null) {
+            mWebView.loadUrl(lastPageUrl);
+        }else {
+            super.onBackPressed();
+        }
+    }
 }

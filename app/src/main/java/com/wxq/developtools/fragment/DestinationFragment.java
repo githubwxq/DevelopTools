@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.edittext.SuperEditText;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -18,7 +19,6 @@ import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -198,8 +198,10 @@ public class DestinationFragment extends BaseFragment {
         }
     }
     public void onFragmentResume() {
-        BarUtils.setStatusBarLightMode(getActivity(), false);
-//        BarUtils.setStatusBarColor(getActivity(), getResources().getColor(R.color.white));
+//        BarUtils.setStatusBarLightMode(getActivity(), false);
+        ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
+                .statusBarDarkFont(true)
+                .statusBarDarkFont(true).init();
     }
 
 }

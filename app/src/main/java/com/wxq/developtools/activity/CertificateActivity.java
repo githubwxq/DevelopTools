@@ -52,7 +52,7 @@ public class CertificateActivity extends BaseActivity implements PullRefreshRecy
                  LoadingImgUtil.loadimg(item.vouchePic,imageView,false);
             }
         },this);
-        refrishOrLoadMore(1,10);
+        recyclerView.autoRefresh();
     }
     @Override
     protected int attachLayoutRes() {

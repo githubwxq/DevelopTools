@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.banner.Banner;
 import com.juziwl.uilibrary.banner.GlideImageLoader;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
@@ -23,7 +24,6 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.activity.CityProductSearchListActivity;
@@ -94,8 +94,7 @@ public class ExploreFragment extends BaseFragment {
     @Override
     public void onFragmentResume() {
         super.onFragmentResume();
-//        BarUtils.setStatusBarAlpha(getActivity(), 0);
-        BarUtils.setStatusBarLightMode(getActivity(), false);
+        ImmersionBar.with(this).transparentStatusBar().init();
     }
 
 

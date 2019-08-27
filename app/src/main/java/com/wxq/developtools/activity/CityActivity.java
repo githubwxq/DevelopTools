@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
@@ -14,7 +15,6 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.CityVosBean;
@@ -59,10 +59,9 @@ public class CityActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        BarUtils.setStatusBarAlpha(this, 0);
-        BarUtils.addMarginTopEqualStatusBarHeight(rlTop);
         cityId= getIntent().getStringExtra("cityId");
         getCityInfoById(cityId);
+        ImmersionBar.with(this).transparentStatusBar().init();
     }
 
     private void getCityInfoById(String cityId) {

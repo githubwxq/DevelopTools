@@ -3,6 +3,7 @@ package com.juziwl.uilibrary.X5utils;
 import android.net.Uri;
 
 import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebChromeClient;
 
 /**
  * @author Army
@@ -19,5 +20,5 @@ public interface OnFileChooserListener {
     /**
      * 5.0及以上走这个回调
      */
-    boolean onShowFileChooser(ValueCallback<Uri[]> valueCallback);
+    boolean onShowFileChooser(ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams);
 }

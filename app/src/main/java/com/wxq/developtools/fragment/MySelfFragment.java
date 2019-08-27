@@ -1,11 +1,15 @@
 package com.wxq.developtools.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
+import com.gyf.immersionbar.ImmersionBar;
+import com.juziwl.uilibrary.activity.CommonWebActivity;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
@@ -15,7 +19,6 @@ import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
-import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CertificateActivity;
 import com.wxq.developtools.activity.CustomerServiceActivity;
@@ -61,7 +64,9 @@ public class MySelfFragment extends BaseFragment {
     public void onFragmentResume() {
       //更新用户信息
         getUserInfo();
-        BarUtils.setStatusBarLightMode(getActivity(), false);
+        ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
+                .statusBarDarkFont(true)
+                .statusBarDarkFont(true).init();
     }
 
     private void getUserInfo() {
@@ -120,6 +125,7 @@ public class MySelfFragment extends BaseFragment {
                 CustomerServiceActivity.navToActivity(mContext);
                 break;
             case R.id.rl_about:
+
 
                 break;
         }

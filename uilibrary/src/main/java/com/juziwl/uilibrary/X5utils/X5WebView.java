@@ -22,7 +22,7 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-
+import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.util.Stack;
 
@@ -71,18 +71,16 @@ public class X5WebView extends WebView {
         @Override
         public void onPageStarted(WebView webView, String url, Bitmap favicon) {
             super.onPageStarted(webView, url, favicon);
-
             if (isLoading && !mUrls.empty()) {
                 beforeUrl = mUrls.pop();
             }
-            recordUrl(url);
+            recordUrl(url);  //存放之前加载的每一页面
             isLoading = true;
         }
 
         @Override
         public void onPageFinished(WebView webView, String url) {
             super.onPageFinished(webView, url);
-
             if (mOnpageFinishendListenter != null) {
                 mOnpageFinishendListenter.onPageFinish(url);
             }
@@ -253,7 +251,7 @@ public class X5WebView extends WebView {
         @Override
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, FileChooserParams fileChooserParams) {
             if (onFileChooserListener != null) {
-                return onFileChooserListener.onShowFileChooser(valueCallback);
+                return onFileChooserListener.onShowFileChooser(valueCallback,fileChooserParams);
             } else {
                 return super.onShowFileChooser(webView, valueCallback, fileChooserParams);
             }
@@ -277,7 +275,7 @@ public class X5WebView extends WebView {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
-//            ToastUtils.showLong("请先安装QQ客户端");
+            ToastUtils.showShort("请先安装QQ客户端");
             //自定义一个toast！！！"请先安装QQ客户端"
 
             return false;

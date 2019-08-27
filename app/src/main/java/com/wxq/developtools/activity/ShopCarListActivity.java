@@ -64,6 +64,7 @@ public class ShopCarListActivity extends BaseActivity implements PullRefreshRecy
                 helper.setText(R.id.tv_title, item.productName);
                 helper.setText(R.id.tv_time, item.ticketDate);
                 helper.setText(R.id.tv_count, item.num);
+                helper.setText(R.id.tv_type, item.getTicketTypeName());
                 helper.setText(R.id.tv_price, "¥" + item.unitPrice);
                 if (item.isSelect) {
                     helper.setImageResource(R.id.iv_choose, R.mipmap.choose_icon);

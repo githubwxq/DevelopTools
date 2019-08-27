@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
@@ -23,6 +25,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.juziwl.uilibrary.activity.CommonWebActivity;
 import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
@@ -280,19 +283,48 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
                 }
                 break;
             case R.id.ll_connect_kefu:
-                // 弹框提示前往页面
-                rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean) throws Exception {
-                        if (aBoolean) {
-                            // 地图前往  测试
-//                            MapNavigationUtils.goBaidu(context, new LatLng(Double.valueOf(productDetailBean.lat) ,Double.valueOf(productDetailBean.lng)));
-                            MapNavigationUtils.goGd(context, new LatLng(Double.valueOf(productDetailBean.lat), Double.valueOf(productDetailBean.lng)));
-                        } else {
-                            ToastUtils.showShort("打开权限");
-                        }
-                    }
-                });
+               // 前往客服页面
+
+                JSONObject left = new JSONObject();
+                left.put("url", productDetailBean.cover);
+
+                JSONObject right1 = new JSONObject();
+                right1.put("text", productDetailBean.name);
+                right1.put("color", "#595959");
+                right1.put("fontSize", 12);
+
+                JSONObject right2 = new JSONObject();
+                right2.put("text", productDetailBean.introduction);
+                right2.put("color", "#595959");
+                right2.put("fontSize", 12);
+
+                JSONObject right3 = new JSONObject();
+                right3.put("text", "¥"+productDetailBean.price);
+                right3.put("color", "#ff0000");
+                right3.put("fontSize", 14);
+
+                JSONObject productInfo = new JSONObject();
+                productInfo.put("left", left);
+                productInfo.put("url", "https://www.7moor.com/");  //最后商品的详情连接
+                productInfo.put("right1", right1);
+                productInfo.put("right2", right2);
+                productInfo.put("right3", right3);
+                JSONObject extras = new JSONObject();
+//                extras.put("生产日期","2019-8-27");
+//                extras.put("质保期","180天");
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("nickName", "文庆昵称");
+                jsonObject.put("cardInfo", productInfo);
+                String deviceName = "安卓";
+                String userId = "user1234";
+                String fromDevice = "Android";
+                String otherParams = jsonObject.toJSONString();
+                String customField = extras.toJSONString();
+                Log.e("aaa", productInfo.toString());
+                String url = String.format("https://ykf-webchat.7moor.com/wapchat.html?accessId=219b1c10-97bc-11e9-a2c7-034767220935" +
+                                "&urlTitle=%s&clientId=%s&fromUrl=%s&otherParams=%s&customField=%s",
+                        deviceName, userId, fromDevice, otherParams,customField);
+                CommonWebActivity.navToActivity(this,url,"客服");
                 break;
 
             case R.id.iv_shop_car:
@@ -309,6 +341,25 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
                 ConfirmOrderActivity.navToActivity(this, productDetailBean, ConfirmOrderActivity.RESERVE);
                 break;
         }
+    }
+
+    /**
+     * 点击地图前往地图相关页面
+     */
+    private void gotoMap() {
+        // 弹框提示前往页面
+        rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                if (aBoolean) {
+                    // 地图前往  测试
+//                            MapNavigationUtils.goBaidu(context, new LatLng(Double.valueOf(productDetailBean.lat) ,Double.valueOf(productDetailBean.lng)));
+                    MapNavigationUtils.goGd(context, new LatLng(Double.valueOf(productDetailBean.lat), Double.valueOf(productDetailBean.lng)));
+                } else {
+                    ToastUtils.showShort("打开权限");
+                }
+            }
+        });
     }
 
 
