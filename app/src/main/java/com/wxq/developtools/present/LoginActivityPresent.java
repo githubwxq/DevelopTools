@@ -1,11 +1,8 @@
-package com.example.module_login.presenter;
+package com.wxq.developtools.present;
 
-import com.example.module_login.contract.LoginContract;
 import com.wxq.commonlibrary.base.RxPresenter;
+import com.wxq.developtools.constract.LoginContract;
 
-//import cn.bmob.v3.BmobUser;
-//import cn.bmob.v3.exception.BmobException;
-//import cn.bmob.v3.listener.LogInListener;
 
 /**
  * Created by wxq on 2018/6/28.

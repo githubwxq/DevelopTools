@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Process;
 import android.util.Log;
 
-import com.example.module_login.activity.KlookLoginActivity;
+import com.wxq.developtools.activity.KlookLoginActivity;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.base.BaseApp;

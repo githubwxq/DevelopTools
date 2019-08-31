@@ -61,6 +61,11 @@ public class CityActivity extends BaseActivity {
     protected void initViews() {
         cityId= getIntent().getStringExtra("cityId");
         getCityInfoById(cityId);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         ImmersionBar.with(this).transparentStatusBar().init();
     }
 

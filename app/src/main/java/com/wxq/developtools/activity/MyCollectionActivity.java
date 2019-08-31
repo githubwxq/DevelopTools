@@ -2,15 +2,12 @@ package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
@@ -27,32 +24,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-public class MyCollectionActivity extends BaseActivity {
-
+@Route(path = "/klook/MyCollectionActivity")
+public class MyCollectionActivity extends BaseActivity implements PullRefreshRecycleView.RefrishAndLoadMoreListener {
     @BindView(R.id.recycler_view)
     PullRefreshRecycleView recyclerView;
-
     List<CollectionBean> collectionBeans = new ArrayList<>();
-
-    int page = 1;
-
-    int rows = 10;
 
     public static void navToActivity(Context context) {
         Intent intent = new Intent(context, MyCollectionActivity.class);
         context.startActivity(intent);
     }
 
-
     @Override
     protected void initViews() {
-        topHeard.setTitle("我的收藏").setLeftListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        topHeard.setTitle("我的收藏");
         recyclerView.setLoadMoreEnable(true).setRefreshEnable(true).setAdapter(
                 new BaseQuickAdapter<CollectionBean, BaseViewHolder>(
                         R.layout.item_collection, collectionBeans) {
@@ -65,22 +50,9 @@ public class MyCollectionActivity extends BaseActivity {
                         iv_collect_icon.setOnClickListener(
                                 v -> cancelCollection(item)
                         );
-
                     }
-                }, new OnRefreshLoadMoreListener() {
-                    @Override
-                    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                        page++;
-                        getData(page, rows);
-                    }
-
-                    @Override
-                    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                        page = 1;
-                        getData(page, rows);
-                    }
-                });
-        getData(page, rows);
+                }, this);
+        recyclerView.autoRefresh();
     }
 
     /**
@@ -98,45 +70,6 @@ public class MyCollectionActivity extends BaseActivity {
                     @Override
                     protected void onSuccess(Object o) {
                         collectionBeans.remove(item);
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        recyclerView.notifyDataSetChanged();
-                    }
-                });
-    }
-
-    /**
-     * 枫叶获取数据
-     *
-     * @param
-     */
-    private void getData(int page, int rows) {
-        Api.getInstance()
-                .getApiService(KlookApi.class)
-                .pageCollectProduct(page, rows)
-                .compose(RxTransformer.transformFlowWithLoading(this))
-                .compose(ResponseTransformer.handleResult())
-                .safeSubscribe(new RxSubscriber<CollectionData>() {
-                    @Override
-                    protected void onSuccess(CollectionData collectionData) {
-                        List<CollectionBean> data=collectionData.list;
-                        if (page == 1) {
-                            collectionBeans.clear();
-                        } else {
-                            if (data.size() < rows) {
-                                recyclerView.setLoadMoreEnable(false);
-                            } else {
-                                recyclerView.setLoadMoreEnable(true);
-                            }
-                        }
-                        collectionBeans.addAll(data);
-                        recyclerView.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onComplete() {
                         recyclerView.notifyDataSetChanged();
                     }
                 });
@@ -151,5 +84,21 @@ public class MyCollectionActivity extends BaseActivity {
     @Override
     protected BasePresenter initPresent() {
         return null;
+    }
+
+    @Override
+    public void refrishOrLoadMore(int page, int rows) {
+        Api.getInstance()
+                .getApiService(KlookApi.class)
+                .pageCollectProduct(page, rows)
+                .compose(RxTransformer.transformFlowWithLoading(this))
+                .compose(ResponseTransformer.handleResult())
+                .subscribe(new RxSubscriber<CollectionData>() {
+                    @Override
+                    protected void onSuccess(CollectionData collectionData) {
+                        recyclerView.updataData(collectionData.list);
+                        List<CollectionBean> data = collectionData.list;
+                    }
+                });
     }
 }

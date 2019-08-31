@@ -1,6 +1,8 @@
-package com.example.module_login.activity;
+package com.wxq.developtools.activity;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.EditText;
@@ -8,13 +10,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.module_login.R;
-import com.example.module_login.R2;
-import com.example.module_login.contract.LoginContract;
-import com.example.module_login.presenter.KlookLoginActivityPresent;
 import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.util.StringUtils;
+import com.wxq.developtools.R;
+import com.wxq.developtools.constract.LoginContract;
+import com.wxq.developtools.present.KlookLoginActivityPresent;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -24,16 +25,21 @@ import io.reactivex.functions.Consumer;
  */
 
 public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> implements LoginContract.View {
-    @BindView(R2.id.mEtAccount)
+    @BindView(R.id.mEtAccount)
     EditText mEtAccount;
-    @BindView(R2.id.mEtPwd)
+    @BindView(R.id.mEtPwd)
     EditText mEtPwd;
-    @BindView(R2.id.mFabToLogin)
+    @BindView(R.id.mFabToLogin)
     FloatingActionButton mFabToLogin;
-    @BindView(R2.id.mProBar)
+    @BindView(R.id.mProBar)
     ProgressBar mProBar;
-    @BindView(R2.id.mTvToSignUp)
+    @BindView(R.id.mTvToSignUp)
     TextView mTvToSignUp;
+
+    public static void naveToActivity(Context context) {
+        Intent intent = new Intent(context, KlookLoginActivity.class);
+        context.startActivity(intent);
+    }
 
 
     @Override

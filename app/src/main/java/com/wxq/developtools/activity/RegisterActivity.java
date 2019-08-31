@@ -1,33 +1,30 @@
-package com.example.module_login.activity;
+package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.module_login.R;
-import com.example.module_login.R2;
-import com.example.module_login.contract.RegisterContract;
-import com.example.module_login.presenter.RegisterActivityPresent;
 import com.juziwl.uilibrary.edittext.EditTextWithDel;
 import com.juziwl.uilibrary.textview.CodeTextView;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.developtools.R;
+import com.wxq.developtools.constract.RegisterContract;
+import com.wxq.developtools.present.RegisterActivityPresent;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> implements RegisterContract.View {
 
-    @BindView(R2.id.etd_tel)
+    @BindView(R.id.etd_tel)
     EditTextWithDel etdTel;
-    @BindView(R2.id.tv_qcode)
+    @BindView(R.id.tv_qcode)
     CodeTextView tvQcode;
-    @BindView(R2.id.etd_code)
+    @BindView(R.id.etd_code)
     EditTextWithDel etdCode;
-    @BindView(R2.id.btn_register)
+    @BindView(R.id.btn_register)
     Button btn_register;
 
 
@@ -112,12 +109,5 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     public void registerSuccess() {
         finish();
 
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

@@ -20,6 +20,7 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
@@ -99,13 +100,17 @@ public class EditPersonActivity extends BaseActivity {
                 });
                 break;
             case R.id.rl_acount_detail:
-
+                AccountDetailActivity.navToActivity(this);
                 break;
             case R.id.rl_change_pwd:
-
+                //修改密码
+                    ChangePwdActivity.navToActivity(this);
                 break;
             case R.id.tv_out:
-
+                AppManager.getInstance().killActivity(KLookMainActivity.class);
+                //前往登录页面
+                KlookLoginActivity.naveToActivity(this);
+                finish();
                 break;
         }
     }

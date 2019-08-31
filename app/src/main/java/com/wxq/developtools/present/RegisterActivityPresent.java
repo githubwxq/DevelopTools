@@ -1,12 +1,12 @@
-package com.example.module_login.presenter;
+package com.wxq.developtools.present;
 
-import com.example.module_login.api.LoginModelApi;
-import com.example.module_login.contract.RegisterContract;
+import com.wxq.developtools.constract.RegisterContract;
 import com.wxq.commonlibrary.base.RxPresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.developtools.api.LoginModelApi;
 
 import java.util.HashMap;
 
