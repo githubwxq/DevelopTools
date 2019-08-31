@@ -22,6 +22,7 @@ import io.reactivex.functions.Consumer;
 /**
  * 登入页面
  */
+
 public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> implements LoginContract.View {
     @BindView(R2.id.mEtAccount)
     EditText mEtAccount;
@@ -37,12 +38,7 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
 
     @Override
     public void naveToMainActivity() {
-//        showToast("前往首页 arouter前往首页开发");
         ARouter.getInstance().build("/klook/main").navigation();
-
-//        ScanActivity.navToActivity(this);
-
-
         finish();
     }
 

@@ -34,7 +34,9 @@
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CityProductSearchListActivity"></activity>
+        <activity android:name=".activity.ChangePwdActivity"></activity>
+        <activity android:name=".activity.AccountDetailActivity" />
+        <activity android:name=".activity.CityProductSearchListActivity" />
         <activity android:name=".activity.CertificateActivity" />
         <activity android:name=".activity.PublishCommentActivity" />
         <activity android:name=".activity.AddPeopleActivity" />
