@@ -1,13 +1,10 @@
 package com.wxq.commonlibrary.datacenter;
 
 import android.app.Application;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import com.github.yuweiguocn.library.greendao.MigrationHelper;
-import com.wxq.commonlibrary.dao.DaoMaster;
 import com.wxq.commonlibrary.dao.DaoSession;
+import com.wxq.commonlibrary.dbmanager.DbManager;
 import com.wxq.commonlibrary.model.UserInfo;
 
 /**
@@ -39,7 +36,9 @@ public class AllDataCenterManager {
      */
     public String token;
 
-
+    /**
+     * 个人信息临时变量
+     */
     public UserInfo userInfo;
 
     private static Application sApplication;
@@ -67,28 +66,14 @@ public class AllDataCenterManager {
     }
 
     public DaoSession getDaoSession() {
-        MyOpenHelper devOpenHelper = new MyOpenHelper(sApplication, DATA_BASE_NAME);
-        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
-        daoSession = daoMaster.newSession();
+        daoSession =  DbManager.getInstance().getDaoSession();
         return daoSession;
     }
 
     public DaoSession getDaoSession(String dbName) {
-        MyOpenHelper devOpenHelper = new MyOpenHelper(sApplication, dbName);
-        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
-        daoSession = daoMaster.newSession();
+        DbManager.getInstance().setDATA_BASE_NAME(dbName);
+        daoSession =  DbManager.getInstance().getDaoSession();
         return daoSession;
-    }
-
-    private class MyOpenHelper extends DaoMaster.OpenHelper {
-        MyOpenHelper(Context context, String name) {
-            super(context, name);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            MigrationHelper.migrate(db);
-        }
     }
 
     public UserPreference getUserPreference() {

@@ -58,8 +58,8 @@ public class KlookTokenInterceptor implements Interceptor {
 
     private String getNewToken() {
         HashMap<String,String> parmer=new HashMap<>()   ;
-        parmer.put("password","111111");
-        parmer.put("phone","17501461752");
+        parmer.put("password",AllDataCenterManager.getInstance().getPublicPreference().getPwd());
+        parmer.put("phone",AllDataCenterManager.getInstance().getPublicPreference().getAccount());
         try {
             KlookResponseData<String> body = Api.getInstance().getApiService(CommonApi.class).login(parmer).execute().body();
             if (body.code==200) {

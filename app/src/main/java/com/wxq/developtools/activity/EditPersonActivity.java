@@ -107,6 +107,8 @@ public class EditPersonActivity extends BaseActivity {
                     ChangePwdActivity.navToActivity(this);
                 break;
             case R.id.tv_out:
+                AllDataCenterManager.getInstance().token="";
+                AllDataCenterManager.getInstance().getPublicPreference().storeAutoLogin(0);
                 AppManager.getInstance().killActivity(KLookMainActivity.class);
                 //前往登录页面
                 KlookLoginActivity.naveToActivity(this);

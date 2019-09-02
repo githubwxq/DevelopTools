@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseActivity;
+import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.util.StringUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.constract.LoginContract;
@@ -50,32 +51,40 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
 
     @Override
     protected void initViews() {
+        mEtAccount.setText( AllDataCenterManager.getInstance().getPublicPreference().getAccount());
+        mEtPwd.setText( AllDataCenterManager.getInstance().getPublicPreference().getPwd());
+        ImmersionBar.with(this).transparentStatusBar().init();
         mTvToSignUp.setOnClickListener(v -> RegisterActivity.navToActivity(context));
         mFabToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tel = mEtAccount.getText().toString();
-                String pwd = mEtPwd.getText().toString();
-                if (StringUtils.isBlank(tel) || StringUtils.isBlank(pwd)) {
-                    showToast("请输入手机号或密码");
-                } else {
-                    rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
-                            , Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.CAMERA
-                    ).subscribe(new Consumer<Boolean>() {
-                        @Override
-                        public void accept(Boolean aBoolean) throws Exception {
-                            mPresenter.loginWithAccountAndPwd(tel, pwd);
-                        }
-                    });
-                }
+                login();
             }
         });
+        if (AllDataCenterManager.getInstance().getPublicPreference().getAutoLogin()==1) {
+            login();
+        }
+    }
 
-        ImmersionBar.with(this).transparentStatusBar().init();
+    private void login() {
+        String tel = mEtAccount.getText().toString();
+        String pwd = mEtPwd.getText().toString();
+        if (StringUtils.isBlank(tel) || StringUtils.isBlank(pwd)) {
+            showToast("请输入手机号或密码");
+        } else {
+            rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
+                    , Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_PHONE_STATE,
+                    Manifest.permission.CAMERA
+            ).subscribe(new Consumer<Boolean>() {
+                @Override
+                public void accept(Boolean aBoolean) throws Exception {
+                    mPresenter.loginWithAccountAndPwd(tel, pwd);
+                }
+            });
+        }
     }
 
     @Override

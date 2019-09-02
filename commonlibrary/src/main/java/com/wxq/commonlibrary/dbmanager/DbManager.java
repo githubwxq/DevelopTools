@@ -15,23 +15,33 @@ import com.wxq.commonlibrary.dao.UserDao;
  * @author wxq
  * @version V_1.0.0
  * @date 2017/04/25
- * @description
+ * @description 数据库获取类 不同的用户对应不同的数据库
  */
 public class DbManager {
 
     private static DbManager dbManager;
-    private final String DATA_BASE_NAME = "common.db";
+
+    /**
+     * 用户登录获取用户的唯一标识 作为数据库的名字
+     *
+     * @param DATA_BASE_NAME
+     */
+    public void setDATA_BASE_NAME(String DATA_BASE_NAME) {
+        this.DATA_BASE_NAME = DATA_BASE_NAME;
+        // 重新登入或者切换用户都需要更改这个 数据库名称然后 还需要重新设置daomaster
+        needChangeDaoMaster = true;
+    }
+
+    private String DATA_BASE_NAME = "common.db"; //必须先设置
+    //数据库名字对应每个用户的uid
     private DaoSession daoSession;
-    DaoMaster daoMaster;
+    private DaoMaster daoMaster;
 
 
-
-    MyOpenHelper devOpenHelper;
+    private MyOpenHelper devOpenHelper;
 
     private DbManager() {
-        devOpenHelper = new MyOpenHelper(BaseApp.getContext(), DATA_BASE_NAME);
-        daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
-        daoSession = daoMaster.newSession();
+
     }
 
     /**
@@ -63,7 +73,16 @@ public class DbManager {
         }
     }
 
+
+    boolean needChangeDaoMaster = true; //是否需要更新daomaster 默认需要 当设置过了就不需要 除非 重新更改了需要的数据库名称
+
     public DaoSession getDaoSession() {
+        if (daoMaster == null || needChangeDaoMaster) {
+            devOpenHelper = new MyOpenHelper(BaseApp.getContext(), DATA_BASE_NAME);
+            daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
+            needChangeDaoMaster = false;
+        }
+        daoSession = daoMaster.newSession();
         return daoSession;
     }
 

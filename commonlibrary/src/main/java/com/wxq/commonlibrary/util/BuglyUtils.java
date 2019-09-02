@@ -29,6 +29,16 @@ public class BuglyUtils {
                 Map<String, String> map = new HashMap<>(5);
                 map.put("from","development");
                 return map;
+
+//                Map<String, String> map = new HashMap<>(5);
+//                try {
+//                    map.put("LoginAccount", AllDataCenterManager.getInstance().getUserPreference().getLoginAccount());
+//                    map.put("PassWord", AllDataCenterManager.getInstance().getUserPreference().getPassword());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                return map;
+
             }
         });
         setStrictMode();
@@ -84,6 +94,16 @@ public class BuglyUtils {
         //CrashReport.postCatchedException(new Exception("41222"));  //手动上传错误
         // CrashReport.testJavaCrash();  //手动排除异常
     }
+
+
+    public static void uploadErrorMessage(Throwable throwable){
+        CrashReport.postCatchedException(throwable);
+    }
+
+    public static void setUserId(String userInfo){
+        CrashReport.setUserId(userInfo);// 上传用户信息
+    }
+
 
     @TargetApi(9)
     protected static void setStrictMode() {

@@ -12,7 +12,7 @@ import java.util.Set;
  * @author wxq
  * @version V_5.0.0
  * @date 2018年2月21日
- * @description 存储用户信息
+ * @description 存储用户信息   注意每个用户对应一个share文件
  */
 public class UserPreference {
     private SharedPreferences settings;

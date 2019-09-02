@@ -2,7 +2,6 @@ package com.wxq.commonlibrary.bmob;
 
 import com.wxq.commonlibrary.dao.NewFriendDao;
 import com.wxq.commonlibrary.dbmanager.DbManager;
-import com.wxq.commonlibrary.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

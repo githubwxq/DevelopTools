@@ -7,9 +7,12 @@ import android.content.SharedPreferences;
  * @author Army
  * @version V_1.0.0
  * @date 2017/10/27
- * @description 公共的跟用户信息无关的数据存在这里
+ * @description 公共的跟用户信息无关的数据存在这里  注意说有用户对应一个share文件
  */
 public class PublicPreference {
+
+
+
     private SharedPreferences settings;
 
     public PublicPreference(Context ctx) {
@@ -17,6 +20,42 @@ public class PublicPreference {
             this.settings = ctx.getSharedPreferences("exue_public_data", 0);
         }
     }
+
+    /**
+     * 当前输入账号
+     * @param account
+     */
+    public void storeAccount(String account) {
+        SharedPreferences.Editor edit = settings.edit();
+        edit.putString("account", account);
+        edit.commit();
+    }
+
+    /**
+     * 登入输入的账号
+     * @return
+     */
+    public String getAccount() {
+        return settings.getString("account", "");
+    }
+    /**
+     * 登入输入的密码
+     * @return
+     */
+    public void storePwd(String pwd) {
+        SharedPreferences.Editor edit = settings.edit();
+        edit.putString("pwd", pwd);
+        edit.commit();
+    }
+
+    public String getPwd() {
+        return settings.getString("pwd", "");
+    }
+
+
+
+
+
 
     public void storeUid(String uid) {
         SharedPreferences.Editor edit = settings.edit();
@@ -38,6 +77,18 @@ public class PublicPreference {
         return settings.getString("token", "");
     }
 
+    public void storeAutoLogin(int loginState) {
+        SharedPreferences.Editor edit = settings.edit();
+        edit.putInt("auto_login", loginState);
+        edit.commit();
+    }
+
+    public int getAutoLogin() {
+        return settings.getInt("auto_login", 0);
+    }
+
+
+
     /*****************************存数据时加stu和tea前缀**********************************/
 
 
@@ -45,15 +96,6 @@ public class PublicPreference {
 /*    *//**
      * @param autologin 0 不自动  1 自动
      *//*
-    public void storeAutoLogin(int autologin) {
-        SharedPreferences.Editor edit = settings.edit();
-        edit.putInt("auto_login", autologin);
-        edit.commit();
-    }
-
-    public int getAutoLogin() {
-        return settings.getInt("auto_login", 0);
-    }
 
     public void storeIsInsertProvinceInfo(boolean isInsert) {
         SharedPreferences.Editor editor = settings.edit();
