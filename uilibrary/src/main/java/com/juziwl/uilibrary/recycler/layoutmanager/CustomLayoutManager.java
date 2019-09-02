@@ -40,3 +40,16 @@ public class CustomLayoutManager extends RecyclerView.LayoutManager {
 }
 
 
+
+//以下方法动态设置间距方便
+//    CardView ll_inner = helper.getView(R.id.cardView_item_root);
+//    GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) ll_inner.getLayoutParams();
+//                        if (position % 2 == 0) {
+//                                //左边的item
+//                                layoutParams.setMargins(DisplayUtils.dip2px(15), DisplayUtils.dip2px(5), DisplayUtils.dip2px(5), DisplayUtils.dip2px(5));
+//                                } else {
+//                                //右边的item
+//                                layoutParams.setMargins(DisplayUtils.dip2px(5), DisplayUtils.dip2px(5), DisplayUtils.dip2px(15), DisplayUtils.dip2px(5));
+//                                }
+
+

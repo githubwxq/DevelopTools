@@ -2,6 +2,7 @@ package com.wxq.commonlibrary.model;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * author:wxq
@@ -17,15 +18,18 @@ public class User {
     /**
      * name : 王晓清
      */
+    @Id(autoincrement = true)
+    public Long id;
     public String name;
     public String phone;
     public String pwd;
     public String uid;
     public String heardPic;
     public String age;
-    @Generated(hash = 1906506140)
-    public User(String name, String phone, String pwd, String uid, String heardPic,
-            String age) {
+    @Generated(hash = 74982852)
+    public User(Long id, String name, String phone, String pwd, String uid,
+            String heardPic, String age) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.pwd = pwd;
@@ -71,6 +75,12 @@ public class User {
     }
     public void setAge(String age) {
         this.age = age;
+    }
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
 

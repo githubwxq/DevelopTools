@@ -238,6 +238,9 @@ public interface KlookApi {
 
 
 
+    @POST("/app/user/findUserAccountById/{id}")
+    Flowable<KlookResponseData<UserInfo>> findUserAccountById( @Path("id")String id);
+
 
 
 

@@ -60,14 +60,21 @@ public class RealUserDao {
         if (user == null) {
             return;
         }
-        userDao.insertOrReplaceInTx(user);
+        userDao.update(user);
     }
 
     public synchronized void deleteUser(String name) {
-        User user = userDao.queryBuilder().where(UserDao.Properties.Name.eq(name)).build().unique();
+        User user = userDao.queryBuilder().where(UserDao.Properties.Name.eq(name)).build().unique(); //获取单个对象可能为空就是不存在
         if (user == null) {
             return;
         }
         userDao.delete(user);
+    }
+
+    public synchronized void insertUser(User user) {
+        if (user == null) {
+            return;
+        }
+        userDao.insert(user);
     }
 }

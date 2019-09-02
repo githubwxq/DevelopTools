@@ -1,10 +1,8 @@
 package com.juziwl.uilibrary.recycler.itemdecoration;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.DiscretePathEffect;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,9 +13,7 @@ import android.support.v7.widget.RecyclerView.State;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
-import com.juziwl.uilibrary.utils.ConvertUtils;
-
-/**键盘的装饰器
+/**键盘的装饰器 设置间隔的
  * @author zhy
  */
 public class GrideItemDecorationForKeyBoard extends RecyclerView.ItemDecoration {
@@ -185,3 +181,16 @@ public class GrideItemDecorationForKeyBoard extends RecyclerView.ItemDecoration 
     }
 
 }
+
+
+//以下方法设置间隔也是可以的最外层matchparent 里面一层设置margin形成间距
+//以下方法动态设置间距方便
+//    CardView ll_inner = helper.getView(R.id.cardView_item_root);
+//    GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) ll_inner.getLayoutParams();
+//                        if (position % 2 == 0) {
+//                                //左边的item
+//                                layoutParams.setMargins(DisplayUtils.dip2px(15), DisplayUtils.dip2px(5), DisplayUtils.dip2px(5), DisplayUtils.dip2px(5));
+//                                } else {
+//                                //右边的item
+//                                layoutParams.setMargins(DisplayUtils.dip2px(5), DisplayUtils.dip2px(5), DisplayUtils.dip2px(15), DisplayUtils.dip2px(5));
+//                                }

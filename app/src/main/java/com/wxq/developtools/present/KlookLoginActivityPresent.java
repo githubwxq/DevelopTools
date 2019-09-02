@@ -51,10 +51,15 @@ public class KlookLoginActivityPresent extends RxPresenter<LoginContract.View> i
                         User user = RealUserDao.getInstance().queryUserByPhone(account);
                         if (user==null) {
                             user=new User();
+                            user.phone=account;
+                            user.pwd=password;
+                            RealUserDao.getInstance().insertUser(user);
+                        }else {
+                            user.phone=account;
+                            user.pwd=password;
+                            RealUserDao.getInstance().updateUser(user);
                         }
-                        user.phone=account;
-                        user.pwd=password;
-                        RealUserDao.getInstance().updateUser(user);
+
                         BuglyUtils.setUserId("账号信息"+account);
                         // 数据库系统配置信息
 //                        DaoSession appconfigDao = AllDataCenterManager.getInstance().getDaoSession("appconfig");

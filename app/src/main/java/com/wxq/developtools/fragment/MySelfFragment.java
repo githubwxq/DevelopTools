@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
@@ -28,6 +29,7 @@ import butterknife.OnClick;
 
 public class MySelfFragment extends BaseFragment {
 
+    public static final int PICUPDATE = 998;
     @BindView(R.id.heard_icon)
     ImageView heardIcon;
     @BindView(R.id.tv_name)
@@ -130,4 +132,10 @@ public class MySelfFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void dealWithRxEvent(int action, Event event) {
+        if (action==PICUPDATE) {
+            LoadingImgUtil.loadimg(event.getObject(),heardIcon,true);
+        }
+    }
 }

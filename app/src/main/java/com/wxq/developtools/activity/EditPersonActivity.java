@@ -15,7 +15,9 @@ import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
+import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
@@ -24,6 +26,7 @@ import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
+import com.wxq.developtools.fragment.MySelfFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -147,8 +150,8 @@ public class EditPersonActivity extends BaseActivity {
                                                  protected void onSuccess(Object s) {
                                                      ToastUtils.showShort("头像上传成功");
                                                      AllDataCenterManager.getInstance().userInfo.head=currentUrlPath;
+                                                     RxBusManager.getInstance().post(new Event(MySelfFragment.PICUPDATE,currentUrlPath));
                                                  }
-
                                                  @Override
                                                  public void onComplete() {
                                                      dismissLoadingDialog();
