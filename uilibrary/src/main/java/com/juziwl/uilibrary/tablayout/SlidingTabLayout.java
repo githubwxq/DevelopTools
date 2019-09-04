@@ -1020,3 +1020,96 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         return (int) (sp * scale + 0.5f);
     }
 }
+
+
+//无间距
+//<com.navinfo.gw.view.widget.tablayout.SlidingTabLayout
+//        android:id="@+id/tab_shop"
+//        android:layout_width="match_parent"
+//        android:layout_height="@dimen/dimen_88dp"
+//        android:layout_alignParentTop="true"
+//        android:background="@drawable/ic_view_top"
+//        android:fitsSystemWindows="true"
+//        app:tl_indicator_color="@color/tab_layout_select_text_color"
+//        app:tl_indicator_height="2dp"
+//        app:tl_indicator_width_equal_title="true"
+//        app:tl_tab_padding="10dp"
+//        app:tl_tab_space_equal="false"
+//        app:tl_textSelectColor="@color/tab_layout_select_text_color"
+//        app:tl_textUnselectColor="@color/tab_layout_unselect_text_color"
+//        app:tl_textsize="@dimen/dimen_common_text_size_15"
+//        app:tl_underline_color="#00000000"
+//        app:tl_underline_gravity="BOTTOM"
+//        app:tl_underline_height="3dp">
+
+
+
+//间距相同
+//<com.navinfo.gw.view.widget.tablayout.SlidingTabLayout
+//        android:id="@+id/tl_2"
+//        android:layout_width="wrap_content"
+//        android:layout_height="@dimen/dimen_common_50"
+//        android:layout_alignParentLeft="true"
+//        android:layout_alignParentRight="true"
+//        android:layout_marginLeft="@dimen/dimen_common_50"
+//        android:layout_marginRight="@dimen/dimen_92dp"
+//        android:background="@color/transparent"
+//        tl:tl_indicator_color="@color/tab_layout_select_text_color"
+//        tl:tl_indicator_height="2dp"
+//        tl:tl_indicator_width_equal_title="true"
+//        tl:tl_tab_padding="10dp"
+//        tl:tl_tab_space_equal="true"
+//        tl:tl_textSelectColor="@color/tab_layout_select_text_color"
+//        tl:tl_textUnselectColor="@color/tab_layout_unselect_text_color"
+//        tl:tl_textsize="@dimen/dimen_common_text_size_15"
+//        />
+//
+
+
+//    vp.setAdapter(ridersFragmentAdapter);
+//            vp.setOffscreenPageLimit(2);
+//            tl_riders.setViewPager(vp);
+//            tl_riders.setSnapOnTabClick(true);
+
+//
+//public class RidersFragmentAdapter extends FragmentStatePagerAdapter {
+//    private List<CommunityRidersType> list;
+//    private M_Riders mRiders;
+//
+//
+//    public RidersFragmentAdapter(FragmentManager fm, List<CommunityRidersType> list) {
+//        super(fm);
+//        this.list = list;
+//        notifyDataSetChanged();
+//    }
+//
+//    public M_Riders getmRiders() {
+//        return mRiders;
+//    }
+//
+//    public void setmRiders(M_Riders mRiders) {
+//        this.mRiders = mRiders;
+//        notifyDataSetChanged();
+//    }
+//
+//    public  void refresh(){
+//        notifyDataSetChanged();
+//    }
+//
+//
+//    @Override
+//    public Fragment getItem(int position) {
+//        return RiderListFragment.newInstance(position,list.get(position).getId(),mRiders);
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return list.size();
+//    }
+//
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        return list.get(position).getName();
+//    }
+//
+//}

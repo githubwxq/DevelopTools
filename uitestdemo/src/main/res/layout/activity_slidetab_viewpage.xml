@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+     >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="@android:color/transparent"
+            app:titleEnabled="false">
+
+
+            <LinearLayout
+                android:id="@+id/lin_club_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                app:layout_collapseMode="pin">
+
+                <RelativeLayout
+                    android:id="@+id/rel_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageButton
+                        android:id="@+id/ib_back"
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@null"
+                        android:src="@mipmap/close_icon" />
+
+                    <ImageView
+                        android:id="@+id/img_share1"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/close_icon" />
+                </RelativeLayout>
+
+                <!--<include layout="@layout/head_riders_list" />-->
+                <TextView
+                    android:background="@color/color_666"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+                
+
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:alpha="1"
+                android:background="@android:color/transparent"
+                android:visibility="gone"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+                <ImageButton
+                    android:id="@+id/btn_activity_editor_name_back"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:src="@mipmap/close_icon" />
+
+                <TextView
+                    android:id="@+id/tv_club_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="车友会"
+                    android:textColor="#FF030303"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/img_share"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:scaleType="center"
+                    android:src="@mipmap/close_icon"  />
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="#EEEEEE" />
+
+        <com.juziwl.uilibrary.tablayout.SlidingTabLayout
+            android:id="@+id/tl_riders"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            app:tl_divider_color="#ffffff"
+            app:tl_divider_width="1dp"
+            app:tl_indicator_color="@color/green_100"
+            app:tl_indicator_height="2dp"
+            app:tl_indicator_margin_bottom="1dp"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_padding="10dp"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/green_500"
+            app:tl_textUnselectColor="@color/common_333333"
+            app:tl_textsize="15sp"
+            app:tl_underline_color="@color/green_300"
+            app:tl_underline_gravity="BOTTOM"
+            app:tl_underline_height="1dp">
+
+        </com.juziwl.uilibrary.tablayout.SlidingTabLayout>>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--suppress AndroidDomInspection -->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_666"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+
+        </android.support.v4.view.ViewPager>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+    <ImageView
+        android:id="@+id/img_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+     />
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+
