@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.imageview.RectImageView;
-import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.StringUtils;
-
 
 import java.util.List;
 
@@ -270,7 +268,7 @@ public class NineGridlayout extends ViewGroup {
         RectImageView iv = new RectImageView(getContext());
         //4dp
         iv.setBorderRadius(0);
-        iv.setScaleType(ImageView.ScaleType.FIT_XY);
+        iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
       /*  ImageView iv = new ImageView(getContext());
         iv.setScaleType(ImageView.ScaleType.FIT_XY);*/
         return iv;

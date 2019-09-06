@@ -25,17 +25,13 @@ public class TestAnnotation {
     }
 
     public static void main(String[] args) throws Exception {
-
         System.out.println("11111");
-
         StringBuffer sb = new StringBuffer();
         Class cls = TestAnnotation.class;
         Constructor[] constructors = cls.getConstructors();
         for (Constructor constructor : constructors) {
-
             System.out.println(constructor.getName());
         }
-
         sb.append("class 上面的注解").append("\n");
         RuntimeAnnotation.ClassInfo classInfo = (RuntimeAnnotation.ClassInfo) cls.getAnnotation(RuntimeAnnotation.ClassInfo.class);
         if (classInfo != null) {
@@ -64,20 +60,11 @@ public class TestAnnotation {
                 sb.append("name: ").append(methodInfo.name()).append("\n");
                 sb.append("data: ").append(methodInfo.data()).append("\n");
                 sb.append("age: ").append(methodInfo.age()).append("\n");
-
-
                 Annotation[][] parameterAnnotations = method.getParameterAnnotations();
-
                 RuntimeAnnotation.ParmeterInfo s = (RuntimeAnnotation.ParmeterInfo) parameterAnnotations[0][0];
-
-
                 sb.append("parameterAnnotations_______" + s.value());
             }
-
-
         }
-
-
         System.out.println(sb.toString());
     }
 

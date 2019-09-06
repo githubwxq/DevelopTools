@@ -40,6 +40,7 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        topHeard.setTitle("账户详情");
         String id = AllDataCenterManager.getInstance().userInfo.id;
         Api.getInstance().getApiService(KlookApi.class).findUserAccountById(id)
                 .compose(RxTransformer.transformFlowWithLoading(this))
