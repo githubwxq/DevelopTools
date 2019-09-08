@@ -1,6 +1,5 @@
 package com.example.uitestdemo;
 
-import android.Manifest;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import io.reactivex.functions.Consumer;
 
 //import com.example.trackpoint.annotation.Background;
 //import com.example.trackpoint.annotation.UiThread;
@@ -58,33 +56,40 @@ public class FragmentTestActivity extends BaseActivity {
 //        fragmentList.add(new OneFragment());
 //        fragmentList.add(new VlayoutFragment());
 //        fragmentList.add(new TestMemoryFragment());
-        rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
-                , Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.CAMERA
-        ).subscribe(new Consumer<Boolean>() {
-            @Override
-            public void accept(Boolean aBoolean) throws Exception {
-                fragmentList.add(new NineGrideFragment());
-                fragmentList.add(new ViewLocationFragment());
-                fragmentList.add(new ViewLifeCycleFragment());
-                viewpage.setOffscreenPageLimit(3);
-                viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-                    @Override
-                    public Fragment getItem(int position) {
-                        return fragmentList.get(position);
-                    }
 
-                    @Override
-                    public int getCount() {
-                        return fragmentList.size();
-                    }
-                });
-                viewpage.setCurrentItem(0);
+        fragmentList.add(new SuperTextViewFragment());
+        fragmentList.add(new NineGrideFragment());
+        fragmentList.add(new ViewLocationFragment());
+        fragmentList.add(new ViewLifeCycleFragment());
+        viewpage.setOffscreenPageLimit(4);
+        viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragmentList.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return fragmentList.size();
             }
         });
+        viewpage.setCurrentItem(0);
+
+
+//        rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
+//                , Manifest.permission.ACCESS_FINE_LOCATION,
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                Manifest.permission.READ_EXTERNAL_STORAGE,
+//                Manifest.permission.READ_PHONE_STATE,
+//                Manifest.permission.CAMERA
+//        ).subscribe(new Consumer<Boolean>() {
+//            @Override
+//            public void accept(Boolean aBoolean) throws Exception {
+//
+//
+//
+//            }
+//        });
 
 
 
