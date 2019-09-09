@@ -234,10 +234,11 @@ public class SuperTextView extends AppCompatTextView {
         mIconHeight = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_height, 0);
         mIconDirection = a.getInt(R.styleable.SuperTextView_icon_direction, ICON_DIR_LEFT);
         //text
-        mTextColorNormal = a.getColor(R.styleable.SuperTextView_text_color_normal, getCurrentTextColor());
-        mTextColorPressed = a.getColor(R.styleable.SuperTextView_text_color_pressed, getCurrentTextColor());
-        mTextColorUnable = a.getColor(R.styleable.SuperTextView_text_color_unable, getCurrentTextColor());
-        mTextColorSelect = a.getColor(R.styleable.SuperTextView_text_color_select, getCurrentTextColor());
+        mTextColorNormal = a.getColor(R.styleable.SuperTextView_text_color_normal, 0);
+        mTextColorPressed = a.getColor(R.styleable.SuperTextView_text_color_pressed, 0);
+        mTextColorUnable = a.getColor(R.styleable.SuperTextView_text_color_unable, 0);
+        mTextColorSelect = a.getColor(R.styleable.SuperTextView_text_color_select, 0);
+
 
         //background
         mBackgroundColorNormal = a.getColor(R.styleable.SuperTextView_background_normal, 0);
@@ -454,13 +455,23 @@ public class SuperTextView extends AppCompatTextView {
     }
 
 
-//    @Override
-//    public void setSelected(boolean selected) {
-//        super.setSelected(selected);
-//        setBackgroundState(false);
-//        setTextColor();
-//
-//    }
+    @Override
+    public void setSelected(boolean selected) {
+        super.setSelected(selected);
+        setTextColorSelect();
+    }
+
+    private void setTextColorSelect() {
+        if (mTextColorSelect!=0) {
+            if (isSelected()) {
+                setTextColor(mTextColorSelect);
+            }else {
+                setTextColor((mTextColorNormal));
+            }
+        }
+    }
+
+
 
     public int getBackgroundColorPressed() {
         return mBackgroundColorPressed;
@@ -707,24 +718,20 @@ public class SuperTextView extends AppCompatTextView {
 //        }
 
 
-        int[] colors = new int[]{mTextColorPressed, mTextColorPressed, mTextColorNormal, mTextColorUnable,mTextColorSelect,mTextColorNormal};
 
 
-
-        // impress 和select 冲突 设置其中一个
-        if (mTextColorSelect!=getCurrentTextColor()){
-            states[0]=new int[]{};
-            states[1]=new int[]{};
-        }
-        if (mTextColorPressed!=getCurrentTextColor()){
-            states[4]=new int[]{};
-            states[5]=new int[]{};
-        }
-
-
-        mTextColorStateList = new ColorStateList(states, colors);
-        setTextColor(mTextColorStateList);
-
+        // 由于设置选中状态这个不好处理 直接设置了
+//        if (mTextColorSelect!=getCurrentTextColor()){
+//            if (isSelected()){
+//                setTextColor(mTextColorSelect);
+//            }else {
+//                setTextColor(mTextColorNormal);
+//            }
+//        }else {
+            int[] colors = new int[]{mTextColorPressed, mTextColorPressed, mTextColorNormal, mTextColorUnable,mTextColorSelect,mTextColorNormal};
+            mTextColorStateList = new ColorStateList(states, colors);
+            setTextColor(mTextColorStateList);
+//        }
 
     }
 

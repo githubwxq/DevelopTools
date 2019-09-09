@@ -33,7 +33,7 @@
         app:background_pressed="@color/blue_300"
         app:background_normal="@color/yellow_600"
         android:gravity="center"
-        app:text_color_pressed="@color/white"
+        app:text_color_pressed="@color/red_600"
         app:text_color_normal="@color/black"
         app:corner_radius="10dp"
         android:layout_width="200dp"
@@ -51,7 +51,10 @@
         android:gravity="center"
         app:background_select="@color/pink_600"
         app:background_normal="@color/orange_600"
-        android:text="suppertext颜色" />
+        app:text_color_select="@color/white"
+        app:text_color_normal="@color/black"
+        android:text="suppertext颜色"
+        />
 
 
 
