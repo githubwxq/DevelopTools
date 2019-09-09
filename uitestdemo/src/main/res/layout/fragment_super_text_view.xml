@@ -7,31 +7,48 @@
     android:layout_height="match_parent"
    >
 
+
+    <!--<attr name="text_color_normal" format="color" />-->
+    <!--<attr name="text_color_pressed" format="color" />-->
+    <!--<attr name="text_color_unable" format="color" />-->
+    <!--<attr name="text_color_select" format="color" />-->
+
     <!-- TODO: Update blank fragment layout -->
     <com.juziwl.uilibrary.textview.SuperTextView
         android:id="@+id/tv_testcolor"
         app:background_select="@color/pink_600"
+        android:gravity="center"
         app:background_normal="@color/orange_600"
+        app:text_color_select="@color/white"
+        app:text_color_normal="@color/black"
+        app:corner_radius="10dp"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:text="suppertext背景颜色" />
+
 
     <com.juziwl.uilibrary.textview.SuperTextView
         android:layout_marginTop="30dp"
         android:id="@+id/tv_select"
         app:background_pressed="@color/blue_300"
         app:background_normal="@color/yellow_600"
+        android:gravity="center"
+        app:text_color_pressed="@color/white"
+        app:text_color_normal="@color/black"
+        app:corner_radius="10dp"
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:text="suppertext选择器" />
 
     <com.juziwl.uilibrary.textview.SuperTextView
 
+        android:textColor="@color/green_600"
         android:id="@+id/tv_bg"
         android:layout_marginTop="30dp"
         android:layout_width="180dp"
         android:layout_height="140dp"
         app:corner_radius="10dp"
+        android:gravity="center"
         app:background_select="@color/pink_600"
         app:background_normal="@color/orange_600"
         android:text="suppertext颜色" />

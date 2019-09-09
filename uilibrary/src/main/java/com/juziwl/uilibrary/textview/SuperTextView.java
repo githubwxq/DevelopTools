@@ -238,6 +238,7 @@ public class SuperTextView extends AppCompatTextView {
         mTextColorPressed = a.getColor(R.styleable.SuperTextView_text_color_pressed, getCurrentTextColor());
         mTextColorUnable = a.getColor(R.styleable.SuperTextView_text_color_unable, getCurrentTextColor());
         mTextColorSelect = a.getColor(R.styleable.SuperTextView_text_color_select, getCurrentTextColor());
+
         //background
         mBackgroundColorNormal = a.getColor(R.styleable.SuperTextView_background_normal, 0);
         mBackgroundColorPressed = a.getColor(R.styleable.SuperTextView_background_pressed, 0);
@@ -301,6 +302,8 @@ public class SuperTextView extends AppCompatTextView {
 
         // press  和 select 会冲突的 有press 就不会有select 两者对立
         //pressed, focused, normal, unable
+
+
         states[0] = new int[]{android.R.attr.state_enabled,android.R.attr.state_pressed};
         states[1] = new int[]{android.R.attr.state_enabled,android.R.attr.state_focused};
 
@@ -451,12 +454,13 @@ public class SuperTextView extends AppCompatTextView {
     }
 
 
-    @Override
-    public void setSelected(boolean selected) {
-        super.setSelected(selected);
-        setBackgroundState(false);
-
-    }
+//    @Override
+//    public void setSelected(boolean selected) {
+//        super.setSelected(selected);
+//        setBackgroundState(false);
+//        setTextColor();
+//
+//    }
 
     public int getBackgroundColorPressed() {
         return mBackgroundColorPressed;
@@ -675,10 +679,53 @@ public class SuperTextView extends AppCompatTextView {
         setTextColor();
     }
 
+
+//    、、按下和选中不能同时纯在
     private void setTextColor() {
+
+
+//        if (mTextColorPressed!=getCurrentTextColor()){ //有按下的颜色
+//            int[][] states = new int[4][];
+//            states[0] = new int[]{android.R.attr.state_enabled};
+//            states[1] = new int[]{-android.R.attr.state_enabled};
+//            states[2] = new int[]{android.R.attr.state_pressed};
+//            states[3] = new int[]{android.R.attr.state_focused};
+//            int[] colors = new int[]{mTextColorNormal, mTextColorUnable, mTextColorPressed,mTextColorPressed};
+//            ColorStateList     mTextColorStateList = new ColorStateList(states, colors);
+//            setTextColor(mTextColorStateList);
+//        }
+//
+//        if (mTextColorSelect!=getCurrentTextColor()){ //有选中的颜色
+//            int[][] states = new int[4][];
+//            states[0] = new int[]{android.R.attr.state_enabled};
+//            states[1] = new int[]{-android.R.attr.state_enabled};
+//            states[2] = new int[]{android.R.attr.state_selected};
+//            states[3] = new int[]{-android.R.attr.state_selected};
+//            int[] colors = new int[]{mTextColorNormal, mTextColorUnable, mTextColorSelect,mTextColorNormal};
+//            ColorStateList   mTextColorStateList = new ColorStateList(states, colors);
+//            setTextColor(mTextColorStateList);
+//        }
+
+
         int[] colors = new int[]{mTextColorPressed, mTextColorPressed, mTextColorNormal, mTextColorUnable,mTextColorSelect,mTextColorNormal};
+
+
+
+        // impress 和select 冲突 设置其中一个
+        if (mTextColorSelect!=getCurrentTextColor()){
+            states[0]=new int[]{};
+            states[1]=new int[]{};
+        }
+        if (mTextColorPressed!=getCurrentTextColor()){
+            states[4]=new int[]{};
+            states[5]=new int[]{};
+        }
+
+
         mTextColorStateList = new ColorStateList(states, colors);
         setTextColor(mTextColorStateList);
+
+
     }
 
     /*********************

@@ -1,7 +1,6 @@
 package com.example.uitestdemo;
 
 import android.content.ComponentName;
-import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.util.Log;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.service.MyService;
-import com.wxq.commonlibrary.util.UIHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,40 +95,40 @@ public class FragmentTestActivity extends BaseActivity {
 
 //        、、测试service
 
-        UIHandler.getInstance().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent=new Intent(FragmentTestActivity.this,MyService.class);
-                bindService(intent,connection,BIND_AUTO_CREATE);
-//                startActivity();
+//        UIHandler.getInstance().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent=new Intent(FragmentTestActivity.this,MyService.class);
+//                bindService(intent,connection,BIND_AUTO_CREATE);
+////                startActivity();
+//
+////                 gotothread();
+//
+//            }
+//        },2000);
 
-//                 gotothread();
+//        UIHandler.getInstance().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//             unbindService(connection);
+//            }
+//        },20000);
 
-            }
-        },2000);
-
-        UIHandler.getInstance().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-             unbindService(connection);
-            }
-        },20000);
-
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-        Log.e("wexcq","我是主线程"+Thread.currentThread().getName());
-
-        gotothread();
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(2000);
+//
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//        Log.e("wexcq","我是主线程"+Thread.currentThread().getName());
+//
+//        gotothread();
     }
 
 //    @Background
