@@ -46,7 +46,7 @@ public class SuperTextViewFragment extends BaseFragment {
                 tvTestcolor.setSelected(isSelect=!isSelect);
                 break;
             case R.id.tv_select:
-                tvSelect.setSelected(isSelect=!isSelect);
+//                tvSelect.setSelected(isSelect=!isSelect);
                 break;
             case R.id.tv_bg:
                 tvBg.setSelected(isSelect=!isSelect);

@@ -58,11 +58,13 @@ public class SuperTextView extends AppCompatTextView {
     private int mBorderWidthNormal = 0;
     private int mBorderWidthPressed = 0;
     private int mBorderWidthUnable = 0;
+    private int mBorderWidthSelect = 0;
 
     //BorderColor
     private int mBorderColorNormal;
     private int mBorderColorPressed;
     private int mBorderColorUnable;
+    private int mBorderColorSelect;
 
     //Background
     private int mBackgroundColorNormal;
@@ -98,6 +100,7 @@ public class SuperTextView extends AppCompatTextView {
     private Drawable mIconNormal;
     private Drawable mIconPressed;
     private Drawable mIconUnable;
+    private Drawable mIconSelect;
 
     //typeface
     private String mTypefacePath;
@@ -124,6 +127,7 @@ public class SuperTextView extends AppCompatTextView {
     private boolean mHasUnableBorderColor = false;
     private boolean mHasPressedBorderWidth = false;
     private boolean mHasUnableBorderWidth = false;
+    private boolean mHasSelectBorderWidth = false;
 
     public SuperTextView(Context context) {
         this(context, null);
@@ -209,19 +213,31 @@ public class SuperTextView extends AppCompatTextView {
         mBorderWidthNormal = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_normal, 0);
         mBorderWidthPressed = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_pressed, 0);
         mBorderWidthUnable = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_unable, 0);
+        mBorderWidthSelect = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_select, 0);
+
+
+
         mBorderColorNormal = a.getColor(R.styleable.SuperTextView_border_color_normal, Color.TRANSPARENT);
         mBorderColorPressed = a.getColor(R.styleable.SuperTextView_border_color_pressed, Color.TRANSPARENT);
         mBorderColorUnable = a.getColor(R.styleable.SuperTextView_border_color_unable, Color.TRANSPARENT);
+        mBorderColorSelect = a.getColor(R.styleable.SuperTextView_border_color_select, Color.TRANSPARENT);
+
+
+
         //icon
         //Vector兼容处理
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mIconNormal = a.getDrawable(R.styleable.SuperTextView_icon_src_normal);
             mIconPressed = a.getDrawable(R.styleable.SuperTextView_icon_src_pressed);
             mIconUnable = a.getDrawable(R.styleable.SuperTextView_icon_src_unable);
+            mIconSelect = a.getDrawable(R.styleable.SuperTextView_icon_src_select);
+
+
         } else {
             int normalId = a.getResourceId(R.styleable.SuperTextView_icon_src_normal, -1);
             int pressedId = a.getResourceId(R.styleable.SuperTextView_icon_src_pressed, -1);
             int unableId = a.getResourceId(R.styleable.SuperTextView_icon_src_unable, -1);
+            int selectId = a.getResourceId(R.styleable.SuperTextView_icon_src_select, -1);
 
             if (normalId != -1)
                 mIconNormal = AppCompatResources.getDrawable(context, normalId);
@@ -229,6 +245,11 @@ public class SuperTextView extends AppCompatTextView {
                 mIconPressed = AppCompatResources.getDrawable(context, pressedId);
             if (unableId != -1)
                 mIconUnable = AppCompatResources.getDrawable(context, unableId);
+
+            if (unableId != -1)
+                mIconSelect = AppCompatResources.getDrawable(context, selectId);
+
+
         }
         mIconWidth = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_width, 0);
         mIconHeight = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_height, 0);
@@ -259,6 +280,7 @@ public class SuperTextView extends AppCompatTextView {
         mHasUnableBorderColor = mBorderColorUnable != 0;
         mHasPressedBorderWidth = mBorderWidthPressed != 0;
         mHasUnableBorderWidth = mBorderWidthUnable != 0;
+        mHasSelectBorderWidth = mBorderWidthSelect != 0;
 
         mHasSelectBgColor=mBackgroundColorSelect!=0;
 
@@ -357,6 +379,14 @@ public class SuperTextView extends AppCompatTextView {
         if (!mHasUnableBorderWidth) {
             mBorderWidthUnable = mBorderWidthNormal;
         }
+
+        if (!mHasSelectBorderWidth) {
+            mBorderWidthSelect = mBorderWidthNormal;
+        }
+
+
+
+
         if (!mHasPressedBorderColor) {
             mBorderColorPressed = mBorderColorNormal;
         }
@@ -459,6 +489,19 @@ public class SuperTextView extends AppCompatTextView {
     public void setSelected(boolean selected) {
         super.setSelected(selected);
         setTextColorSelect();
+        // 如果有icon 设置选中icon
+        setIconSelect();
+    }
+
+    private void setIconSelect() {
+        if (mIconSelect != null) {
+            if (isSelected()) {
+                mIcon = mIconSelect;
+            }else {
+                mIcon = mIconNormal;
+            }
+            setIcon();
+        }
     }
 
     private void setTextColorSelect() {
@@ -865,9 +908,7 @@ public class SuperTextView extends AppCompatTextView {
         mBackgroundNormal.setStroke(mBorderWidthNormal, mBorderColorNormal, mBorderDashWidth, mBorderDashGap);
         mBackgroundPressed.setStroke(mBorderWidthPressed, mBorderColorPressed, mBorderDashWidth, mBorderDashGap);
         mBackgroundUnable.setStroke(mBorderWidthUnable, mBorderColorUnable, mBorderDashWidth, mBorderDashGap);
-
-      // 选中情况下的边框
-
+        mBackgroundSelect.setStroke(mBorderWidthSelect, mBorderColorSelect, mBorderDashWidth, mBorderDashGap);
 
         setBackgroundState(false);
     }

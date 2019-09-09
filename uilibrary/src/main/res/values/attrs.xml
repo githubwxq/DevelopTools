@@ -543,10 +543,16 @@
         <attr name="border_width_pressed" format="dimension" />
         <attr name="border_width_unable" format="dimension" />
 
+        <attr name="border_width_select" format="dimension" />
+
         <!--边框颜色-->
         <attr name="border_color_normal" format="color" />
         <attr name="border_color_pressed" format="color" />
         <attr name="border_color_unable" format="color" />
+        <attr name="border_color_select" format="color" />
+
+
+
 
         <!--背景颜色-->
         <attr name="background_normal" format="color" />
@@ -564,6 +570,7 @@
         <attr name="icon_src_normal" format="reference" />
         <attr name="icon_src_pressed" format="reference" />
         <attr name="icon_src_unable" format="reference" />
+        <attr name="icon_src_select" format="reference" />
 
 
 
