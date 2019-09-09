@@ -1,6 +1,5 @@
 package com.example.uitestdemo;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.juziwl.uilibrary.textview.SuperTextView;
@@ -12,14 +11,6 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SuperTextViewFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SuperTextViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SuperTextViewFragment extends BaseFragment {
 
     @BindView(R.id.tv_testcolor)
@@ -52,13 +43,13 @@ public class SuperTextViewFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.tv_testcolor:
 //                isSelect
-                tvTestcolor.setSelected(!isSelect);
+                tvTestcolor.setSelected(isSelect=!isSelect);
                 break;
             case R.id.tv_select:
-                tvSelect.setSelected(!isSelect);
+                tvSelect.setSelected(isSelect=!isSelect);
                 break;
             case R.id.tv_bg:
-                tvBg.setSelected(!isSelect);
+                tvBg.setSelected(isSelect=!isSelect);
                 break;
         }
     }

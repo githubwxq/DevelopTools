@@ -10,8 +10,8 @@
     <!-- TODO: Update blank fragment layout -->
     <com.juziwl.uilibrary.textview.SuperTextView
         android:id="@+id/tv_testcolor"
-        app:text_color_normal="@color/black"
-        app:text_color_select="@color/yellow_600"
+        app:background_select="@color/pink_600"
+        app:background_normal="@color/orange_600"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:text="suppertext背景颜色" />
@@ -19,19 +19,21 @@
     <com.juziwl.uilibrary.textview.SuperTextView
         android:layout_marginTop="30dp"
         android:id="@+id/tv_select"
-        app:background_pressed="@color/pink_600"
-        app:background_normal="@color/orange_600"
+        app:background_pressed="@color/blue_300"
+        app:background_normal="@color/yellow_600"
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:text="suppertext选择器" />
 
     <com.juziwl.uilibrary.textview.SuperTextView
-        app:background_normal="@color/blue_300"
+
         android:id="@+id/tv_bg"
         android:layout_marginTop="30dp"
         android:layout_width="180dp"
         android:layout_height="140dp"
         app:corner_radius="10dp"
+        app:background_select="@color/pink_600"
+        app:background_normal="@color/orange_600"
         android:text="suppertext颜色" />
 
 

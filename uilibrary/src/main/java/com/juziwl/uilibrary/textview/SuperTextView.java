@@ -102,7 +102,7 @@ public class SuperTextView extends AppCompatTextView {
     //typeface
     private String mTypefacePath;
 
-    private int[][] states = new int[5][];
+    private int[][] states = new int[6][];
     private StateListDrawable mStateBackground;   //Drawable子类之——StateListDrawable （选择器）
     private float mBorderRadii[] = new float[8];
 
@@ -297,23 +297,43 @@ public class SuperTextView extends AppCompatTextView {
         mBackgroundUnable.setColor(mBackgroundColorUnable);
         mBackgroundSelect.setColor(mBackgroundColorSelect);
 
+
+
+        // press  和 select 会冲突的 有press 就不会有select 两者对立
         //pressed, focused, normal, unable
-        states[0] = new int[]{android.R.attr.state_enabled, android.R.attr.state_pressed};
-        states[1] = new int[]{android.R.attr.state_enabled, android.R.attr.state_focused};
+        states[0] = new int[]{android.R.attr.state_enabled,android.R.attr.state_pressed};
+        states[1] = new int[]{android.R.attr.state_enabled,android.R.attr.state_focused};
 
         states[2] = new int[]{android.R.attr.state_enabled};
         states[3] = new int[]{-android.R.attr.state_enabled};
 
         states[4] = new int[]{ android.R.attr.state_selected};
+        states[5] = new int[]{ -android.R.attr.state_selected};
 
 
 
+   //  有press 就不会有select 两者对立
 
-        mStateBackground.addState(states[0], mBackgroundPressed);
-        mStateBackground.addState(states[1], mBackgroundPressed);
+
+
+        if (mHasPressedBgColor){
+            mStateBackground.addState(states[0], mBackgroundPressed);
+            mStateBackground.addState(states[1], mBackgroundPressed);
+        }
+
+        if (mHasSelectBgColor){
+            mStateBackground.addState(states[4], mBackgroundSelect);
+            mStateBackground.addState(states[5], mBackgroundNormal);
+        }
+
+
+
         mStateBackground.addState(states[3], mBackgroundUnable);
         mStateBackground.addState(states[2], mBackgroundNormal);
-        mStateBackground.addState(states[4], mBackgroundSelect);
+
+
+
+
 
         /**
          * icon
@@ -656,7 +676,7 @@ public class SuperTextView extends AppCompatTextView {
     }
 
     private void setTextColor() {
-        int[] colors = new int[]{mTextColorPressed, mTextColorPressed, mTextColorNormal, mTextColorUnable,mTextColorSelect};
+        int[] colors = new int[]{mTextColorPressed, mTextColorPressed, mTextColorNormal, mTextColorUnable,mTextColorSelect,mTextColorNormal};
         mTextColorStateList = new ColorStateList(states, colors);
         setTextColor(mTextColorStateList);
     }
@@ -791,6 +811,10 @@ public class SuperTextView extends AppCompatTextView {
         mBackgroundNormal.setStroke(mBorderWidthNormal, mBorderColorNormal, mBorderDashWidth, mBorderDashGap);
         mBackgroundPressed.setStroke(mBorderWidthPressed, mBorderColorPressed, mBorderDashWidth, mBorderDashGap);
         mBackgroundUnable.setStroke(mBorderWidthUnable, mBorderColorUnable, mBorderDashWidth, mBorderDashGap);
+
+      // 选中情况下的边框
+
+
         setBackgroundState(false);
     }
 
@@ -880,6 +904,8 @@ public class SuperTextView extends AppCompatTextView {
         mBackgroundNormal.setCornerRadii(mBorderRadii);
         mBackgroundPressed.setCornerRadii(mBorderRadii);
         mBackgroundUnable.setCornerRadii(mBorderRadii);
+        mBackgroundSelect.setCornerRadii(mBorderRadii);
+
         setBackgroundState(false);
     }
 
@@ -938,3 +964,58 @@ public class SuperTextView extends AppCompatTextView {
     }
 
 }
+
+
+//常见的selector
+//<?xml version="1.0" encoding="utf-8"?>
+//<selector
+//  xmlns:android="http://schemas.android.com/apk/res/android">
+//<item android:state_pressed="true" >
+//<shape android:shape="rectangle">
+//<corners android:radius="10dp" />
+//<solid android:color="@color/deep_orange" />
+//</shape>
+//</item>
+//<item >
+//<shape android:shape="rectangle">
+//<corners android:radius="10dp" />
+//<solid android:color="@color/orange" />
+//</shape>
+//</item>
+//</selector>
+
+
+
+//<?xml version="1.0" encoding="utf-8"?>
+//<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+//<item android:state_window_focused="false">
+//<shape android:shape="rectangle">
+//<solid
+//                android:color="#FFFFFFFF"/>
+//<corners
+//                android:radius="3dp"/>
+//<padding
+//                android:left="10dp"
+//                        android:right="10dp"/>
+//<stroke
+//                android:width="1dp"
+//                        android:color="#BDC7D8"/>
+//</shape>
+//</item>
+//
+//<item android:state_focused="true" >
+//<shape android:shape="rectangle" >
+//<solid
+//                android:color="#FFFFFFFF"/>
+//<corners
+//                android:radius="3dp"/>
+//<padding
+//                android:left="10dp"
+//                        android:right="10dp"/>
+//<stroke
+//                android:width="1dp"
+//                        android:color="#728ea3"/>
+//</shape>
+//</item>
+//</selector>
+
