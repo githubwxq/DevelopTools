@@ -53,6 +53,7 @@ dependencies {
     api rootProject.ext.deps["SmartRefreshLayout"]
     api rootProject.ext.deps["bga-qrcode-zxing"]
     api rootProject.ext.deps["vlayout"]
+//    api rootProject.ext.deps["RWidgetHelper"]
 //
 //    api ('com.alibaba.android:vlayout:1.2.8@aar') {
 //        transitive = true

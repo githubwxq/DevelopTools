@@ -293,7 +293,6 @@ public class SuperTextView extends AppCompatTextView {
      * 设置
      */
     private void setup() {
-
         mBackgroundNormal = new GradientDrawable();
         mBackgroundPressed = new GradientDrawable();
         mBackgroundUnable = new GradientDrawable();
