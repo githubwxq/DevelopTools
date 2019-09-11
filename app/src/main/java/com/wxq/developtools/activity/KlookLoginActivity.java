@@ -102,16 +102,4 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
         return new KlookLoginActivityPresent(this);
     }
 
-//    @OnClick({R2.id.mFabToLogin, R2.id.mProBar, R2.id.mTvToSignUp})
-//    public void onViewClicked(View view) {
-//        switch (view.getId()) {
-//            case R2.id.mFabToLogin:
-//                break;
-//            case R2.id.mProBar:
-//                break;
-//            case R2.id.mTvToSignUp:
-//                 RegisterActivity.navToActivity(this);
-//                break;
-//        }
-//    }
 }

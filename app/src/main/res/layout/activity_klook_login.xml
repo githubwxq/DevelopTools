@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_login"
+    android:background="@mipmap/login_bg"
     android:fitsSystemWindows="false">
 
     <View
@@ -19,23 +19,26 @@
         android:orientation="vertical">
 
         <TextView
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="乐歪旅行"
+            android:text=""
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="40sp" />
 
         <TextView
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Hope you enjoy the stay"
+            android:text=""
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 
         <View
+            android:visibility="invisible"
             android:layout_width="45dp"
             android:layout_height="4dp"
             android:layout_marginTop="25dp"
@@ -44,10 +47,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:text="登 录"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
 
         <RelativeLayout
@@ -117,10 +120,9 @@
                 android:id="@+id/mFabToLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/public_ic_next"
-                app:backgroundTint="@android:color/white"
-/>
+                app:backgroundTint="@android:color/white" />
 
             <ProgressBar
                 android:id="@+id/mProBar"

@@ -8,4 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!--<style name="SplashAppTheme" parent="common_baseStyle">-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <!--<item name="android:windowBackground">@mipmap/splash_bg</item>-->
+    <!--</style>-->
+
+    <!--<style name="SplashAppTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">-->
+        <!--<item name="android:windowBackground">@mipmap/splash_bg</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+    <!--</style>-->
+
+
+    <style name="SplashAppTheme" parent="Theme.AppCompat.Light">
+        <!--隐藏原来的ActionBar，为了在本project中使用ToolBar-->
+        <item name="windowActionBar">false</item>
+        <!--隐藏ActionBar的标题-->
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@mipmap/splash_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+
 </resources>

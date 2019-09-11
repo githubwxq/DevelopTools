@@ -62,8 +62,6 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
             ARouter.init(this);
             //通过反射调用其他application
             applicationDelegate.onCreate(this);
-
-
             // 关闭andrioid p 反射弹框
             closeAndroidPDialog();
         }

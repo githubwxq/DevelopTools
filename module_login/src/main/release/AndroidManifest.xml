@@ -3,13 +3,7 @@
     package="com.example.module_login">
 
     <application>
-        <activity android:name="com.wxq.developtools.activity.KlookLoginActivity"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <!-- TODO 集成：1.2、添加推送所需要的服务和广播 -->
         <!--<service-->
             <!--android:name="cn.bmob.push.lib.service.PushService"-->

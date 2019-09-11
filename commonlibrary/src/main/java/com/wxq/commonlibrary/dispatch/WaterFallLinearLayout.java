@@ -31,6 +31,7 @@ public class WaterFallLinearLayout extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        // 时间都给最外层拿走了 他想如何处理就看如何处理
         return true;
     }
 
