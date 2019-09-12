@@ -166,7 +166,7 @@ public class PictureVideoPlayActivity extends PictureBaseActivity implements IMe
 
     public static OkHttpClient getOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("okGo");
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("okgo");
         loggingInterceptor.setColorLevel(Level.INFO);
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
         builder.addInterceptor(loggingInterceptor);

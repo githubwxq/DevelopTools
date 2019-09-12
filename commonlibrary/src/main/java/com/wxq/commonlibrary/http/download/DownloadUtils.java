@@ -32,7 +32,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 public class DownloadUtils {
     private Retrofit retrofit;
     private JsDownloadListener listener;
-    private static final long DEFAULT_TIMEOUT = 30;
+    private static final long DEFAULT_TIMEOUT =60;
 
     public DownloadUtils(JsDownloadListener listener) {
         this.listener = listener;
@@ -124,7 +124,7 @@ public class DownloadUtils {
     }
 
     private void init() {
-        HttpLoggingInterceptor ipadloggingInterceptor = new HttpLoggingInterceptor("ipadTag");
+        HttpLoggingInterceptor ipadloggingInterceptor = new HttpLoggingInterceptor("okgo");
         ipadloggingInterceptor.setColorLevel(Level.INFO);
         ipadloggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
 
