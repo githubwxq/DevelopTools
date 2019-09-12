@@ -3,15 +3,11 @@ package com.juziwl.uilibrary.textview;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.ColorStateList;
-import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
-import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -19,8 +15,6 @@ import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-
-import com.juziwl.uilibrary.R;
 
 /**
  * SuperTextView
@@ -196,96 +190,96 @@ public class SuperTextView extends AppCompatTextView {
      * @param attrs
      */
     private void initAttributeSet(Context context, AttributeSet attrs) {
-        if (context == null || attrs == null) {
-            setup();
-            return;
-        }
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SuperTextView);
-        //corner
-        mCornerRadius = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius, -1);
-        mCornerRadiusTopLeft = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_top_left, 0);
-        mCornerRadiusTopRight = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_top_right, 0);
-        mCornerRadiusBottomLeft = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_bottom_left, 0);
-        mCornerRadiusBottomRight = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_bottom_right, 0);
-        //border
-        mBorderDashWidth = a.getDimensionPixelSize(R.styleable.SuperTextView_border_dash_width, 0);
-        mBorderDashGap = a.getDimensionPixelSize(R.styleable.SuperTextView_border_dash_gap, 0);
-        mBorderWidthNormal = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_normal, 0);
-        mBorderWidthPressed = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_pressed, 0);
-        mBorderWidthUnable = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_unable, 0);
-        mBorderWidthSelect = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_select, 0);
-
-
-
-        mBorderColorNormal = a.getColor(R.styleable.SuperTextView_border_color_normal, Color.TRANSPARENT);
-        mBorderColorPressed = a.getColor(R.styleable.SuperTextView_border_color_pressed, Color.TRANSPARENT);
-        mBorderColorUnable = a.getColor(R.styleable.SuperTextView_border_color_unable, Color.TRANSPARENT);
-        mBorderColorSelect = a.getColor(R.styleable.SuperTextView_border_color_select, Color.TRANSPARENT);
-
-
-
-        //icon
-        //Vector兼容处理
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mIconNormal = a.getDrawable(R.styleable.SuperTextView_icon_src_normal);
-            mIconPressed = a.getDrawable(R.styleable.SuperTextView_icon_src_pressed);
-            mIconUnable = a.getDrawable(R.styleable.SuperTextView_icon_src_unable);
-            mIconSelect = a.getDrawable(R.styleable.SuperTextView_icon_src_select);
-
-
-        } else {
-            int normalId = a.getResourceId(R.styleable.SuperTextView_icon_src_normal, -1);
-            int pressedId = a.getResourceId(R.styleable.SuperTextView_icon_src_pressed, -1);
-            int unableId = a.getResourceId(R.styleable.SuperTextView_icon_src_unable, -1);
-            int selectId = a.getResourceId(R.styleable.SuperTextView_icon_src_select, -1);
-
-            if (normalId != -1)
-                mIconNormal = AppCompatResources.getDrawable(context, normalId);
-            if (pressedId != -1)
-                mIconPressed = AppCompatResources.getDrawable(context, pressedId);
-            if (unableId != -1)
-                mIconUnable = AppCompatResources.getDrawable(context, unableId);
-
-            if (unableId != -1)
-                mIconSelect = AppCompatResources.getDrawable(context, selectId);
-
-
-        }
-        mIconWidth = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_width, 0);
-        mIconHeight = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_height, 0);
-        mIconDirection = a.getInt(R.styleable.SuperTextView_icon_direction, ICON_DIR_LEFT);
-        //text
-        mTextColorNormal = a.getColor(R.styleable.SuperTextView_text_color_normal, 0);
-        mTextColorPressed = a.getColor(R.styleable.SuperTextView_text_color_pressed, 0);
-        mTextColorUnable = a.getColor(R.styleable.SuperTextView_text_color_unable, 0);
-        mTextColorSelect = a.getColor(R.styleable.SuperTextView_text_color_select, 0);
-
-
-        //background
-        mBackgroundColorNormal = a.getColor(R.styleable.SuperTextView_background_normal, 0);
-        mBackgroundColorPressed = a.getColor(R.styleable.SuperTextView_background_pressed, 0);
-        mBackgroundColorUnable = a.getColor(R.styleable.SuperTextView_background_unable, 0);
-        mBackgroundColorSelect = a.getColor(R.styleable.SuperTextView_background_select, 0);
-
-
-
-        //typeface
-        mTypefacePath = a.getString(R.styleable.SuperTextView_text_typeface);
-
-        a.recycle();
-
-        mHasPressedBgColor = mBackgroundColorPressed != 0;
-        mHasUnableBgColor = mBackgroundColorUnable != 0;
-        mHasPressedBorderColor = mBorderColorPressed != 0;
-        mHasUnableBorderColor = mBorderColorUnable != 0;
-        mHasPressedBorderWidth = mBorderWidthPressed != 0;
-        mHasUnableBorderWidth = mBorderWidthUnable != 0;
-        mHasSelectBorderWidth = mBorderWidthSelect != 0;
-
-        mHasSelectBgColor=mBackgroundColorSelect!=0;
-
-        //setup
-        setup();
+//        if (context == null || attrs == null) {
+//            setup();
+//            return;
+//        }
+//        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SuperTextView);
+//        //corner
+//        mCornerRadius = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius, -1);
+//        mCornerRadiusTopLeft = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_top_left, 0);
+//        mCornerRadiusTopRight = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_top_right, 0);
+//        mCornerRadiusBottomLeft = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_bottom_left, 0);
+//        mCornerRadiusBottomRight = a.getDimensionPixelSize(R.styleable.SuperTextView_corner_radius_bottom_right, 0);
+//        //border
+//        mBorderDashWidth = a.getDimensionPixelSize(R.styleable.SuperTextView_border_dash_width, 0);
+//        mBorderDashGap = a.getDimensionPixelSize(R.styleable.SuperTextView_border_dash_gap, 0);
+//        mBorderWidthNormal = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_normal, 0);
+//        mBorderWidthPressed = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_pressed, 0);
+//        mBorderWidthUnable = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_unable, 0);
+//        mBorderWidthSelect = a.getDimensionPixelSize(R.styleable.SuperTextView_border_width_select, 0);
+//
+//
+//
+//        mBorderColorNormal = a.getColor(R.styleable.SuperTextView_border_color_normal, Color.TRANSPARENT);
+//        mBorderColorPressed = a.getColor(R.styleable.SuperTextView_border_color_pressed, Color.TRANSPARENT);
+//        mBorderColorUnable = a.getColor(R.styleable.SuperTextView_border_color_unable, Color.TRANSPARENT);
+//        mBorderColorSelect = a.getColor(R.styleable.SuperTextView_border_color_select, Color.TRANSPARENT);
+//
+//
+//
+//        //icon
+//        //Vector兼容处理
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            mIconNormal = a.getDrawable(R.styleable.SuperTextView_icon_src_normal);
+//            mIconPressed = a.getDrawable(R.styleable.SuperTextView_icon_src_pressed);
+//            mIconUnable = a.getDrawable(R.styleable.SuperTextView_icon_src_unable);
+//            mIconSelect = a.getDrawable(R.styleable.SuperTextView_icon_src_select);
+//
+//
+//        } else {
+//            int normalId = a.getResourceId(R.styleable.SuperTextView_icon_src_normal, -1);
+//            int pressedId = a.getResourceId(R.styleable.SuperTextView_icon_src_pressed, -1);
+//            int unableId = a.getResourceId(R.styleable.SuperTextView_icon_src_unable, -1);
+//            int selectId = a.getResourceId(R.styleable.SuperTextView_icon_src_select, -1);
+//
+//            if (normalId != -1)
+//                mIconNormal = AppCompatResources.getDrawable(context, normalId);
+//            if (pressedId != -1)
+//                mIconPressed = AppCompatResources.getDrawable(context, pressedId);
+//            if (unableId != -1)
+//                mIconUnable = AppCompatResources.getDrawable(context, unableId);
+//
+//            if (unableId != -1)
+//                mIconSelect = AppCompatResources.getDrawable(context, selectId);
+//
+//
+//        }
+//        mIconWidth = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_width, 0);
+//        mIconHeight = a.getDimensionPixelSize(R.styleable.SuperTextView_icon_height, 0);
+//        mIconDirection = a.getInt(R.styleable.SuperTextView_icon_direction, ICON_DIR_LEFT);
+//        //text
+//        mTextColorNormal = a.getColor(R.styleable.SuperTextView_text_color_normal, 0);
+//        mTextColorPressed = a.getColor(R.styleable.SuperTextView_text_color_pressed, 0);
+//        mTextColorUnable = a.getColor(R.styleable.SuperTextView_text_color_unable, 0);
+//        mTextColorSelect = a.getColor(R.styleable.SuperTextView_text_color_select, 0);
+//
+//
+//        //background
+//        mBackgroundColorNormal = a.getColor(R.styleable.SuperTextView_background_normal, 0);
+//        mBackgroundColorPressed = a.getColor(R.styleable.SuperTextView_background_pressed, 0);
+//        mBackgroundColorUnable = a.getColor(R.styleable.SuperTextView_background_unable, 0);
+//        mBackgroundColorSelect = a.getColor(R.styleable.SuperTextView_background_select, 0);
+//
+//
+//
+//        //typeface
+//        mTypefacePath = a.getString(R.styleable.SuperTextView_text_typeface);
+//
+//        a.recycle();
+//
+//        mHasPressedBgColor = mBackgroundColorPressed != 0;
+//        mHasUnableBgColor = mBackgroundColorUnable != 0;
+//        mHasPressedBorderColor = mBorderColorPressed != 0;
+//        mHasUnableBorderColor = mBorderColorUnable != 0;
+//        mHasPressedBorderWidth = mBorderWidthPressed != 0;
+//        mHasUnableBorderWidth = mBorderWidthUnable != 0;
+//        mHasSelectBorderWidth = mBorderWidthSelect != 0;
+//
+//        mHasSelectBgColor=mBackgroundColorSelect!=0;
+//
+//        //setup
+//        setup();
 
     }
 

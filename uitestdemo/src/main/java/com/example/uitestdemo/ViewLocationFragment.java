@@ -2,7 +2,6 @@ package com.example.uitestdemo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +49,7 @@ public class ViewLocationFragment extends BaseFragment {
     protected void initViews() {
         int locationViewTop = locationView.getTop();
         int locationViewLeft = locationView.getLeft();
-        Log.e("location","locationViewTop"+locationViewTop+"+++++++++++locationViewLeft"+locationViewLeft);
+//        Log.e("location","locationViewTop"+locationViewTop+"+++++++++++locationViewLeft"+locationViewLeft);
         locationView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -58,10 +57,10 @@ public class ViewLocationFragment extends BaseFragment {
                 int locationViewTop = locationView.getTop();
                 int locationViewLeft = locationView.getLeft();
                 final float scale = getActivity().getResources().getDisplayMetrics().density;
-                Log.e("location","locationViewTop"
-                        +locationViewTop+"+++++++++++locationViewLeft"+locationViewLeft
-                        +"scale"+scale
-                        +"marginleft"+scale*50);
+//                Log.e("location","locationViewTop"
+//                        +locationViewTop+"+++++++++++locationViewLeft"+locationViewLeft
+//                        +"scale"+scale
+//                        +"marginleft"+scale*50);
             }
         });
 
