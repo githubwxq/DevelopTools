@@ -490,6 +490,7 @@
         <enum name="vertical" value="1"/>
     </attr>
     <attr name="autoPlaying" format="boolean"/>
+
     <declare-styleable name="RecyclerViewBannerBase">
         <attr name="interval"/>
         <attr name="showIndicator" />
@@ -588,6 +589,20 @@
         <attr name="text_typeface" format="string" />
 
     </declare-styleable>
+
+
+
+
+    <declare-styleable name="SeatTableView">
+        <attr name="seat_checked" format="reference" />
+        <attr name="seat_sold" format="reference" />
+        <attr name="seat_available" format="reference" />
+        <attr name="overview_checked" format="color" />
+        <attr name="overview_sold" format="color" />
+        <attr name="txt_color" format="color"/>
+    </declare-styleable>
+
+
 
 
 

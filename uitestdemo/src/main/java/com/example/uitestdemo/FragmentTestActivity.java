@@ -54,12 +54,12 @@ public class FragmentTestActivity extends BaseActivity {
 //        fragmentList.add(new OneFragment());
 //        fragmentList.add(new VlayoutFragment());
 //        fragmentList.add(new TestMemoryFragment());
-
+        fragmentList.add(new SeatTableFragment());
         fragmentList.add(new SuperTextViewFragment());
         fragmentList.add(new NineGrideFragment());
         fragmentList.add(new ViewLocationFragment());
         fragmentList.add(new ViewLifeCycleFragment());
-        viewpage.setOffscreenPageLimit(4);
+        viewpage.setOffscreenPageLimit(8);
         viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
