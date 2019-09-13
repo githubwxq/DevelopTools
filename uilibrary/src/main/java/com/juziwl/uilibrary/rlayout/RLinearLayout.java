@@ -30,6 +30,12 @@ public class RLinearLayout extends LinearLayout implements RHelper<RBaseHelper> 
     }
 
     @Override
+    public void setSelected(boolean selected) {
+        super.setSelected(selected);
+
+    }
+
+    @Override
     public RBaseHelper getHelper() {
         return mHelper;
     }

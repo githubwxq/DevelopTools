@@ -381,6 +381,9 @@ public class RBaseHelper<T extends View> {
         }
 
 
+
+
+
         //设置渐变相关Gradient
         setGradient();
 
@@ -558,6 +561,9 @@ public class RBaseHelper<T extends View> {
         mBackgroundPressed.setColor(mBackgroundColorPressed);
         mBackgroundUnable.setColor(mBackgroundColorUnable);
         mBackgroundChecked.setColor(mBackgroundColorChecked);
+
+
+//        mBackgroundSelected.setColor(Color.GREEN);
         mBackgroundSelected.setColor(mBackgroundColorSelected);
 
 
@@ -1269,7 +1275,7 @@ public class RBaseHelper<T extends View> {
         mBackgroundPressed.setStroke(mBorderWidthPressed, mBorderColorPressed, mBorderDashWidth, mBorderDashGap);
         mBackgroundUnable.setStroke(mBorderWidthUnable, mBorderColorUnable, mBorderDashWidth, mBorderDashGap);
         mBackgroundChecked.setStroke(mBorderWidthChecked, mBorderColorChecked, mBorderDashWidth, mBorderDashGap);
-        mBackgroundSelected.setStroke(mBorderWidthChecked, mBorderColorChecked, mBorderDashWidth, mBorderDashGap);
+        mBackgroundSelected.setStroke(mBorderWidthSelected, mBorderColorSelected, mBorderDashWidth, mBorderDashGap);
 
 
         setBackgroundState();

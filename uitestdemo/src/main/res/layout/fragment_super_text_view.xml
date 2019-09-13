@@ -26,7 +26,6 @@
         app:corner_radius="10dp"
         app:text_color_normal="@color/black"
         app:text_color_selected="@color/white"
-
         app:icon_height="15dp"
         app:icon_width="15dp"
         android:paddingTop="15dp"
@@ -37,24 +36,24 @@
         />
 
 
-    <!--<com.juziwl.uilibrary.rlayout.RTextView-->
-        <!--android:id="@+id/tv_select"-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="80dp"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="suppertext选择器"-->
-        <!--app:background_normal="@color/yellow_600"-->
-        <!--app:background_pressed="@color/blue_300"-->
-        <!--app:corner_radius="10dp"-->
-        <!--app:text_color_normal="@color/black"-->
-        <!--app:text_color_pressed="@color/red_600"-->
-        <!--app:border_width_normal="5dp"-->
-        <!--app:border_color_normal="@color/black"-->
-        <!--app:border_color_pressed="@color/white"-->
-        <!--app:icon_src_normal="@mipmap/close_icon"-->
-        <!--app:icon_src_pressed="@mipmap/choose_icon"-->
-        <!--/>-->
+    <com.juziwl.uilibrary.rlayout.RTextView
+        android:id="@+id/tv_select"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="suppertext选择器"
+        app:background_normal="@color/yellow_600"
+        app:background_pressed="@color/blue_300"
+        app:corner_radius="10dp"
+        app:text_color_normal="@color/black"
+        app:text_color_pressed="@color/red_600"
+        app:border_width_normal="5dp"
+        app:border_color_normal="@color/black"
+        app:border_color_pressed="@color/white"
+        app:icon_src_normal="@mipmap/close_icon"
+        app:icon_src_pressed="@mipmap/choose_icon"
+        />
 
     <com.juziwl.uilibrary.rlayout.RTextView
         android:id="@+id/tv_bg"
@@ -73,5 +72,20 @@
 
     <!--app:background_select="@color/pink_600"-->
     <!--app:text_color_select="@color/white"-->
+
+
+
+    <com.juziwl.uilibrary.rlayout.RLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:background_normal="@color/orange_600"
+        app:background_selected="@color/pink_600"
+        app:border_color_normal="@color/black"
+        app:border_color_selected="@color/white"
+        app:border_width_normal="3dp"
+        android:layout_marginTop="30dp"
+        app:corner_radius="10dp"
+        ></com.juziwl.uilibrary.rlayout.RLinearLayout>
+
 
 </LinearLayout>
