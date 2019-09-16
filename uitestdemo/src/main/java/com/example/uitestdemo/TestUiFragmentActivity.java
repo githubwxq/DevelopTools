@@ -20,7 +20,7 @@ import butterknife.BindView;
 //import com.example.trackpoint.annotation.Background;
 //import com.example.trackpoint.annotation.UiThread;
 
-public class FragmentTestActivity extends BaseActivity {
+public class TestUiFragmentActivity extends BaseActivity {
 
     @BindView(R2.id.viewpage)
     ViewPager viewpage;
@@ -51,15 +51,16 @@ public class FragmentTestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-//        fragmentList.add(new OneFragment());
-//        fragmentList.add(new VlayoutFragment());
-//        fragmentList.add(new TestMemoryFragment());
         fragmentList.add(new SeatTableFragment());
+
+        fragmentList.add(new TestDispatchEventFragment());
+        fragmentList.add(new VlayoutFragment());
+        fragmentList.add(new TestMemoryFragment());
         fragmentList.add(new SuperTextViewFragment());
         fragmentList.add(new NineGrideFragment());
         fragmentList.add(new ViewLocationFragment());
         fragmentList.add(new ViewLifeCycleFragment());
-        viewpage.setOffscreenPageLimit(8);
+        viewpage.setOffscreenPageLimit(18);
         viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -98,7 +99,7 @@ public class FragmentTestActivity extends BaseActivity {
 //        UIHandler.getInstance().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-//                Intent intent=new Intent(FragmentTestActivity.this,MyService.class);
+//                Intent intent=new Intent(TestUiFragmentActivity.this,MyService.class);
 //                bindService(intent,connection,BIND_AUTO_CREATE);
 ////                startActivity();
 //

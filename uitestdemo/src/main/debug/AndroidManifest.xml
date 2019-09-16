@@ -64,7 +64,7 @@
 
         <service android:name=".ClipBoardListenerService" />
 
-        <activity android:name=".FragmentTestActivity">
+        <activity android:name=".TestUiFragmentActivity">
 
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />

@@ -1225,7 +1225,7 @@ public class SeatTable extends View {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-//        getParent().requestDisallowInterceptTouchEvent(true);
+        getParent().requestDisallowInterceptTouchEvent(true);
         return super.dispatchTouchEvent(event);
     }
 }
