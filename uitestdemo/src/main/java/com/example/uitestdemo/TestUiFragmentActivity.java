@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
+import com.example.uitestdemo.fragment.VideoViewGuideFragment;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.service.MyService;
@@ -51,8 +52,8 @@ public class TestUiFragmentActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        fragmentList.add(new VideoViewGuideFragment());
         fragmentList.add(new SeatTableFragment());
-
         fragmentList.add(new TestDispatchEventFragment());
         fragmentList.add(new VlayoutFragment());
         fragmentList.add(new TestMemoryFragment());

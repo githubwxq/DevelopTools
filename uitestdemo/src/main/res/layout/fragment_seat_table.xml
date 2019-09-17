@@ -8,8 +8,9 @@
 
     <com.juziwl.uilibrary.customview.view.SeatTable
         android:id="@+id/seatView"
+        app:seat_available="@mipmap/keyboard_jianpan_nor"
         android:background="#ffffff"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

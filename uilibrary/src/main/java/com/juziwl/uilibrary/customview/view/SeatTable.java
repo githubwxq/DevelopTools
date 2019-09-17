@@ -1024,6 +1024,7 @@ public class SeatTable extends View {
 
     }
 
+    //设置数据开始绘制  几行几列
     public void setData(int row, int column) {
         this.row = row;
         this.column = column;
