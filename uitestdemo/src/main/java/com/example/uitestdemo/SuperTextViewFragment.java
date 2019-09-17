@@ -1,12 +1,17 @@
 package com.example.uitestdemo;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.juziwl.uilibrary.rlayout.RTextView;
+import com.ruffian.library.widget.RLinearLayout;
+import com.ruffian.library.widget.RTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
@@ -23,6 +28,9 @@ public class SuperTextViewFragment extends BaseFragment {
     @BindView(R.id.tv_bg)
     RTextView tvBg;
     Unbinder unbinder;
+    @BindView(R.id.rl_linearlayout)
+    RLinearLayout rlLinearlayout;
+    Unbinder unbinder1;
 
     @Override
     protected BasePresenter initPresenter() {
@@ -39,21 +47,43 @@ public class SuperTextViewFragment extends BaseFragment {
 
     }
 
-    boolean isSelect=false;
+    boolean isSelect = false;
 
-    @OnClick({R.id.tv_testcolor, R.id.tv_select, R.id.tv_bg})
+    @OnClick({R.id.tv_testcolor, R.id.tv_select, R.id.tv_bg,R.id.rl_linearlayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_testcolor:
 //                isSelect
-                tvTestcolor.setSelected(isSelect=!isSelect);
+                tvTestcolor.setSelected(isSelect = !isSelect);
                 break;
             case R.id.tv_select:
 //                tvSelect.setSelected(isSelect=!isSelect);
                 break;
             case R.id.tv_bg:
-                tvBg.setEnabled(isSelect=!isSelect);
+                tvBg.setEnabled(isSelect = !isSelect);
                 break;
+
+               case R.id.rl_linearlayout:
+                   rlLinearlayout.setSelected(isSelect = !isSelect);
+                break;
+
+
+
+
         }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder1 = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder1.unbind();
     }
 }

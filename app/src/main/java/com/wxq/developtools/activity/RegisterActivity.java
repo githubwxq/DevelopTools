@@ -108,6 +108,5 @@ public class RegisterActivity extends BaseActivity<RegisterContract.Presenter> i
     @Override
     public void registerSuccess() {
         finish();
-
     }
 }

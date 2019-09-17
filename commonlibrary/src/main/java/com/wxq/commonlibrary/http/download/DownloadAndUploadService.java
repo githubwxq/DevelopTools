@@ -39,4 +39,7 @@ public interface DownloadAndUploadService {
     Flowable<ResponseData<List<UpLoadData>>> uploadManyFile(@Part("module") RequestBody description,
                                                             @Part() List<MultipartBody.Part> parts);
 
+
+
+
 }

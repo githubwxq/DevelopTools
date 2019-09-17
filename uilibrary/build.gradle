@@ -61,7 +61,7 @@ dependencies {
     api project(path: ':picture_library')
     api project(path: ':pickerview')
     api project(path: ':nicevideoplayer')
-
+    api project(path: ':rlayoutlibrary')
     implementation project(':commonlibrary')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
