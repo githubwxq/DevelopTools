@@ -433,11 +433,6 @@ public class PullRefreshRecycleView extends LinearLayout {
         initView(context);
     }
 
-    public PullRefreshRecycleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initView(context);
-    }
-
     //设置能否加载更多
     @SuppressLint("RestrictedApi")
     public PullRefreshRecycleView setLoadMoreEnable(boolean enable) {

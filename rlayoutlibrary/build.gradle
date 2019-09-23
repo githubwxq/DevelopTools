@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-apply plugin: 'com.novoda.bintray-release'
-
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -43,12 +41,3 @@ dependencies {
     api rootProject.ext.deps["appcompat-v7"]
 }
 
-
-publish {
-    userOrg = 'wxq805380422qq'
-    groupId = 'com.wxq.library'
-    artifactId = 'RWidgetHelper'
-    publishVersion = '1.0.0'
-    desc = 'A set widget for developer easy to use.'
-    website = 'https://github.com/githubwxq/RWidgetHelper'
-}
