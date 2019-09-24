@@ -19,6 +19,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.juziwl.uilibrary.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.util.UIHandler;
@@ -63,7 +64,7 @@ public class PullRefreshRecycleView extends LinearLayout {
     public int rows = 10;
 
     ClassicsHeader classHeard;
-    MyLoadingFoot classFoot;
+    ClassicsFooter classFoot;
     private void initView(Context context) {
         mContext = context;
         //加载布局
