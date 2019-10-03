@@ -5,7 +5,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,6 +21,7 @@ import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.api.KlookApi;
@@ -47,6 +50,10 @@ public class DestinationFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.edit)
     SuperEditText edit;
+
+    @BindView(R.id.rl_top_view)
+    RelativeLayout rl_top_view;
+
 
 
     List<Region> allRegion = new ArrayList<>();
@@ -80,6 +87,18 @@ public class DestinationFragment extends BaseFragment {
                 edit.setText("");
             }
         });
+
+        edit.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+        edit.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        edit.setOnEditorActionListener((v, actionId, event) -> {
+         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+           //前往搜索页面
+
+         return true;
+         }
+         return false;
+         });
+
         areaRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
         areaRecyclerView.setAdapter(regionBaseViewHolderBaseQuickAdapter = new RegionBaseViewHolderBaseQuickAdapter());
         countryRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
@@ -202,6 +221,11 @@ public class DestinationFragment extends BaseFragment {
         ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
                 .statusBarDarkFont(true)
                 .statusBarDarkFont(true).init();
+
+        BarUtils.addMarginTopEqualStatusBarHeight(rl_top_view);
+
+//        rl_top_view
+
     }
 
 }

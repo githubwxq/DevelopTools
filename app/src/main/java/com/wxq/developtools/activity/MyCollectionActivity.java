@@ -2,6 +2,7 @@ package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -50,6 +51,13 @@ public class MyCollectionActivity extends BaseActivity implements PullRefreshRec
                         iv_collect_icon.setOnClickListener(
                                 v -> cancelCollection(item)
                         );
+                        helper.getConvertView().setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ProductActivity.navToActivity(context,item.productId);
+                            }
+                        });
+
                     }
                 }, this);
         recyclerView.autoRefresh();

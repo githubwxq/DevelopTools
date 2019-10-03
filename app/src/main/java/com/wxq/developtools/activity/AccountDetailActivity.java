@@ -2,36 +2,38 @@ package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
-import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.http.common.Api;
-import com.wxq.commonlibrary.model.UserInfo;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
+import com.wxq.developtools.model.PersonInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
 /**
  * 账户详情页面
  */
-public class AccountDetailActivity extends BaseActivity {
+public class AccountDetailActivity extends BaseActivity  {
 
-    @BindView(R.id.tv_name)
-    TextView tvName;
-    @BindView(R.id.tv_phone)
-    TextView tvPhone;
-    @BindView(R.id.tv_identify)
-    TextView tvIdentify;
-    @BindView(R.id.tv_huzhao)
-    TextView tvHuzhao;
-    @BindView(R.id.tv_youxiang)
-    TextView tvYouxiang;
+
+    @BindView(R.id.recycler_view)
+    PullRefreshRecycleView recyclerView;
+    /**
+     * 所有用户根据是否都选择处理
+     */
+    private List<PersonInfo> allPersonInfoList = new ArrayList<>(); // 点击不同列表展示不同的选中效果
+
 
     public static void navToActivity(Context context) {
         Intent intent = new Intent(context, AccountDetailActivity.class);
@@ -41,23 +43,38 @@ public class AccountDetailActivity extends BaseActivity {
     @Override
     protected void initViews() {
         topHeard.setTitle("账户详情");
-        String id = AllDataCenterManager.getInstance().userInfo.id;
-        Api.getInstance().getApiService(KlookApi.class).findUserAccountById(id)
+        recyclerView.setAdapter(new BaseQuickAdapter<PersonInfo,BaseViewHolder>(R.layout.item_account_detail,allPersonInfoList) {
+            @Override
+            protected void convert(BaseViewHolder helper, PersonInfo item) {
+                helper.setText(R.id.tv_name,item.realName);
+                helper.setText(R.id.tv_phone,"手机号  "+item.contactNumber);
+                helper.setText(R.id.tv_identify,"身份证  " + item.idCard);
+                helper.setText(R.id.tv_huzhao,"护照  " + item.passportNum);
+                helper.setText(R.id.tv_youxiang,"邮箱  " + item.email);
+            }
+        });
+        getPersonListData();
+    }
+
+
+    /**
+     * 获取所有的可添加用户
+     */
+    private void getPersonListData() {
+        // 获取用户数据
+        Api.getInstance()
+                .getApiService(KlookApi.class)
+                .findUserAccountByUserId()
                 .compose(RxTransformer.transformFlowWithLoading(this))
                 .compose(ResponseTransformer.handleResult())
-                .subscribe(new RxSubscriber<UserInfo>() {
+                .subscribe(new RxSubscriber<List<PersonInfo>>() {
                     @Override
-                    protected void onSuccess(UserInfo data) {
-                        AllDataCenterManager.getInstance().userInfo = data;
-                       tvName.setText(data.realName);
-                        tvPhone.setText("手机号  "+data.phone);
-                        tvIdentify.setText("身份证  "+data.idCard);
-                        tvHuzhao.setText("护照  "+data.passportNum);
-                        tvYouxiang.setText("邮箱  "+data.email);
+                    protected void onSuccess(List<PersonInfo> data) {
+                        recyclerView.updataData(data);
                     }
                 });
-
     }
+
 
     @Override
     protected int attachLayoutRes() {
