@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -50,7 +51,7 @@ public class ExploreFragment extends BaseFragment {
     PullRefreshRecycleView recycler;
     Unbinder unbinder;
 
-    List<MultiItemEntity> itemEntities=new ArrayList<>();
+    List<MultiItemEntity> itemEntities = new ArrayList<>();
 
 
     public static ExploreFragment newInstance() {
@@ -98,7 +99,6 @@ public class ExploreFragment extends BaseFragment {
     }
 
 
-
     private void getData() {
         Api.getInstance()
                 .getApiService(KlookApi.class).homepage()
@@ -108,9 +108,9 @@ public class ExploreFragment extends BaseFragment {
                     @Override
                     protected void onSuccess(HomePageData homePageData) {
                         // 显示试图
-                         itemEntities.clear();
-                         itemEntities.addAll(homePageData.getlist());
-                         recycler.notifyDataSetChanged();
+                        itemEntities.clear();
+                        itemEntities.addAll(homePageData.getlist());
+                        recycler.notifyDataSetChanged();
                     }
                 });
     }
@@ -123,56 +123,56 @@ public class ExploreFragment extends BaseFragment {
 
         public ExploreAdapter() {
             super(ExploreFragment.this.itemEntities);
-            addItemType(TYPE_LEVEL_0,R.layout.layout_top_banner);
-            addItemType(TYPE_LEVEL_1,R.layout.layout_hot_city);
-            addItemType(TYPE_LEVEL_2,R.layout.layout_hot_sell_old);
-            addItemType(TYPE_LEVEL_3,R.layout.layout_hot_sell);
+            addItemType(TYPE_LEVEL_0, R.layout.layout_top_banner);
+            addItemType(TYPE_LEVEL_1, R.layout.layout_hot_city);
+            addItemType(TYPE_LEVEL_2, R.layout.layout_hot_sell_old);
+            addItemType(TYPE_LEVEL_3, R.layout.layout_hot_sell);
         }
 
         @Override
         protected void convert(BaseViewHolder helper, MultiItemEntity item) {
-            if (item.getItemType()==TYPE_LEVEL_0) {
+            if (item.getItemType() == TYPE_LEVEL_0) {
                 dealWithBanner(helper, item);
-            }else if (item.getItemType()==TYPE_LEVEL_1){
+            } else if (item.getItemType() == TYPE_LEVEL_1) {
                 dealWithHotCity(helper, item);
-            }else if (item.getItemType()==TYPE_LEVEL_2){
+            } else if (item.getItemType() == TYPE_LEVEL_2) {
 //                dealWithHotSellProducts(helper, item);
-            }else if (item.getItemType()==TYPE_LEVEL_3){
+            } else if (item.getItemType() == TYPE_LEVEL_3) {
                 dealWithHotSellProducts(helper, item);
             }
         }
 
         private void dealWithHotSellProducts(BaseViewHolder helper, MultiItemEntity item) {
-            helper.setText(R.id.tv_title,((HotSellProductsBean)item).name);
-            LoadingImgUtil.loadimg(((HotSellProductsBean)item).cover,(ImageView) helper.getView(R.id.iv_bg),false);
-            if (getData().indexOf(item)==2) {
-                helper.setVisible(R.id.tv_recommend,true);
-            }else {
-                helper.setGone(R.id.tv_recommend,false);
+            helper.setText(R.id.tv_title, ((HotSellProductsBean) item).name);
+            LoadingImgUtil.loadimg(((HotSellProductsBean) item).cover, (ImageView) helper.getView(R.id.iv_bg), false);
+            if (getData().indexOf(item) == 2) {
+                helper.setVisible(R.id.tv_recommend, true);
+            } else {
+                helper.setGone(R.id.tv_recommend, false);
             }
 //            tv_recommend
             helper.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ProductActivity.navToActivity(mContext,((HotSellProductsBean)item).id);
+                    ProductActivity.navToActivity(mContext, ((HotSellProductsBean) item).id);
                 }
             });
 
         }
 
         private void dealWithHotCity(BaseViewHolder helper, MultiItemEntity item) {
-            RecyclerView recyclerView=helper.getView(R.id.hot_recycle_view);
+            RecyclerView recyclerView = helper.getView(R.id.hot_recycle_view);
             recyclerView.setFocusable(false);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-            recyclerView.setAdapter(new BaseQuickAdapter<HotCitiesBean,BaseViewHolder>(R.layout.item_hot_city,((HotCitiesBeanWrap)(item)).hotCitiesBeanList) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+            recyclerView.setAdapter(new BaseQuickAdapter<HotCitiesBean, BaseViewHolder>(R.layout.item_hot_city, ((HotCitiesBeanWrap) (item)).hotCitiesBeanList) {
                 @Override
                 protected void convert(BaseViewHolder helper, HotCitiesBean item) {
-                    helper.setText(R.id.tv_city_name,item.name);
-                    LoadingImgUtil.loadimg(item.cover,helper.getView(R.id.iv_bg),false);
+                    helper.setText(R.id.tv_city_name, item.name);
+                    LoadingImgUtil.loadimg(item.cover, helper.getView(R.id.iv_bg), false);
                     helper.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            CityActivity.navToActivity(getActivity(),item.id);
+                            CityActivity.navToActivity(getActivity(), item.id);
                         }
                     });
                 }
@@ -203,12 +203,19 @@ public class ExploreFragment extends BaseFragment {
     }
 
     private void dealWithBanner(BaseViewHolder helper, MultiItemEntity item) {
-      List<RecomentProductsBean> list =((RecommendBeanWrap)(item)).list;
-      List<String> bannerStrings=new   ArrayList<String>();
+        List<RecomentProductsBean> list = ((RecommendBeanWrap) (item)).list;
+        List<String> bannerStrings = new ArrayList<String>();
         for (RecomentProductsBean bean : list) {
             bannerStrings.add(bean.cover);
         }
-      Banner banner= helper.getView(R.id.banner);
+        Banner banner = helper.getView(R.id.banner);
+
+        TextView tv_name = helper.getView(R.id.tv_name);
+        if (list.size()>0) {
+            tv_name.setText(list.get(0).name);
+        }
+
+
         if (banner.isAutoPlay()) {
             banner.stopAutoPlay();
         }
@@ -221,10 +228,16 @@ public class ExploreFragment extends BaseFragment {
                     .setDelayTime(3000)
                     .setAutonPlay(true)
                     .setOnBannerListener(position -> {
-                      ProductActivity.navToActivity(getActivity(),list.get(position).id);
+                        ProductActivity.navToActivity(getActivity(), list.get(position).id);
 
                     })
-                    .start();
+                   .start();
+            banner.setBannerPageChangeListener(new Banner.BannerPageChangeListener() {
+                @Override
+                public void onPageChanged(int positon) {
+                    tv_name.setText(list.get(positon).name);
+                }
+            });
         }
 
 
@@ -238,7 +251,7 @@ public class ExploreFragment extends BaseFragment {
         helper.getView(R.id.iv_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CityProductSearchListActivity.navToActivity(getActivity(),"","");
+                CityProductSearchListActivity.navToActivity(getActivity(), "", "");
             }
         });
     }

@@ -636,6 +636,10 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
                 break;
         }
 
+        if (bannerPageChangeListener!=null) {
+            bannerPageChangeListener.onPageChanged(position - 1);
+        }
+
     }
 
     @Deprecated
@@ -658,6 +662,19 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
     public void setOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
         mOnPageChangeListener = onPageChangeListener;
     }
+
+    public void setBannerPageChangeListener(BannerPageChangeListener bannerPageChangeListener) {
+        this.bannerPageChangeListener = bannerPageChangeListener;
+    }
+
+    BannerPageChangeListener bannerPageChangeListener;
+
+    public interface BannerPageChangeListener{
+
+       void onPageChanged(int positon);
+    }
+
+
 
     public void releaseBanner() {
         handler.removeCallbacksAndMessages(null);
