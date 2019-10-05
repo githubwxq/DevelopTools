@@ -15,6 +15,7 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.CityVosBean;
@@ -67,6 +68,7 @@ public class CityActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         ImmersionBar.with(this).transparentStatusBar().init();
+        BarUtils.addMarginTopEqualStatusBarHeight(rlTop);
     }
 
     private void getCityInfoById(String cityId) {
