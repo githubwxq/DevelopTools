@@ -216,16 +216,13 @@ public class DestinationFragment extends BaseFragment {
             });
         }
     }
+
+
     public void onFragmentResume() {
-//        BarUtils.setStatusBarLightMode(getActivity(), false);
         ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
                 .statusBarDarkFont(true)
+                .fitsSystemWindows(true)
                 .statusBarDarkFont(true).init();
-
-        BarUtils.addMarginTopEqualStatusBarHeight(rl_top_view);
-
-//        rl_top_view
-
     }
 
 }

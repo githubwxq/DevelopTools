@@ -47,7 +47,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends RxFragment i
     public String fragmentTitle;
     protected RxPermissions rxPermissions = null;
     //缓存Fragment view
-    protected View mRootView;
+    public View mRootView;
 
 
     protected boolean mIsFirstVisible = true;

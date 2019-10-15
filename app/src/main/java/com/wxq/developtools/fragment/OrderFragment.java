@@ -15,6 +15,7 @@ import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.ConfirmAndPayActivity;
 import com.wxq.developtools.activity.ProductActivity;
@@ -139,9 +140,14 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
     public void refrishOrLoadMore(int page, int rows) {
         getData(page,rows);
     }
+
     public void onFragmentResume() {
         ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
                 .statusBarDarkFont(true)
                 .statusBarDarkFont(true).init();
+        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
     }
 }
+
+
+//375  667  设计图

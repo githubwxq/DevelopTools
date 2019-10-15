@@ -95,7 +95,7 @@ public class ExploreFragment extends BaseFragment {
     @Override
     public void onFragmentResume() {
         super.onFragmentResume();
-        ImmersionBar.with(this).transparentStatusBar().init();
+        ImmersionBar.with(this).transparentStatusBar().fitsSystemWindows(false).init();
     }
 
 

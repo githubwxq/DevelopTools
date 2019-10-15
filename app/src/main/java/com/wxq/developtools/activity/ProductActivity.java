@@ -25,6 +25,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.activity.CommonWebActivity;
 import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
@@ -463,7 +464,10 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
     @Override
     protected void onResume() {
         super.onResume();
-//        mapView.onResume();
+
+        ImmersionBar.with(this).transparentStatusBar().fitsSystemWindows(false).init();
+        ///
+//        mapVie//w.onResume();
     }
 
     /**

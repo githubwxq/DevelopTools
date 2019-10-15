@@ -17,6 +17,7 @@ import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.http.common.Api;
 import com.wxq.commonlibrary.model.UserInfo;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CertificateActivity;
 import com.wxq.developtools.activity.EditPersonActivity;
@@ -64,7 +65,7 @@ public class MySelfFragment extends BaseFragment {
         getUserInfo();
         ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
                 .statusBarDarkFont(true)
-                .statusBarDarkFont(true).init();
+                .init();
     }
 
     private void getUserInfo() {
@@ -138,4 +139,7 @@ public class MySelfFragment extends BaseFragment {
             LoadingImgUtil.loadimg(event.getObject(),heardIcon,true);
         }
     }
+
+
+
 }

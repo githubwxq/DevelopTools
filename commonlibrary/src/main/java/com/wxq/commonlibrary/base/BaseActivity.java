@@ -191,6 +191,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         }
         unbinder.unbind();
         // 必须调用该方法，防止内存泄漏
+
         super.onDestroy();
     }
 
@@ -229,6 +230,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     protected void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
+        ImmersionBar.with(this).statusBarColor(R.color.white).autoDarkModeEnable(true).fitsSystemWindows(true)    .init();
     }
 
     @Override

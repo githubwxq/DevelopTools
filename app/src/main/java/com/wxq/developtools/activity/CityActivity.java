@@ -67,8 +67,10 @@ public class CityActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ImmersionBar.with(this).transparentStatusBar().init();
+//        ImmersionBar.with(this).reset();
         BarUtils.addMarginTopEqualStatusBarHeight(rlTop);
+
+        ImmersionBar.with(this).transparentStatusBar().fitsSystemWindows(false).init();
     }
 
     private void getCityInfoById(String cityId) {
