@@ -4,8 +4,10 @@
     android:layout_height="wrap_content"
     android:paddingBottom="10dp"
     >
-
     <TextView
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="13sp"
         android:gravity="center"
         android:id="@+id/area_name"
         android:text="类型"

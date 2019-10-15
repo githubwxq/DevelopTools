@@ -30,6 +30,7 @@ import com.juziwl.uilibrary.activity.WatchImagesActivity;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
+import com.juziwl.uilibrary.recycler.itemdecoration.GrideItemDecorationForUse;
 import com.luck.picture.lib.utils.DisplayUtils;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -116,6 +117,9 @@ public class ProductActivity extends BaseActivity implements AMap.OnMarkerClickL
             packageVos.get(0).isSelect = true;
         }
         recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        recycler_view.addItemDecoration(new GrideItemDecorationForUse(this));
+
         recycler_view.setAdapter(new BaseQuickAdapter<ProductPackageVosBean, BaseViewHolder>(R.layout.product_taocan, packageVos) {
             @Override
             protected void convert(BaseViewHolder helper, ProductPackageVosBean item) {

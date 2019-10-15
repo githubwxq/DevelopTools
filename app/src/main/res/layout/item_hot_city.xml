@@ -11,7 +11,7 @@
 
         <com.juziwl.uilibrary.imageview.RectImageView
             app:type="round"
-            app:borderRadius="5dp"
+            app:borderRadius="4dp"
             android:id="@+id/iv_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

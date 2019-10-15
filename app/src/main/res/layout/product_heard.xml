@@ -11,7 +11,6 @@
     <ImageView
         android:id="@+id/iv_cover_pic"
         android:scaleType="centerCrop"
-
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 
@@ -32,7 +31,8 @@
         android:textSize="24sp"
         android:textColor="#EC4836"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"/>
 
 <View
     android:background="@color/color_f7f7f7"

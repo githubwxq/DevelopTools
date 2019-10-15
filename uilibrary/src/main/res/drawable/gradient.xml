@@ -6,4 +6,11 @@
        android:endColor="#00000000"
        android:angle="90"
        />
+
+   <corners android:bottomLeftRadius="4dp"
+         android:bottomRightRadius="4dp"
+       ></corners>
+
+
+
 </shape>

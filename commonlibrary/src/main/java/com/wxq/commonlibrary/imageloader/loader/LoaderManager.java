@@ -30,6 +30,7 @@ public class LoaderManager {
 
     }
 
+    // 各种loader加载器
     private void register(String schema, Loader loader) {
         mLoaderMap.put(schema, loader);
 

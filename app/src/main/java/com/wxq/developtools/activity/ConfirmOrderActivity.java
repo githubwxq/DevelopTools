@@ -2,6 +2,7 @@ package com.wxq.developtools.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -133,7 +134,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                     @Override
                     protected void convert(BaseViewHolder helper, VosBean item) {
                         if (item.isSelect) {
-                            helper.setBackgroundColor(R.id.rl_bg,context.getResources().getColor(R.color.orange_100));
+                            helper.setBackgroundColor(R.id.rl_bg, Color.parseColor("#FFF9EC"));
                         }else {
                             helper.setBackgroundColor(R.id.rl_bg,context.getResources().getColor(R.color.white));
                         }

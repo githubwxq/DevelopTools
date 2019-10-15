@@ -31,12 +31,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_marginTop="26dp"
         android:gravity="center_vertical"
         android:id="@+id/rl_pingzheng"
         android:layout_width="match_parent"
         android:layout_height="60dp">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/color_333"
             android:layout_marginLeft="18dp"
             android:textSize="16sp"
@@ -67,6 +69,7 @@
         android:layout_height="60dp">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/color_333"
             android:layout_marginLeft="18dp"
             android:textSize="16sp"
@@ -96,6 +99,7 @@
         android:layout_height="60dp">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/color_333"
             android:layout_marginLeft="18dp"
             android:textSize="16sp"
@@ -125,6 +129,7 @@
         android:layout_height="60dp">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/color_333"
             android:layout_marginLeft="18dp"
             android:textSize="16sp"
@@ -154,6 +159,7 @@
         android:layout_height="60dp">
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/color_333"
             android:layout_marginLeft="18dp"
             android:textSize="16sp"

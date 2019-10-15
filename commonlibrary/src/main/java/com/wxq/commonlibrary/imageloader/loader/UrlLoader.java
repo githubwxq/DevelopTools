@@ -25,6 +25,7 @@ import java.net.URL;
  * version:1.0
  */
 public class UrlLoader extends AbstractLoader {
+
     @Override
     protected Bitmap onLoad(BitmapRequest request) {
         //先下载  后读取

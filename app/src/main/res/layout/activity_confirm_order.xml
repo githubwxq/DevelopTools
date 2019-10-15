@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".activity.ConfirmOrderActivity">
 
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="#f7f7f7"
+      />
+
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -100,11 +107,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingBottom="15dp"
         android:orientation="vertical">
         <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
             android:id="@+id/rv_data_time"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            >
 
         </com.juziwl.uilibrary.recycler.PullRefreshRecycleView>
 

@@ -53,12 +53,12 @@ public class TestUiFragmentActivity extends BaseActivity {
     @Override
     protected void initViews() {
         fragmentList.add(new SuperTextViewFragment());
+
         fragmentList.add(new VideoViewGuideFragment());
         fragmentList.add(new SeatTableFragment());
         fragmentList.add(new TestDispatchEventFragment());
         fragmentList.add(new VlayoutFragment());
         fragmentList.add(new TestMemoryFragment());
-
         fragmentList.add(new NineGrideFragment());
         fragmentList.add(new ViewLocationFragment());
         fragmentList.add(new ViewLifeCycleFragment());

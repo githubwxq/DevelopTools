@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="54dp"
             android:src="@drawable/collection_select" />
 
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="17dp"
 
             android:src="@mipmap/shop_icon" />
 

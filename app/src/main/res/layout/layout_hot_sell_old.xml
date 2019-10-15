@@ -6,6 +6,7 @@
     <TextView
         android:layout_marginLeft="15dp"
         android:text="热卖"
+        android:textStyle="bold"
         android:textSize="22sp"
         android:textColor="@color/color_333"
         android:gravity="center_vertical"

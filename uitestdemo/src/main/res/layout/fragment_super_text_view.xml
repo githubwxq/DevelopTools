@@ -70,23 +70,12 @@
         app:text_color_selected="@color/white" />
 
 
-    <!--app:background_select="@color/pink_600"-->
-    <!--app:text_color_select="@color/white"-->
 
-
-
-    <com.ruffian.library.widget.RLinearLayout
-        android:id="@+id/rl_linearlayout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rl_list"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:background_normal="@color/orange_600"
-        app:background_selected="@color/pink_600"
-        app:border_color_normal="@color/black"
-        app:border_color_selected="@color/white"
-        app:border_width_normal="3dp"
-        android:layout_marginTop="30dp"
-        app:corner_radius="10dp"
-        ></com.ruffian.library.widget.RLinearLayout>
+        android:layout_height="200dp"/>
+
 
 
 </LinearLayout>

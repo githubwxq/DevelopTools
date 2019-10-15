@@ -9,7 +9,7 @@ import com.wxq.commonlibrary.imageloader.request.BitmapRequest;
  * author:wxq
  * email:805380422@qq.com
  * time:2018/11/07
- * desc:内存缓存
+ * desc:内存缓存  需要外面包裹累处理  LruCache
  * version:1.0
  */
 public class MemoryCache implements BitmapCache {

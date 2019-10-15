@@ -1,11 +1,11 @@
 package com.example.uitestdemo;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ruffian.library.widget.RLinearLayout;
 import com.ruffian.library.widget.RTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -28,9 +28,10 @@ public class SuperTextViewFragment extends BaseFragment {
     @BindView(R.id.tv_bg)
     RTextView tvBg;
     Unbinder unbinder;
-    @BindView(R.id.rl_linearlayout)
-    RLinearLayout rlLinearlayout;
+
     Unbinder unbinder1;
+    @BindView(R.id.rl_list)
+    RecyclerView rlList;
 
     @Override
     protected BasePresenter initPresenter() {
@@ -49,7 +50,7 @@ public class SuperTextViewFragment extends BaseFragment {
 
     boolean isSelect = false;
 
-    @OnClick({R.id.tv_testcolor, R.id.tv_select, R.id.tv_bg,R.id.rl_linearlayout})
+    @OnClick({R.id.tv_testcolor, R.id.tv_select, R.id.tv_bg})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_testcolor:
@@ -62,13 +63,6 @@ public class SuperTextViewFragment extends BaseFragment {
             case R.id.tv_bg:
                 tvBg.setEnabled(isSelect = !isSelect);
                 break;
-
-               case R.id.rl_linearlayout:
-                   rlLinearlayout.setSelected(isSelect = !isSelect);
-                break;
-
-
-
 
         }
     }

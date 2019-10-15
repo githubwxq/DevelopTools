@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/tv_recommend"
         android:layout_marginLeft="15dp"
         android:text="热卖"
         android:textSize="22sp"
+        android:textStyle="bold"
         android:textColor="@color/color_333"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="70dp" />
 
     <RelativeLayout
+        android:background="@drawable/corners_4__solide_ffffff"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <com.juziwl.uilibrary.imageview.RectImageView
+            app:type="round"
+            app:borderRadius="4dp"
             android:id="@+id/iv_bg"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
@@ -37,17 +41,17 @@
             android:layout_height="48dp" />
 
 
-        <View
-            android:layout_below="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/color_f7f7f7"
-            />
 
 
 
     </RelativeLayout>
 
+    <View
+        android:layout_below="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/color_f7f7f7"
+        />
 
 
 

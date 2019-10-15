@@ -65,6 +65,8 @@ public class VlayoutFragment extends BaseFragment {
         VirtualLayoutManager virtualLayoutManager=new VirtualLayoutManager(mContext);
         recycler.setLayoutManager(virtualLayoutManager);
         delegateAdapter = new DelegateAdapter(virtualLayoutManager, true);
+
+
         RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         recycler.setRecycledViewPool(viewPool);
         viewPool.setMaxRecycledViews(StaggeredGridLayoutAdapter.CURRENTTYPE,strageStrings.size());

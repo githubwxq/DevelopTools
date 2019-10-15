@@ -78,6 +78,7 @@
     
 
 <LinearLayout
+    android:layout_marginTop="15dp"
     android:orientation="vertical"
     android:layout_below="@+id/city_bg"
     android:layout_width="match_parent"
@@ -88,6 +89,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/meishi"
             android:id="@+id/iv_food"
             android:layout_weight="1"
@@ -100,6 +103,8 @@
         
 
          <ImageView
+             android:layout_marginRight="15dp"
+             android:scaleType="fitXY"
              android:src="@mipmap/jingdian"
             android:id="@+id/iv_jingdian"
             android:layout_weight="1"
@@ -118,6 +123,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/yule"
             android:id="@+id/iv_waanle"
             android:layout_weight="1"
@@ -130,6 +137,8 @@
 
 
         <ImageView
+            android:layout_marginRight="15dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/jiaotong"
             android:id="@+id/iv_jiaotong"
             android:layout_weight="1"

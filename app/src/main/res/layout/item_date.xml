@@ -27,7 +27,7 @@
             android:textSize="12sp"
             android:text="132132132132"
             android:layout_below="@+id/tv_time"
-            android:textColor="@color/orange_200"
+            android:textColor="#ec4836"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

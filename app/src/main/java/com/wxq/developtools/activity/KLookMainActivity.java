@@ -62,6 +62,9 @@ public class KLookMainActivity extends BaseActivity {
             }
             return false;
         });
+        navigation.setBackgroundResource(R.color.white);
+
+
         fragmentList.add(ExploreFragment.newInstance());
         fragmentList.add(DestinationFragment.newInstance());
         fragmentList.add(OrderFragment.newInstance());
@@ -93,6 +96,7 @@ public class KLookMainActivity extends BaseActivity {
       String cid=  PushManager.getInstance().getClientid(getApplicationContext());
 
       initGeTui();
+
 
 
     }
