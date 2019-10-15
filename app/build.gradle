@@ -128,7 +128,11 @@ dependencies {
     //集成推送
     implementation rootProject.ext.deps["jpush"]
     implementation rootProject.ext.deps["jcore"]
+
+    //集成个推
     implementation rootProject.ext.deps["getui"]
+    implementation rootProject.ext.deps["autosize"]
+
     //    implementation project(':commonservice')
     implementation files('libs/json_simple-1.1.jar')
 }

@@ -143,9 +143,9 @@ public class OrderFragment extends BaseFragment implements PullRefreshRecycleVie
 
     public void onFragmentResume() {
         ImmersionBar.with(this) .statusBarColor(com.wxq.commonlibrary.R.color.white)
-                .statusBarDarkFont(true)
+                .statusBarDarkFont(true).fitsSystemWindows(true)
                 .statusBarDarkFont(true).init();
-        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
+//        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
     }
 }
 
