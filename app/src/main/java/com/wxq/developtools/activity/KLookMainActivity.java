@@ -14,6 +14,7 @@ import com.igexin.sdk.PushManager;
 import com.juziwl.uilibrary.BottomNavigationViewHelper;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
+import com.tencent.bugly.beta.Beta;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.UIHandler;
@@ -96,6 +97,7 @@ public class KLookMainActivity extends BaseActivity {
       String cid=  PushManager.getInstance().getClientid(getApplicationContext());
 
       initGeTui();
+
 
 
 

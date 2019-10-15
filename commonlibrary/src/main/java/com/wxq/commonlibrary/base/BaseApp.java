@@ -2,6 +2,8 @@ package com.wxq.commonlibrary.base;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -64,6 +66,14 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
             applicationDelegate.onCreate(this);
             // 关闭andrioid p 反射弹框
             closeAndroidPDialog();
+
+            //设置一个不设防的StrictMode防止跨应用共享文件时抛出FileUriExposedException异常
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                StrictMode.setVmPolicy(builder.build());
+            }
+
+
         }
     }
     private void closeAndroidPDialog(){

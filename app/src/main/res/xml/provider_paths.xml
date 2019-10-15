@@ -9,7 +9,13 @@
     <!--name="beta_external_files_path"-->
     <!--path="Android/data/" />-->
 
-    <external-path
-        name="external_storage"
-        path="" />
+<!--    <external-path-->
+<!--        name="external_storage"-->
+<!--        path="" />-->
+
+    <!-- /storage/emulated/0/Download/${applicationId}/.beta/apk-->
+    <external-path name="beta_external_path" path="Download/"/>
+    <!--/storage/emulated/0/Android/data/${applicationId}/files/apk/-->
+    <external-path name="beta_external_files_path" path="Android/data/"/>
+
 </paths>

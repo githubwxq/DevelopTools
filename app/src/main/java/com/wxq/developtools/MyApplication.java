@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Process;
 import android.util.Log;
 
+import com.tencent.bugly.beta.Beta;
 import com.wxq.developtools.activity.KlookLoginActivity;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
@@ -21,6 +22,9 @@ public class MyApplication extends BaseApp {
     public void onCreate() {
         super.onCreate();
         //初始化bugly
+        //升级问题
+        Beta.autoCheckUpgrade = true;
+        Beta.checkUpgrade();
         BuglyUtils.init(this,"1400183086",BuildConfig.DEBUG);
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
