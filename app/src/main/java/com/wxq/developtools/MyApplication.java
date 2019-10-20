@@ -5,12 +5,12 @@ import android.os.Process;
 import android.util.Log;
 
 import com.tencent.bugly.beta.Beta;
-import com.wxq.developtools.activity.KlookLoginActivity;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.base.BaseApp;
 import com.wxq.commonlibrary.util.ActivityUtils;
 import com.wxq.commonlibrary.util.BuglyUtils;
+import com.wxq.developtools.activity.KlookLoginActivity;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -29,6 +29,9 @@ public class MyApplication extends BaseApp {
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
         initX5WebView();
+//        SkinManager.init(this);
+
+
     }
 
     @Override
