@@ -19,8 +19,6 @@ class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
     HashMap<Activity, SkinLayoutFactory> mLayoutFactoryMap = new HashMap<>();
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
-
         /**
          *  更新状态栏
          */
@@ -45,9 +43,12 @@ class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
         }
 
         SkinLayoutFactory skinLayoutFactory = new SkinLayoutFactory(activity, typeface);
+
         LayoutInflaterCompat.setFactory2(layoutInflater, skinLayoutFactory);
-        //注册观察者
+
+        //注册观察者  外城重新设置了皮肤你这边接受到update更新  最终skinLayoutFactory更新数据就会更新说有的页面了应为每个页面的
         SkinManager.getInstance().addObserver(skinLayoutFactory);
+
         mLayoutFactoryMap.put(activity, skinLayoutFactory);
 
     }
@@ -84,6 +85,10 @@ class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
         SkinManager.getInstance().deleteObserver(skinLayoutFactory);
     }
 
+    /**
+     * 更新某个activity
+     * @param activity
+     */
     public void updateSkin(Activity activity) {
         SkinLayoutFactory skinLayoutFactory = mLayoutFactoryMap.get(activity);
         skinLayoutFactory.update(null, null);

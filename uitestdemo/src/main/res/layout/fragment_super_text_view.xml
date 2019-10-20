@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+   android:layout_marginTop="20dp"
+        android:background="@drawable/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
     <!--<attr name="text_color_normal" format="color" />-->
     <!--<attr name="text_color_pressed" format="color" />-->
@@ -14,6 +20,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <com.ruffian.library.widget.RTextView
+        android:layout_marginTop="20dp"
         android:id="@+id/tv_testcolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,6 +82,9 @@
         android:id="@+id/rl_list"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
+
+
+
 
 
 

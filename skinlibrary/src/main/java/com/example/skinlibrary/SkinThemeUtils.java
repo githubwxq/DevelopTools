@@ -16,11 +16,19 @@ public class SkinThemeUtils {
             R.attr.skinTypeface
     };
 
+    /**
+     * 主题色对应的属性名
+     */
     private static int[] APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS = {
             android.support.v7.appcompat.R.attr.colorPrimaryDark
     };
-    private static int[] STATUSBAR_COLOR_ATTRS = {android.R.attr.statusBarColor, android.R.attr
-            .navigationBarColor};
+
+    /**
+     * 状态栏和导航栏对应的属性
+     */
+    private static int[] STATUSBAR_COLOR_ATTRS = {
+            android.R.attr.statusBarColor,
+            android.R.attr.navigationBarColor};
 
 
     public static int[] getResId(Context context, int[] attrs) {
@@ -39,7 +47,9 @@ public class SkinThemeUtils {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return;
         }
+
         int[] resIds = getResId(activity, STATUSBAR_COLOR_ATTRS);
+
         /**
          * 修改状态栏的颜色
          */

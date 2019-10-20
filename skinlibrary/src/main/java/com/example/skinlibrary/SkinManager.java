@@ -41,9 +41,10 @@ public class SkinManager extends Observable {
         this.application = application;
         SkinPreference.init(application);
         SkinResources.init(application);
-        //注册activity生命周期
+        //注册activity生命周期  在actiivty创建的时候提前
         skinActivityLifecycle=new SkinActivityLifecycle();
         application.registerActivityLifecycleCallbacks(skinActivityLifecycle);
+
         loadSkin(SkinPreference.getInstance().getSkin());
     }
 

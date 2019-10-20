@@ -17,16 +17,18 @@ class SkinAttribute {
     private static final List<String> mAttributes = new ArrayList<>();
 
     static {
+//       这边支持皮肤包的属性  其实需要给个是否加载皮肤包 不然所有的控件 的属性 都会去拿皮肤包的数值 多家一个属性 isneedskin
         mAttributes.add("background");
         mAttributes.add("src");
-
         mAttributes.add("textColor");
         mAttributes.add("drawableLeft");
         mAttributes.add("drawableTop");
         mAttributes.add("drawableRight");
         mAttributes.add("drawableBottom");
-
         mAttributes.add("skinTypeface");
+
+
+
     }
 
     List<SkinView> mSkinViews = new ArrayList<>();
@@ -83,6 +85,9 @@ class SkinAttribute {
     }
 
 
+    /**
+     *  view 和它的属性对象（属性名 和属性id）集合
+     */
     static class SkinView {
         View view;
         List<SkinPair> skinPairs;
@@ -93,9 +98,10 @@ class SkinAttribute {
         }
 
         /**
-         * @param typeface 字体
+         * @param typeface 字体   这边自定义下
          */
         public void applySkin(Typeface typeface) {
+            // 最终设置 在这里设置 对应的 属性名 设置对应的方法  backgroud 都是通用view 的
             applySkinTypeface(typeface);
             applySkinViewSupport();
             for (SkinPair skinPair : skinPairs) {

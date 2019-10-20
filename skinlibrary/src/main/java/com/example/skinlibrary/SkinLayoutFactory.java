@@ -25,6 +25,11 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
             new HashMap<String, Constructor<? extends View>>();
     private Activity activity;
 
+    /**
+     * 构造函数先行
+     * @param activity
+     * @param typeface
+     */
     public SkinLayoutFactory(Activity activity, Typeface typeface) {
         this.activity = activity;
         skinAttribute = new SkinAttribute(typeface);
@@ -56,8 +61,14 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
         return null;
     }
 
+
+    /**
+     * 每个actiivty 都有layoutinflate 然后更新 SkinAttribute 类保存了所有的控件 让他重新更新下控件
+     * @param o
+     * @param arg
+     */
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Observable o, Object arg) {    //内部含有skinAttribute 所以具体的更新 you他处理
         SkinThemeUtils.updateStatusBar(activity);
         Typeface typeface = SkinThemeUtils.getSkinTypeface(activity);
         // 更换皮肤
@@ -67,7 +78,7 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
 
     private View createViewFromTag(String name, Context context, AttributeSet attrs) {
         //包含了 . 自定义控件
-        if (-1 != name.indexOf(".")) {
+        if (-1 != name.indexOf(".")) { // 存在. 自定义控件
             return null;
         }
         View view = null;

@@ -11,6 +11,7 @@ class SkinResources {
     private static SkinResources instance;
 
     private Resources mSkinResources;
+
     private String mSkinPkgName;
     private boolean isDefaultSkin = true;
 
@@ -72,6 +73,7 @@ class SkinResources {
 
        String resType = mAppResources.getResourceTypeName(resId);//drawable
 
+       //最终对应的皮肤包里面的id   mSkinPkgName 皮肤包的包名
        int skinId = mSkinResources.getIdentifier(resName, resType, mSkinPkgName);
        return skinId;
 
@@ -81,12 +83,14 @@ class SkinResources {
 
     public int getColor(int resId) {
         if (isDefaultSkin) {
+            // 原项目上下文 getColor(R.color.....)
             return mAppResources.getColor(resId);
         }
         int skinId = getIdentifier(resId);
         if (skinId == 0) {
             return mAppResources.getColor(resId);
         }
+        //插件项目上下文 getColor(R.color.....)
         return mSkinResources.getColor(skinId);
     }
 
@@ -101,6 +105,11 @@ class SkinResources {
         return mSkinResources.getColorStateList(skinId);
     }
 
+    /**
+     * resId 转换为对应的drawable 对象 更具不同的资源文件
+     * @param resId
+     * @return
+     */
     public Drawable getDrawable(int resId) {
         //如果有皮肤  isDefaultSkin false 没有就是true
         if (isDefaultSkin) {
