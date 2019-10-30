@@ -18,7 +18,6 @@ import cn.bmob.newim.bean.BmobIMMessage;
 
 public class VoiceMessage extends Message {
 
-
     public VoiceMessage(BmobIMMessage message) {
         super(message);
     }

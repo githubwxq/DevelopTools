@@ -42,7 +42,16 @@ public final class CustomGsonConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        if (type == String.class) {
+        if (NoBodyEntity.class.equals(type)){
+            return new Converter<ResponseBody, NoBodyEntity>() {
+                @Override
+                public NoBodyEntity convert(ResponseBody value) throws IOException {
+                    //这里返回null是因为本来就是无响应实体
+                    //所以也不会使用到该类的实例.
+                    return null;
+                }
+            };
+        }else if (type == String.class) {
             return new Converter< ResponseBody,String>() {
                 @Override
                 public String convert(ResponseBody value) throws IOException {

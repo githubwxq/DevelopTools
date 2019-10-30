@@ -324,6 +324,8 @@
         <item name="android:windowEnterAnimation">@anim/top_in</item>
         <item name="android:windowExitAnimation">@anim/top_out</item>
     </style>
+
+
     <style name="BottomPopAnim" parent="@android:style/Animation.Activity">
         <item name="android:windowEnterAnimation">@anim/bottom_in</item>
         <item name="android:windowExitAnimation">@anim/bottom_out</item>
