@@ -7,12 +7,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.example.skinlibrary.SkinManager;
 import com.example.uitestdemo.fragment.VideoViewGuideFragment;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.service.MyService;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +32,12 @@ public class TestUiFragmentActivity extends BaseActivity {
 
     @BindView(R2.id.viewpage)
     ViewPager viewpage;
+
+     @BindView(R2.id.iv_use_skin)
+     ImageView iv_use_skin;
+
+
+
     List<Fragment> fragmentList=new ArrayList<>();
 
     private MyService.MyBinder binder;
@@ -53,7 +66,6 @@ public class TestUiFragmentActivity extends BaseActivity {
     @Override
     protected void initViews() {
         fragmentList.add(new SuperTextViewFragment());
-
         fragmentList.add(new VideoViewGuideFragment());
         fragmentList.add(new SeatTableFragment());
         fragmentList.add(new TestDispatchEventFragment());
@@ -132,9 +144,85 @@ public class TestUiFragmentActivity extends BaseActivity {
 //        Log.e("wexcq","我是主线程"+Thread.currentThread().getName());
 //
 //        gotothread();
+
+
+        iv_use_skin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //加载asset文件
+                isPifu=!isPifu;
+                if (isPifu){
+                    selectSkin();
+                }else {
+                    SkinManager.getInstance().loadSkin("");
+                }
+
+
+            }
+        });
     }
 
-//    @Background
+    boolean isPifu=false;
+
+
+    private void selectSkin() {
+        File theme = new File(getFilesDir(), "theme");
+        if (theme.exists() && theme.isFile()) {
+            theme.delete();
+        }
+        theme.mkdirs();
+        File skinFile = new File(theme, "wxq.skin");;
+        if (skinFile.exists()) {
+            Log.e("SkinActivity", "皮肤已存在,开始换肤");
+            return;
+        }
+        Log.e("SkinActivity", "皮肤不存在,开始下载");
+        FileOutputStream fos = null;
+        InputStream is = null;
+        //临时文件
+        File tempSkin = new File(skinFile.getParentFile(), "wxq" + ".temp");
+        try {
+            fos = new FileOutputStream(tempSkin);
+            //假设下载皮肤包
+            is = getAssets().open("app-skin-debug.apk");
+            byte[] bytes = new byte[10240];
+            int len;
+            while ((len = is.read(bytes)) != -1) {
+                fos.write(bytes, 0, len);
+            }
+
+            //换肤
+            SkinManager.getInstance().loadSkin(tempSkin.getAbsolutePath());
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            tempSkin.delete();
+            if (null != fos) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (null != is) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+    //    @Background
     private void gotothread() {
           Log.e("wexcq","我是子线程"+Thread.currentThread().getName());
 

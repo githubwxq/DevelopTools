@@ -119,6 +119,7 @@ dependencies {
     //最顶层依赖activity已经封装过 整个架构模式确定结束
     implementation project(':commonlibrary')
     implementation project(':uilibrary')
+//    implementation project(':skinlibrary')
     if (!rootProject.ext.isBuildModule) {
 //        implementation project(':uitestdemo')
 //        implementation project(':sdktestdemo')
@@ -135,6 +136,7 @@ dependencies {
 
     //    implementation project(':commonservice')
     implementation files('libs/json_simple-1.1.jar')
+
 }
 
 
