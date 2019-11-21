@@ -12,11 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+<com.juziwl.uilibrary.basebanner.view.BannerViewPager
+    android:id="@+id/viewpage"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"/>
 
-    <!--<attr name="text_color_normal" format="color" />-->
-    <!--<attr name="text_color_pressed" format="color" />-->
-    <!--<attr name="text_color_unable" format="color" />-->
-    <!--<attr name="text_color_select" format="color" />-->
+
+
+
 
     <!-- TODO: Update blank fragment layout -->
     <com.ruffian.library.widget.RTextView

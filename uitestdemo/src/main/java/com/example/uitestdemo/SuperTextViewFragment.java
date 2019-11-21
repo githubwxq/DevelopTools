@@ -5,10 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.juziwl.uilibrary.basebanner.callback.PageHelperListener;
+import com.juziwl.uilibrary.basebanner.view.BannerViewPager;
 import com.ruffian.library.widget.RTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +38,8 @@ public class SuperTextViewFragment extends BaseFragment {
     Unbinder unbinder1;
     @BindView(R.id.rl_list)
     RecyclerView rlList;
+    @BindView(R.id.viewpage)
+    BannerViewPager viewpage;
 
     @Override
     protected BasePresenter initPresenter() {
@@ -45,7 +53,20 @@ public class SuperTextViewFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
+        List<String> list=new ArrayList<>();
+        list.add("11");
+        list.add("222");
+        list.add("333");
+        list.add("4444");
+        list.add("5555");
 
+        viewpage.setPageData(getActivity().getLifecycle(), list, R.layout.adapter_item, new PageHelperListener<String>() {
+            @Override
+            public void getItemView(View mCurrentContent, String item, int position) {
+               TextView textView= mCurrentContent.findViewById(R.id.tv_name);
+                textView.setText("条目"+item);
+            }
+        }).startAnim();
     }
 
     boolean isSelect = false;

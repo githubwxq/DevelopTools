@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--轮播控件的属性-->
+    <declare-styleable name="BannerViewPager">
+        <attr name="banner_looptime" format="integer"/> <!--自动轮播的时间-->
+        <attr name="banner_switchtime" format="integer"/> <!--轮播时，viewpager的切换速度-->
+        <attr name="banner_loop_max_count" format="integer"/> <!--超过这个数字时，才会轮播效果-->
+        <attr name="banner_isAutoLoop" format="boolean"/> <!--是否自动轮播-->
+        <attr name="banner_iscycle" format="boolean"/> <!--是否循环-->
+        <attr name="banner_transformer">
+            <enum name="card" value="0"/>
+            <enum name="mz" value="1"/>
+            <enum name="zoom" value="2"/>
+            <enum name="depth" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <!--与上面同理-->
+    <declare-styleable name="NormalIndicator">
+        <attr name="normal_selector" format="reference"/>
+        <attr name="normal_leftmargin" format="dimension"/>
+
+    </declare-styleable>
+
+</resources>

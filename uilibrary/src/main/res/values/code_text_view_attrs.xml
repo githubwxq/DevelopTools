@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--//倒计时控件-->
+    <declare-styleable name="CodeTextView">
+        <!--结束后的文字-->
+        <attr name="tb_psText" format="string" />
+        <!--计时总时长，毫秒-->
+        <attr name="tb_totalTime" format="integer" />
+        <!--计时时间间隔，毫秒-->
+        <attr name="tb_timeInterval" format="integer" />
+    </declare-styleable>
+</resources>
