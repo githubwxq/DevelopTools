@@ -39,7 +39,7 @@ android {
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
 //    api rootProject.ext.deps["SuperTextView"]
-    api rootProject.ext.deps["flowlayout"]
+//    api rootProject.ext.deps["flowlayout"]
     api rootProject.ext.deps["photoview"]
     api rootProject.ext.deps["nineoldandroids"]
     api rootProject.ext.deps["ijkplayer-java"]
@@ -53,11 +53,10 @@ dependencies {
     api rootProject.ext.deps["SmartRefreshLayout"]
     api rootProject.ext.deps["bga-qrcode-zxing"]
     api rootProject.ext.deps["vlayout"]
-//    api rootProject.ext.deps["RWidgetHelper"]
-//
-//    api ('com.alibaba.android:vlayout:1.2.8@aar') {
-//        transitive = true
-//    }
+    api rootProject.ext.deps["flexbox"]
+
+
+
     api project(path: ':picture_library')
     api project(path: ':pickerview')
     api project(path: ':nicevideoplayer')
