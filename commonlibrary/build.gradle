@@ -171,7 +171,6 @@ dependencies {
     api rootProject.ext.deps["gson"]
 
     //统计库 友盟 和bugly一起
-
     api rootProject.ext.deps["bugly"]
 
     //okgo
@@ -189,15 +188,24 @@ dependencies {
     api rootProject.ext.deps["GreenDaoUpgradeHelper"]
 
     //bmob
-//    api(rootProject.ext.deps["bmob-sdk"]) {
-//        exclude group: 'com.android.support'
-//    }
-//    api(rootProject.ext.deps["bmob-push"]) {
-//        exclude group: 'com.android.support'
-//    }
-//    api(rootProject.ext.deps["bmob-im"]) {
-//        exclude group: 'com.android.support'
-//    }
+
+    //    api(rootProject.ext.deps["bmob-sdk"]) {
+
+    //        exclude group: 'com.android.support'
+
+    //    }
+
+    //    api(rootProject.ext.deps["bmob-push"]) {
+
+    //        exclude group: 'com.android.support'
+
+    //    }
+
+    //    api(rootProject.ext.deps["bmob-im"]) {
+
+    //        exclude group: 'com.android.support'
+
+    //    }
     api(rootProject.ext.deps["tinypinyin"]) {
         exclude group: 'com.android.support'
     }
@@ -206,8 +214,10 @@ dependencies {
     api rootProject.ext.deps["amp3d"]
     api rootProject.ext.deps["ampLoaction"]
     api rootProject.ext.deps["ampSearch"]
-//    api rootProject.ext.deps["map2d"]
-//    api rootProject.ext.deps["navi-3dmap"]
+
+    //    api rootProject.ext.deps["map2d"]
+
+    //    api rootProject.ext.deps["navi-3dmap"]
 
     //微信SDK接入
     api rootProject.ext.deps["wechat-sdk"]
@@ -215,11 +225,8 @@ dependencies {
 
     //七牛sdk上传文件啥的
     api rootProject.ext.deps["qiniu"]
-
     api rootProject.ext.deps["immersionbar"]
     api rootProject.ext.deps["immersionbar-components"]
-
-
 
     //    api rootProject.ext.deps["bmob-sdk"]
 
@@ -252,9 +259,9 @@ dependencies {
     //    api rootProject.ext.deps["dagger"]
 
     //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
-
     api rootProject.ext.deps["umeng-analytics"]
-//    api rootProject.ext.deps["umeng-common"]
+
+    //    api rootProject.ext.deps["umeng-common"]
     implementation files('libs/umeng-common-2.0.2.jar')
     implementation files('libs/umeng-share-core-6.9.4.jar')
     implementation files('libs/umeng-share-QQ-simplify-6.9.4.jar')
@@ -262,6 +269,7 @@ dependencies {
     implementation files('libs/umeng-share-wechat-simplify-6.9.4.jar')
     implementation files('libs/umeng-shareboard-widget-6.9.4.jar')
     implementation files('libs/umeng-sharetool-6.9.4.jar')
+    implementation files('libs/BaiduLBS_Android.jar')
 }
 
 //configurations.all {

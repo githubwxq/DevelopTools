@@ -168,6 +168,13 @@
             android:multiprocess="true"/>
 
 
+<!-- /百度地图配置ak-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="HbIjSh9qQ612BwLlGhCucjPO5vGXxOyP" >
+
+
+        </meta-data>
     </application>
 
 </manifest>
