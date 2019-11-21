@@ -25,6 +25,7 @@ import okio.Buffer;
  * @author 文庆
  * @description 日志拦截器，主要用于打印加密的日志
  */
+@Deprecated
 public class HttpLoggingInterceptor implements Interceptor {
 
     private static final Charset UTF8 = Charset.forName("UTF-8");

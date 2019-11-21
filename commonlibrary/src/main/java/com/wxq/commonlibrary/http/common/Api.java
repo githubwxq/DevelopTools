@@ -25,16 +25,16 @@ public class Api {
 
     public Api() {
         //日志拦截器
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor("okgo");
-        logInterceptor.setColorLevel(Level.WARNING);
-        logInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
+//        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor("okgo");
+//        logInterceptor.setColorLevel(Level.WARNING);
+//        logInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .addNetworkInterceptor(new NetworkInterceptor())
-                .addInterceptor(logInterceptor)
+//                .addNetworkInterceptor(new NetworkInterceptor())
+                .addInterceptor(new HttpLogInterceptor())
 //                .addInterceptor(new RetryIntercepter(3))
                 .addInterceptor(new KlookHeardInterceptor())
 //                .addInterceptor(new TestNetInterceptor())
