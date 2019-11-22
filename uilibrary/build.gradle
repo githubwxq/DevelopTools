@@ -56,7 +56,6 @@ dependencies {
     api rootProject.ext.deps["flexbox"]
 
 
-
     api project(path: ':picture_library')
     api project(path: ':pickerview')
     api project(path: ':nicevideoplayer')

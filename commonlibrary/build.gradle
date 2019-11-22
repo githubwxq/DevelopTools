@@ -283,3 +283,7 @@ dependencies {
 //    }
 //}
 
+
+//百度地图so  libbaidumap_base_v5  libbaidumapsdk_map_v5  libindoor.so  liblocsdk8a  baidulba_android.jar(手动导入的这些依赖)
+
+

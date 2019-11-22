@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Process;
 import android.util.Log;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.tencent.bugly.beta.Beta;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
@@ -30,7 +31,8 @@ public class MyApplication extends BaseApp {
         JPushInterface.init(this);
         initX5WebView();
 //        SkinManager.init(this);
-
+        //初始化百度地图
+        SDKInitializer.initialize(this);
 
     }
 
@@ -41,13 +43,13 @@ public class MyApplication extends BaseApp {
 
     @Override
     public void dealWithException(Thread thread, Throwable throwable, String error) {
-        final Intent intent2 = new Intent();
-        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent2.setClass(this, KlookLoginActivity.class);
-        startActivity(intent2);
-        MobclickAgent.onKillProcess(getApplicationContext());
-        ActivityUtils.finishAllActivitiesExceptNewest();
-        Process.killProcess(Process.myPid());
+//        final Intent intent2 = new Intent();
+//        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent2.setClass(this, KlookLoginActivity.class);
+//        startActivity(intent2);
+//        MobclickAgent.onKillProcess(getApplicationContext());
+//        ActivityUtils.finishAllActivitiesExceptNewest();
+//        Process.killProcess(Process.myPid());
     }
 
 

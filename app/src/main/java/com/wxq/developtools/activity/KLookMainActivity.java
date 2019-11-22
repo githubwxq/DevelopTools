@@ -10,13 +10,17 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.baidu.location.BDLocation;
 import com.igexin.sdk.PushManager;
 import com.juziwl.uilibrary.BottomNavigationViewHelper;
+import com.juziwl.uilibrary.activity.BaiduChooseAddressActivity;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.tencent.bugly.beta.Beta;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.map.baidu.BaiDuLocationManager;
+import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
 import com.wxq.developtools.GeTuiIntentService;
 import com.wxq.developtools.GeTuiPushService;
@@ -99,6 +103,23 @@ public class KLookMainActivity extends BaseActivity {
       initGeTui();
 
 
+
+//      获取当前位子
+
+//        BaiDuLocationManager.getInstance(this).start(new BaiDuLocationManager.LocationListener() {
+//            @Override
+//            public void success(BDLocation bdLocation) {
+//                ToastUtils.showShort("success"+bdLocation);
+//            }
+//
+//            @Override
+//            public void error() {
+//                ToastUtils.showShort("error");
+//            }
+//        });
+
+
+        BaiduChooseAddressActivity.navToActivity(this);
 
 
     }

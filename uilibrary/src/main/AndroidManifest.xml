@@ -25,7 +25,8 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application>
-        <activity android:name=".activity.CommonWebActivity"></activity>
+        <activity android:name=".activity.BaiduChooseAddressActivity"></activity>
+        <activity android:name=".activity.CommonWebActivity" />
         <activity android:name=".activity.WatchImagesActivity2" />
         <activity android:name=".activity.ScanActivity" />
         <activity
