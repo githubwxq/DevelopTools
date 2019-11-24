@@ -1,7 +1,6 @@
 package com.example.inject.source;
 
 import androidx.annotation.IntDef;
-import androidx.annotation.StringDef;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,16 +1,13 @@
 package com.example.bmobim.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.bmobim.R;
 import com.example.bmobim.bean.CityBean;
@@ -23,12 +20,9 @@ import com.juziwl.uilibrary.recycler.suspension.SuspensionDecoration;
 import com.wxq.commonlibrary.base.BaseFragment;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**

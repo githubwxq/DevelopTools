@@ -20,7 +20,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import androidx.core.view.MotionEventCompat;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -32,6 +31,8 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.OverScroller;
+
+import androidx.core.view.MotionEventCompat;
 
 /**
  * The component of {@link PhotoView} which does the work allowing for zooming, scaling, panning, etc.

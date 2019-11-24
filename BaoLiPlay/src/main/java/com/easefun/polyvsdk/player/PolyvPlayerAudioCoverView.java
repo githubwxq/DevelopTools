@@ -4,8 +4,6 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +11,18 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.easefun.polyvsdk.R;
 import com.easefun.polyvsdk.util.PolyvDownloadDirUtil;
 import com.easefun.polyvsdk.video.PolyvVideoView;
 import com.easefun.polyvsdk.vo.PolyvVideoVO;
-//import com.nostra13.universalimageloader.core.DisplayImageOptions;
-//import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
+
+//import com.nostra13.universalimageloader.core.DisplayImageOptions;
+//import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class PolyvPlayerAudioCoverView extends FrameLayout {
     /**

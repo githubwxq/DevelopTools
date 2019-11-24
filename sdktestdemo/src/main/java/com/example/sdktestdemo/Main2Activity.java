@@ -1,18 +1,13 @@
 package com.example.sdktestdemo;
 
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.base.BaseActivity;
 import com.wxq.mvplibrary.base.BasePresenter;
 import com.wxq.mvplibrary.router.RouterContent;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 @Route(path = RouterContent.SDK_MAIN)
 public class Main2Activity extends BaseActivity {

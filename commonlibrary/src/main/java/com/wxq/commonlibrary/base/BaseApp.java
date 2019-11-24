@@ -12,6 +12,7 @@ import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.tencent.bugly.beta.Beta;
 import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
+import com.wxq.commonlibrary.map.baidu.BaiduMapManager;
 import com.wxq.commonlibrary.util.AppManager;
 import com.wxq.commonlibrary.util.FileLogAdapter;
 import com.wxq.commonlibrary.util.Utils;
@@ -72,8 +73,8 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
                 StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
                 StrictMode.setVmPolicy(builder.build());
             }
-
-
+            //百度初始化
+            BaiduMapManager.getInstance().initBaidu(this);
         }
     }
     private void closeAndroidPDialog(){

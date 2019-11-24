@@ -2,8 +2,6 @@ package com.example.bmob.cardmodule.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -15,10 +13,10 @@ import com.example.module_login.bean.Card;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
-import com.wxq.commonlibrary.util.ListUtils;
+
 import java.util.List;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 创建日期：2019 1 15

@@ -2,11 +2,12 @@ package com.easefun.polyvsdk.view;
 
 import android.content.Context;
 import android.os.Build;
-import androidx.core.view.ViewCompat;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
+
+import androidx.core.view.ViewCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class PolyvSimpleSwipeRefreshLayout extends SwipeRefreshLayout {
 	// 包含的View

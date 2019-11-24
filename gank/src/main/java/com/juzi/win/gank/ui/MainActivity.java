@@ -1,8 +1,10 @@
 package com.juzi.win.gank.ui;
 
+import android.view.View;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import android.view.View;
+
 import com.juzi.win.gank.R;
 import com.juzi.win.gank.api.ApiService;
 import com.juzi.win.gank.ui.fragment.GankListFragment;
@@ -13,10 +15,11 @@ import com.juziwl.uilibrary.tablayout.listener.OnTabSelectListener;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
+
 import butterknife.BindView;
 
 /**

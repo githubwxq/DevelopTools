@@ -3,7 +3,7 @@ package com.example.bmobim.activity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 
 import com.example.bmobim.R;
@@ -26,7 +26,6 @@ import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.event.MessageEvent;
 

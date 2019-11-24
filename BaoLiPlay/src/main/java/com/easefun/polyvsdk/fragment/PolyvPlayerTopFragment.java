@@ -3,8 +3,6 @@ package com.easefun.polyvsdk.fragment;
 import android.content.res.Configuration;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +12,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.easefun.polyvsdk.R;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
+import com.easefun.polyvsdk.R;
 import com.easefun.polyvsdk.util.PolyvScreenUtils;
 import com.easefun.polyvsdk.util.PolyvShareUtils;
 
