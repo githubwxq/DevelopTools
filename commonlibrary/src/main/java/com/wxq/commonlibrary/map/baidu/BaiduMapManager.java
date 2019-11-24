@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -80,6 +78,7 @@ public class BaiduMapManager {
                             }
                         }
                     });
+                    locationService.start();
                 } else {
                     ToastUtils.showShort("请打开定位权限");
                     listener.permissionError();
@@ -96,15 +95,7 @@ public class BaiduMapManager {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
-    private boolean isWifi() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            return true;
-        }
-        return false;
-    }
+
 
     /***** 详细的定位信息（占时不需要）
      * @see null copy funtion to you project
