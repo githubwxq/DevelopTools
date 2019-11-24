@@ -1,10 +1,9 @@
 package com.juziwl.uilibrary.edittext;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.EditText;
 
 /**
  * @author Army

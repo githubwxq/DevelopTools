@@ -1,7 +1,7 @@
 package com.example.uitestdemo.fragment;
 
 import android.net.Uri;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;

@@ -2,18 +2,13 @@ package com.juziwl.uilibrary.edittext;
 
 import android.content.Context;
 import android.text.InputFilter;
-import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.method.DigitsKeyListener;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EdgeEffect;
-import android.widget.EditText;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +20,7 @@ import java.util.regex.Pattern;
  * desc:edittext封装提供验证
  * version:1.0
  */
-public class SuperEditText extends android.support.v7.widget.AppCompatEditText {
+public class SuperEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     /**
      * 确保嵌套在scrowview中可以滑动。

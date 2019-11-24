@@ -133,7 +133,7 @@
 
     <application>
         <provider
-            android:name="android.support.v4.content.FileProvider4Util"
+            android:name="androidx.core.content.FileProvider4Util"
             android:authorities="${applicationId}.utilcode.provider"
             android:exported="false"
             android:grantUriPermissions="true">

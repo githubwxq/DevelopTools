@@ -3,7 +3,7 @@ package com.juziwl.uilibrary.basebanner.utils;
 import android.content.Context;
 import android.widget.Scroller;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 import java.lang.reflect.Field;
 

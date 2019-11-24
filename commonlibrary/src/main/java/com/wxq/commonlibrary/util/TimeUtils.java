@@ -1,7 +1,7 @@
 package com.wxq.commonlibrary.util;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 
 import com.wxq.commonlibrary.constant.TimeConstants;

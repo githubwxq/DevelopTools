@@ -10,7 +10,7 @@ import com.juziwl.uilibrary.R;
 /**
  * 获取验证码控件
  */
-public class CodeTextView extends android.support.v7.widget.AppCompatTextView {
+public class CodeTextView extends androidx.appcompat.widget.AppCompatTextView {
     private int total, interval;
     private String psText;
     public CodeTextView(Context context) {

@@ -3,14 +3,14 @@ package com.example.uitestdemo;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.skinlibrary.SkinManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.uitestdemo.fragment.VideoViewGuideFragment;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -151,11 +151,11 @@ public class TestUiFragmentActivity extends BaseActivity {
             public void onClick(View v) {
                 //加载asset文件
                 isPifu=!isPifu;
-                if (isPifu){
-                    selectSkin();
-                }else {
-                    SkinManager.getInstance().loadSkin("");
-                }
+//                if (isPifu){
+//                    selectSkin();
+//                }else {
+//                    SkinManager.getInstance().loadSkin("");
+//                }
 
 
             }
@@ -192,7 +192,7 @@ public class TestUiFragmentActivity extends BaseActivity {
             }
 
             //换肤
-            SkinManager.getInstance().loadSkin(tempSkin.getAbsolutePath());
+//            SkinManager.getInstance().loadSkin(tempSkin.getAbsolutePath());
 
 
         } catch (Exception e) {

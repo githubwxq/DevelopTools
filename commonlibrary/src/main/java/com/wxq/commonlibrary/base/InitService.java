@@ -3,7 +3,7 @@ package com.wxq.commonlibrary.base;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * 在子线程中初始化一些东西

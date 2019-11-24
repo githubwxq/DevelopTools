@@ -1,6 +1,6 @@
 package com.example.interviewdemo.keeplive.config;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 

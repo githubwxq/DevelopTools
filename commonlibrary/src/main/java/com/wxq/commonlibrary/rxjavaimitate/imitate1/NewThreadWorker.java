@@ -1,7 +1,7 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate1;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

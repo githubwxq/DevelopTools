@@ -54,31 +54,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:id="@+id/area_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:id="@+id/country_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginTop="40dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <!--//搜索页默认影长-->
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:background="@color/white"
             android:visibility="gone"
             android:id="@+id/search_result_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 
 
     </RelativeLayout>

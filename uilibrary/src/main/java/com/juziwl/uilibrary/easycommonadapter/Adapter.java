@@ -1,6 +1,6 @@
 package com.juziwl.uilibrary.easycommonadapter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * 项目名称: CommonAdapter

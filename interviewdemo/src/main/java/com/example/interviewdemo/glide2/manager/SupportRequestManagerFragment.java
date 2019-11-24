@@ -1,6 +1,6 @@
 package com.example.interviewdemo.glide2.manager;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.example.interviewdemo.glide2.RequestManager;
 

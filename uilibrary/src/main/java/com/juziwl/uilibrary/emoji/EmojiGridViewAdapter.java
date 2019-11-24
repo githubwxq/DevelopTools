@@ -1,7 +1,7 @@
 package com.juziwl.uilibrary.emoji;
 
 import android.content.Context;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;

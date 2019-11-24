@@ -14,12 +14,12 @@
         android:textColor="@color/color_333"
         android:textSize="20sp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/country_area_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_country_name"
-        android:layout_marginTop="12dp"></android.support.v7.widget.RecyclerView>
+        android:layout_marginTop="12dp"></androidx.recyclerview.widget.RecyclerView>
 
 
 </RelativeLayout>

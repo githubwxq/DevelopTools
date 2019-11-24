@@ -46,7 +46,8 @@ dependencies {
     api rootProject.ext.deps["recyclerview-v7"]
     api rootProject.ext.deps["cardview-v7"]
     api rootProject.ext.deps["constraint-layout"]
-    api rootProject.ext.deps["design"]
+//    api rootProject.ext.deps["design"]
+    api rootProject.ext.deps["material"]
     api rootProject.ext.deps["BaseRecyclerViewAdapterHelper"]
     api rootProject.ext.deps["recyclerview-animators"]
     api rootProject.ext.deps["loadingView"]
@@ -62,5 +63,5 @@ dependencies {
     api project(path: ':nicevideoplayer')
     api project(path: ':rlayoutlibrary')
     implementation project(':commonlibrary')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

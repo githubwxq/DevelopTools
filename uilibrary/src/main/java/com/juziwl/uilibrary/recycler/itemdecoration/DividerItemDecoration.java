@@ -1,7 +1,7 @@
 package com.juziwl.uilibrary.recycler.itemdecoration;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 public class DividerItemDecoration extends BaseItemDecoration {
 

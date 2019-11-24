@@ -1,7 +1,7 @@
 package com.juziwl.uilibrary.recycler.itemdecoration;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 /**
  * Created by Administrator on 2017/4/16.

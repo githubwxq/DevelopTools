@@ -1,8 +1,8 @@
 package com.juziwl.uilibrary.banner.layoutmanager;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.LayoutManager;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.LayoutManager;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 

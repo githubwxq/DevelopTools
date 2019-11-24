@@ -3,9 +3,8 @@ package com.juzi.win.gank.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+
 import android.util.Log;
 import android.widget.TextView;
 

@@ -1,8 +1,8 @@
 package com.juziwl.uilibrary.emoji;
 
 import android.content.Context;
-import android.support.v4.util.ArrayMap;
-import android.support.v4.view.ViewPager;
+import androidx.collection.ArrayMap;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;

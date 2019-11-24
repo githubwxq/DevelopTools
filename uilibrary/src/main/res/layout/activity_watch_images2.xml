@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".activity.WatchImagesActivity2">
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/scl_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
 
 
 </com.juziwl.uilibrary.otherview.SlideCloseLayout>

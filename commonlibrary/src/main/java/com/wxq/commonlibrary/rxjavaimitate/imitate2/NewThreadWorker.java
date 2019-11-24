@@ -1,6 +1,6 @@
 package com.wxq.commonlibrary.rxjavaimitate.imitate2;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;

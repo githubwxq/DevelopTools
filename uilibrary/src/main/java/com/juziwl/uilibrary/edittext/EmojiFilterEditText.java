@@ -13,7 +13,7 @@ import com.juziwl.uilibrary.utils.EmojiFilter;
  * @date 2018/3/19
  * @description
  */
-public class EmojiFilterEditText extends android.support.v7.widget.AppCompatEditText {
+public class EmojiFilterEditText extends androidx.appcompat.widget.AppCompatEditText {
     public EmojiFilterEditText(Context context) {
         this(context, null);
     }

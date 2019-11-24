@@ -1,11 +1,10 @@
 package com.wxq.commonlibrary.toolsqlite.test;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.wxq.commonlibrary.R;
 import com.wxq.commonlibrary.toolsqlite.bean.DBInfo;
 import com.wxq.commonlibrary.toolsqlite.dao.BaseDao;
 import com.wxq.commonlibrary.toolsqlite.dao.BaseDaoFactory;

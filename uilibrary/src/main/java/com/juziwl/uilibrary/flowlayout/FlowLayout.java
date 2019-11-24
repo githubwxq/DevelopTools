@@ -2,7 +2,7 @@ package com.juziwl.uilibrary.flowlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.text.TextUtilsCompat;
+import androidx.core.text.TextUtilsCompat;
 import android.util.AttributeSet;
 import android.util.LayoutDirection;
 import android.view.View;

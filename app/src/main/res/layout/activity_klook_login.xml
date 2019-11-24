@@ -59,7 +59,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="25dp">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                android:layout_height="match_parent"
                 android:textColorHint="@android:color/white">
@@ -77,7 +77,7 @@
                     android:textColor="@android:color/white"
                     android:textCursorDrawable="@drawable/public_ic_cursor"
                     android:textSize="15sp" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
 
 
@@ -88,7 +88,7 @@
             android:layout_marginRight="25dp"
             android:layout_marginTop="25dp">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                android:layout_height="match_parent"
                 android:textColorHint="@android:color/white"
@@ -107,7 +107,7 @@
                     android:textColor="@android:color/white"
                     android:textCursorDrawable="@drawable/public_ic_cursor"
                     android:textSize="15sp" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
 
 
@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/mFabToLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,8 +1,8 @@
 package com.luck.picture.lib.cameralibrary.camera2;
 
 import android.os.Build;
-import android.os.Environment;
-import android.support.annotation.RequiresApi;
+
+import androidx.annotation.RequiresApi;
 import android.util.Size;
 
 import java.io.File;

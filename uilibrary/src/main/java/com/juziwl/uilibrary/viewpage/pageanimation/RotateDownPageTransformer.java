@@ -3,7 +3,7 @@ package com.juziwl.uilibrary.viewpage.pageanimation;
 
 
 import android.annotation.SuppressLint;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.view.View;
 

@@ -1,7 +1,7 @@
 package com.juzi.win.gank.ui;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import com.juzi.win.gank.R;
 import com.juzi.win.gank.api.ApiService;

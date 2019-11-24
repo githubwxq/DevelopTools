@@ -1,7 +1,7 @@
 package com.example.interviewdemo.glide2.request;
 
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.example.interviewdemo.glide2.GlideContext;
 import com.example.interviewdemo.glide2.Target;

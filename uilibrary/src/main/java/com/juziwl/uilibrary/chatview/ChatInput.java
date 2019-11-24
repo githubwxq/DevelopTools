@@ -10,7 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -40,7 +40,6 @@ import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.util.KeyboardUtils;
-import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.io.File;
 import java.io.IOException;
