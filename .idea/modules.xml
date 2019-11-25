@@ -16,7 +16,6 @@
       <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/rlayoutlibrary/rlayoutlibrary.iml" filepath="$PROJECT_DIR$/rlayoutlibrary/rlayoutlibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/skinlibrary/skinlibrary.iml" filepath="$PROJECT_DIR$/skinlibrary/skinlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/uilibrary/uilibrary.iml" filepath="$PROJECT_DIR$/uilibrary/uilibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/uitestdemo/uitestdemo.iml" filepath="$PROJECT_DIR$/uitestdemo/uitestdemo.iml" />
     </modules>

@@ -13,7 +13,7 @@ android:gravity="center"
     android:text="我是测试adapter数据的item"
     android:layout_width="200dp"
     android:gravity="center"
-    android:layout_height="100dp" />
+    android:layout_height="50dp" />
 
 
 

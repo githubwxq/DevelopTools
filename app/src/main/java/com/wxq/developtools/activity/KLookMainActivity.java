@@ -14,6 +14,7 @@ import com.baidu.location.BDLocation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.igexin.sdk.PushManager;
 import com.juziwl.uilibrary.BottomNavigationViewHelper;
+import com.juziwl.uilibrary.activity.BaiduChooseAddressActivity;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
@@ -121,6 +122,10 @@ public class KLookMainActivity extends BaseActivity {
 
             }
         });
+
+       BaiduChooseAddressActivity.navToActivity(this);
+
+
 
     }
     private static final String TAG = "GetuiSdkDemo";

@@ -133,7 +133,7 @@ public class BaiDuLocationManager {
 //                    sb.append(poiRegion.getTags() + "; ");
 //                    sb.append("\nSDK版本: ");
 //                }
-                sb.append(locationService.getSDKVersion()); // 获取SDK版本
+//                sb.append(locationService.getSDKVersion()); // 获取SDK版本
                 if (location.getLocType() == BDLocation.TypeGpsLocation) { // GPS定位结果
                     sb.append("\nspeed : ");
                     sb.append(location.getSpeed());// 速度 单位：km/h
