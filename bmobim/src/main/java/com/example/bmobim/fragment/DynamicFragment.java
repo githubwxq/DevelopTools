@@ -1,46 +1,26 @@
 package com.example.bmobim.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import androidx.annotation.NonNull;
+
 import com.example.bmobim.R;
 import com.example.bmobim.activity.PublishDynamicActivity;
 import com.example.bmobim.adapter.DynamicAdapter;
 import com.example.bmobim.bean.DynamicBean;
-import com.juziwl.uilibrary.activity.WatchImagesActivity;
-import com.juziwl.uilibrary.emoji.MTextView;
-import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
-import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
-import com.luck.picture.lib.PictureVideoPlayActivity;
-import com.luck.picture.lib.utils.DisplayUtils;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.bmob.SimpleFindListener;
-import com.wxq.commonlibrary.constant.GlobalContent;
-import com.wxq.commonlibrary.glide.LoadingImgUtil;
-import com.wxq.commonlibrary.util.ConvertUtils;
-import com.wxq.commonlibrary.util.ScreenUtils;
-import com.wxq.commonlibrary.util.StringUtils;
-import com.wxq.commonlibrary.util.TimeUtils;
-import com.wxq.commonlibrary.util.VideoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.bmob.v3.BmobQuery;

@@ -101,7 +101,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     debugApi(rootProject.ext.deps["debug-db"]) {
         exclude group: 'com.android.support'
     }
@@ -117,7 +117,7 @@ dependencies {
     //dragger
     annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //最顶层依赖activity已经封装过 整个架构模式确定结束
-    implementation project(':commonlibrary')
+    api project(':commonlibrary')
     implementation project(':uilibrary')
 //    implementation project(':skinlibrary')
     if (!rootProject.ext.isBuildModule) {

@@ -1,6 +1,6 @@
-package android.support.v4.content;
+package androidx.core.content;
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 /**
  * <pre>

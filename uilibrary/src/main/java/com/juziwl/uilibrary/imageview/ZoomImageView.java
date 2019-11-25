@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -13,7 +13,6 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 
 /**
  * author:wxq
@@ -22,7 +21,7 @@ import android.widget.ImageView;
  * desc:
  * version:1.0
  */
-public class ZoomImageView extends android.support.v7.widget.AppCompatImageView implements
+public class ZoomImageView extends androidx.appcompat.widget.AppCompatImageView implements
         ViewTreeObserver.OnGlobalLayoutListener,
         ScaleGestureDetector.OnScaleGestureListener,
         View.OnTouchListener {

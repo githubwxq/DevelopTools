@@ -1,6 +1,6 @@
 package com.juziwl.uilibrary.dialogfragment;
 
-import android.support.annotation.IdRes;
+import androidx.annotation.IdRes;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.TextView;

@@ -1,8 +1,6 @@
 package com.luck.picture.lib;
 
 import android.Manifest;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -31,10 +29,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Size;
@@ -48,13 +46,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.luck.picture.lib.cameralibrary.CaptureLayout;
-import com.luck.picture.lib.cameralibrary.JCameraView;
 import com.luck.picture.lib.cameralibrary.camera2.Camera2Config;
 import com.luck.picture.lib.cameralibrary.camera2.Camera2Util;
 import com.luck.picture.lib.cameralibrary.listener.CaptureListener;
 import com.luck.picture.lib.cameralibrary.listener.ReturnListener;
 import com.luck.picture.lib.cameralibrary.listener.TypeListener;
-import com.luck.picture.lib.cameralibrary.util.FileUtil;
 import com.luck.picture.lib.utils.DisplayUtils;
 import com.wxq.commonlibrary.util.AppManager;
 

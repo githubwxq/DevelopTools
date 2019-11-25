@@ -1,26 +1,19 @@
 package com.example.bmobim.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.bmobim.R;
-import com.example.bmobim.activity.MainActivity;
 import com.example.bmobim.contract.MySelfContract;
 import com.example.bmobim.presenter.MySelfFragmentPresenter;
-import com.juziwl.uilibrary.tablayout.SlidingTabLayout;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
-import com.juziwl.uilibrary.viewpage.adapter.BaseViewPagerAdapter;
 import com.wxq.commonlibrary.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**

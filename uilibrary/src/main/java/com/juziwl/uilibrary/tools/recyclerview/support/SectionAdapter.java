@@ -1,7 +1,7 @@
 package com.juziwl.uilibrary.tools.recyclerview.support;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.juziwl.uilibrary.tools.ViewHolder;
 import com.juziwl.uilibrary.tools.recyclerview.MultiItemCommonAdapter;

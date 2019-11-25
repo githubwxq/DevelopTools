@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.View;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 public class ZoomOutPageTransformer implements ViewPager.PageTransformer
 {  

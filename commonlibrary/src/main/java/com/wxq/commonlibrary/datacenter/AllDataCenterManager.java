@@ -1,7 +1,7 @@
 package com.wxq.commonlibrary.datacenter;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.wxq.commonlibrary.dao.DaoSession;
 import com.wxq.commonlibrary.dbmanager.DbManager;

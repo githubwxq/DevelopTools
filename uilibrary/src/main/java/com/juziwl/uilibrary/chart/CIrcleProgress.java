@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;

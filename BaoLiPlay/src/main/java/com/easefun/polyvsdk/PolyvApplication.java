@@ -1,16 +1,18 @@
 package com.easefun.polyvsdk;
 
 import android.os.AsyncTask;
-import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.multidex.MultiDexApplication;
+
 import com.easefun.polyvsdk.util.PolyvStorageUtils;
-//import com.nostra13.universalimageloader.core.ImageLoader;
-//import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.io.File;
 import java.util.ArrayList;
+
+//import com.nostra13.universalimageloader.core.ImageLoader;
+//import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 //继承的类是为了解决64K 引用限制
 public class PolyvApplication extends MultiDexApplication {

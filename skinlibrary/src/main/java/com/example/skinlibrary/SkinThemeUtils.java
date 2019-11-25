@@ -20,7 +20,7 @@ public class SkinThemeUtils {
      * 主题色对应的属性名
      */
     private static int[] APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS = {
-            android.support.v7.appcompat.R.attr.colorPrimaryDark
+            androidx.appcompat.appcompat.R.attr.colorPrimaryDark
     };
 
     /**

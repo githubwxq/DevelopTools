@@ -2,10 +2,6 @@ package com.example.bmobim.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.MutableContextWrapper;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,19 +12,15 @@ import com.example.bmobim.bean.Friend;
 import com.example.bmobim.contract.ContactContract;
 import com.example.bmobim.presenter.ContactActivityPresenter;
 import com.juziwl.uilibrary.recycler.PullRefreshRecycleView;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.bmob.BmobImEvent;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
-import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMUserInfo;

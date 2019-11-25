@@ -1,18 +1,17 @@
 package com.example.bmobim.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -28,14 +27,11 @@ import com.juziwl.uilibrary.nestlistview.NestFullViewHolder;
 import com.juziwl.uilibrary.ninegridview.NewNineGridlayout;
 import com.juziwl.uilibrary.ninegridview.NineGridlayout;
 import com.juziwl.uilibrary.popupwindow.EasyPopup;
-import com.juziwl.uilibrary.popupwindow.EditPopup;
 import com.juziwl.uilibrary.popupwindow.EditPopupWindow;
 import com.juziwl.uilibrary.popupwindow.XGravity;
 import com.juziwl.uilibrary.popupwindow.YGravity;
-import com.juziwl.uilibrary.tools.UiUtils;
 import com.luck.picture.lib.PictureVideoPlayActivity;
 import com.wxq.commonlibrary.bmob.CommonBmobUser;
-import com.wxq.commonlibrary.bmob.SimpleUpdateListener;
 import com.wxq.commonlibrary.constant.GlobalContent;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.ConvertUtils;
@@ -47,16 +43,12 @@ import com.wxq.commonlibrary.util.TimeUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.commonlibrary.util.UIHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobRelation;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
-
-import static com.wxq.commonlibrary.util.ActivityUtils.startActivity;
 
 public class DynamicAdapter extends BaseQuickAdapter<DynamicBean, BaseViewHolder> {
 

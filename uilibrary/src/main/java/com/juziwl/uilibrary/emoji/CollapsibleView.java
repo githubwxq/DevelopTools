@@ -1,17 +1,14 @@
 package com.juziwl.uilibrary.emoji;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.juziwl.uilibrary.R;
 
 /**
  * Created by haojx on 2018/5/16.

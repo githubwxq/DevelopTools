@@ -2,19 +2,18 @@ package com.example.bmob.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.bmob.R;
 import com.example.bmob.R2;
 import com.example.bmob.contract.HomeContract;
 import com.example.bmob.presenter.HomeFragmentPresenter;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseFragment;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**

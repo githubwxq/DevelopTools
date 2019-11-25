@@ -6,13 +6,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Interpolator;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -45,11 +44,14 @@ import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 import com.juziwl.uilibrary.R;
 import com.orhanobut.logger.Logger;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.ToastUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -58,7 +60,7 @@ import java.util.List;
  * @date 2019年02月18日
  * @description 选址
  */
-public class ChooseMapAddressActivity extends BaseActivity {
+public class GaoDeChooseMapAddressActivity extends BaseActivity {
 
 
     MapView mapView;
@@ -257,7 +259,7 @@ public class ChooseMapAddressActivity extends BaseActivity {
     };
 
     public static void navToActivity(Activity activity) {
-        Intent intent = new Intent(activity, ChooseMapAddressActivity.class);
+        Intent intent = new Intent(activity, GaoDeChooseMapAddressActivity.class);
         activity.startActivity(intent);
     }
 

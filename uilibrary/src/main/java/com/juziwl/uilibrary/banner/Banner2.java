@@ -2,8 +2,8 @@ package com.juziwl.uilibrary.banner;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -27,8 +27,8 @@ import com.juziwl.uilibrary.banner.view.BannerViewPager;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import static android.support.v4.view.ViewPager.OnPageChangeListener;
-import static android.support.v4.view.ViewPager.PageTransformer;
+import static androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import static androidx.viewpager.widget.ViewPager.PageTransformer;
 
 /**
  * 特殊的轮播一页显示多个并且imageview是圆角的轮播与通用的banner区别开来

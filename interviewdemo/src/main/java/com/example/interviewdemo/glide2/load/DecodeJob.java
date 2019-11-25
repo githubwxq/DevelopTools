@@ -1,7 +1,7 @@
 package com.example.interviewdemo.glide2.load;
 
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import com.example.interviewdemo.glide2.GlideContext;

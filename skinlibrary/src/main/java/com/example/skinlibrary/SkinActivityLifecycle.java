@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
+
+import androidx.core.view.LayoutInflaterCompat;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

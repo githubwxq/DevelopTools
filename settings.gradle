@@ -1,8 +1,7 @@
-include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':algorithm', ':interviewdemo',  ':skinlibrary',
-
+include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':algorithm', ':interviewdemo', ':baidulibrary',
         ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer', ':uitestdemo', ':rlayoutlibrary'
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' ,
 //':commonservice',
-//, ':bmobim'      ':inject_annotion', ':inject', ':inject_compiler', , ':trackpoint'
+//, ':bmobim'      ':inject_annotion', ':inject', ':inject_compiler', , ':trackpoint'   ':skinlibrary',
 
 //include ':amm_sdk_sample'    ':bmob',

@@ -1,11 +1,11 @@
 package com.juziwl.uilibrary.easycommonadapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -172,8 +172,8 @@ public abstract class CommonRecyclerAdapter<T>
      * 更小粒度的更新，比如某个对象的某个属性值改变了，只改变此属性
      * <pre>
      * 此回调执行的前提是：
-     * 使用{@link android.support.v7.util.DiffUtil.Callback}进行数据更新，
-     * 并且重写了{@link android.support.v7.util.DiffUtil.Callback#getChangePayload}方法
+     * 使用{@link androidx.recyclerview.widget.DiffUtil.Callback}进行数据更新，
+     * 并且重写了{@link androidx.recyclerview.widget.DiffUtil.Callback#getChangePayload}方法
      * 使用方法见{https://github.com/qyxxjd/CommonAdapter/blob/master/app/src/main/java/com/classic/adapter/simple/activity/RecyclerViewSimpleActivity.java}
      * </pre>
      *

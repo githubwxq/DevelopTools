@@ -2,14 +2,9 @@ package com.easefun.polyvsdk.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -21,16 +16,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+
 import com.easefun.polyvsdk.PolyvBitRate;
 import com.easefun.polyvsdk.PolyvSDKUtil;
 import com.easefun.polyvsdk.R;
-//import com.easefun.polyvsdk.fragment.PolyvPlayerDanmuFragment;
-//import com.easefun.polyvsdk.fragment.PolyvPlayerTabFragment;
-import com.easefun.polyvsdk.fragment.PolyvPlayerTopFragment;
-//import com.easefun.polyvsdk.fragment.PolyvPlayerViewPagerFragment;
 import com.easefun.polyvsdk.marquee.PolyvMarqueeItem;
 import com.easefun.polyvsdk.marquee.PolyvMarqueeView;
-//import com.easefun.polyvsdk.player.PolyvPlayerAnswerView;
 import com.easefun.polyvsdk.player.PolyvPlayerAudioCoverView;
 import com.easefun.polyvsdk.player.PolyvPlayerAuditionView;
 import com.easefun.polyvsdk.player.PolyvPlayerAuxiliaryView;
@@ -40,7 +34,6 @@ import com.easefun.polyvsdk.player.PolyvPlayerPreviewView;
 import com.easefun.polyvsdk.player.PolyvPlayerProgressView;
 import com.easefun.polyvsdk.player.PolyvPlayerVolumeView;
 import com.easefun.polyvsdk.srt.PolyvSRTItemVO;
-//import com.easefun.polyvsdk.sub.vlms.entity.PolyvCoursesInfo;
 import com.easefun.polyvsdk.util.PolyvErrorMessageUtils;
 import com.easefun.polyvsdk.util.PolyvScreenUtils;
 import com.easefun.polyvsdk.video.PolyvMediaInfoType;
@@ -74,11 +67,17 @@ import com.easefun.polyvsdk.video.listener.IPolyvOnVideoStatusListener;
 import com.easefun.polyvsdk.vo.PolyvADMatterVO;
 import com.easefun.polyvsdk.vo.PolyvQuestionVO;
 import com.easefun.polyvsdk.vo.PolyvVideoVO;
-//import com.nostra13.universalimageloader.core.DisplayImageOptions;
-//import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+//import com.easefun.polyvsdk.fragment.PolyvPlayerDanmuFragment;
+//import com.easefun.polyvsdk.fragment.PolyvPlayerTabFragment;
+//import com.easefun.polyvsdk.fragment.PolyvPlayerViewPagerFragment;
+//import com.easefun.polyvsdk.player.PolyvPlayerAnswerView;
+//import com.easefun.polyvsdk.sub.vlms.entity.PolyvCoursesInfo;
+//import com.nostra13.universalimageloader.core.DisplayImageOptions;
+//import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class PolyvPlayerActivity extends FragmentActivity {
     private static final String TAG = PolyvPlayerActivity.class.getSimpleName();

@@ -1,20 +1,18 @@
 package com.example.uitestdemo;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.baidu.location.BDLocation;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.juziwl.uilibrary.basebanner.callback.PageHelperListener;
 import com.juziwl.uilibrary.basebanner.view.BannerViewPager;
 import com.ruffian.library.widget.RTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
-import com.wxq.commonlibrary.map.baidu.BaiDuLocationManager;
-import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,8 +68,6 @@ public class SuperTextViewFragment extends BaseFragment {
                 textView.setText("条目"+item);
             }
         }).startAnim();
-
-
     }
 
     boolean isSelect = false;

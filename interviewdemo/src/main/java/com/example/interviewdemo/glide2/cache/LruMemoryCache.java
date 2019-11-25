@@ -2,7 +2,7 @@ package com.example.interviewdemo.glide2.cache;
 
 import android.content.ComponentCallbacks2;
 import android.os.Build;
-import android.support.v4.util.LruCache;
+import androidx.collection.LruCache;
 
 import com.example.interviewdemo.glide2.cache.recycle.Resource;
 

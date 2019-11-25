@@ -66,7 +66,7 @@
 //
 //            mPresenter.getHomeData();
 //
-////            ChooseMapAddressActivity.navToActivity(this);
+////            GaoDeChooseMapAddressActivity.navToActivity(this);
 ////            LoginActivity.navToActivity(this);
 ////            finish();
 ////            if (selectList.size()>0) {
@@ -78,7 +78,7 @@
 //////                queryMaterialList();
 ////
 //////                ARouter.getInstance().build(RouterContent.BMOB_PUBLISHCARD).navigation();
-////                ChooseMapAddressActivity.navToActivity(this);
+////                GaoDeChooseMapAddressActivity.navToActivity(this);
 ////                finish();
 ////            }
 //

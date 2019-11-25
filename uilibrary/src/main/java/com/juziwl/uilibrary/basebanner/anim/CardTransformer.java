@@ -1,10 +1,8 @@
 package com.juziwl.uilibrary.basebanner.anim;
 
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
-
-import android.support.v4.view.ViewPager;
 
 /**
  * created by zhengsr on 2019/8/11

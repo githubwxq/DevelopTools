@@ -2,7 +2,6 @@ package com.example.uitestdemo;
 
 import android.util.Log;
 
-import com.example.skinlibrary.SkinManager;
 import com.wxq.commonlibrary.base.BaseApp;
 import com.wxq.commonlibrary.util.AppUtils;
 import com.wxq.commonlibrary.util.Utils;
@@ -31,7 +30,7 @@ public class UIApp extends BaseApp {
             }
         });
 
-        SkinManager.init(this);
+//        SkinManager.init(this);
 
 
 

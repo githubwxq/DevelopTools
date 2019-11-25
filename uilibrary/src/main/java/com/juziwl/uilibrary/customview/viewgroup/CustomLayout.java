@@ -2,14 +2,12 @@ package com.juziwl.uilibrary.customview.viewgroup;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.media.MediaPlayer;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 /**
  * Created by wxq on 2018/2/27 0027.

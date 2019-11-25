@@ -206,7 +206,7 @@ public class MvpMainActivity extends BaseActivity<MvpMainContract.Presenter> imp
                         }
                         //不管是否获取全部权限，进入主页面
 //                        initCountDown();
-//                        ChooseMapAddressActivity.navToActivity(MvpMainActivity.this);
+//                        GaoDeChooseMapAddressActivity.navToActivity(MvpMainActivity.this);
 
 
                     }

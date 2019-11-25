@@ -1,15 +1,13 @@
 package com.example.aroutertestdemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Autowired;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-
-import com.wxq.commonlibrary.util.ToastUtils;
 import com.wxq.mvplibrary.router.RouterContent;
 
 @Route(path = RouterContent.AROUTER_TEST)

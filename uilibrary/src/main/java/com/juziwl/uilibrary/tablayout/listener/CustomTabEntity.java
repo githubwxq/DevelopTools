@@ -1,6 +1,6 @@
 package com.juziwl.uilibrary.tablayout.listener;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 /**
  * @author null

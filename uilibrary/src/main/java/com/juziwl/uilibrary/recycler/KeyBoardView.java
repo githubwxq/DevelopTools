@@ -1,18 +1,16 @@
 package com.juziwl.uilibrary.recycler;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.easycommonadapter.BaseAdapterHelper;
 import com.juziwl.uilibrary.easycommonadapter.CommonRecyclerAdapter;
 import com.juziwl.uilibrary.recycler.itemdecoration.GrideItemDecorationForKeyBoard;
-import com.juziwl.uilibrary.utils.ConvertUtils;
 import com.juziwl.uilibrary.utils.ScreenUtils;
 import java.util.ArrayList;
 import java.util.List;

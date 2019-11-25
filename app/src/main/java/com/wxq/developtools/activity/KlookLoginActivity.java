@@ -3,13 +3,13 @@ package com.wxq.developtools.activity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gyf.immersionbar.ImmersionBar;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.datacenter.AllDataCenterManager;
@@ -73,7 +73,8 @@ public class KlookLoginActivity extends BaseActivity<LoginContract.Presenter> im
             showToast("请输入手机号或密码");
         } else {
             rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION
-                    , Manifest.permission.ACCESS_FINE_LOCATION,
+                    , Manifest.permission.ACCESS_FINE_LOCATION
+                    , Manifest.permission.WRITE_SETTINGS,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.READ_PHONE_STATE,

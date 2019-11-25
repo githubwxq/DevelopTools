@@ -1,6 +1,6 @@
 package com.juziwl.uilibrary.recycler.layoutmanager;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 /**

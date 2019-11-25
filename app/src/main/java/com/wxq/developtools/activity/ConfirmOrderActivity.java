@@ -3,7 +3,7 @@ package com.wxq.developtools.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;

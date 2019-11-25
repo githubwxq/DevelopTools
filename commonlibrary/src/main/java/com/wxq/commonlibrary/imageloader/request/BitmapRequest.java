@@ -1,6 +1,6 @@
 package com.wxq.commonlibrary.imageloader.request;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.wxq.commonlibrary.imageloader.config.DisplayConfig;
@@ -9,8 +9,6 @@ import com.wxq.commonlibrary.imageloader.policy.LoadPolicy;
 import com.wxq.commonlibrary.imageloader.utils.MD5Utils;
 
 import java.lang.ref.SoftReference;
-import java.util.Comparator;
-import java.util.Objects;
 
 /**
  * author:wxq

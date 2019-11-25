@@ -5,7 +5,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.interviewdemo.glide2.cache.ArrayPool;
 import com.example.interviewdemo.glide2.cache.MemoryCache;

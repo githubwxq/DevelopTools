@@ -1,7 +1,7 @@
 package com.example.interviewdemo.glide2.cache;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 import com.example.interviewdemo.glide2.Utils;

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.Button;
 
 /**
  * author:wxq
@@ -13,7 +12,7 @@ import android.widget.Button;
  * desc: 测试事件分发button
  * version:1.0
  */
-public class MyDispatchButton extends android.support.v7.widget.AppCompatButton {
+public class MyDispatchButton extends androidx.appcompat.widget.AppCompatButton {
     private static String TAG = "MyDispatchButton";
 
     public MyDispatchButton(Context context) {

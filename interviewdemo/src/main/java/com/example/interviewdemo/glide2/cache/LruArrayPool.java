@@ -1,6 +1,6 @@
 package com.example.interviewdemo.glide2.cache;
 
-import android.support.v4.util.LruCache;
+import androidx.collection.LruCache;
 
 import java.util.NavigableMap;
 import java.util.TreeMap;

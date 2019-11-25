@@ -1,6 +1,6 @@
 package com.juziwl.uilibrary.banner;
 
-import android.support.v4.view.ViewPager.PageTransformer;
+import androidx.viewpager.widget.ViewPager.PageTransformer;
 
 import com.juziwl.uilibrary.banner.transformer.AccordionTransformer;
 import com.juziwl.uilibrary.banner.transformer.BackgroundToForegroundTransformer;

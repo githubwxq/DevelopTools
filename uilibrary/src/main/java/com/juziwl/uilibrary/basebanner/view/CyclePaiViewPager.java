@@ -1,16 +1,16 @@
 package com.juziwl.uilibrary.basebanner.view;
 
-import android.arch.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleObserver;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Handler;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 public class CyclePaiViewPager extends ViewPager  implements View.OnTouchListener, LifecycleObserver {
 

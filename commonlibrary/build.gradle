@@ -128,6 +128,8 @@ dependencies {
     api rootProject.ext.deps["support-v4"]
     api rootProject.ext.deps["appcompat-v7"]
     api rootProject.ext.deps["multidex"]
+    api rootProject.ext.deps["design"]
+    api rootProject.ext.deps["material"]
 
     //butterknife
     api rootProject.ext.deps["butterknife"]
@@ -259,9 +261,8 @@ dependencies {
     //    api rootProject.ext.deps["dagger"]
 
     //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
-    api rootProject.ext.deps["umeng-analytics"]
 
-    //    api rootProject.ext.deps["umeng-common"]
+    api rootProject.ext.deps["umeng-analytics"]
     implementation files('libs/umeng-common-2.0.2.jar')
     implementation files('libs/umeng-share-core-6.9.4.jar')
     implementation files('libs/umeng-share-QQ-simplify-6.9.4.jar')
@@ -269,7 +270,12 @@ dependencies {
     implementation files('libs/umeng-share-wechat-simplify-6.9.4.jar')
     implementation files('libs/umeng-shareboard-widget-6.9.4.jar')
     implementation files('libs/umeng-sharetool-6.9.4.jar')
-    implementation files('libs/BaiduLBS_Android.jar')
+
+    //注意api 全局应用 implement 自能给当前library使用
+
+    api project(':baidulibrary')
+
+
 }
 
 //configurations.all {

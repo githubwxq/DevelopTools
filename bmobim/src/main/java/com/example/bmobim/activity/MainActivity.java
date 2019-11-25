@@ -2,28 +2,20 @@ package com.example.bmobim.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.bigkoo.pickerview.AreaPickerView;
-import com.bigkoo.pickerview.model.Province;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.bmobim.R;
 import com.example.bmobim.contract.MainContract;
 import com.example.bmobim.fragment.ConversationFragment;
 import com.example.bmobim.fragment.DynamicFragment;
 import com.example.bmobim.fragment.MySelfFragment;
 import com.example.bmobim.presenter.MainActivityPresenter;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
 import com.wxq.commonlibrary.base.BaseActivity;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 

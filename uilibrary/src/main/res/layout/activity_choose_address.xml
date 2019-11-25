@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
 
-            <android.support.design.widget.TabLayout
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 app:tabSelectedTextColor="@color/green_200"
                 app:tabTextColor="@color/yellow_300" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -41,7 +41,7 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_done"
             android:layout_width="40dp"
             android:layout_height="40dp"

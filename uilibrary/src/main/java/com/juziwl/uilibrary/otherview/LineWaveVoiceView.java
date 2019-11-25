@@ -5,12 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.View;
 
-
-import com.juziwl.uilibrary.utils.ConvertUtils;
 
 import java.text.DecimalFormat;
 import java.util.LinkedList;

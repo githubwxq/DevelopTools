@@ -3,24 +3,24 @@ package com.wxq.developtools.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MenuItem;
 
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.baidu.location.BDLocation;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.igexin.sdk.PushManager;
 import com.juziwl.uilibrary.BottomNavigationViewHelper;
-import com.juziwl.uilibrary.activity.BaiduChooseAddressActivity;
 import com.juziwl.uilibrary.viewpage.NoScrollViewPager;
 import com.juziwl.uilibrary.viewpage.adapter.BaseFragmentAdapter;
-import com.tencent.bugly.beta.Beta;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
-import com.wxq.commonlibrary.map.baidu.BaiDuLocationManager;
-import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.commonlibrary.http.common.LogUtil;
+import com.wxq.commonlibrary.map.baidu.BaiduMapManager;
+import com.wxq.commonlibrary.map.baidu.LocationListener;
 import com.wxq.commonlibrary.util.UIHandler;
 import com.wxq.developtools.GeTuiIntentService;
 import com.wxq.developtools.GeTuiPushService;
@@ -104,23 +104,23 @@ public class KLookMainActivity extends BaseActivity {
 
 
 
-//      获取当前位子
 
-//        BaiDuLocationManager.getInstance(this).start(new BaiDuLocationManager.LocationListener() {
-//            @Override
-//            public void success(BDLocation bdLocation) {
-//                ToastUtils.showShort("success"+bdLocation);
-//            }
-//
-//            @Override
-//            public void error() {
-//                ToastUtils.showShort("error");
-//            }
-//        });
+        BaiduMapManager.getInstance().getBDLocation(this, new LocationListener() {
 
+            public void success(BDLocation success) {
+                LogUtil.e(success.getAddress()+"");
+            }
 
-        BaiduChooseAddressActivity.navToActivity(this);
+            @Override
+            public void permissionError() {
 
+            }
+
+            @Override
+            public void otherError(String error) {
+
+            }
+        });
 
     }
     private static final String TAG = "GetuiSdkDemo";

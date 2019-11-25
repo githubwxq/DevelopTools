@@ -12,7 +12,7 @@ import android.view.MotionEvent;
  * desc: 测试事件分发button
  * version:1.0
  */
-public class MyDispatchButtonTwo extends android.support.v7.widget.AppCompatButton {
+public class MyDispatchButtonTwo extends androidx.appcompat.widget.AppCompatButton {
     private static String TAG = "MyDispatchButtonTwo";
 
     public MyDispatchButtonTwo(Context context) {

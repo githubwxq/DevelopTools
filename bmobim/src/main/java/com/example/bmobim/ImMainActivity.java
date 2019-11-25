@@ -1,8 +1,5 @@
 package com.example.bmobim;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 

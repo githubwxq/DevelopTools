@@ -1,9 +1,10 @@
 package com.easefun.polyvsdk.util;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+
+import com.easefun.polyvsdk.video.PolyvPlayErrorReason;
 
 //import com.easefun.polyvsdk.PolyvDownloaderErrorReason;
-import com.easefun.polyvsdk.video.PolyvPlayErrorReason;
 
 /**
  * 错误类型转成错误信息工具类

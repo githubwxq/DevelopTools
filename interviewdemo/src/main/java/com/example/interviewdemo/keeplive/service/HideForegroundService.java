@@ -5,7 +5,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 
 import com.example.interviewdemo.keeplive.KeepLive;
 import com.example.interviewdemo.keeplive.config.NotificationUtils;
