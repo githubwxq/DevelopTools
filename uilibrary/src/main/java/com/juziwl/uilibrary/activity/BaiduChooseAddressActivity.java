@@ -38,6 +38,7 @@ import com.wxq.commonlibrary.http.common.CommonApi;
 import com.wxq.commonlibrary.http.common.LogUtil;
 import com.wxq.commonlibrary.map.baidu.BaiDuLocationManager;
 import com.wxq.commonlibrary.map.baidu.BaiduMapUtils;
+import com.wxq.commonlibrary.model.BaiduResule;
 import com.wxq.commonlibrary.util.LogUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
@@ -60,7 +61,7 @@ public class BaiduChooseAddressActivity extends BaseActivity {
 
     private BaiduMap mBaiduMap;
 
-    private List<PoiInfo> poiInfoArrayList = new ArrayList<>();
+    private List<BaiduResule.ResultBean.PoisBean> poiInfoArrayList = new ArrayList<>();
 
 
     public static void navToActivity(Context context) {
@@ -74,9 +75,8 @@ public class BaiduChooseAddressActivity extends BaseActivity {
     @Override
     protected void initViews() {
 
+        topHeard.setTitle("所在位置");
 
-        baiduMapView = findViewById(R.id.baidu_mapView);
-        recyclerView = findViewById(R.id.recyclerView);
         initPoiSearch();
         //拿自己定位请求数据 到时候也可以问接口要经纬度
         BaiDuLocationManager.getInstance(this).start(new BaiDuLocationManager.LocationListener() {
@@ -95,6 +95,10 @@ public class BaiduChooseAddressActivity extends BaseActivity {
                         .pageNum(0)
                         .scope(1);
                 mPoiSearch.searchNearby(nearbySearchOption);
+
+                //根据经纬获取附近poi
+                String location = latLng.latitude + "," + latLng.longitude;
+                getPoiBuyUrl(location);
             }
 
             @Override
@@ -102,8 +106,23 @@ public class BaiduChooseAddressActivity extends BaseActivity {
                 ToastUtils.showShort("定位异常");
             }
         });
+        initBaiduMap();
+        initRecycleview();
+    }
 
+    private void initRecycleview() {
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(new BaseQuickAdapter<BaiduResule.ResultBean.PoisBean, BaseViewHolder>(R.layout.item_choosepoi) {
+            @Override
+            protected void convert(BaseViewHolder helper, BaiduResule.ResultBean.PoisBean item) {
+                helper.setText(R.id.poi_info, item.name);
+                helper.setText(R.id.poi_location, item.addr);
+            }
+        });
+    }
 
+    private void initBaiduMap() {
+        baiduMapView = findViewById(R.id.baidu_mapView);
         mBaiduMap = baiduMapView.getMap();
         mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(15.0f));
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
@@ -126,64 +145,56 @@ public class BaiduChooseAddressActivity extends BaseActivity {
                 LatLng latInfo = mapStatus.target;
                 LogUtils.e("onMapStatusChangeFinish", "latitude===>" + latInfo.latitude
                         + "\nlongitude==>" + latInfo.longitude);
-                if (marker != null) {
-                    marker.remove();
-                }
-                // 构建Marker图标
-                BitmapDescriptor bitmap = null;
-                bitmap = BitmapDescriptorFactory.fromResource(com.wxq.commonlibrary.R.mipmap.icon_choose_location); // 非推算结果
-                mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLng(latInfo));
-                OverlayOptions option = new MarkerOptions().position(latInfo).icon(bitmap).zIndex(20);
-                // 在地图上添加Marker，并显示
-                Marker mMarker = (Marker) mBaiduMap.addOverlay(option);
-                marker = mMarker;
-
-//                LogUtils.e("bdLocation.getAddrStr()" +mapStat);
-//                PoiNearbySearchOption nearbySearchOption = new PoiNearbySearchOption()
-//                        .keyword(bdLocation.getAddrStr())
-//                        .sortType(PoiSortType.distance_from_near_to_far)
-//                        .location(latInfo)
-//                        .radius(100 * 1000)
-//                        .pageCapacity(10)
-//                        .pageNum(0)
-//                        .scope(1);
-//                mPoiSearch.searchNearby(nearbySearchOption);
-
+//                if (marker != null) {
+//                    marker.remove();
+//                }
+//                // 构建Marker图标
+//                BitmapDescriptor bitmap = null;
+//                bitmap = BitmapDescriptorFactory.fromResource(com.wxq.commonlibrary.R.mipmap.icon_mylocation); // 非推算结果
+//                OverlayOptions option = new MarkerOptions().position(latInfo).icon(bitmap).zIndex(20);
+//                // 在地图上添加Marker，并显示
+//                Marker mMarker = (Marker) mBaiduMap.addOverlay(option);
+//                marker = mMarker;
+//
                 //根据经纬获取附近poi
                 String location = latInfo.latitude + "," + latInfo.longitude;
                 getPoiBuyUrl(location);
 
             }
         });
-
-
-        recyclerView.setAdapter(new BaseQuickAdapter<PoiInfo, BaseViewHolder>(R.layout.adapter_item) {
-            @Override
-            protected void convert(BaseViewHolder helper, PoiInfo item) {
-                helper.setText(R.id.tv_name, item.getAddress());
-            }
-        });
     }
+
+//    http://api.map.baidu.com/geocoder/v2/?ak=WfTtY7BjvXORbd5aYRPXdb6w8D8Qq1oD&output=json&pois=1&location=31.818386,120.000756
+
+
 
     private void getPoiBuyUrl(String location) {
         String safeCode="69:20:39:88:79:7D:CF:1E:88:60:DA:B5:93:7C:E2:0E:CD:15:04:31;com.wxq.developtools" ;
 
         String baiduApikey = "HbIjSh9qQ612BwLlGhCucjPO5vGXxOyP";
-        String LONGITUDE_TO_ADDRESS_URL = "http://api.map.baidu.com/reverse_geocoding/v3/?output=json&coordtype=BD09&pois=1";
+        String LONGITUDE_TO_ADDRESS_URL = "http://api.map.baidu.com/reverse_geocoding/v3/?output=json&extensions_poi=true"; //&coordtype=BD09&pois=1
+
         String url = LONGITUDE_TO_ADDRESS_URL + "&ak=" + baiduApikey + "&location=" +location+"&mcode="+safeCode;
-        Api.getInstance().getApiService(CommonApi.class).getPoiDetail(url).enqueue(new Callback<String>() {
+        Api.getInstance().getApiService(CommonApi.class).getPoiDetail(url).enqueue(new Callback<BaiduResule>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                LogUtil.e("getPoiDetail==========onResponse"+response.body());
+            public void onResponse(Call<BaiduResule> call, Response<BaiduResule> response) {
+                BaiduResule baiduResule = response.body();
+//                baiduResule.result.pois
+                        recyclerView.updataData( baiduResule.result.pois);
+                LogUtil.e("getPoiDetail==========onResponse"+ baiduResule);
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<BaiduResule> call, Throwable t) {
                 LogUtil.e("getPoiDetail==========onFailure"+ t.getMessage());
             }
         });
     }
 
+
+    /**
+     * PoiSearch获取周边信息 通过回调拿到数据
+     */
     private void initPoiSearch() {
         // 初始化搜索模块，注册搜索事件监听
         mPoiSearch = PoiSearch.newInstance();
@@ -192,10 +203,10 @@ public class BaiduChooseAddressActivity extends BaseActivity {
             public void onGetPoiResult(PoiResult poiResult) {
                 //获取POI检索结果
                 List<PoiInfo> list = poiResult.getAllPoi();
-                for (PoiInfo poiInfo : list) {
-                    LogUtil.e("poiInfo" + poiInfo.address);
-                }
-                recyclerView.updataData(list);
+//                for (PoiInfo poiInfo : list) {
+//                    LogUtil.e("poiInfo" + poiInfo.address);
+//                }
+//                recyclerView.updataData(list);
             }
 
             @Override

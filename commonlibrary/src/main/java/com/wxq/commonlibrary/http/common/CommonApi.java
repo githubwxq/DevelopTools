@@ -1,5 +1,6 @@
 package com.wxq.commonlibrary.http.common;
 
+import com.wxq.commonlibrary.model.BaiduResule;
 import com.wxq.commonlibrary.model.KlookResponseData;
 
 import java.util.HashMap;
@@ -16,9 +17,13 @@ public interface CommonApi {
     Call<KlookResponseData<String>> login(@Body HashMap<String,String> data);
 
 
-
+    /**
+     * 根据经纬度获取百度poi相关信息
+     * @param url
+     * @return
+     */
     @POST
-    Call<String> getPoiDetail(@Url String url);
+    Call<BaiduResule> getPoiDetail(@Url String url);
 
 
 

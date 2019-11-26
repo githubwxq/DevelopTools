@@ -186,7 +186,7 @@ public class BaiduMapUtils {
             LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
             // 构建Marker图标
             BitmapDescriptor bitmap = null;
-            bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_choose_location); // 非推算结果
+            bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_mylocation); // 非推算结果
             mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLng(point));
             if (showMark) {
                 // 构建MarkerOption，用于在地图上添加Marker
@@ -197,30 +197,6 @@ public class BaiduMapUtils {
         }
         return mMarker;
     }
-
-
-//    public Marker move2MyLocation(double latitude, double longitude, BaiduMap mBaiduMap, int iscal, boolean showMark) {
-//        Marker mMarker = null;
-//        if (latitude != 0 && longitude != 0) {
-//            LatLng point = new LatLng(latitude, longitude);
-//            // 构建Marker图标
-//            BitmapDescriptor bitmap = null;
-//            if (iscal == 0) {
-//                bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_mylocation); // 非推算结果
-//            } else {
-//                bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_mylocation_guess); // 推算结果
-//            }
-//            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newLatLng(point));
-//
-//            if (showMark) {
-//                // 构建MarkerOption，用于在地图上添加Marker
-//                OverlayOptions option = new MarkerOptions().position(point).icon(bitmap).zIndex(20);
-//                // 在地图上添加Marker，并显示
-//                mMarker = (Marker) mBaiduMap.addOverlay(option);
-//            }
-//        }
-//        return mMarker;
-//    }
 
     public void clearLocationList() {
         locationList.clear();
