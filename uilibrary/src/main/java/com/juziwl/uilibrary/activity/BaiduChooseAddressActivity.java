@@ -40,6 +40,7 @@ import com.wxq.commonlibrary.http.common.LogUtil;
 import com.wxq.commonlibrary.map.baidu.BaiDuLocationManager;
 import com.wxq.commonlibrary.map.baidu.BaiduMapUtils;
 import com.wxq.commonlibrary.model.BaiduResule;
+import com.wxq.commonlibrary.util.AppUtils;
 import com.wxq.commonlibrary.util.LogUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 
@@ -128,6 +129,21 @@ public class BaiduChooseAddressActivity extends BaseActivity {
             protected void convert(BaseViewHolder helper, BaiduResule.ResultBean.PoisBean item) {
                 helper.setText(R.id.poi_info, item.name);
                 helper.setText(R.id.poi_location, item.addr);
+
+                helper.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // 点击前往驾车导航
+                        double slat = mbdLocation != null ? mbdLocation.getLatitude() : 0f;
+                        double slon = mbdLocation != null ? mbdLocation.getLongitude() : 0f;
+                        String sName = mbdLocation != null ? mbdLocation.getAddrStr() : "";
+                        double dlat = item.point.y;
+                        double dlon = item.point.x;
+                        String dName = item .addr;
+//                        BaiduMapUtils.getInstance().openBaiduMap(context, AppUtils.getAppName(),  slat, slon, sName, dlat, dlon, dName,mbdLocation.getCity());
+                        BaiduMapUtils.getInstance().openGaoDeMap(context, AppUtils.getAppName(),  slat, slon, sName, dlat, dlon, dName);
+                    }
+                });
             }
         });
     }
