@@ -25,12 +25,11 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application>
-        <!--        //常用页面-->
+        <activity android:name=".activity.BaiduSearchListActivity"></activity>
+        <!-- //常用页面 -->
         <activity android:name=".activity.BaiduChooseAddressActivity" />
         <activity android:name=".activity.CommonWebActivity" />
         <activity android:name=".activity.WatchImagesActivity2" />
-
-
         <activity android:name=".activity.ScanActivity" />
         <activity
             android:name=".activity.VideoListActivity"

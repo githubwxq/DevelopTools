@@ -2,6 +2,7 @@ package com.juziwl.uilibrary.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,7 +77,17 @@ public class BaiduChooseAddressActivity extends BaseActivity {
     protected void initViews() {
 
         topHeard.setTitle("所在位置");
+        topHeard.setRightText("搜索地址").setRightListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mbdLocation!=null) {
+                    BaiduSearchListActivity.navToActivity(context,mbdLocation.getCity());
+                }else {
+                    ToastUtils.showShort("等待获取定位信息。。。。");
+                }
 
+            }
+        });
         initPoiSearch();
         //拿自己定位请求数据 到时候也可以问接口要经纬度
         BaiDuLocationManager.getInstance(this).start(new BaiDuLocationManager.LocationListener() {

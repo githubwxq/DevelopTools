@@ -149,6 +149,13 @@ public class PullRefreshRecycleView extends LinearLayout {
         return this;
     }
 
+    public PullRefreshRecycleView clear() {
+        adapter.getData().clear();
+        notifyDataSetChanged();
+        return this;
+    }
+
+
     public void smoothToLastPosition() {
         layoutManager.scrollToPosition(adapter.getData().size() - 1);
     }
