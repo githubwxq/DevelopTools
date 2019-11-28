@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.im_huanxing">
+    <application
+        android:theme="@style/common_baseStyle">
+        <activity android:name=".MainActivity">
+        </activity>
+    </application>
+</manifest>

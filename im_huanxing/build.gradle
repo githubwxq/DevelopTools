@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply from: "../common_component_build.gradle"
+
+android {
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (rootProject.ext.isUiTestModule) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
+    //aar 文件导入
+    repositories {
+        flatDir {
+            dirs 'libs', '../commonlibrary/libs'
+        }
+    }
+}
+
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
+    //添加聊天模块依赖
+
+
+
+
+}
