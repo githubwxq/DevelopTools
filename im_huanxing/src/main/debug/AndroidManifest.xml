@@ -2,9 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.im_huanxing">
 
-    <application android:theme="@style/common_baseStyle">
-        <activity android:name=".ImActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+    <application
+        android:name=".ImApplication"
+        android:theme="@style/common_baseStyle">
+        <activity android:name=".ImActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

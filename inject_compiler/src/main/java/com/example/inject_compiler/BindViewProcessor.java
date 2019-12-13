@@ -33,10 +33,7 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 
-/**
- * Created by Administrator on 2017/3/1 0001.
 
- */
 //在Eclipse中 需要在main文件夹下 新建META-INF/service文件夹
 //再新建javax.annotion.process.Prosser去指定注解处理器,在AndroidStudio用@AutoService 注解可以达到一样的效果
 @AutoService(Processor.class)
@@ -168,7 +165,7 @@ public class BindViewProcessor  extends AbstractProcessor {
             try {
                 //生成Java文件，最终写是通过filer类写出的
                 JavaFile.builder(packageName,result.build())
-                        .addFileComment("auto create make")
+                        .addFileComment("auto create make wxq  wxq")
                         .build().writeTo(filer);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -178,6 +175,17 @@ public class BindViewProcessor  extends AbstractProcessor {
         }
         return false;
     }
+
+
+//    public class MainActivity$$ViewBinder<T extends MainActivity> implements ViewBinder<MainActivity> {
+//        @Override
+//        public void bind(final MainActivity target) {
+//            target.tv_build_annotation=(TextView)target.findViewById(2131297039);
+//        }
+//    }
+
+
+
     //enClosingElement.getQualifiedName().toString()返回的是com.example.administrator.butterdepends.MainActivity
     private String getClassName(TypeElement enClosingElement, String packageName) {
         int packageLength=packageName.length()+1;

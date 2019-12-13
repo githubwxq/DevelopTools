@@ -6,12 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".ImActivity">
 
-    <com.ruffian.library.widget.RTextView
-        android:textColor="@color/red_50"
-        android:textSize="15sp"
-        android:text="聊天模块"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_init"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="初始化"
+            android:textColor="@color/red_50"
+            android:textSize="25sp" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="登录"
+            android:textColor="@color/red_50"
+            android:textSize="25sp" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_login_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="登出"
+            android:textColor="@color/red_50"
+            android:textSize="25sp" />
+
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="发消息"
+            android:textColor="@color/red_50"
+            android:textSize="25sp" />
+
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_receive_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="收到信息为"
+            android:textColor="@color/red_50"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

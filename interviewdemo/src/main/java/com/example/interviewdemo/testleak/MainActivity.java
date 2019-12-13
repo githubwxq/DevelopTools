@@ -1,11 +1,16 @@
 package com.example.interviewdemo.testleak;
 
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.inject.compile.InjectView;
+import com.example.inject.runtime.InjectUtils;
+import com.example.inject.runtime.ViewInject;
+import com.example.inject_annotion.BindView;
 import com.example.interviewdemo.R;
 import com.example.interviewdemo.okhttp.HttpClient;
 import com.example.interviewdemo.okhttp.Response;
@@ -15,49 +20,82 @@ import com.example.interviewdemo.okhttp.chain.Interceptor;
 import com.example.interviewdemo.okhttp.chain.InterceptorChain;
 import com.example.interviewdemo.okhttp.request.Request;
 import com.example.interviewdemo.okhttp.request.RequestBody;
+import com.wxq.commonlibrary.eventbus.EventBus;
+import com.wxq.commonlibrary.eventbus.Subscribe;
+import com.wxq.commonlibrary.eventbus.ThreadMode;
+import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.io.IOException;
 
+import butterknife.BindViews;
+import butterknife.ButterKnife;
+
+import static com.wxq.commonlibrary.eventbus.ThreadMode.MainThread;
+
 public class MainActivity extends AppCompatActivity {
 
-    TextView tv_test;
+    @ViewInject(R.id.tv_runtime_annotion)
+    TextView tv_runtime_annotion;
+
+    @ViewInject(R.id.tv_post_event)
+    TextView tv_post_event;
 
 
-    HttpClient httpClient;
+
+   //注意导包
+    @BindView(R.id.tv_build_annotation)
+    TextView tv_build_annotation;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv_test = findViewById(R.id.tv_test);
-        tv_test.setOnClickListener(new View.OnClickListener() {
+        EventBus.getDefault().register(this);
+        InjectUtils.inject(this);
+        tv_runtime_annotion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                testMianShi();
-                for (int i = 0; i < 50; i++) {
-                    get();
-                    post();
-                }
-//                get();
-//                post();
-//                post();
-//                get();
-//                get();
-//                post();
-//                get();
-//                post();
-//                get();
-//                get();
-//                post();
-//                get();
+            public void onClick(View view) {
+                ToastUtils.showShort("我是被viewinject运行时反射调用");
+            }
+        });
+        InjectView.bind(this);
+        tv_build_annotation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showShort("我编译时被调用了");
             }
         });
 
-
-        initHttpClient();
+        tv_post_event.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(new MyEvent(1,"111"));
+            }
+        });
 
     }
+
+//
+    @Subscribe(threadMode=MainThread)
+    public void receiveEvent(MyEvent event){
+         ToastUtils.showShort("currentg therad" +Thread.currentThread().getName());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     HttpClient client;
 
@@ -77,47 +115,47 @@ public class MainActivity extends AppCompatActivity {
     /**
      * get请求
      */
-    public void get() {
-        Request request = new Request.Builder()
-                .url("http://www.kuaidi100.com/query?type=yuantong&postid=11111111111")
-                .build();
-
-
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, Throwable throwable) {
-                showReult(tv_test, throwable.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) {
-                showReult(tv_test, response.getBody());
-            }
-        });
-    }
+//    public void get() {
+//        Request request = new Request.Builder()
+//                .url("http://www.kuaidi100.com/query?type=yuantong&postid=11111111111")
+//                .build();
+//
+//
+//        Call call = client.newCall(request);
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, Throwable throwable) {
+//                showReult(tv_test, throwable.getMessage());
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                showReult(tv_test, response.getBody());
+//            }
+//        });
+//    }
 
     /**
      * post请求
      */
-    public void post() {
-        RequestBody body = new RequestBody()
-                .add("city", "长沙")
-                .add("key", "13cb58f5884f9749287abbead9c658f2");
-        Request request = new Request.Builder().url("http://restapi.amap" +
-                ".com/v3/weather/weatherInfo").post(body).build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, Throwable throwable) {
-                showReult(tv_test, throwable.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) {
-                showReult(tv_test, response.getBody());
-            }
-        });
-    }
+//    public void post() {
+//        RequestBody body = new RequestBody()
+//                .add("city", "长沙")
+//                .add("key", "13cb58f5884f9749287abbead9c658f2");
+//        Request request = new Request.Builder().url("http://restapi.amap" +
+//                ".com/v3/weather/weatherInfo").post(body).build();
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, Throwable throwable) {
+//                showReult(tv_test, throwable.getMessage());
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                showReult(tv_test, response.getBody());
+//            }
+//        });
+//    }
 
     /**
      * 显示请求结果

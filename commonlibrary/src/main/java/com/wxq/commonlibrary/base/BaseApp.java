@@ -181,7 +181,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
         return context.getPackageName().equals(getCurrentProcessName(context));
     }
 
-    private static String getCurrentProcessName(Context context) {
+    public static String getCurrentProcessName(Context context) {
         int pid = android.os.Process.myPid();
         String processName = "";
         ActivityManager manager = (ActivityManager) context.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);

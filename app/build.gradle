@@ -137,7 +137,7 @@ dependencies {
     //    implementation project(':commonservice')
     implementation files('libs/json_simple-1.1.jar')
     //聊天模块
-    implementation project(':im_huanxing')
+//    implementation project(':im_huanxing')
 }
 
 

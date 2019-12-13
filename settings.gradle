@@ -2,6 +2,7 @@ include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':
         ':module_login', ':picture_library', ':ijkplayerlib', ':pickerview', ':nicevideoplayer', ':uitestdemo', ':rlayoutlibrary'
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' ,
 //':commonservice',
-//, ':bmobim'      ':inject_annotion', ':inject', ':inject_compiler', , ':trackpoint'   ':skinlibrary',
+//, ':bmobim'     , , ':trackpoint'   ':skinlibrary',
+include ':inject_annotion', ':inject', ':inject_compiler'
 
 //include ':amm_sdk_sample'    ':bmob',

@@ -31,9 +31,12 @@ dependencies {
     api rootProject.ext.deps["support-v4"]
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
-    //    、、测试 butterknife
-//    implementation project(':inject')
-//    implementation project(':inject_annotion')
-//    implementation project(':trackpoint')
-//    annotationProcessor project(':inject_compiler')
+
+    // 运行时注解
+    implementation project(':inject')
+    //编译时注解
+    implementation project(':inject_annotion')
+    annotationProcessor project(':inject_compiler')
+
+    //    implementation project(':trackpoint')
 }
