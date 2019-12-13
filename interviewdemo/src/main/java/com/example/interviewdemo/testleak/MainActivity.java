@@ -3,9 +3,12 @@ package com.example.interviewdemo.testleak;
 import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.inject.compile.InjectView;
 import com.example.inject.runtime.InjectUtils;
@@ -23,9 +26,14 @@ import com.example.interviewdemo.okhttp.request.RequestBody;
 import com.wxq.commonlibrary.eventbus.EventBus;
 import com.wxq.commonlibrary.eventbus.Subscribe;
 import com.wxq.commonlibrary.eventbus.ThreadMode;
+import com.wxq.commonlibrary.mydb.bean.DbUser;
+import com.wxq.commonlibrary.mydb.db.BaseDaoFactory;
+import com.wxq.commonlibrary.mydb.db.BaseDaoNewImpl;
+import com.wxq.commonlibrary.mydb.db.IBaseDao;
 import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.io.IOException;
+import java.util.List;
 
 import butterknife.BindViews;
 import butterknife.ButterKnife;
@@ -36,17 +44,19 @@ public class MainActivity extends AppCompatActivity {
 
     @ViewInject(R.id.tv_runtime_annotion)
     TextView tv_runtime_annotion;
-
     @ViewInject(R.id.tv_post_event)
     TextView tv_post_event;
 
+    @ViewInject(R.id.tv_add)
+    TextView tv_add;
+
+ @ViewInject(R.id.tv_find)
+    TextView tv_find;
 
 
-   //注意导包
+    //注意导包
     @BindView(R.id.tv_build_annotation)
     TextView tv_build_annotation;
-
-
 
 
     @Override
@@ -68,33 +78,47 @@ public class MainActivity extends AppCompatActivity {
                 ToastUtils.showShort("我编译时被调用了");
             }
         });
-
         tv_post_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new MyEvent(1,"111"));
+                EventBus.getDefault().post(new MyEvent(1, "111"));
             }
         });
 
-    }
+        tv_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IBaseDao baseDao = BaseDaoFactory.getOurInstance().getBaseDao(BaseDaoNewImpl.class, DbUser.class);
+                baseDao.insert(new DbUser(1, "wxq", "123"));
+                Toast.makeText(MainActivity.this, "执行成功!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //
-    @Subscribe(threadMode=MainThread)
-    public void receiveEvent(MyEvent event){
-         ToastUtils.showShort("currentg therad" +Thread.currentThread().getName());
+//        tv_find.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                BaseDaoNewImpl baseDao = BaseDaoFactory.getOurInstance().getBaseDao(BaseDaoNewImpl.class, DbUser.class);
+//                DbUser where = new DbUser();
+//                where.setName("wxq");
+//                List<DbUser> list = baseDao.query(where);
+//                ToastUtils.showShort(list.size() + "调数据");
+//            }
+//
+//        });
+
+
+
+
+
+
     }
 
 
-
-
-
-
-
-
-
-
-
-
+    @Subscribe(threadMode = MainThread)
+    public void receiveEvent(MyEvent event) {
+        ToastUtils.showShort("currentg therad" + Thread.currentThread().getName());
+    }
 
 
     HttpClient client;

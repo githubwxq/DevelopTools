@@ -10,6 +10,10 @@
       <module fileurl="file://$PROJECT_DIR$/design_pattern/design_pattern.iml" filepath="$PROJECT_DIR$/design_pattern/design_pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/groovy/groovy.iml" filepath="$PROJECT_DIR$/groovy/groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" filepath="$PROJECT_DIR$/ijkplayerlib/ijkplayerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/im_huanxing/im_huanxing.iml" filepath="$PROJECT_DIR$/im_huanxing/im_huanxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject/inject.iml" filepath="$PROJECT_DIR$/inject/inject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject_annotion/inject_annotion.iml" filepath="$PROJECT_DIR$/inject_annotion/inject_annotion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inject_compiler/inject_compiler.iml" filepath="$PROJECT_DIR$/inject_compiler/inject_compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/interviewdemo/interviewdemo.iml" filepath="$PROJECT_DIR$/interviewdemo/interviewdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" />

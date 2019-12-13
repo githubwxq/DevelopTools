@@ -17,7 +17,7 @@ public  class BaseDaoFactory {
     private String sqliteDatabasePath;
     private BaseDaoFactory(){
         //可以先判断有没有SD卡
-        sqliteDatabasePath="data/data/com.example.a48608.ls4_databaseframework_20180307/jett.db";
+        sqliteDatabasePath="data/data/com.example.wxq/jett.db";
         sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(sqliteDatabasePath,null);
     }
 
