@@ -22,8 +22,6 @@ public class RuntimeAnnotation {
     }
 
 
-
-
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.METHOD)
     public @interface MethodInfo  {

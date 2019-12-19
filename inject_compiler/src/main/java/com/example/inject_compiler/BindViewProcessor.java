@@ -17,11 +17,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
+import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
@@ -29,6 +31,7 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
@@ -91,7 +94,7 @@ public class BindViewProcessor  extends AbstractProcessor {
         //编译时 只能通过文件输出打印，不能通过Log，System.out.print打印
 //        FileUtils.print("------------>    ");
         //for循环带有BindView注解的Element
-        //将每个Element进行分组。分组的形式 是将在一个Activit的Element分为一组
+        //将每个Element进行分组。分组的形式 是将在一个Activity的Element分为一组   最后按照activiyt的数量创建对应的文件数量
         for(Element element:roundEnvironment.getElementsAnnotatedWith(BindView.class))
         {
 //            FileUtils.print("elment   "+element.getSimpleName().toString());
@@ -110,7 +113,7 @@ public class BindViewProcessor  extends AbstractProcessor {
             int id=element.getAnnotation(BindView.class).value();
 //            得到成员变量名  TextView  text;  这里得到的是text字符串
             String fieldName=element.getSimpleName().toString();
-//            当前成员变量的类类型   可以理解成  TextView
+//            当前成员变量的类类型   可以理解成  TextView  通过Element的asType()获得元素的类型
             TypeMirror typeMirror=element.asType();
 //            封装成FieldViewBinding  类型
             FieldViewBinding fieldViewBinding=new FieldViewBinding(fieldName,typeMirror,id);
@@ -154,7 +157,7 @@ public class BindViewProcessor  extends AbstractProcessor {
                 //-->android.text.TextView
                 String pacckageNameString=fieldViewBinding.getType().toString();
                 ClassName viewClass=ClassName.bestGuess(pacckageNameString);
-                //$L  代表占位符  和StringFormater类似。$L代表基本类型  $T代表  类类型
+                //$L  代表占位符  和StringFormater类似。$L代表基本类型  $T代表  类类型    方法内部添加代码
                 methodBuilder.addStatement
                         ("target.$L=($T)target.findViewById($L)",fieldViewBinding.getName()
                                 ,viewClass,fieldViewBinding.getResId());
@@ -199,3 +202,53 @@ public class BindViewProcessor  extends AbstractProcessor {
         return   elementUtils.getPackageOf(enClosingElement).getQualifiedName().toString();
     }
 }
+
+
+//相关连接 参考连接
+
+//https://www.jianshu.com/p/8db4d42a47e3    通过Element的getEnclosingElement返回元素的父元素。
+
+//javeopt 创建java文件
+//https://github.com/square/javapoet
+
+//https://www.jianshu.com/p/4a276b671c8a  写法和当前的差不多
+
+// element 相关文档
+//https://tool.oschina.net/uploads/apidocs/jdk-zh/javax/lang/model/element/Element.html
+
+// 简单介绍各自注解
+//https://www.jianshu.com/p/f1a8356c615f
+
+
+/**
+ * public interface ProcessingEnvironment {
+ *
+ *     Map<String,String> getOptions();
+ *
+ *     //Messager用来报告错误，警告和其他提示信息
+ *     Messager getMessager();
+ *
+ *     //Filter用来创建新的源文件，class文件以及辅助文件
+ *     Filer getFiler();
+ *
+ *     //Elements中包含用于操作Element的工具方法
+ *     Elements getElementUtils();
+ *
+ *     //Types中包含用于操作TypeMirror的工具方法
+ *     Types getTypeUtils();
+ *
+ *     SourceVersion getSourceVersion();
+ *
+ *     Locale getLocale();
+ * }
+ *
+ * VariableElement 代表一个 字段, 枚举常量, 方法或者构造方法的参数, 局部变量及 异常参数等元素
+ *         PackageElement	代表包元素
+ *         TypeElement	代表类或接口元素
+ *         ExecutableElement
+ *
+ *
+ */
+
+
+

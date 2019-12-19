@@ -69,3 +69,7 @@ public class TestAnnotation {
     }
 
 }
+
+
+//  retrofit源码分析
+//https://www.jianshu.com/p/f1a8356c615f
