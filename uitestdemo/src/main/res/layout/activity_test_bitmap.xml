@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestBitmapActivity">
+
+
+    <ImageView
+        android:id="@+id/oldImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="matrix"
+        android:src="@mipmap/text"
+        android:background="@color/red_400"
+        />
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/nowImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_change"
+        android:text="change"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

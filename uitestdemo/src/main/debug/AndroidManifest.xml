@@ -9,19 +9,24 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".MainUiTestActivity" />
-        <!-- android:windowSoftInputMode="adjustResize" -->
+        <activity android:name=".TestBitmapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainUiTestActivity" /> <!-- android:windowSoftInputMode="adjustResize" -->
         <activity
             android:name=".UIMainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
+
                 <!-- 下面这几个必须要设置 -->
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
 
                 <!-- 协议部分 -->
                 <data
@@ -52,31 +57,33 @@
 
         </activity>
         <activity android:name=".TestNativeWebViewActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".TestThirdActivity" />
-        <activity android:name=".RecycleViewTestActivity"></activity>
-        <activity android:name=".TestClipBoardActivity"></activity>
+        <activity android:name=".RecycleViewTestActivity" />
+        <activity android:name=".TestClipBoardActivity" />
 
         <service android:name=".ClipBoardListenerService" />
 
         <activity android:name=".TestUiFragmentActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".TestActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

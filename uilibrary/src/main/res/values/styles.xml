@@ -342,5 +342,9 @@
         <item name="windowActionBar">false</item>
     </style>
 
-
+    <style name="Theme.BeforeStartActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- These values must be set for this mechanism to work -->
+        <item name="android:windowBackground">@drawable/start_layer_list</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
