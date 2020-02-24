@@ -10,12 +10,13 @@
 
     <ImageView
         android:id="@+id/oldImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:scaleType="matrix"
-        android:src="@mipmap/text"
+
         android:background="@color/red_400"
         />
+
 
     <ImageView
         android:layout_marginTop="20dp"
