@@ -100,7 +100,6 @@ public class NineGridlayout extends ViewGroup {
         }
         double radio = 1.1;
 
-
         for (int i = 0; i < getChildCount(); i++) {
             int[] position = findPosition(i);
             int left = (singleWidth + gap) * position[1];
@@ -200,6 +199,7 @@ public class NineGridlayout extends ViewGroup {
             removeAllViews();
             return;
         }
+
         isSpace = b;
         oneWidth = width;
         oneHeight = height;
