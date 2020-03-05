@@ -4,6 +4,7 @@ import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Environment;
 import android.view.View;
@@ -17,13 +18,15 @@ import com.wxq.commonlibrary.http.common.LogUtil;
 import com.wxq.commonlibrary.util.ConvertUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import io.reactivex.functions.Consumer;
-import uk.co.senab.photoview.PhotoView;
 
 public class TestBitmapActivity extends BaseActivity {
 
     ImageView oldImage;
+    ImageView iv_caijian;
     ImageView nowImage;
     ImageView combine_image;
     TextView tv_change;
@@ -32,6 +35,7 @@ public class TestBitmapActivity extends BaseActivity {
     @Override
     protected void initViews() {
         oldImage = findViewById(R.id.oldImage);
+        iv_caijian = findViewById(R.id.iv_caijian);
         nowImage = findViewById(R.id.nowImage);
         combine_image = findViewById(R.id.combine_image);
         tv_change = findViewById(R.id.tv_change);
@@ -64,7 +68,7 @@ public class TestBitmapActivity extends BaseActivity {
         ).subscribe(new Consumer<Boolean>() {
             @Override
             public void accept(Boolean aBoolean) throws Exception {
-//                oldImage.setImageURI(Uri.fromFile(new File("/sdcard/text.png")));
+                oldImage.setImageURI(Uri.fromFile(new File("/sdcard/550ps.png")));
             }
         });
 
@@ -93,16 +97,64 @@ public class TestBitmapActivity extends BaseActivity {
 //                Bitmap combineImage = combineImage(bitt,bitt2,bitt3);
 
 //                combine_image.setImageBitmap(combineImage);
-
-
                 ll_test.setDrawingCacheEnabled(true);
                 Bitmap llbitmap = Bitmap.createBitmap(ll_test.getDrawingCache());
                 ll_test.setDrawingCacheEnabled(false);
-
                 combine_image.setImageBitmap(llbitmap);
 
+//                caijianBitmap();
+                zoomImg();
             }
         });
+    }
+
+
+    private void zoomImg() {
+        String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/550ps.png";
+        String filePath2 = Environment.getExternalStorageDirectory().getAbsolutePath() + "/small550ps.png";
+        Bitmap resbitmap = BitmapFactory.decodeFile(filePath);
+        Matrix matrix=new Matrix();
+//        matrix.postScale(2, 2);
+        matrix.postScale(0.5f, 0.5f);
+        Bitmap change = Bitmap.createBitmap(resbitmap, 0, 0, resbitmap.getWidth() , resbitmap.getHeight(),matrix,true);
+        iv_caijian.setImageBitmap(change);
+        saveBitmap(change,filePath2);
+    }
+
+    public static void saveBitmap(Bitmap bitmap,String path) {
+        String savePath;
+        File filePic;
+        if (Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
+            savePath = path;
+        } else {
+            return;
+        }
+        try {
+            filePic = new File(savePath);
+            if (!filePic.exists()) {
+                filePic.getParentFile().mkdirs();
+                filePic.createNewFile();
+            }
+            FileOutputStream fos = new FileOutputStream(filePic);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            return;
+        }
+
+    }
+
+
+
+
+
+    private void caijianBitmap() {
+        String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/550ps.png";
+        Bitmap resbitmap = BitmapFactory.decodeFile(filePath);
+        Bitmap change = Bitmap.createBitmap(resbitmap, 0, 0, resbitmap.getWidth()/2 , resbitmap.getHeight()/2);
+        iv_caijian.setImageBitmap(change);
     }
 
     private Bitmap combineImage(Bitmap... bitmaps) {
