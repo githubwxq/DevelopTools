@@ -1,16 +1,27 @@
 package com.example.uitestdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
-import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.util.ImageUtils;
 
+import butterknife.BindView;
 import io.reactivex.functions.Consumer;
 
 public class PingTuActivity extends BaseActivity {
+
+    @BindView(R.id.pingtu)
+    PingTuWeight pingtu;
+
+    @BindView(R.id.iv_new_pic)
+    ImageView ivNewPic;
+  @BindView(R.id.tv_change)
+  TextView tv_change;
 
     @Override
     protected void initViews() {
@@ -27,6 +38,15 @@ public class PingTuActivity extends BaseActivity {
 //                oldImage.setImageURI(Uri.fromFile(new File("/sdcard/text.png")));
             }
         });
+
+        tv_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap bitmap = ImageUtils.cutBitmapFromView(pingtu);
+                ivNewPic.setImageBitmap(bitmap);
+            }
+        });
+
     }
 
     @Override
@@ -38,4 +58,6 @@ public class PingTuActivity extends BaseActivity {
     protected BasePresenter initPresent() {
         return null;
     }
+
+
 }

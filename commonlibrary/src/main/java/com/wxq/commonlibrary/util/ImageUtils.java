@@ -27,6 +27,8 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.view.View;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.FloatRange;
@@ -34,8 +36,6 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
-import android.view.View;
-
 
 import com.wxq.commonlibrary.constant.MemoryConstants;
 
@@ -1924,6 +1924,17 @@ public final class ImageUtils {
             }
         }
     }
+
+    //控件内容截图成为bitmap
+   public static  Bitmap cutBitmapFromView(View view){
+       view.setDrawingCacheEnabled(true);
+       Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+       view.setDrawingCacheEnabled(false);
+        return  bitmap;
+   }
+
+
+
 }
 
 
