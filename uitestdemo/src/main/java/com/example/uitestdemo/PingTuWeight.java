@@ -43,8 +43,8 @@ public class PingTuWeight extends FrameLayout {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                LogUtils.e("x"+x);
-                LogUtils.e("y"+y);
+                LogUtils.e("x" + x);
+                LogUtils.e("y" + y);
                 return false;
             }
         });
@@ -55,7 +55,7 @@ public class PingTuWeight extends FrameLayout {
         width = ScreenUtils.getScreenWidth();
         height = ScreenUtils.getScreenWidth();
         String picPath1 = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pic1.jpg";
-        String picPath2 = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pic2.jpg";
+        String picPath2 = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pic3.jpg";
 
         PingTuMode pingTuMode1 = new PingTuMode(picPath1);
         pingTuMode1.left = 0;
@@ -75,18 +75,12 @@ public class PingTuWeight extends FrameLayout {
 //        list.add(new PingTuMode(picPath));
         for (PingTuMode pingTuMode : list) {
             PhotoView photoView = new PhotoView(context);
-            photoView.setOnTouchListener(new OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return false;
-                }
-            });
+
             addView(photoView);
         }
 //        invalidate();
         requestLayout();
     }
-
 
 
     public PingTuWeight(@NonNull Context context, @Nullable AttributeSet attrs) {
@@ -107,61 +101,71 @@ public class PingTuWeight extends FrameLayout {
 
     }
 
-    int currentDownPosition=-1;
-    int currentUpPosition=-1;
+    int currentDownPosition = -1;
+    int currentUpPosition = -1;
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         // 当前按下的图片
 
-       int action= motionEvent.getAction();
+        int action = motionEvent.getAction();
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                currentDownPosition=-1;
-                LogUtils.e(  "down"+"x"+x+"y"+y);
+                currentDownPosition = -1;
+                LogUtils.e("down" + "x" + x + "y" + y);
                 //  判断当前坐标在哪个区域内
                 for (int i = 0; i < list.size(); i++) {
                     PingTuMode mode = list.get(i);
-                      if (x>=mode.left&&x<=mode.right&&y>=mode.top&&y<=mode.bottom){
-                          currentDownPosition=i;
-                      }
-                }
-
-                LogUtils.e(  "当前按下的是集合中的第"+currentDownPosition+"的位置");
-
-            break;
-
-            case MotionEvent.ACTION_MOVE:
-                LogUtils.e(  "move"+"x"+x+"y"+y);
-                break;
-            case MotionEvent.ACTION_UP:
-                currentUpPosition=-1;
-                LogUtils.e(  "up"+"x"+x+"y"+y);
-                LogUtils.e(  "down"+"x"+x+"y"+y);
-                //  判断当前坐标在哪个区域内
-                for (int i = 0; i < list.size(); i++) {
-                    PingTuMode mode = list.get(i);
-                    if (x>=mode.left&&x<=mode.right&&y>=mode.top&&y<=mode.bottom){
-                        currentUpPosition=i;
+                    if (x >= mode.left && x <= mode.right && y >= mode.top && y <= mode.bottom) {
+                        currentDownPosition = i;
                     }
                 }
 
-                LogUtils.e(  "当前抬起的是集合中的第"+currentUpPosition+"的位置");
+                LogUtils.e("当前按下的是集合中的第" + currentDownPosition + "的位置");
 
-                // 如果都不是-1 并且不相等 图片地址更换其他的相关信息不变
-                if (currentDownPosition!=-1&&currentUpPosition!=-1&&currentDownPosition!=currentUpPosition) {
-                    String temp= list.get(currentDownPosition).picPath;
-                    list.get(currentDownPosition).picPath= list.get(currentUpPosition).picPath;
-                    list.get(currentUpPosition).picPath=temp;
-                    requestLayout();
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                LogUtils.e("move" + "x" + x + "y" + y);
+                break;
+            case MotionEvent.ACTION_UP:
+                currentUpPosition = -1;
+                LogUtils.e("up" + "x" + x + "y" + y);
+                LogUtils.e("down" + "x" + x + "y" + y);
+                //  判断当前坐标在哪个区域内
+                for (int i = 0; i < list.size(); i++) {
+                    PingTuMode mode = list.get(i);
+                    if (x >= mode.left && x <= mode.right && y >= mode.top && y <= mode.bottom) {
+                        currentUpPosition = i;
+                    }
                 }
 
+                LogUtils.e("当前抬起的是集合中的第" + currentUpPosition + "的位置");
 
+                // 如果都不是-1 并且不相等 图片地址更换其他的相关信息不变
+                if (currentDownPosition != -1 && currentUpPosition != -1 && currentDownPosition != currentUpPosition) {
+                    String temp = list.get(currentDownPosition).picPath;
+                    list.get(currentDownPosition).picPath = list.get(currentUpPosition).picPath;
+                    list.get(currentUpPosition).picPath = temp;
+                    requestLayout();
+                }
                 break;
         }
 
 
         return super.dispatchTouchEvent(motionEvent);
     }
+
+
+    /**
+     * 设置间隙
+     *
+     * @param spaceDp
+     */
+    public void setSpace(int spaceDp) {
+
+    }
+
 }
