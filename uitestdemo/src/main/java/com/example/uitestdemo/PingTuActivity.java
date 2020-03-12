@@ -2,10 +2,13 @@ package com.example.uitestdemo;
 
 import android.Manifest;
 import android.graphics.Bitmap;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.juziwl.uilibrary.textview.stytle.RadiusBgSpan;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.ImageUtils;
@@ -46,6 +49,14 @@ public class PingTuActivity extends BaseActivity {
                 ivNewPic.setImageBitmap(bitmap);
             }
         });
+
+        SpannableStringBuilder spannableStringBuilder=new SpannableStringBuilder("获取图片控件");
+
+        SpannableStringBuilder addmsg=new SpannableStringBuilder("标签");
+        RadiusBgSpan bgSpan=new RadiusBgSpan(getContext(),R.color.red_100,R.color.white,10);
+        addmsg.setSpan(bgSpan,0,2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableStringBuilder.append(addmsg);
+        tv_change.setText(spannableStringBuilder);
 
     }
 
