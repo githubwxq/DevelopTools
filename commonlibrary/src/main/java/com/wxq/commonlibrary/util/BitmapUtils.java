@@ -120,6 +120,11 @@ public class BitmapUtils {
         return BitmapFactory.decodeResource(context.getResources(), resId, options);
     }
 
+    /**
+     * 保存bitmap 返回路径
+     * @param bitmap
+     * @return
+     */
     public static String saveBitmap(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return "";

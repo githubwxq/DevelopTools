@@ -1,6 +1,7 @@
 package com.example.uitestdemo;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,14 +13,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.juziwl.uilibrary.media.ChooseMediaActivity;
+import com.juziwl.uilibrary.media.LocalMediaEntity;
+import com.juziwl.uilibrary.media.LocalMediaDataLoader;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.http.common.LogUtil;
 import com.wxq.commonlibrary.util.ConvertUtils;
+import com.wxq.commonlibrary.util.ToastUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
@@ -103,9 +109,41 @@ public class TestBitmapActivity extends BaseActivity {
                 combine_image.setImageBitmap(llbitmap);
 
 //                caijianBitmap();
-                zoomImg();
+//                zoomImg();
+
+                //获取相册数据
+
+//                getAllImage();
+
+                //前往图片列表页面
+
+                Intent intent=new Intent(TestBitmapActivity.this, ChooseMediaActivity.class);
+                startActivity(intent);
+
             }
         });
+
+
+
+
+    }
+
+    private void getAllImage() {
+        LocalMediaDataLoader localMediaDataLoader =new LocalMediaDataLoader(this);
+        localMediaDataLoader.setCompleteListener(new LocalMediaDataLoader.LocalMediaLoadListener() {
+            @Override
+            public void loadComplete(List<LocalMediaEntity> folders) {
+                ToastUtils.showShort(folders.size()+"changdu ");
+                oldImage.setImageURI(Uri.fromFile(new File(folders.get(0).getPath())));
+            }
+
+            @Override
+            public void loadMediaDataError() {
+
+            }
+        });
+
+        localMediaDataLoader.loadAllImageData();
     }
 
 

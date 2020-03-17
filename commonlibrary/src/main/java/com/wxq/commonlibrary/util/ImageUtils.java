@@ -1,6 +1,11 @@
 package com.wxq.commonlibrary.util;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
@@ -22,7 +27,10 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -1926,13 +1934,93 @@ public final class ImageUtils {
     }
 
     //控件内容截图成为bitmap
-   public static  Bitmap cutBitmapFromView(View view){
-       view.setDrawingCacheEnabled(true);
-       Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-       view.setDrawingCacheEnabled(false);
-        return  bitmap;
-   }
+    public static Bitmap cutBitmapFromView(View view) {
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
 
+
+    /**
+     * 从相册中删除某张图片
+     * @param imgPath
+     */
+    public   static  void deleteAlbumImage(String imgPath) {
+        Context context= Utils.getApp();
+        ContentResolver resolver = context.getContentResolver();
+        Cursor cursor = MediaStore.Images.Media.query(resolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                new String[]{MediaStore.Images.Media._ID}, MediaStore.Images.Media.DATA + "=?",
+                new String[]{imgPath}, null);
+        boolean result = false;
+        Uri uri = null;
+        if (cursor.moveToFirst()) {
+            long id = cursor.getLong(0);
+            Uri contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            uri = ContentUris.withAppendedId(contentUri, id);
+            int count = context.getContentResolver().delete(uri, null, null);
+            result = count == 1;
+        } else {
+            Cursor cursor2 = MediaStore.Images.Media.query(resolver, MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
+                    new String[]{MediaStore.Images.Media._ID}, MediaStore.Images.Media.DATA + "=?",
+                    new String[]{imgPath}, null);
+            if (cursor2.moveToFirst()) {
+                long id = cursor2.getLong(0);
+                Uri contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                uri = ContentUris.withAppendedId(contentUri, id);
+                int count = context.getContentResolver().delete(uri, null, null);
+                result = count == 1;
+            }
+        }
+        //更新到图库
+        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        intent.setData(Uri.fromFile(new File(imgPath)));
+        context.sendBroadcast(intent);
+    }
+
+
+    /**
+     * 添加bitmap图片到相册中去
+     * @param bmp
+     * @param path
+     * @return
+     */
+    public static boolean saveImageToGallery( Bitmap bmp, String path) {
+        // 首先保存图片
+//        String storePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "dearxy";
+//        File appDir = new File(storePath);
+//        if (!appDir.exists()) {
+//            appDir.mkdir();
+//        }
+//        String fileName = System.currentTimeMillis() + ".jpg";
+//        File file = new File(appDir, fileName);
+        File file = new File(path);
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            //通过io流的方式来压缩保存图片
+            boolean isSuccess = bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+            // 其次把文件插入到系统图库
+            try {
+                MediaStore.Images.Media.insertImage(Utils.getApp().getContentResolver(),
+                        file.getAbsolutePath(), file.getName(), null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //保存图片后发送广播通知更新数据库
+            Uri uri = Uri.fromFile(file);
+            Utils.getApp().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+            if (isSuccess) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 
 }
@@ -1966,3 +2054,5 @@ public final class ImageUtils {
 //        compressByScale                 : 按缩放压缩
 //        compressByQuality               : 按质量压缩
 //        compressBySampleSize            : 按采样大小压缩
+//        deleteAlbumImage                : 删除相册中的图片
+//        saveImageToGallery              : 将bitmap 转成file 并且添加到相册中去
