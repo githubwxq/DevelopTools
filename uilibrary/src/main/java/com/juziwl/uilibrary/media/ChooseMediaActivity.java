@@ -25,6 +25,7 @@ import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.util.ConvertUtils;
 import com.wxq.commonlibrary.util.FileUtils;
 import com.wxq.commonlibrary.util.ImageUtils;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -127,7 +128,12 @@ public class ChooseMediaActivity extends BaseActivity {
         matrix.postScale(2, 2);
         Bitmap change = Bitmap.createBitmap(resbitmap, 0, 0, resbitmap.getWidth() , resbitmap.getHeight(),matrix,true);
         ImageUtils.saveImageToGallery(change,filePath2);
-        getLocalData();
+        UIHandler.getInstance().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getLocalData();
+            }
+        },3000);
     }
 
 }
