@@ -4,6 +4,8 @@ if (rootProject.ext.isUiTestModule) {
     apply plugin: 'com.android.library'
 }
 apply from: "../common_component_build.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 //配置插件
 //apply plugin: 'com.neenbedankt.android-apt'
@@ -38,4 +40,5 @@ dependencies {
 //    implementation project(':inject_annotion')
 //    implementation project(':trackpoint')
 //    annotationProcessor project(':inject_compiler')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
