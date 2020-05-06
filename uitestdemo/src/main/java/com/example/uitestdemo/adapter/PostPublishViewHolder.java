@@ -13,6 +13,6 @@ public class PostPublishViewHolder extends BaseViewHolder {
     }
 
     public void showImage(boolean isShowImage){
-          setVisible(R.id.toast_image,isShowImage);
+//          setVisible(R.id.toast_image,isShowImage);
     }
 }

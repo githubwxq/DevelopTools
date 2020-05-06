@@ -19,6 +19,7 @@ fun main(args: Array<String>){
 //        println(it)
 //    }
 
+
 //    val map=HashMap<String,Int>();
 //    map["hello"]=10;
 //    print(map["hello"])

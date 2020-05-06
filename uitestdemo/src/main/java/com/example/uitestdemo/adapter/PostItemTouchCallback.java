@@ -1,12 +1,14 @@
-package com.juziwl.uilibrary;
+package com.example.uitestdemo.adapter;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import android.util.Log;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.uitestdemo.bean.PostItem;
 
 import java.util.List;
 
@@ -23,14 +25,15 @@ import java.util.List;
 //        onMoved ： 当onMove返回true的时候回调
 //        onSwiped ： 当某个Item被滑动离开屏幕之后回调
 //        setSelectedChange ： 某个Item被长按选中会被回调，当某个被长按移动的Item被释放时也调用
-public class MyItemTouchCallback extends ItemTouchHelper.Callback {//ItemTouchHelper.Callback 实现才能拖动 移动处理的回调 adapter  itemTouchAdapter.onMove方法 adapter实现这个方法
+public class PostItemTouchCallback extends ItemTouchHelper.Callback {//ItemTouchHelper.Callback 实现才能拖动 移动处理的回调 adapter  itemTouchAdapter.onMove方法 adapter实现这个方法
 
-    int currentMovePosition=-1;
 
+    private   List<PostItem> list;
 
     private ItemTouchAdapter itemTouchAdapter;
-    public MyItemTouchCallback(ItemTouchAdapter itemTouchAdapter){ //设置回调监听时间由adapter处理传递参数给adapter
+    public PostItemTouchCallback(ItemTouchAdapter itemTouchAdapter, List<PostItem> list){ //设置回调监听时间由adapter处理传递参数给adapter
         this.itemTouchAdapter = itemTouchAdapter;
+        this.list=list;
     }
 
     @Override
@@ -51,10 +54,10 @@ public class MyItemTouchCallback extends ItemTouchHelper.Callback {//ItemTouchHe
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         Log.i("wxq","getMovementFlags");
 
-        currentMovePosition=viewHolder.getAdapterPosition();
-        if (currentMovePosition==0||currentMovePosition==1) {  // 前2个条目不许滑动
-            return makeMovementFlags(0, 0);
-        }
+      int  currentMovePosition=viewHolder.getAdapterPosition();
+//        if (!list.get(currentMovePosition).isCanDrag()) {
+//            return makeMovementFlags(0, 0);
+//        }
         if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
             final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
             final int swipeFlags = 0;
@@ -72,9 +75,10 @@ public class MyItemTouchCallback extends ItemTouchHelper.Callback {//ItemTouchHe
         Log.i("wxq","onmove");
         int fromPosition = viewHolder.getAdapterPosition();//得到拖动ViewHolder的position
         int toPosition = target.getAdapterPosition();//得到目标ViewHolder的position
-        if(fromPosition==0||fromPosition==1||toPosition==0||toPosition==1){
-            return  false;
-        }
+
+//        if (!list.get(fromPosition).isCanDrag()||  !list.get(toPosition).isCanDrag()) {
+//            return  false;
+//        }
         itemTouchAdapter.onMove(fromPosition,toPosition,viewHolder);
         return true;
     }
@@ -161,7 +165,7 @@ public class MyItemTouchCallback extends ItemTouchHelper.Callback {//ItemTouchHe
     private int bkcolor = -1;
 
     private OnDragListener onDragListener;
-    public MyItemTouchCallback setOnDragListener(OnDragListener onDragListener) {
+    public PostItemTouchCallback setOnDragListener(OnDragListener onDragListener) {
         this.onDragListener = onDragListener;
         return this;
     }

@@ -5,6 +5,7 @@
     android:layout_height="100dp">
 
     <ImageView
+        android:background="@color/purple_50"
         android:scaleType="centerCrop"
         android:id="@+id/image"
         android:layout_width="match_parent"

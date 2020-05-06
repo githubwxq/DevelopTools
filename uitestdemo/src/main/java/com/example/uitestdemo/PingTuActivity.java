@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.juziwl.uilibrary.textview.stytle.RadiusBgSpan;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.glide.LoadingImgUtil;
 import com.wxq.commonlibrary.util.ImageUtils;
 
 import butterknife.BindView;
@@ -23,8 +24,8 @@ public class PingTuActivity extends BaseActivity {
 
     @BindView(R.id.iv_new_pic)
     ImageView ivNewPic;
-  @BindView(R.id.tv_change)
-  TextView tv_change;
+    @BindView(R.id.tv_change)
+    TextView tv_change;
 
     @Override
     protected void initViews() {
@@ -50,13 +51,17 @@ public class PingTuActivity extends BaseActivity {
             }
         });
 
-        SpannableStringBuilder spannableStringBuilder=new SpannableStringBuilder("获取图片控件");
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("获取图片控件");
 
-        SpannableStringBuilder addmsg=new SpannableStringBuilder("标签");
-        RadiusBgSpan bgSpan=new RadiusBgSpan(getContext(),R.color.red_100,R.color.white,10);
-        addmsg.setSpan(bgSpan,0,2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        SpannableStringBuilder addmsg = new SpannableStringBuilder("标签");
+        RadiusBgSpan bgSpan = new RadiusBgSpan(getContext(), R.color.red_100, R.color.white, 10);
+        addmsg.setSpan(bgSpan, 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(addmsg);
         tv_change.setText(spannableStringBuilder);
+
+
+        LoadingImgUtil.loadimg("http://pic.app.hongseqf.qianfanyun.cn/_20200407190746_5e8c5f02d3ee7.jpg?imageslim|imageView2/1/w/420/h/420",ivNewPic,false);
+
 
     }
 

@@ -75,7 +75,8 @@ public class TestRxActivity extends BaseActivity {
 //                concatArray();
 //                zip();
 //                subscribOn();
-                doOn();
+//                doOn();
+                zip();
                 break;
 
 
