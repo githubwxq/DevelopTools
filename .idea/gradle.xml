@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -13,20 +12,22 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/algorithm" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/bmob" />
+            <option value="$PROJECT_DIR$/baidulibrary" />
             <option value="$PROJECT_DIR$/commonlibrary" />
             <option value="$PROJECT_DIR$/design_pattern" />
             <option value="$PROJECT_DIR$/groovy" />
             <option value="$PROJECT_DIR$/ijkplayerlib" />
+            <option value="$PROJECT_DIR$/im_huanxing" />
             <option value="$PROJECT_DIR$/inject" />
             <option value="$PROJECT_DIR$/inject_annotion" />
             <option value="$PROJECT_DIR$/inject_compiler" />
             <option value="$PROJECT_DIR$/interviewdemo" />
+            <option value="$PROJECT_DIR$/kotlintestdemo" />
             <option value="$PROJECT_DIR$/module_login" />
             <option value="$PROJECT_DIR$/nicevideoplayer" />
             <option value="$PROJECT_DIR$/pickerview" />
             <option value="$PROJECT_DIR$/picture_library" />
-            <option value="$PROJECT_DIR$/trackpoint" />
+            <option value="$PROJECT_DIR$/rlayoutlibrary" />
             <option value="$PROJECT_DIR$/uilibrary" />
             <option value="$PROJECT_DIR$/uitestdemo" />
           </set>

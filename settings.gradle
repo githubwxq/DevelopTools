@@ -6,4 +6,4 @@ include ':app', ':commonlibrary', ':uilibrary', ':design_pattern', ':groovy', ':
 include ':inject_annotion', ':inject', ':inject_compiler'
 
 //include ':amm_sdk_sample'    ':bmob',
-include ':kotlintestapplication'
+include ':kotlintestdemo'
