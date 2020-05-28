@@ -1,8 +1,7 @@
-package com.example.kotlintestdemo
+package com.example.kotlintestdemo.bean
 
-/**
- * Created by xiaojianjun on 2019-09-18.
- */
+import com.example.kotlintestdemo.RetrofitClient
+
 class PopularRepository {
     suspend fun getTopArticleList() = RetrofitClient.apiService.getTopArticleList().apiData()
 

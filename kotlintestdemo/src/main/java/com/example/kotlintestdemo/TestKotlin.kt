@@ -5,7 +5,7 @@ import com.example.kotlintestdemo.Test2
 import java.io.File
 import java.util.*
 
-fun main(args: Array<String>){
+fun main(){
 //    print("1111111")
     val stringlist= ArrayList<String>()
 //    stringlist.add("11111")
@@ -139,12 +139,29 @@ fun main(args: Array<String>){
 
 //     var test100= Test2(1,5)
 //     var test1001= Test2(1)
-     var test10011= Test2()
+//     var test10011= Test2()
+//
+//
+//    val mime = Mime()
+//    println("isEmpty = ${mime.isEmpty}")
+//    println("num = ${mime.num}")
 
 
-    val mime = Mime()
-    println("isEmpty = ${mime.isEmpty}")
-    println("num = ${mime.num}")
+    val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+
+    fun b(a:Int,b:Int): Int{
+        return a+b
+    }
+
+//    val sum2 = { x: Int, y: Int -> {
+//       return    x + y
+//
+//    } }
+
+
+    println("num ="+    sum(11,22))
+    println("b ="+   )
+//    println("num2 ="+    sum2(11,22))
 
 }
 
