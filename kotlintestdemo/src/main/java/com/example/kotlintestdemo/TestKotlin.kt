@@ -1,5 +1,7 @@
 package com.example.kotlintestapplication
 
+import com.example.kotlintestdemo.Mime
+import com.example.kotlintestdemo.Test2
 import java.io.File
 import java.util.*
 
@@ -74,13 +76,13 @@ fun main(args: Array<String>){
 
 
     // 源代码
-    fun test(a : Int , b : Int) : Int{
-        return a + b
-    }
-
-    fun sum(num1 : Int , num2 : Int) : Int{
-        return num1 + num2
-    }
+//    fun test(a : Int , b : Int) : Int{
+//        return a + b
+//    }
+//
+//    fun sum(num1 : Int , num2 : Int) : Int{
+//        return num1 + num2
+//    }
 
     // 调用
 //    test(10,sum(3,5)) // 结果为：18
@@ -114,29 +116,47 @@ fun main(args: Array<String>){
 //
 
 
-    val map = mapOf("key1" to "value1","key2" to "value2","key3" to "value3")
+//    val map = mapOf("key1" to "value1","key2" to "value2","key3" to "value3")
+//
+//    map.forEach{
+//        value -> println("\t $value")
+//    }
+//
+//
+//    fun test4(x : Int , y : Int) : Int = x + y
+//
+//    fun(x:Int)=x+1
+//    fun(x : Int , y : Int) : Int = x + y
+//    val test1 = fun(x : Int , y : Int) = x + y  // 当返回值可以自动推断出来的时候，可以省略，和函数一样
+//    val test2 = fun(x : Int , y : Int) : Int = x + y
+//    val test3 = fun(x : Int , y : Int) : Int{
+//        return x + y
+//    }
+//
+//
+//    var test = Test(1)
 
-    map.forEach{
-        value -> println("\t $value")
-    }
+
+//     var test100= Test2(1,5)
+//     var test1001= Test2(1)
+     var test10011= Test2()
 
 
-    fun test4(x : Int , y : Int) : Int = x + y
-
-    fun(x:Int)=x+1
-    fun(x : Int , y : Int) : Int = x + y
-    val test1 = fun(x : Int , y : Int) = x + y  // 当返回值可以自动推断出来的时候，可以省略，和函数一样
-    val test2 = fun(x : Int , y : Int) : Int = x + y
-    val test3 = fun(x : Int , y : Int) : Int{
-        return x + y
-    }
-
-
-
-
-
+    val mime = Mime()
+    println("isEmpty = ${mime.isEmpty}")
+    println("num = ${mime.num}")
 
 }
+
+
+
+class Test constructor(var num : Int=100){
+    init {
+        num = 5
+        println("num = $num")
+    }
+}
+
 
 
 fun showHelp(){
