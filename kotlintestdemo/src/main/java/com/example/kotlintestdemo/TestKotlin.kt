@@ -2,7 +2,13 @@ package com.example.kotlintestapplication
 
 import com.example.kotlintestdemo.Mime
 import com.example.kotlintestdemo.Test2
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.File
+import java.lang.Math.random
+import java.lang.Thread.sleep
 import java.util.*
 
 fun main(){
@@ -159,12 +165,72 @@ fun main(){
 //    } }
 
 
-    println("num ="+    sum(11,22))
-    println("b ="
-    )
+//    println("num ="+    sum(11,22))
+//    println("b ="+"111"  )
 //    println("num2 ="+    sum2(11,22))
 
+//    、、携程代码
+//    GlobalScope.launch {
+//        for (i in 1..10) {
+//            println("子协程执行第${i}次")
+//            println("子协程执行"+Thread().name)
+//            val sleepTime = (random() * 1000).toLong()
+//            delay(sleepTime)
+//        }
+//        println("子协程执行结束"+Thread().name)
+//    }
+//    println("主程序睡眠前"+Thread().name)
+//    sleep(10 * 1000)
+//    println("主程序结束...")
+
+
+    val job = GlobalScope.launch {
+
+        for (i in 1..10) {
+            println("子协程执行第${i}次")
+            val sleepTime = (random() * 1000).toLong()
+            delay(sleepTime)
+        }
+        println("子协程执行结束")
+    }
+    println(job.isActive)
+    println(job.isCompleted)
+    sleep(10 * 1000)
+    println("主程序结束...")
+    println(job.isCompleted)
+
+
+
+
+
+
 }
+
+
+
+
+
+fun main(args: Array<String>?) = runBlocking {
+    println("当前线程"+Thread().name)
+    GlobalScope.launch {
+        println("当前线程"+Thread().name)
+        for (i in 1..10) {
+            println("子协程执行第${i}次")
+            val sleepTime = (random() * 1000).toLong()
+            delay(500)
+
+        }
+        println("子协程执行结束")
+        println("当前线程"+Thread().name)
+    }
+    println("开始睡眠...")
+    sleep(3000)
+//    delay(3 * 1000) // 1️⃣
+    println("主程序结束...")
+}
+
+
+
 
 
 

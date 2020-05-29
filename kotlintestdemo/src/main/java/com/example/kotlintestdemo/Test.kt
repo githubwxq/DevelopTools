@@ -1,9 +1,6 @@
 package com.example.kotlintestdemo
 
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
 class Test constructor(var num:Int){
@@ -31,7 +28,7 @@ fun main(){
 //    }
 
     runBlocking {
-
+        println("hello block 携程开始")
         val elapsedTime = measureTimeMillis {
             println("hello world111")
             val value1 = async { intValue1() }
@@ -42,9 +39,10 @@ fun main(){
             println("the async is ${value1.await() + value2.await()}")
         }
         println("the asyncelapsedTime is $elapsedTime")
+
+
     }
-
-
+    println("hello block 携程结束")
 
 
 //    runBlocking {
