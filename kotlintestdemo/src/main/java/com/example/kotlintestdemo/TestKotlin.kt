@@ -160,7 +160,8 @@ fun main(){
 
 
     println("num ="+    sum(11,22))
-    println("b ="+   )
+    println("b ="
+    )
 //    println("num2 ="+    sum2(11,22))
 
 }
