@@ -12,6 +12,11 @@ class Test constructor(var num:Int){
 
 }
 
+suspend fun dddd(url: String) = withContext(Dispatchers.IO) {
+    url
+}
+
+
 fun main(){
     var  test=Test(11111);
 
@@ -27,22 +32,32 @@ fun main(){
 //        println("the elapsedTime is $elapsedTime")
 //    }
 
-    runBlocking {
-        println("hello block 携程开始")
-        val elapsedTime = measureTimeMillis {
-            println("hello world111")
-            val value1 = async { intValue1() }
-            println("hello world2222")
-            val value2 = async { intValue2() }
+//    runBlocking {
+//        println("hello block 携程开始")
+//        val elapsedTime = measureTimeMillis {
+//            println("hello world111")
+//            val value1 = async { intValue1() }
+//            println("hello world2222")
+//            val value2 = async { intValue2() }
+//
+//
+//            println("the async is ${value1.await() + value2.await()}")
+//        }
+//        println("the asyncelapsedTime is $elapsedTime")
+//
+//      var aa=  async { dddd("1111") }
+//
+//        aa.await()
+//
+//        var ddd:String=dddd("1111")
+//    }
+//    println("hello block 携程结束")
+//
+//
+//
 
 
-            println("the async is ${value1.await() + value2.await()}")
-        }
-        println("the asyncelapsedTime is $elapsedTime")
 
-
-    }
-    println("hello block 携程结束")
 
 
 //    runBlocking {
