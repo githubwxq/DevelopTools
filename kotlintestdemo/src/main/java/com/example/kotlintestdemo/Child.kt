@@ -1,8 +1,5 @@
 package com.example.kotlintestdemo
 
-import android.animation.ValueAnimator
-import androidx.core.animation.doOnCancel
-
 
 class Child(var name:String):MyInterface{
 
@@ -45,8 +42,57 @@ fun main(args:Array<String>){
 
     val items= listOf("apple","orange");
    
-    var animator=ValueAnimator.ofFloat(100f,0f,100f)
-    animator.doOnCancel {  it.duration}
+//    var animator=ValueAnimator.ofFloat(100f,0f,100f)
+//    animator.doOnCancel {  it.duration}
+
+
+//    var data=TestData("123123123");
+//
+//    data.age=8888;
+//
+//    println("当前age"+data.age.toString())
+//
+//
+    val people= listOf<NewPerson>(
+
+            NewPerson("wxq",5),
+            NewPerson("wxqq",30),
+                    NewPerson("wxqmm",15)
+    )
+//    val filter = people.filter { it.age > 18 }
+//    filter.forEach { println(it.name+it.age.toString()) }
+
+//
+ var newPerson=   NewPerson("wxq",5);
+    //变量存储lambda，必须显示指定参数类型
+    val getAge = { p: NewPerson -> p.age }
+    people.maxBy(NewPerson::age)
+    println("maxget"+people.maxBy(getAge))//Person(name=jack, age=29)
+
+
+
+    //成员引用
+    val aaa = Person::age
+    print(aaa)
+//等价
+    val bbbbb = {person:Person ->person.age}
+    print("bbbbbbbbbbb"+bbbbb)
+
+
+    //顶层函数
+    fun salute()={
+        println("Salute")
+          "==========salute=======111111"
+    }
+
+    var iii=salute();
+
+    print(salute())
+
+    fun NewPerson.isAdult():Boolean{
+       return age>=23;
+    }
+
 
 
 }
@@ -79,4 +125,30 @@ fun printProduct(arg1: String, arg2: String) {
 //    else {
 //        println("'$arg1' or '$arg2' is not a number")
 //    }
+}
+
+
+
+fun  printMessageWithPrefix(message:Collection<String>,preFix:String){
+message.forEach { it.toString()+preFix }
+
+
+
+}
+
+fun printProblemCounts(respons:Collection<String>){
+var clienterror=0;
+var serverErrors=0;
+    respons.forEach {
+
+        if (it.startsWith("4")) {
+                  clienterror++;
+        }else{
+
+        }
+
+    }
+
+
+
 }
