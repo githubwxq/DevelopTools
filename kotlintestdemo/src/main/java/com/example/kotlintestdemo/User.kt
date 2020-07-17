@@ -80,6 +80,40 @@ fun main(args: Array<String>) {
          append(b)
          print(this)
     }
+
+    print(3 ride 2)
+
+    mapOf<String,Any>("name" to "TanJiaJun","age" to 25)
+
+    var result = add(3,5)
+    println(result)
+
+    var result2 = add2(3,5)
+    println(result2)
+
+    var i = {x:Int,y:Int -> x+y}
+    println(i(3,5))
+
+    var j:(Int,Int) ->Int = {x,y -> x+y}
+    var result3 = j(3,5)
+    println(result3)
+
+}
+
+
+fun add(x:Int,y:Int):Int{
+    return x+y
+}
+fun add2(x:Int,y:Int):Int = x+y
+
+
+
+
+
+
+infix fun Int.ride(num: Int): Int{
+    println("num= $num")
+    return 2 * num
 }
 
 fun String.lastChar(): Char = this.get(this.length - 1)
