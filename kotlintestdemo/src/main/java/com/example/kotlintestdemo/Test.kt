@@ -6,9 +6,12 @@ import kotlin.system.measureTimeMillis
 class Test constructor(var num:Int){
 
     init {
-        num=1000;
-        print("number=$num")
+
     }
+//    init {
+//        num=1000;
+//        print("number=$num")
+//    }
 
 }
 
@@ -19,6 +22,15 @@ suspend fun dddd(url: String) = withContext(Dispatchers.IO) {
 
 fun main(){
     var  test=Test(11111);
+
+    val instance1=mysingle;
+    val instance2=mysingle;
+
+    if (instance2===instance1) {
+        print("单列")
+    }
+
+
 
 //      runBlocking {
 //        val elapsedTime = measureTimeMillis {
