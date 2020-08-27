@@ -33,4 +33,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/giv_bg"
+        android:src="@drawable/cancel_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop" />
+
+
 </LinearLayout>

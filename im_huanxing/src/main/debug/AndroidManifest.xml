@@ -21,10 +21,13 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <application android:theme="@style/common_baseStyle"
+    <application
+        android:name=".ImApplication"
+        android:theme="@style/common_baseStyle"
         android:usesCleartextTraffic="true"
-
+        android:networkSecurityConfig="@xml/network_security_config"
         >
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
