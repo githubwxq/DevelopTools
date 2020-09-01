@@ -3,6 +3,9 @@
     package="com.wxq.developtools">
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 、、个推权限添加 -->
     <!-- 个推SDK权限配置开始 -->
     <uses-permission android:name="android.permission.INTERNET" />

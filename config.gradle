@@ -26,7 +26,7 @@ ext {
      */
     android = [
             compileSdkVersion           : 28,
-            buildToolsVersion           : '28.0.3',
+            buildToolsVersion           : '28',
             developtoolsApplicationId   : "com.wxq.developtools",
             nettestdemoApplicationId    : "com.example.nettestdemo",
             aroutertestdemoApplicationId: "com.example.aroutertestdemo",

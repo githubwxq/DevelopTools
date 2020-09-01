@@ -1,5 +1,6 @@
 package com.luck.picture.lib.model;
 
+import android.content.ContentUris;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -245,6 +246,12 @@ public class LocalMediaLoader {
                                         int h = eqImg ? data.getInt(data.getColumnIndexOrThrow(IMAGE_PROJECTION[5]))
                                                 : data.getInt(data.getColumnIndexOrThrow(VIDEO_PROJECTION[4]));
                                         LocalMedia image = new LocalMedia(path, duration, type, pictureType, w, h);
+
+                                        long id = data.getLong(data.getColumnIndexOrThrow(MediaStore.MediaColumns._ID));
+                                        Uri uri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
+
+
+                                        image.setUri(uri);
 
                                         LocalMediaFolder folder = getImageFolder(path, imageFolders);
                                         List<LocalMedia> images = folder.getImages();

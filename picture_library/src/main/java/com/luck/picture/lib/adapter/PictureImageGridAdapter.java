@@ -4,10 +4,15 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +39,8 @@ import com.luck.picture.lib.tools.StringUtils;
 import com.luck.picture.lib.tools.VoiceUtils;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -212,10 +219,28 @@ public class PictureImageGridAdapter extends RecyclerView.Adapter<RecyclerView.V
                 } else {
                     options = options.override(overrideWidth, overrideHeight);
                 }
+                Uri parse = Uri.parse(path);
+                Uri imageUri = image.getUri();
                 Glide.with(context)
-                        .load(path)
+                        .load(imageUri)
                         .apply(options)
                         .into(contentHolder.iv_picture);
+
+
+//                try {
+//                    ParcelFileDescriptor fd = context.getContentResolver().openFileDescriptor(image.getUri(), "r");
+//                    if (fd != null) {
+//                        Bitmap bitmap = BitmapFactory.decodeFileDescriptor(fd.getFileDescriptor());
+//                        fd.close();
+//                        contentHolder.iv_picture.setImageBitmap(bitmap);
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+
+
+
+
             }
             if (enablePreview || enablePreviewVideo || enablePreviewAudio) {
                 contentHolder.ll_check.setOnClickListener(new View.OnClickListener() {

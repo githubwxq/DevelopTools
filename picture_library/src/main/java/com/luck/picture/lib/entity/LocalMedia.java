@@ -1,5 +1,6 @@
 package com.luck.picture.lib.entity;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -15,6 +16,17 @@ import android.text.TextUtils;
 
 public class LocalMedia implements Parcelable {
     private String path;        //原路径
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public void setUri(Uri uri) {
+        this.uri = uri;
+    }
+
+    private Uri uri;
+
     private String compressPath;  //压缩路径
     private String cutPath;   //裁剪路径
     private long duration;
