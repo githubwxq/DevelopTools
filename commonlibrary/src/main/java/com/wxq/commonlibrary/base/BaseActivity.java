@@ -90,6 +90,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initRxBus();
         // arouter 依赖注入
         ARouter.getInstance().inject(this);
+
     }
 
     private void initRxBus() {

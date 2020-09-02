@@ -23,6 +23,7 @@ import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengMessageHandler;
+import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -58,6 +59,7 @@ public class KLookMainActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        PushAgent.getInstance(context).onAppStart();
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setItemIconTintList(null);
         navigation.setOnNavigationItemSelectedListener(item -> {
@@ -138,9 +140,9 @@ public class KLookMainActivity extends BaseActivity {
     }
 
     private void initUmengPush() {
-
-
         PushAgent mPushAgent = PushAgent.getInstance(this);
+        mPushAgent.setResourcePackageName("com.wxq.developtools");
+        mPushAgent.setNotificaitonOnForeground(false);
 //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {
 
@@ -148,6 +150,36 @@ public class KLookMainActivity extends BaseActivity {
             public void onSuccess(String deviceToken) {
                 //注册成功会返回deviceToken deviceToken是推送消息的唯一标志
                 Log.i(TAG,"注册成功：deviceToken：-------->  " + deviceToken);
+
+                mPushAgent.setMessageHandler(new UmengMessageHandler(){
+                    @Override
+                    public void dealWithCustomMessage(Context context, UMessage uMessage) {
+                        Log.e(TAG,"收到：-------->  " +",s1:" + uMessage);
+                        super.dealWithCustomMessage(context, uMessage);
+                    }
+
+                    @Override
+                    public Notification getNotification(Context context, UMessage uMessage) {
+                        Log.e(TAG,"getNotification" +",s1:" + uMessage);
+                        return super.getNotification(context, uMessage);
+                    }
+                });
+
+                mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
+                    @Override
+                    public void handleMessage(Context context, UMessage uMessage) {
+                        Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
+                        super.handleMessage(context, uMessage);
+                    }
+                    @Override
+                    public void dealWithCustomAction(Context context, UMessage msg) {
+//                super.dealWithCustomAction(context, msg);
+                        Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
+                    }
+                });
+
+                mPushAgent.setDisplayNotificationNumber(3);
+
             }
 
             @Override
@@ -170,6 +202,22 @@ public class KLookMainActivity extends BaseActivity {
                 return super.getNotification(context, uMessage);
             }
         });
+
+        mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
+            @Override
+            public void handleMessage(Context context, UMessage uMessage) {
+                Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
+                super.handleMessage(context, uMessage);
+            }
+            @Override
+            public void dealWithCustomAction(Context context, UMessage msg) {
+//                super.dealWithCustomAction(context, msg);
+                Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
+            }
+        });
+
+        mPushAgent.setDisplayNotificationNumber(3);
+
 
     }
 
