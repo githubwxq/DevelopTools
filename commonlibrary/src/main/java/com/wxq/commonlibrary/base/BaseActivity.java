@@ -18,7 +18,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-import com.umeng.analytics.MobclickAgent;
+//import com.umeng.analytics.MobclickAgent;
 import com.wxq.commonlibrary.R;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.RxBusManager;
@@ -229,14 +229,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
+//        MobclickAgent.onResume(this);
         ImmersionBar.with(this).statusBarColor(R.color.white).autoDarkModeEnable(true).fitsSystemWindows(true)    .init();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
+//        MobclickAgent.onPause(this);
     }
 
     //    ui相关辅助操作

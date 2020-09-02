@@ -24,6 +24,9 @@ android {
 
 
 dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     api 'androidx.appcompat:appcompat:1.1.0'
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"
@@ -33,6 +36,12 @@ dependencies {
     api 'com.google.firebase:firebase-messaging:11.4.0'
     api 'com.hyphenate:hyphenate-sdk-lite:3.6.8'
 
+
+    
+    
+    
+    
+    
     api project(':commonlibrary')
     api project(':uilibrary')
 }

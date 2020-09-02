@@ -262,8 +262,8 @@ dependencies {
 
     //    annotationProcessor rootProject.ext.deps["dagger-compiler"]
 
-    api rootProject.ext.deps["umeng-analytics"]
-    implementation files('libs/umeng-common-2.0.2.jar')
+//    api rootProject.ext.deps["umeng-analytics"]
+//    implementation files('libs/umeng-common-2.0.2.jar')
     implementation files('libs/umeng-share-core-6.9.4.jar')
     implementation files('libs/umeng-share-QQ-simplify-6.9.4.jar')
     implementation files('libs/umeng-share-sina-simplify-6.9.4.jar')

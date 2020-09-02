@@ -8,11 +8,9 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 、、个推权限添加 -->
     <!-- 个推SDK权限配置开始 -->
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -32,16 +30,12 @@
 
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 start-->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
     <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
     <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
     <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 end-->
 
@@ -57,8 +51,6 @@
         android:theme="@style/common_baseStyle"
         android:usesCleartextTraffic="true">
 
-        <activity android:name="com.wxq.developtools.activity.KlookLoginActivity"/>
-        <activity android:name="com.wxq.developtools.activity.RegisterActivity"/>
 
         <activity android:name=".activity.SplashActivity"
             android:theme="@style/SplashAppTheme">
@@ -67,6 +59,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.wxq.developtools.activity.KlookLoginActivity"/>
+        <activity android:name="com.wxq.developtools.activity.RegisterActivity"/>
+
+
         <activity android:name=".activity.ChangePwdActivity" />
         <activity android:name=".activity.AccountDetailActivity" />
         <activity android:name=".activity.CityProductSearchListActivity" />
