@@ -5,6 +5,18 @@ apply from: "../pgyer.gradle"
 //引入aspectj插件 测试登入，添加埋点之类的
 //apply plugin: 'com.hujiang.android-aspectjx'
 
+apply plugin: 'walle'
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
+}
+
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -165,6 +177,8 @@ dependencies {
     implementation 'com.umeng.umsdk:agoo_tlog:3.0.0.17'
     implementation 'com.umeng.umsdk:agoo_tnet4android:3.1.14.9'
 
+
+    implementation 'com.meituan.android.walle:library:1.1.7'
 
 //
 ////    小米Push通道
