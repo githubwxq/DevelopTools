@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.textview.stytle.RadiusBgSpan;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.commonlibrary.util.ImageUtils;
 
 import java.io.IOException;
@@ -67,8 +69,8 @@ public class PingTuActivity extends BaseActivity {
         LoadingImgUtil.loadimg("http://pic.app.hongseqf.qianfanyun.cn/_20200407190746_5e8c5f02d3ee7.jpg?imageslim|imageView2/1/w/420/h/420",ivNewPic,false);
 
 
-
-
+//        BarUtils.setStatusBarVisibility(this,false);
+//        BarUtils.setNavBarVisibility(this, false);
         //测试gifdrawable
 
 
@@ -83,6 +85,7 @@ public class PingTuActivity extends BaseActivity {
 //            e.printStackTrace();
 //        }
 
+//        ImmersionBar.with(this).init();
 
     }
 

@@ -33,21 +33,21 @@ import io.reactivex.functions.Consumer;
 public class UIMainActivity extends BaseActivity {
 
 
-    @BindView(R2.id.tv_test)
+    @BindView(R.id.tv_test)
     TextView tvTestUi;
 
-    @BindView(R2.id.tv_test_clickManager)
+    @BindView(R.id.tv_test_clickManager)
     TextView tv_test_clickManager;
 
 
     int a = 0;
 
     User user;
-    @BindView(R2.id.progress_bar)
+    @BindView(R.id.progress_bar)
     MyProgressBarSecond progressBar;
-    @BindView(R2.id.webview)
+    @BindView(R.id.webview)
     X5WebView webview;
-    @BindView(R2.id.et_superedit)
+    @BindView(R.id.et_superedit)
     SuperEditText etSuperedit;
 
 

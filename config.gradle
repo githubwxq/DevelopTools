@@ -240,9 +240,11 @@ ext {
             //个推
             "getui"                        : "com.getui:sdk:2.13.2.0",
             //沉浸式状态栏
-            "immersionbar"                 : "com.gyf.immersionbar:immersionbar:3.0.0-beta07",
-            "immersionbar-components"      : "com.gyf.immersionbar:immersionbar-components:3.0.0-beta07",
-            "flexbox"                      : "com.google.android:flexbox:1.1.1"
+            "immersionbar"                 : "com.gyf.immersionbar:immersionbar:3.0.0",
+            "immersionbar-components"      : "com.gyf.immersionbar:immersionbar-components:3.0.0",
+            "flexbox"                      : "com.google.android:flexbox:1.1.1",
+            "debugkit"                     : "com.hulab.android:debugkit:1.2.1",
+            "statusbarutil"                : "com.jaeger.statusbarutil:library:1.5.1",
 
 
     ]

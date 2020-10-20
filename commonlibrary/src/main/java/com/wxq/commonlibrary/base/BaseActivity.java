@@ -6,14 +6,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.orhanobut.logger.Logger;
+import com.samluys.statusbar.StatusBarUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -23,8 +28,10 @@ import com.wxq.commonlibrary.R;
 import com.wxq.commonlibrary.baserx.Event;
 import com.wxq.commonlibrary.baserx.RxBusManager;
 import com.wxq.commonlibrary.util.AppManager;
+import com.wxq.commonlibrary.util.BarUtils;
 import com.wxq.commonlibrary.util.RxHelp;
 import com.wxq.commonlibrary.util.ToastUtils;
+import com.wxq.commonlibrary.weiget.DebugView;
 import com.wxq.commonlibrary.weiget.DialogManager;
 import com.wxq.commonlibrary.weiget.TopBarHeard;
 
@@ -57,11 +64,31 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
      * 默认显示顶部top栏
      */
     public boolean needHeardLayout = true;
-
+    private DebugView debugView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         needHeardLayout = isNeedHeardLayout();
+
+        StatusBarUtils.transparencyBar(this);
+//        if (mIsStatusBarDark) {
+            StatusBarUtils.StatusBarIconDark(this);
+//        } else {
+//            StatusBarUtils.StatusBarIconLight(this);
+//        }
+//        ImmersionBar.with(this)
+//                .transparentStatusBar()
+////                .statusBarColor(R.color.red_300)
+//                .hideBar(BarHide.FLAG_HIDE_BAR)
+//                .init();
+
+//        BarUtils.setStatusBarVisibility(this,false);
+//        if (mIsStatusBarDark) {
+//            StatusBarUtils.StatusBarIconDark(this);
+//        } else {
+//            StatusBarUtils.StatusBarIconLight(this);
+//        }
+
         if (needHeardLayout) {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -73,6 +100,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         } else {
             setContentView(attachLayoutRes());
         }
+
+        debugView = new DebugView(this);
+
+        //夜间模式上面盖的控件
+        nightFrameLayout = new View(this);
+
+
         unbinder = ButterKnife.bind(this);
         context = this;
         lifecycleSubject.onNext(ActivityEvent.CREATE);
@@ -90,8 +124,30 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         initRxBus();
         // arouter 依赖注入
         ARouter.getInstance().inject(this);
-
+        addExtraView();
     }
+    protected View nightFrameLayout;
+    private void addExtraView() {
+        FrameLayout rootView = findViewById(android.R.id.content);
+        if (rootView == null) {
+            return;
+        }
+
+        if (debugView != null) {
+            rootView.removeView(debugView);
+            rootView.addView(debugView);
+         }
+        //
+        if (nightFrameLayout != null) {
+            nightFrameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.black_transparency_100));
+            rootView.removeView(nightFrameLayout);
+            rootView.addView(nightFrameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        }
+    }
+
+
+
+
 
     private void initRxBus() {
         disposable = RxBusManager.getInstance().registerEvent(Event.class, new Consumer<Event>() {

@@ -227,9 +227,13 @@ dependencies {
 
     //七牛sdk上传文件啥的
     api rootProject.ext.deps["qiniu"]
+    //状态栏工具类
     api rootProject.ext.deps["immersionbar"]
     api rootProject.ext.deps["immersionbar-components"]
-
+    api rootProject.ext.deps["statusbarutil"]
+    api 'com.github.ltym2016:StatusBarUtils:1.0.6'
+    //debug 视图成
+    api rootProject.ext.deps["debugkit"]
     //    api rootProject.ext.deps["bmob-sdk"]
 
     //    api rootProject.ext.deps["bmob-push"]
