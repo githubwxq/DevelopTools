@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AudioTestActivity">
+    tools:context=".activity.AudioTestActivity">
 
     <TextView
         android:id="@+id/tv_start"

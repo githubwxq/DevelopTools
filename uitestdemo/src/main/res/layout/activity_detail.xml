@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailActivity">
+
+
+    <com.juziwl.uilibrary.tablayout.PagerSlidingTabStrip
+        android:id="@+id/tabLayout"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:pstsDividerColor="@color/transparent"
+        app:pstsIndicatorColor="@color/green_400"
+        app:pstsIndicatorHeight="3dp"
+        app:pstsIndicatorWidth="15dp"
+        app:pstsGravityLeft="true"
+        app:pstsTabPaddingLeftRight="13dp"
+        app:pstsIndicatorPadding="0dp"
+        app:pstsIndicatorRadius="3dp"
+        app:pstsIndicatorMarginBottom="6dp"
+        app:pstsTextColor="@color/red_200"
+        app:pstsTextSize="15sp"
+        app:pstsUnselectedTextColor="#999999"
+      />
+
+
+    <com.juziwl.uilibrary.viewpage.ViewPagerWithFragment
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.juziwl.uilibrary.viewpage.ViewPagerWithFragment>
+
+
+
+
+
+</LinearLayout>

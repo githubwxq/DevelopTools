@@ -138,11 +138,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
             rootView.addView(debugView);
          }
         //
-        if (nightFrameLayout != null) {
-            nightFrameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.black_transparency_100));
-            rootView.removeView(nightFrameLayout);
-            rootView.addView(nightFrameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        }
+//        if (nightFrameLayout != null) {
+//            nightFrameLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.black_transparency_100));
+//            rootView.removeView(nightFrameLayout);
+//            rootView.addView(nightFrameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        }
     }
 
 

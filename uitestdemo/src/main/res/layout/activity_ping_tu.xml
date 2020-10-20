@@ -6,10 +6,10 @@
     android:orientation="vertical"
     android:background="@color/red_100"
     android:layout_height="match_parent"
-    tools:context=".PingTuActivity">
+    tools:context=".activity.PingTuActivity">
 
 
-<com.example.uitestdemo.PingTuWeight
+<com.example.uitestdemo.weight.PingTuWeight
     android:id="@+id/pingtu"
     android:background="@color/purple_50"
     android:layout_width="match_parent"
@@ -18,7 +18,7 @@
 
 
 
-</com.example.uitestdemo.PingTuWeight>
+</com.example.uitestdemo.weight.PingTuWeight>
 
 <TextView
     android:id="@+id/tv_change"

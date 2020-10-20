@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/green_200"
     android:orientation="vertical"
-    tools:context=".ViewLocationFragment">
+    tools:context=".fragment.ViewLocationFragment">
 
     <LinearLayout
         android:layout_marginLeft="50dp"

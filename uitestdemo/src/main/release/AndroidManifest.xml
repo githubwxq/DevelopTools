@@ -3,8 +3,8 @@
     package="com.example.uitestdemo">
 
     <application>
-        <activity android:name=".MainUiTestActivity"></activity>
-        <activity android:name=".UIMainActivity"></activity>
+        <activity android:name=".activity.MainUiTestActivity"></activity>
+        <activity android:name=".activity.UIMainActivity"></activity>
         <activity android:name=".TestActivity"></activity>
 
         <meta-data
