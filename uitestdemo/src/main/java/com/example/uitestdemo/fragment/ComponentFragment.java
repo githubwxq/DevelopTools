@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.example.uitestdemo.DataCenter;
 import com.example.uitestdemo.R;
 import com.example.uitestdemo.activity.DetailActivity;
 import com.example.uitestdemo.bean.ItemBean;
@@ -42,23 +43,23 @@ public class ComponentFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        List<ItemBean> itemBeans = new ArrayList<>();
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
-        itemBeans.add(new ItemBean("textview"));
+        List<String> itemBeans = new ArrayList<>();
+
+
+        for (String s : DataCenter.componentList) {
+            itemBeans.add(s);
+        }
+
+
 
         recycle.setRefreshEnable(false)
                 .setLoadMoreEnable(false)
                 .setLayoutManager(new XGridLayoutManager(getActivity(), 3))
                 .addItemDecoration(new GridDividerItemDecoration(getActivity(), 3, DensityUtil.dip2px(getActivity(), 3)))
-                .setAdapter(new BaseQuickAdapter<ItemBean, BaseViewHolder>(R.layout.layout_widget_item, itemBeans) {
+                .setAdapter(new BaseQuickAdapter<String, BaseViewHolder>(R.layout.layout_widget_item, itemBeans) {
                     @Override
-                    protected void convert(BaseViewHolder helper, ItemBean item) {
-                        helper.setText(R.id.item_name, item.getName());
+                    protected void convert(BaseViewHolder helper, String item) {
+                        helper.setText(R.id.item_name, item);
                         helper.getConvertView().setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

@@ -43,6 +43,15 @@ public class SuperTextViewFragment extends BaseFragment {
     @BindView(R.id.viewpage)
     BannerViewPager viewpage;
 
+
+
+    public static SuperTextViewFragment newInstance() {
+        SuperTextViewFragment fragment = new SuperTextViewFragment();
+        return fragment;
+    }
+
+
+
     @Override
     protected BasePresenter initPresenter() {
         return null;

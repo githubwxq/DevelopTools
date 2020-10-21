@@ -26,6 +26,13 @@ public class VlayoutFragment extends BaseFragment {
     RecyclerView recycler;
     Unbinder unbinder;
 
+
+    public static VlayoutFragment newInstance() {
+        VlayoutFragment fragment = new VlayoutFragment();
+        return fragment;
+    }
+
+
     @Override
     protected BasePresenter initPresenter() {
         return null;

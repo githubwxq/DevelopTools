@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.uitestdemo.DataCenter;
 import com.example.uitestdemo.R;
 import com.example.uitestdemo.bean.ItemBean;
 import com.example.uitestdemo.fragment.NineGrideFragment;
@@ -16,6 +17,7 @@ import com.juziwl.uilibrary.viewpage.ViewPagerWithFragment;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +32,9 @@ public class DetailActivity extends BaseActivity {
     ViewPagerWithFragment viewpage;
 
 
-    public static void navToActivity(Context context, ItemBean itemBean) {
+    public static void navToActivity(Context context, String key) {
         Intent intent = new Intent(context, DetailActivity.class);
-        intent.putExtra("itemBean", itemBean);
+        intent.putExtra("key", key);
         context.startActivity(intent);
     }
 
@@ -40,23 +42,16 @@ public class DetailActivity extends BaseActivity {
     @Override
     protected void initViews() {
         topHeard.setTitle("案列详情");
-//        setTitle("");
-        List<Fragment> fragments=new ArrayList<>();
-        fragments.add(TestMemoryFragment.newInstance());
-        fragments.add(NineGrideFragment.newInstance());
-
-        fragments.add(NineGrideFragment.newInstance());
-
-        fragments.add(NineGrideFragment.newInstance());
-
-
-        List<String> titles=new ArrayList<>();
-        titles.add("測試1");
-        titles.add("測試2");
-        titles.add("測試3");
-        titles.add("測試4");
-
-
+        String key = (String) getIntent().getSerializableExtra("key");
+        List<ItemBean> itemBeans = DataCenter.getItemWithName(key);
+        List<String> titles =new ArrayList<>();
+        for (ItemBean itemBean : itemBeans) {
+            titles.add(itemBean.getName());
+        }
+        List<Fragment> fragments =new ArrayList<>();
+        for (ItemBean itemBean : itemBeans) {
+            fragments.add(itemBean.getFragment());
+        }
         viewpage.setFragmentList(this,fragments,titles,null);
         tabLayout.setViewPager(viewpage);
         viewpage.setNoScroll(false);

@@ -26,9 +26,6 @@
       <module fileurl="file://$PROJECT_DIR$/groovy/mydevelop-groovy.iml" filepath="$PROJECT_DIR$/groovy/mydevelop-groovy.iml" group="mydevelop/groovy" />
       <module fileurl="file://$PROJECT_DIR$/ijkplayerlib/mydevelop-ijkplayerlib.iml" filepath="$PROJECT_DIR$/ijkplayerlib/mydevelop-ijkplayerlib.iml" group="mydevelop/ijkplayerlib" />
       <module fileurl="file://$PROJECT_DIR$/im_huanxing/mydevelop-im_huanxing.iml" filepath="$PROJECT_DIR$/im_huanxing/mydevelop-im_huanxing.iml" group="mydevelop/im_huanxing" />
-      <module fileurl="file://$PROJECT_DIR$/inject/mydevelop-inject.iml" filepath="$PROJECT_DIR$/inject/mydevelop-inject.iml" group="mydevelop/inject" />
-      <module fileurl="file://$PROJECT_DIR$/inject_annotion/mydevelop-inject_annotion.iml" filepath="$PROJECT_DIR$/inject_annotion/mydevelop-inject_annotion.iml" group="mydevelop/inject_annotion" />
-      <module fileurl="file://$PROJECT_DIR$/inject_compiler/mydevelop-inject_compiler.iml" filepath="$PROJECT_DIR$/inject_compiler/mydevelop-inject_compiler.iml" group="mydevelop/inject_compiler" />
       <module fileurl="file://$PROJECT_DIR$/interviewdemo/mydevelop-interviewdemo.iml" filepath="$PROJECT_DIR$/interviewdemo/mydevelop-interviewdemo.iml" group="mydevelop/interviewdemo" />
       <module fileurl="file://$PROJECT_DIR$/module_login/mydevelop-module_login.iml" filepath="$PROJECT_DIR$/module_login/mydevelop-module_login.iml" group="mydevelop/module_login" />
       <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/mydevelop-nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/mydevelop-nicevideoplayer.iml" group="mydevelop/nicevideoplayer" />

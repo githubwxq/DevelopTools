@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 倒计时按钮-->
+    <declare-styleable name="CountDownButton">
+        <!--倒计时过程中按钮文本的格式，默认"%ds"，直接显示剩余秒数-->
+        <attr name="cdbt_countDownFormat" format="string" />
+        <!--倒计时总时长(单位为毫秒)，默认 60000 毫秒-->
+        <attr name="cdbt_countDown" format="integer" />
+        <!--倒计时间隔(单位为毫秒)，默认 1000 毫秒-->
+        <attr name="cdbt_countDownInterval" format="integer" />
+        <!--倒计时是否可用，默认为 true-->
+        <attr name="cdbt_enableCountDown" format="boolean" />
+    </declare-styleable>
+    <attr name="CountDownButtonStyle" format="reference" />
+
+</resources>

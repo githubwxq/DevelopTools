@@ -1,5 +1,7 @@
 package com.example.uitestdemo.bean;
 
+import androidx.fragment.app.Fragment;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,9 +9,6 @@ import java.util.List;
  * 每个功能名称
  */
 public class ItemBean  implements Serializable {
-
-    List<ItemBean> list;
-
 
     public String getName() {
         return name;
@@ -19,20 +18,34 @@ public class ItemBean  implements Serializable {
         this.name = name;
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     public ItemBean(String name) {
         this.name = name;
     }
 
     private  String  name;
-    private  String  path;
+
+    public Fragment getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(Fragment fragment) {
+        this.fragment = fragment;
+    }
+
+    private Fragment fragment;
+
+
+    private  int  icon;
+
+    public ItemBean(String name, Fragment fragment) {
+        this.name = name;
+        this.fragment = fragment;
+    }
+
+
+
+
+
 
 
 }

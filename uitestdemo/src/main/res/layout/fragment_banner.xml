@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".components.bannerview.BannerStyleActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:clipChildren="false">
+            <!--        //普通banner-->
+            <com.juziwl.uilibrary.basebanner.view.BannerViewPager
+                android:id="@+id/normal_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:banner_looptime="3000" />
+
+            <com.juziwl.uilibrary.basebanner.indicator.NormalIndicator
+                android:id="@+id/normal_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#5646"
+                app:normal_selector="@drawable/select_banner_rectangle" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="15dp"
+            android:clipChildren="false">
+            <!--        //普通banner-->
+            <com.juziwl.uilibrary.basebanner.view.BannerViewPager
+                android:id="@+id/mz_banner_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:clipChildren="false"
+                android:visibility="visible"
+                app:banner_looptime="3000" />
+
+            <com.juziwl.uilibrary.basebanner.indicator.NormalIndicator
+                android:id="@+id/mz_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#5646"
+                app:normal_selector="@drawable/select_banner_oval" />
+        </RelativeLayout>
+
+
+        <com.juziwl.uilibrary.basebanner.view.BannerViewPager
+            android:id="@+id/banner_no_cycle_no_auto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="15dp"
+            app:banner_isAutoLoop="false"
+            app:banner_iscycle="false" />
+
+
+        <com.juziwl.uilibrary.basebanner.view.BannerViewPager
+            android:id="@+id/banner_no_auto_loop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="15dp"
+            app:banner_isAutoLoop="false"
+            app:banner_iscycle="true" />
+
+
+        <com.juziwl.uilibrary.basebanner.view.CyclePaiViewPager
+            android:id="@+id/cycleViewPage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>

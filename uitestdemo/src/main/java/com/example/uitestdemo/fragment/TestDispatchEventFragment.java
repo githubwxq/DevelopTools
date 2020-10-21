@@ -25,6 +25,12 @@ public class TestDispatchEventFragment extends BaseFragment {
     public TestDispatchEventFragment() {
         // Required empty public constructor
     }
+
+    public static TestDispatchEventFragment newInstance() {
+        TestDispatchEventFragment fragment = new TestDispatchEventFragment();
+        return fragment;
+    }
+
     @Override
     protected BasePresenter initPresenter() {
         return null;
