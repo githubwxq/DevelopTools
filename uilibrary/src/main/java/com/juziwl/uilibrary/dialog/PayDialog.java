@@ -186,8 +186,7 @@ public class PayDialog extends Dialog implements View.OnClickListener {
             imageViewList.get(count - 1).setVisibility(View.VISIBLE);
             passwordStr.append(number);
             if (count == NUMBER_6) {
-                listener.getStrListener();
-
+                listener.getStrListener(getpasswordStr());
             }
         } catch (Exception e) {
             // TODO: handle exception
@@ -232,7 +231,7 @@ public class PayDialog extends Dialog implements View.OnClickListener {
         /**
          * 获取str监听
          */
-        void getStrListener();
+        void getStrListener(String  password);
     }
 
     GetStrListener listener;

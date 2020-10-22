@@ -11,6 +11,8 @@ import com.example.uitestdemo.fragment.VlayoutFragment;
 import com.example.uitestdemo.fragment.components.banner.BannerFragment;
 import com.example.uitestdemo.fragment.components.button.ButtonStyleFragment;
 import com.example.uitestdemo.fragment.components.button.ShadowWeightFragment;
+import com.example.uitestdemo.fragment.components.dialog.PayDialogFragment;
+import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
@@ -32,9 +34,10 @@ public class DataCenter {
         componentList.add("按钮");
         componentList.add("popupwindow");
         componentList.add("文字滚动");
+        componentList.add("Dialog弹框");
 //        componentList.add("对话框");
 //        componentList.add("输入框");
-//        componentList.add("流布局");
+        componentList.add("流布局");
 //        componentList.add("引导页");
 //        componentList.add("图片处理");
 //        componentList.add("通用布局");
@@ -78,29 +81,37 @@ public class DataCenter {
             return guide;
         }
 
-           if ("popupwindow".equals(name)) {
+        if ("popupwindow".equals(name)) {
             List<ItemBean> guide = new ArrayList<>();
             guide.add(new ItemBean("easypopup", EasyPopupFragment.newInstance()));
 
             return guide;
         }
 
-     if ("文字滚动".equals(name)) {
+        if ("文字滚动".equals(name)) {
             List<ItemBean> guide = new ArrayList<>();
             guide.add(new ItemBean("文字滚动", MarqueeViewFragment.newInstance()));
+            return guide;
+        }
 
+
+        if ("Dialog弹框".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("支付dialog", PayDialogFragment.newInstance()));
+            button.add(new ItemBean("按钮二", TextViewFragment.newInstance()));
+            button.add(new ItemBean("按钮三", VlayoutFragment.newInstance()));
+            return button;
+        }
+        if ("流布局".equals(name)) {
+            List<ItemBean> guide = new ArrayList<>();
+            guide.add(new ItemBean("各种流布局", FlowLayoutFragment.newInstance()));
             return guide;
         }
 
 
 
-        if ("对话框".equals(name)) {
-            List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("按钮一", SuperTextViewFragment.newInstance()));
-            button.add(new ItemBean("按钮二", TextViewFragment.newInstance()));
-            button.add(new ItemBean("按钮三", VlayoutFragment.newInstance()));
-            return button;
-        }
+
+
         if ("对话框".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
             button.add(new ItemBean("按钮一", SuperTextViewFragment.newInstance()));

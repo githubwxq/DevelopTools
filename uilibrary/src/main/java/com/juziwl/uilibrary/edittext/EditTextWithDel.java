@@ -12,13 +12,15 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.EditText;
 
+import androidx.appcompat.widget.AppCompatEditText;
+
 import com.juziwl.uilibrary.R;
 
 
 /**
  * 自带删除功能的EditText
  */
-public class EditTextWithDel extends EditText {
+public class EditTextWithDel extends AppCompatEditText {
     private final static String TAG = "EditTextWithDel";
     private Drawable imgInable;
     private Drawable imgAble;

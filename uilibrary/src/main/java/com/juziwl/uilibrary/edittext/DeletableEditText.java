@@ -12,6 +12,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 
+import androidx.appcompat.widget.AppCompatEditText;
+
 import com.juziwl.uilibrary.R;
 
 
@@ -21,7 +23,7 @@ import com.juziwl.uilibrary.R;
  * @date 2017/08/22
  * @description 带删除图标的编辑框
  */
-public class DeletableEditText extends EditText {
+public class DeletableEditText extends AppCompatEditText {
 
     private Drawable mRightDrawable;
 

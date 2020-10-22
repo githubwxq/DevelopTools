@@ -155,6 +155,18 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <!-- 支付dialog -->
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 
     <style name="common_window_bottom_in_bottom_out">
         <item name="android:windowEnterAnimation">@anim/common_dialog_in_bottom</item>
