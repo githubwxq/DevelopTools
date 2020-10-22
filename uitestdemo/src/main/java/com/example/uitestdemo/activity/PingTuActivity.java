@@ -2,18 +2,22 @@ package com.example.uitestdemo.activity;
 
 import android.Manifest;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.uitestdemo.weight.PingTuWeight;
 import com.example.uitestdemo.R;
+import com.juziwl.uilibrary.textview.stytle.DividerSpan;
 import com.juziwl.uilibrary.textview.stytle.RadiusBgSpan;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.util.DensityUtil;
 import com.wxq.commonlibrary.util.ImageUtils;
 
 import butterknife.BindView;
@@ -56,9 +60,29 @@ public class PingTuActivity extends BaseActivity {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("获取图片控件");
 
         SpannableStringBuilder addmsg = new SpannableStringBuilder("标签");
-        RadiusBgSpan bgSpan = new RadiusBgSpan(getContext(), R.color.red_100, R.color.white, 10);
+        RadiusBgSpan bgSpan = new RadiusBgSpan(getContext(), Color.parseColor("#abd0ff"), R.color.white, DensityUtil.dip2px(this,2));
         addmsg.setSpan(bgSpan, 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(addmsg);
+
+        SpannableStringBuilder addmsg2 = new SpannableStringBuilder("0");
+        DividerSpan DividerSpan = new DividerSpan(getContext(), DensityUtil.dip2px(this,5));
+        addmsg2.setSpan(DividerSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableStringBuilder.append(addmsg2);
+
+        SpannableStringBuilder addmsg3 = new SpannableStringBuilder("标签3");
+        RadiusBgSpan bgSpan3 = new RadiusBgSpan(getContext(), Color.parseColor("#abd0ff"), R.color.white, DensityUtil.dip2px(this,2));
+        addmsg3.setSpan(bgSpan3, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableStringBuilder.append(addmsg3);
+
+        SpannableStringBuilder addmsg4 = new SpannableStringBuilder("0");
+        ImageSpan bgSpan4= new ImageSpan(getContext(), R.mipmap.addchildicon);
+        addmsg4.setSpan(bgSpan4, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableStringBuilder.append(addmsg4);
+
+
+
+
+
         tv_change.setText(spannableStringBuilder);
 
 
