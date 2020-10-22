@@ -11,6 +11,8 @@ import com.example.uitestdemo.fragment.VlayoutFragment;
 import com.example.uitestdemo.fragment.components.banner.BannerFragment;
 import com.example.uitestdemo.fragment.components.button.ButtonStyleFragment;
 import com.example.uitestdemo.fragment.components.button.ShadowWeightFragment;
+import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
+import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,34 +30,36 @@ public class DataCenter {
     static {
         componentList.add("轮播条");
         componentList.add("按钮");
-        componentList.add("对话框");
-        componentList.add("输入框");
-        componentList.add("流布局");
-        componentList.add("引导页");
-        componentList.add("图片处理");
-        componentList.add("通用布局");
+        componentList.add("popupwindow");
         componentList.add("文字滚动");
-        componentList.add("选择器");
-        componentList.add("弹出框");
-        componentList.add("进度条");
-        componentList.add("列表刷新");
-        componentList.add("搜索框");
-        componentList.add("下拉框");
-
-
-        componentList.add("对话框");
-        componentList.add("输入框");
-        componentList.add("流布局");
-        componentList.add("引导页");
-        componentList.add("图片处理");
-        componentList.add("通用布局");
-        componentList.add("文字滚动");
-        componentList.add("选择器");
-        componentList.add("弹出框");
-        componentList.add("进度条");
-        componentList.add("列表刷新");
-        componentList.add("搜索框");
-        componentList.add("下拉框");
+//        componentList.add("对话框");
+//        componentList.add("输入框");
+//        componentList.add("流布局");
+//        componentList.add("引导页");
+//        componentList.add("图片处理");
+//        componentList.add("通用布局");
+//        componentList.add("文字滚动");
+//        componentList.add("选择器");
+//        componentList.add("弹出框");
+//        componentList.add("进度条");
+//        componentList.add("列表刷新");
+//        componentList.add("搜索框");
+//        componentList.add("下拉框");
+//
+//
+//        componentList.add("对话框");
+//        componentList.add("输入框");
+//        componentList.add("流布局");
+//        componentList.add("引导页");
+//        componentList.add("图片处理");
+//        componentList.add("通用布局");
+//        componentList.add("文字滚动");
+//        componentList.add("选择器");
+//        componentList.add("弹出框");
+//        componentList.add("进度条");
+//        componentList.add("列表刷新");
+//        componentList.add("搜索框");
+//        componentList.add("下拉框");
 
 
     }
@@ -73,6 +77,23 @@ public class DataCenter {
             guide.add(new ItemBean("阴影按钮文本", ShadowWeightFragment.newInstance()));
             return guide;
         }
+
+           if ("popupwindow".equals(name)) {
+            List<ItemBean> guide = new ArrayList<>();
+            guide.add(new ItemBean("easypopup", EasyPopupFragment.newInstance()));
+
+            return guide;
+        }
+
+     if ("文字滚动".equals(name)) {
+            List<ItemBean> guide = new ArrayList<>();
+            guide.add(new ItemBean("文字滚动", MarqueeViewFragment.newInstance()));
+
+            return guide;
+        }
+
+
+
         if ("对话框".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
             button.add(new ItemBean("按钮一", SuperTextViewFragment.newInstance()));

@@ -12,10 +12,12 @@ import com.example.uitestdemo.R;
 import com.example.uitestdemo.bean.ItemBean;
 import com.example.uitestdemo.fragment.NineGrideFragment;
 import com.example.uitestdemo.fragment.TestMemoryFragment;
+import com.gyf.immersionbar.ImmersionBar;
 import com.juziwl.uilibrary.tablayout.PagerSlidingTabStrip;
 import com.juziwl.uilibrary.viewpage.ViewPagerWithFragment;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
+import com.wxq.commonlibrary.util.UIHandler;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -55,6 +57,14 @@ public class DetailActivity extends BaseActivity {
         viewpage.setFragmentList(this,fragments,titles,null);
         tabLayout.setViewPager(viewpage);
         viewpage.setNoScroll(false);
+
+        UIHandler.getInstance().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ImmersionBar.with(DetailActivity.this).init();
+            }
+        },1000);
+
     }
 
     @Override

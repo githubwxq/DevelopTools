@@ -492,5 +492,25 @@
     </declare-styleable>
 
 
+    <!-- MarqueeView -->
+    <declare-styleable name="MarqueeView">
+        <!--翻页的间隔-->
+        <attr name="mq_interval" format="integer" />
+        <!--动画的间隔-->
+        <attr name="mq_animDuration" format="integer" />
+        <!--动画的样式资源-->
+        <attr name="mq_animIn" format="reference" />
+        <attr name="mq_animOut" format="reference" />
+    </declare-styleable>
+
+    <!-- MarqueeTextView -->
+    <declare-styleable name="MarqueeTextView">
+        <!--尺寸是否自适应， 默认false-->
+        <attr name="mtv_isAutoFit" format="boolean" />
+        <!--控件是否自动显示与隐藏（根据显示数量）， 默认false-->
+        <attr name="mtv_isAutoDisplay" format="boolean" />
+    </declare-styleable>
+
+
 
 </resources>
