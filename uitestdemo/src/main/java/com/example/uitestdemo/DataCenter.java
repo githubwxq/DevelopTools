@@ -36,9 +36,11 @@ public class DataCenter {
         componentList.add("popupwindow");
         componentList.add("文字滚动");
         componentList.add("Dialog弹框");
-//        componentList.add("对话框");
         componentList.add("输入框");
         componentList.add("流布局");
+        componentList.add("图片处理");
+        componentList.add("悬浮框");
+
 //        componentList.add("引导页");
 //        componentList.add("图片处理");
 //        componentList.add("通用布局");
@@ -112,6 +114,19 @@ public class DataCenter {
             button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
             return button;
         }
+        if ("悬浮框".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
+            return button;
+        }
+
+        if ("图片处理".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
+            return button;
+        }
+
+
 
         return null;
     }
