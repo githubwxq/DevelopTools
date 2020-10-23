@@ -12,6 +12,7 @@ import com.example.uitestdemo.fragment.components.banner.BannerFragment;
 import com.example.uitestdemo.fragment.components.button.ButtonStyleFragment;
 import com.example.uitestdemo.fragment.components.button.ShadowWeightFragment;
 import com.example.uitestdemo.fragment.components.dialog.PayDialogFragment;
+import com.example.uitestdemo.fragment.components.edit.VerifyCodeEditTextFragment;
 import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
@@ -36,7 +37,7 @@ public class DataCenter {
         componentList.add("文字滚动");
         componentList.add("Dialog弹框");
 //        componentList.add("对话框");
-//        componentList.add("输入框");
+        componentList.add("输入框");
         componentList.add("流布局");
 //        componentList.add("引导页");
 //        componentList.add("图片处理");
@@ -98,8 +99,6 @@ public class DataCenter {
         if ("Dialog弹框".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
             button.add(new ItemBean("支付dialog", PayDialogFragment.newInstance()));
-            button.add(new ItemBean("按钮二", TextViewFragment.newInstance()));
-            button.add(new ItemBean("按钮三", VlayoutFragment.newInstance()));
             return button;
         }
         if ("流布局".equals(name)) {
@@ -108,15 +107,9 @@ public class DataCenter {
             return guide;
         }
 
-
-
-
-
-        if ("对话框".equals(name)) {
+        if ("输入框".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("按钮一", SuperTextViewFragment.newInstance()));
-            button.add(new ItemBean("按钮二", TextViewFragment.newInstance()));
-            button.add(new ItemBean("按钮三", VlayoutFragment.newInstance()));
+            button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
             return button;
         }
 

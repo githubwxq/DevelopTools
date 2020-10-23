@@ -1,13 +1,10 @@
-package com.juziwl.uilibrary.popupwindow;
+package com.juziwl.uilibrary.popupwindow.easypopup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 
 import com.juziwl.uilibrary.R;
 import com.juziwl.uilibrary.edittext.EmojiFilterEditText;

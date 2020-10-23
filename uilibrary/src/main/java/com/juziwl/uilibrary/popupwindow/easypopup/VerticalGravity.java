@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.popupwindow;
+package com.juziwl.uilibrary.popupwindow.easypopup;
 
 import androidx.annotation.IntDef;
 

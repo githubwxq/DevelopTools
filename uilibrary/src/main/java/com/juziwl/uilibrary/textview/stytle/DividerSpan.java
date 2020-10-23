@@ -40,19 +40,22 @@ public class DividerSpan extends ReplacementSpan {
         return mSize;
     }
 
+
     @Override
     public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) {
         mPaint.setAntiAlias(true);
 
         mPaint.setStyle(Paint.Style.FILL);
-
+        paint.setColor(Color.WHITE);
         RectF oval = new RectF(x, y + paint.ascent(), x + mSize, y + paint.descent());
         //x.y均为原字符串文字的参数
         //设置背景矩形，x为文字左边缘的x值，y为文字的baseline的y值。paint.ascent()获得baseline到文字上边缘的值，paint.descent()获得baseline到文字下边缘
         canvas.drawRoundRect(oval, 0, 0, mPaint);//绘制圆角矩形，第二个参数是x半径，第三个参数是y半径
 //        //文字 -- 绘制的文字要比原文字小 , 默认小 4sp
 //        float originalSize = paint.getTextSize();
-//        paint.setTextSize(originalSize );
+//        paint.setTextSize(origi
+//
+//        nalSize );
 //        paint.setColor(Color.TRANSPARENT);
 //        int padding = (int) (mSize - paint.measureText(text.subSequence(start, end).toString()));
 //        canvas.drawText(text, start, end, x + padding / 2, y, paint);//绘制文字

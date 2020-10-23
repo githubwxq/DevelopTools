@@ -4,15 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
-import android.widget.Toast;
-
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseItemDraggableAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.uitestdemo.R;
-import com.juziwl.uilibrary.popupwindow.EasyPopup;
+import com.juziwl.uilibrary.popupwindow.easypopup.EasyPopup;
 import com.luck.picture.lib.utils.DisplayUtils;
 import com.wxq.commonlibrary.util.ToastUtils;
 

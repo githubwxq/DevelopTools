@@ -1,4 +1,4 @@
-package com.juziwl.uilibrary.popupwindow;
+package com.juziwl.uilibrary.popupwindow.easypopup;
 
 import androidx.annotation.IntDef;
 
@@ -10,14 +10,14 @@ import java.lang.annotation.RetentionPolicy;
  */
 
 @IntDef({
-        XGravity.CENTER,
-        XGravity.LEFT,
-        XGravity.RIGHT,
-        XGravity.ALIGN_LEFT,
-        XGravity.ALIGN_RIGHT,
+        HorizontalGravity.CENTER,
+        HorizontalGravity.LEFT,
+        HorizontalGravity.RIGHT,
+        HorizontalGravity.ALIGN_LEFT,
+        HorizontalGravity.ALIGN_RIGHT,
 })
 @Retention(RetentionPolicy.SOURCE)
-public @interface XGravity {
+public @interface HorizontalGravity {
     int CENTER = 0;
     int LEFT = 1;
     int RIGHT = 2;

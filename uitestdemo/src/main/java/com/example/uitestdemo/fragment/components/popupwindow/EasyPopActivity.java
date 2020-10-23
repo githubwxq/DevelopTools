@@ -12,9 +12,9 @@
 //
 //
 //import com.example.uitestdemo.R;
-//import com.juziwl.uilibrary.popupwindow.EasyPopup;
-//import com.juziwl.uilibrary.popupwindow.XGravity;
-//import com.juziwl.uilibrary.popupwindow.YGravity;
+//import com.juziwl.uilibrary.popupwindow.easypopup.EasyPopup;
+//import com.juziwl.uilibrary.popupwindow.easypopup.XGravity;
+//import com.juziwl.uilibrary.popupwindow.easypopup.YGravity;
 //import com.wxq.commonlibrary.util.ToastUtils;
 //
 //import butterknife.BindView;

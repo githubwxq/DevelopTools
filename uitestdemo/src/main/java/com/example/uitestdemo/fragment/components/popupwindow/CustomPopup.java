@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.uitestdemo.R;
-import com.juziwl.uilibrary.popupwindow.BasePopup;
+import com.juziwl.uilibrary.popupwindow.easypopup.BasePopup;
 import com.wxq.commonlibrary.util.SizeUtils;
 
 import java.util.ArrayList;
