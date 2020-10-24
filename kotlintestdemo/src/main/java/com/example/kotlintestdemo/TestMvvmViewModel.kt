@@ -38,14 +38,19 @@ class TestMvvmViewModel(application: Application) : AndroidViewModel(application
         personMutableLiveData.value!!.name = "45564564"
         personMutableLiveData.value = personMutableLiveData.value
         //調用接口
-
+        println("changPersonName"+Thread.currentThread().name)
 
         launch(
                 block = {
-                    val apiData =   PopularRepository().getTopArticleList()
+
+//                    val apiData =   PopularRepository().getTopArticleList()
+                    println("blockbefore"+Thread.currentThread().name)
+                    val apiData =   PopularRepository().getMydata()
+                    println("blockafter"+Thread.currentThread().name)
                     Log.e("data",apiData.toString())
 
-                    val apkLink = apiData.get(0).author
+//                    val apkLink = apiData.get(0).author
+                    val apkLink = apiData
                     mCurrentApiStr.value = apkLink
 
                 }

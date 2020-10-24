@@ -1,25 +1,17 @@
 package com.example.uitestdemo;
 
-import androidx.fragment.app.Fragment;
-
 import com.example.uitestdemo.bean.ItemBean;
-import com.example.uitestdemo.fragment.SuperTextViewFragment;
-import com.example.uitestdemo.fragment.TestDispatchEventFragment;
-import com.example.uitestdemo.fragment.TestMemoryFragment;
-import com.example.uitestdemo.fragment.TextViewFragment;
-import com.example.uitestdemo.fragment.VlayoutFragment;
 import com.example.uitestdemo.fragment.components.banner.BannerFragment;
 import com.example.uitestdemo.fragment.components.button.ButtonStyleFragment;
 import com.example.uitestdemo.fragment.components.button.ShadowWeightFragment;
 import com.example.uitestdemo.fragment.components.dialog.PayDialogFragment;
 import com.example.uitestdemo.fragment.components.edit.VerifyCodeEditTextFragment;
 import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
+import com.example.uitestdemo.fragment.components.flowview.FlowViewFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 public class DataCenter {
@@ -116,13 +108,13 @@ public class DataCenter {
         }
         if ("悬浮框".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
+            button.add(new ItemBean("悬浮框", FlowViewFragment.newInstance()));
             return button;
         }
 
         if ("图片处理".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("验证码输入框", VerifyCodeEditTextFragment.newInstance()));
+            button.add(new ItemBean("图片处理", VerifyCodeEditTextFragment.newInstance()));
             return button;
         }
 

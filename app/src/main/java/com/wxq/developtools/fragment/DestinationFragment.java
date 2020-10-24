@@ -1,14 +1,15 @@
 package com.wxq.developtools.fragment;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -21,12 +22,16 @@ import com.wxq.commonlibrary.baserx.ResponseTransformer;
 import com.wxq.commonlibrary.baserx.RxSubscriber;
 import com.wxq.commonlibrary.baserx.RxTransformer;
 import com.wxq.commonlibrary.http.common.Api;
+import com.wxq.commonlibrary.model.KlookResponseData;
 import com.wxq.developtools.R;
 import com.wxq.developtools.activity.CityActivity;
 import com.wxq.developtools.api.KlookApi;
 import com.wxq.developtools.model.AreaAndCountry;
 import com.wxq.developtools.model.CityVosBean;
+import com.wxq.developtools.model.HomePageData;
 import com.wxq.developtools.model.Region;
+
+import org.reactivestreams.Publisher;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +39,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
+import io.reactivex.Flowable;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Function;
 
 /**
  * 目的地
@@ -112,6 +120,28 @@ public class DestinationFragment extends BaseFragment {
     }
 
     private void getRegionData() {
+        Flowable.zip(Api.getInstance()
+                .getApiService(KlookApi.class).findAllRegion(), Api.getInstance()
+                .getApiService(KlookApi.class).homepage(), new BiFunction<KlookResponseData<List<Region>>, KlookResponseData<HomePageData>,String >() {
+            @Override
+            public String apply(KlookResponseData<List<Region>> listKlookResponseData, KlookResponseData<HomePageData> homePageDataKlookResponseData) throws Exception {
+                return "";
+            }
+        }).flatMap(new Function<String, Publisher<KlookResponseData<List<Region>>>>() {
+            @Override
+            public Publisher<KlookResponseData<List<Region>>> apply(String s) throws Exception {
+                return  Api.getInstance()
+                        .getApiService(KlookApi.class).findAllRegion();
+            }
+        }).subscribe(new RxSubscriber<KlookResponseData<List<Region>>>() {
+            @Override
+            protected void onSuccess(KlookResponseData<List<Region>> listKlookResponseData) {
+
+
+            }
+        });
+
+
         Api.getInstance()
                 .getApiService(KlookApi.class).findAllRegion()
                 .compose(RxTransformer.transformFlowWithLoading(this))

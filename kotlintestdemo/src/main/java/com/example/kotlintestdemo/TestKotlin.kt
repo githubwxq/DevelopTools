@@ -12,6 +12,9 @@ import java.lang.Thread.sleep
 import java.util.*
 
 fun main(){
+
+
+
 //    print("1111111")
     val stringlist= ArrayList<String>()
 //    stringlist.add("11111")
@@ -183,21 +186,21 @@ fun main(){
 //    sleep(10 * 1000)
 //    println("主程序结束...")
 
-
-    val job = GlobalScope.launch {
-
-        for (i in 1..10) {
-            println("子协程执行第${i}次")
-            val sleepTime = (random() * 1000).toLong()
-            delay(sleepTime)
-        }
-        println("子协程执行结束")
-    }
-    println(job.isActive)
-    println(job.isCompleted)
-    sleep(10 * 1000)
-    println("主程序结束...")
-    println(job.isCompleted)
+//
+//    val job = GlobalScope.launch {
+//
+//        for (i in 1..10) {
+//            println("子协程执行第${i}次")
+//            val sleepTime = (random() * 1000).toLong()
+//            delay(sleepTime)
+//        }
+//        println("子协程执行结束")
+//    }
+//    println(job.isActive)
+//    println(job.isCompleted)
+//    sleep(10 * 1000)
+//    println("主程序结束...")
+//    println(job.isCompleted)
 
 
 
