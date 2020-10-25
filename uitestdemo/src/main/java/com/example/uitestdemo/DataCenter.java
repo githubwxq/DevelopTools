@@ -8,6 +8,8 @@ import com.example.uitestdemo.fragment.components.dialog.PayDialogFragment;
 import com.example.uitestdemo.fragment.components.edit.VerifyCodeEditTextFragment;
 import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
 import com.example.uitestdemo.fragment.components.flowview.FlowViewFragment;
+import com.example.uitestdemo.fragment.components.guideview.GuideCaseViewStyleFragment;
+import com.example.uitestdemo.fragment.components.guideview.GuideViewQueeFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
@@ -32,8 +34,10 @@ public class DataCenter {
         componentList.add("流布局");
         componentList.add("图片处理");
         componentList.add("悬浮框");
+        componentList.add("引导页");
 
-//        componentList.add("引导页");
+
+
 //        componentList.add("图片处理");
 //        componentList.add("通用布局");
 //        componentList.add("文字滚动");
@@ -117,6 +121,17 @@ public class DataCenter {
             button.add(new ItemBean("图片处理", VerifyCodeEditTextFragment.newInstance()));
             return button;
         }
+
+
+        if ("引导页".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("guidecasequeue", GuideViewQueeFragment.newInstance()));
+            button.add(new ItemBean("guidecaseview", GuideCaseViewStyleFragment.newInstance()));
+            return button;
+        }
+
+
+
 
 
 

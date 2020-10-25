@@ -359,4 +359,18 @@
         <item name="android:windowBackground">@drawable/start_layer_list</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+
+
+
+
+    <!--*********************************************
+    *                  GuideCaseView                *
+    **********************************************-->
+    <style name="DefaultGuideCaseTitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+
+
 </resources>

@@ -504,5 +504,6 @@
     <color name="common_grey_cccccc">#cccccc</color>
     <color name="color_609F18">#609F18</color>
 
-
+    <!-- GuideCaseView -->
+    <color name="default_guide_case_view_background_color">#801B2939</color>
 </resources>
