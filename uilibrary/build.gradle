@@ -55,8 +55,10 @@ dependencies {
     api rootProject.ext.deps["bga-qrcode-zxing"]
     api rootProject.ext.deps["vlayout"]
     api rootProject.ext.deps["flexbox"]
+    api rootProject.ext.deps["zxing"]
 
 
+    api project(path: ':qrlibrary')
     api project(path: ':picture_library')
     api project(path: ':pickerview')
     api project(path: ':nicevideoplayer')

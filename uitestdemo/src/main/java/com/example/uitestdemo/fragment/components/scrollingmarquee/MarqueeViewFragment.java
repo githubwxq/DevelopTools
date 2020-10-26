@@ -115,12 +115,12 @@ public class MarqueeViewFragment extends BaseFragment {
         });
         mTvMarquee.startSimpleRoll(datas);
 
-        UIHandler.getInstance().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mTvMarquee.addDisplayString("这是动态添加的消息");
-            }
-        },5000);
+//        UIHandler.getInstance().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                mTvMarquee.addDisplayString("这是动态添加的消息");
+//            }
+//        },5000);
 //        RxJavaUtils.delay(5, aLong -> mTvMarquee.removeDisplayString(datas.get(3)));
 
 //        RxManager.delay(5, (o) -> mTvMarquee.addDisplayString("这是动态添加的消息"));

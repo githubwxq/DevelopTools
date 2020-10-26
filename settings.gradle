@@ -1,3 +1,4 @@
+include ':qrlibrary'
 include ':app',
         ':commonlibrary',
         ':uilibrary',

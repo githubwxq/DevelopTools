@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ViewfinderView">
+        <!-- 扫描框的宽度，默认为屏幕宽度的3／4 -->
+        <attr name="inner_width" format="dimension"/>
+        <!-- 扫描框的高度，默认为屏幕宽度的3／4 -->
+        <attr name="inner_height" format="dimension"/>
+        <!-- 扫描框距离顶部的距离，默认居中-->
+        <attr name="inner_marginTop" format="dimension" />
+        <!-- 扫描框四角的颜色，默认为#0DC2FE-->
+        <attr name="inner_corner_color" format="color" />
+        <!-- 扫描框四角的长度，默认为32dp-->
+        <attr name="inner_corner_length" format="dimension" />
+        <!-- 扫描框四角的宽度，默认为6dp-->
+        <attr name="inner_corner_width" format="dimension" />
+        <!-- 扫描控件图资源，默认为R.drawable.xqrcode_ic_scan_light-->
+        <attr name="inner_scan_bitmap" format="reference" />
+        <!-- 扫描控件图资源的色调，默认是-1-->
+        <attr name="inner_scan_bitmap_tint" format="color" />
+        <!-- 扫描速度，默认为5dp-->
+        <attr name="inner_scan_speed" format="dimension" />
+        <!-- 扫描动画绘制的间期，单位是ms， 默认是25ms-->
+        <attr name="inner_scan_animation_interval" format="integer" />
+        <!-- 小圆点是否展示，默认为true-->
+        <attr name="inner_scan_isCircle" format="boolean" />
+        <attr name="inner_result_color" format="color" />
+        <attr name="inner_result_point_color" format="color" />
+        <attr name="inner_mask_color" format="color" />
+    </declare-styleable>
+    <attr name="ViewfinderViewStyle" format="reference" />
+
+</resources>

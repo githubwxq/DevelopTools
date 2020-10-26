@@ -9,7 +9,8 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle">
-        <activity android:name=".activity.DetailActivity"></activity>
+        <activity android:name=".fragment.components.qrcode.CustomCaptureActivity"></activity>
+        <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.TextMoveDragActivity">
 
             <!-- <intent-filter> -->
@@ -30,19 +31,15 @@
         </activity>
         <activity android:name=".activity.PingTuActivity">
 
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
-        <activity android:name=".activity.TestPublishWeightActivity">
-
-        </activity>
+        <activity android:name=".activity.TestPublishWeightActivity"></activity>
         <activity android:name=".activity.TestBitmapActivity">
 
             <!-- <intent-filter> -->

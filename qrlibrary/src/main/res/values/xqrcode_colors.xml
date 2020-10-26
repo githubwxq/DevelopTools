@@ -1,0 +1,8 @@
+<resources>
+
+    <color name="default_mask_color">#60000000</color>
+    <color name="default_result_color">#B0000000</color>
+    <color name="default_result_point_color">#C0FFFF00</color>
+
+    <color name="default_inner_corner_color">#0DC2FE</color>
+</resources>

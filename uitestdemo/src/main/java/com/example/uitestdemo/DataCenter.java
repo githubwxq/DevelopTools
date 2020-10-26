@@ -11,6 +11,8 @@ import com.example.uitestdemo.fragment.components.flowview.FlowViewFragment;
 import com.example.uitestdemo.fragment.components.guideview.GuideCaseViewStyleFragment;
 import com.example.uitestdemo.fragment.components.guideview.GuideViewQueeFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
+import com.example.uitestdemo.fragment.components.qrcode.QRCodeProduceFragment;
+import com.example.uitestdemo.fragment.components.qrcode.QrDetailFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
 import java.util.ArrayList;
@@ -35,7 +37,7 @@ public class DataCenter {
         componentList.add("图片处理");
         componentList.add("悬浮框");
         componentList.add("引导页");
-
+        componentList.add("二维码");
 
 
 //        componentList.add("图片处理");
@@ -129,6 +131,27 @@ public class DataCenter {
             button.add(new ItemBean("guidecaseview", GuideCaseViewStyleFragment.newInstance()));
             return button;
         }
+
+
+        if ("二维码".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("二维码扫描", QrDetailFragment.newInstance()));
+            button.add(new ItemBean("二维码生成", QRCodeProduceFragment.newInstance()));
+            return button;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
