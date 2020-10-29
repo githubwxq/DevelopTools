@@ -7,6 +7,21 @@ apply from: "../common_component_build.gradle"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
+apply plugin: 'walle'
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
+}
+
+
+
+
 //配置插件
 //apply plugin: 'com.neenbedankt.android-apt'
 
@@ -42,4 +57,10 @@ dependencies {
 //    implementation project(':trackpoint')
 //    annotationProcessor project(':inject_compiler')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+
+
+//    walle 打包
+    implementation 'com.meituan.android.walle:library:1.1.7'
+
 }
