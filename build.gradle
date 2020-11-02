@@ -41,7 +41,7 @@ buildscript {
 
 //        classpath 'com.novoda:bintray-release:0.9'
 
-        classpath 'com.meituan.android.walle:plugin:1.1.7'
+//        classpath 'com.meituan.android.walle:plugin:1.1.7'
 
     }
 
