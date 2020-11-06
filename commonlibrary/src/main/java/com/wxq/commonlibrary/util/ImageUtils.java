@@ -57,14 +57,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/12
- *     desc  : utils about image
- * </pre>
- */
 public final class ImageUtils {
 
     private ImageUtils() {
