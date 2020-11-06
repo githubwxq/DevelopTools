@@ -50,6 +50,7 @@ public class TestBitmapActivity extends BaseActivity {
         int px = ConvertUtils.dp2px(100);
         LogUtil.e("100dp对应的宽度" + px);
 
+
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inJustDecodeBounds = true;
         BitmapFactory.decodeResource(getResources(), R.mipmap.text, opts);
@@ -117,7 +118,6 @@ public class TestBitmapActivity extends BaseActivity {
 //                getAllImage();
 
                 //前往图片列表页面
-
                 Intent intent=new Intent(TestBitmapActivity.this, ChooseMediaActivity.class);
                 startActivity(intent);
 

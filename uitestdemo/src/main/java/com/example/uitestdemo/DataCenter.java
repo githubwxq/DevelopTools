@@ -10,6 +10,7 @@ import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
 import com.example.uitestdemo.fragment.components.flowview.FlowViewFragment;
 import com.example.uitestdemo.fragment.components.guideview.GuideCaseViewStyleFragment;
 import com.example.uitestdemo.fragment.components.guideview.GuideViewQueeFragment;
+import com.example.uitestdemo.fragment.components.image.ImageDealFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QRCodeProduceFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QrDetailFragment;
@@ -120,7 +121,12 @@ public class DataCenter {
 
         if ("图片处理".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("图片处理", VerifyCodeEditTextFragment.newInstance()));
+            button.add(new ItemBean("图片处理", ImageDealFragment.newInstance()));
+
+
+
+
+
             return button;
         }
 

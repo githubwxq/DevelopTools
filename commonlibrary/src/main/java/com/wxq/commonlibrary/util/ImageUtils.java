@@ -2038,6 +2038,7 @@ public final class ImageUtils {
 //        getRotateDegree                 : 获取图片旋转角度
 //        toRound                         : 转为圆形图片
 //        toRoundCorner                   : 转为圆角图片
+
 //        addCornerBorder                 : 添加圆角边框
 //        addCircleBorder                 : 添加圆形边框
 //        addReflection                   : 添加倒影

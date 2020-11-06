@@ -27,7 +27,6 @@ public class PingTuActivity extends BaseActivity {
 
     @BindView(R.id.pingtu)
     PingTuWeight pingtu;
-
     @BindView(R.id.iv_new_pic)
     ImageView ivNewPic;
     @BindView(R.id.tv_change)
@@ -48,6 +47,7 @@ public class PingTuActivity extends BaseActivity {
 //                oldImage.setImageURI(Uri.fromFile(new File("/sdcard/text.png")));
             }
         });
+        
 
         tv_change.setOnClickListener(new View.OnClickListener() {
             @Override

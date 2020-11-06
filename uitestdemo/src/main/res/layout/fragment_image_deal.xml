@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.components.image.ImageDealFragment">
+
+    <!-- TODO: Update blank fragment layout  2.75 -->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:text="@string/hello_blank_fragment" >
+        <com.juziwl.uilibrary.textview.SuperTextView
+            android:id="@+id/dp_to_px"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:text="dp转px"
+            android:textSize="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"/>
+
+
+
+        <com.juziwl.uilibrary.textview.SuperTextView
+            android:layout_width="wrap_content"
+            android:text="原图"
+            android:textSize="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"/>
+
+
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:background="@color/pink_50"
+            android:id="@+id/iv_original"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageView>
+
+
+
+        <TextView
+            android:id="@+id/tv_image_detail"
+            android:textSize="25sp"
+            android:text="原图图片信息"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+
+
+
+
+
+
+        <com.juziwl.uilibrary.textview.SuperTextView
+            android:layout_width="wrap_content"
+            android:text="变化后图片"
+            android:textSize="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"/>
+
+
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:background="@color/pink_50"
+            android:id="@+id/iv_change_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageView>
+
+
+
+
+
+        <TextView
+            android:id="@+id/tv_image_change_detail"
+            android:textSize="25sp"
+            android:text="变化后图片信息"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+
+
+
+<HorizontalScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/suoxiao"
+            android:layout_marginLeft="10dp"
+            android:text="缩小"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:id="@+id/changBig"
+            android:layout_marginLeft="10dp"
+            android:text="放大"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_rotate"
+            android:layout_marginLeft="10dp"
+            android:text="旋转"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_clip"
+            android:layout_marginLeft="10dp"
+            android:text="裁剪左上角"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_round"
+            android:layout_marginLeft="10dp"
+            android:text="转为圆角"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+    </LinearLayout>
+</HorizontalScrollView>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>
