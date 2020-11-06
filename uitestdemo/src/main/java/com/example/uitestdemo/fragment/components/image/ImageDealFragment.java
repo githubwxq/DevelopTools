@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.uitestdemo.R;
@@ -68,16 +69,26 @@ public class ImageDealFragment extends BaseFragment {
     TextView tv_rotate;
 
 
-
     @BindView(R.id.changBig)
     TextView changBig;
 
 
-     @BindView(R.id.tv_clip)
-     TextView tv_clip;
+    @BindView(R.id.tv_clip)
+    TextView tv_clip;
 
- @BindView(R.id.tv_round)
-     TextView tv_round;
+    @BindView(R.id.tv_round)
+    TextView tv_round;
+
+    @BindView(R.id.tv_add_text)
+    TextView tv_add_text;
+
+
+    @BindView(R.id.ll_layout)
+    LinearLayout ll_layout;
+
+
+    @BindView(R.id.copy_view_to_bitmap)
+    TextView copy_view_to_bitmap;
 
 
 
@@ -152,7 +163,7 @@ public class ImageDealFragment extends BaseFragment {
             public void onClick(View v) {
                 String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
 ////加载原图
-                Bitmap bitmap = BitmapFactory.decodeFile(s );
+                Bitmap bitmap = BitmapFactory.decodeFile(s);
 ////搞一个一样大小一样样式的复制图
 //                Bitmap copybm = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
 ////获取复制图的画布
@@ -192,8 +203,8 @@ public class ImageDealFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
-                Bitmap bitmap = BitmapFactory.decodeFile(s );
-                Bitmap rotate = ImageUtils.clip(bitmap, 0, 0, bitmap.getWidth() / 2,bitmap.getHeight() / 2);
+                Bitmap bitmap = BitmapFactory.decodeFile(s);
+                Bitmap rotate = ImageUtils.clip(bitmap, 0, 0, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
                 iv_change_image.setImageBitmap(rotate);
                 showChangeBitmapInfo(rotate);
             }
@@ -204,12 +215,36 @@ public class ImageDealFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
-                Bitmap bitmap = BitmapFactory.decodeFile(s );
-                Bitmap roundCorner = ImageUtils.toRoundCorner(bitmap, DensityUtil.dip2px(mContext,100));
+                Bitmap bitmap = BitmapFactory.decodeFile(s);
+                Bitmap roundCorner = ImageUtils.toRoundCorner(bitmap, DensityUtil.dip2px(mContext, 100));
                 iv_change_image.setImageBitmap(roundCorner);
                 showChangeBitmapInfo(roundCorner);
             }
         });
+
+        tv_add_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
+                Bitmap bitmap = BitmapFactory.decodeFile(s);
+                Bitmap roundCorner = ImageUtils.addTextWatermark(bitmap,  "水印",25,  Color.RED, 10,10f);
+                iv_change_image.setImageBitmap(roundCorner);
+                showChangeBitmapInfo(roundCorner);
+            }
+        });
+
+        copy_view_to_bitmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ll_layout.setDrawingCacheEnabled(true);
+                Bitmap llbitmap = Bitmap.createBitmap(ll_layout.getDrawingCache());
+                ll_layout.setDrawingCacheEnabled(false);
+                iv_change_image.setImageBitmap(llbitmap);
+                showChangeBitmapInfo(llbitmap);
+            }
+        });
+
+
 
 
 
@@ -220,12 +255,6 @@ public class ImageDealFragment extends BaseFragment {
         //内存缩小了四倍
         tv_image_change_detail.setText("width" + bitmap.getWidth() + "height" + bitmap.getHeight() + "bitmap内存" + size + "B");
     }
-
-
-
-
-
-
 
 
 }

@@ -88,11 +88,13 @@
 
 
 <HorizontalScrollView
-    android:layout_width="wrap_content"
+    android:scrollbars="none"
+    android:layout_marginTop="50dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_marginTop="50dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -100,7 +102,7 @@
             android:id="@+id/suoxiao"
             android:layout_marginLeft="10dp"
             android:text="缩小"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -110,7 +112,7 @@
             android:id="@+id/changBig"
             android:layout_marginLeft="10dp"
             android:text="放大"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -119,7 +121,7 @@
             android:id="@+id/tv_rotate"
             android:layout_marginLeft="10dp"
             android:text="旋转"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -128,7 +130,7 @@
             android:id="@+id/tv_clip"
             android:layout_marginLeft="10dp"
             android:text="裁剪左上角"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -137,15 +139,71 @@
             android:id="@+id/tv_round"
             android:layout_marginLeft="10dp"
             android:text="转为圆角"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
 
 
+        <TextView
+            android:id="@+id/tv_add_text"
+            android:layout_marginLeft="10dp"
+            android:text="添加文字水印"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+
+        <TextView
+            android:id="@+id/copy_view_to_bitmap"
+            android:layout_marginLeft="10dp"
+            android:text="复制控件内容到图片"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+
+
+
+
+
     </LinearLayout>
 </HorizontalScrollView>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_layout"
+            android:layout_marginTop="20dp"
+            android:background="@color/pink_50"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:text="我是测试文本"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+
+
+            <TextView
+                android:layout_gravity="center"
+                android:text="我是测试文本2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+
+
+        </LinearLayout>
+
 
 
 
