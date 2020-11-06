@@ -245,6 +245,7 @@ public class ImageDealFragment extends BaseFragment {
                 iv_change_image.setImageBitmap(roundCorner);
                 showChangeBitmapInfo(roundCorner);
             }
+
         });
 
         copy_view_to_bitmap.setOnClickListener(new View.OnClickListener() {
