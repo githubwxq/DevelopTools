@@ -1,6 +1,8 @@
 package com.example.uitestdemo.fragment.components.image;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -21,8 +23,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.trackpoint.annotation.Background;
 import com.example.trackpoint.annotation.SingleClick;
+import com.example.trackpoint.annotation.UiThread;
 import com.example.uitestdemo.R;
+import com.example.uitestdemo.activity.PingTuActivity;
 import com.juziwl.uilibrary.textview.SuperTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
@@ -96,8 +101,14 @@ public class ImageDealFragment extends BaseFragment {
     TextView tv_compress_pic;
 
 
+    @BindView(R.id.tv_single_click)
+    TextView tv_single_click;
 
+    @BindView(R.id.tv_io_change)
+    TextView tv_io_change;
 
+    @BindView(R.id.tv_login)
+    TextView tv_login;
 
 
     public static ImageDealFragment newInstance() {
@@ -230,7 +241,7 @@ public class ImageDealFragment extends BaseFragment {
             public void onClick(View v) {
                 String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
                 Bitmap bitmap = BitmapFactory.decodeFile(s);
-                Bitmap roundCorner = ImageUtils.addTextWatermark(bitmap,  "水印",25,  Color.RED, 10,10f);
+                Bitmap roundCorner = ImageUtils.addTextWatermark(bitmap, "水印", 25, Color.RED, 10, 10f);
                 iv_change_image.setImageBitmap(roundCorner);
                 showChangeBitmapInfo(roundCorner);
             }
@@ -248,9 +259,46 @@ public class ImageDealFragment extends BaseFragment {
         });
 
 
+        tv_single_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                singleClick();
+
+            }
+        });
+
+        tv_io_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showIoThread();
+                showMainThread();
+            }
+        });
 
 
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PingTuActivity.naveToActivity(mContext);
+            }
+        });
 
+    }
+
+    @SingleClick
+    private void singleClick() {
+        showToast("点我呀");
+    }
+
+
+    @Background
+    private void showMainThread() {
+        LogUtil.e("" + Thread.currentThread().getName());
+    }
+
+    @UiThread
+    private void showIoThread() {
+        LogUtil.e("" + Thread.currentThread().getName());
     }
 
     @SingleClick

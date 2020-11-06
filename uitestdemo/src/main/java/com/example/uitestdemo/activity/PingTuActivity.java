@@ -1,6 +1,8 @@
 package com.example.uitestdemo.activity;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.SpannableStringBuilder;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.trackpoint.annotation.NeedLogin;
 import com.example.uitestdemo.weight.PingTuWeight;
 import com.example.uitestdemo.R;
 import com.juziwl.uilibrary.textview.stytle.DividerSpan;
@@ -17,6 +20,7 @@ import com.juziwl.uilibrary.textview.stytle.RadiusBgSpan;
 import com.wxq.commonlibrary.base.BaseActivity;
 import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.glide.LoadingImgUtil;
+import com.wxq.commonlibrary.rxjavaimitate.imitate2.Test;
 import com.wxq.commonlibrary.util.DensityUtil;
 import com.wxq.commonlibrary.util.ImageUtils;
 
@@ -31,6 +35,13 @@ public class PingTuActivity extends BaseActivity {
     ImageView ivNewPic;
     @BindView(R.id.tv_change)
     TextView tv_change;
+
+     @NeedLogin(tipeType = NeedLogin.SHOW_TOAST, loginActivity = UIMainActivity.class)
+    public static void naveToActivity(Context context) {
+        context.startActivity(new Intent(context, PingTuActivity.class));
+    }
+
+
 
     @Override
     protected void initViews() {

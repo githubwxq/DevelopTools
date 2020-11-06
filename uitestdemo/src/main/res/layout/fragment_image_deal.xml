@@ -220,6 +220,41 @@
 
 
 
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/tv_single_click"
+            android:text="测试多次点击"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/tv_io_change"
+            android:layout_marginTop="20dp"
+            android:text="测试io线程切换"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_marginTop="20dp"
+            android:text="测试登录检测"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+
+
+
 
 
     </LinearLayout>
