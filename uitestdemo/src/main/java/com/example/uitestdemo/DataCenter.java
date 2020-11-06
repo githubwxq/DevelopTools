@@ -121,12 +121,7 @@ public class DataCenter {
 
         if ("图片处理".equals(name)) {
             List<ItemBean> button = new ArrayList<>();
-            button.add(new ItemBean("图片处理", ImageDealFragment.newInstance()));
-
-
-
-
-
+            button.add(new ItemBean("图片处理形状大小处理", ImageDealFragment.newInstance()));
             return button;
         }
 
