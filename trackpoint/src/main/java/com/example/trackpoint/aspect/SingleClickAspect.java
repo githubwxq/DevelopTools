@@ -1,6 +1,7 @@
 package com.example.trackpoint.aspect;
 
 import com.example.trackpoint.annotation.NeedLogin;
+import com.example.trackpoint.annotation.SingleClick;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,7 +22,7 @@ public class SingleClickAspect {
 
     String TAG = "SingleClickAspect";
 
-    long MIN_CLICK_DELAY_TIME = 2000;
+    long MIN_CLICK_DELAY_TIME = 5000;
 
     long lastClickTime = 0L;
 
@@ -32,6 +33,7 @@ public class SingleClickAspect {
             "(..)" +//方法参数,'..'为任意个任意类型参数
             ")")
     public void singleClick() {
+
 
     }
 

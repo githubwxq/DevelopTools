@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.trackpoint.annotation.SingleClick;
 import com.example.uitestdemo.R;
 import com.juziwl.uilibrary.textview.SuperTextView;
 import com.wxq.commonlibrary.base.BaseFragment;
@@ -91,6 +92,10 @@ public class ImageDealFragment extends BaseFragment {
     TextView copy_view_to_bitmap;
 
 
+    @BindView(R.id.tv_compress_pic)
+    TextView tv_compress_pic;
+
+
 
 
 
@@ -133,10 +138,8 @@ public class ImageDealFragment extends BaseFragment {
         suoxiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
-                Bitmap changeBitmap = ImageUtils.getBitmap(new File(s), 275, 275);
-                iv_change_image.setImageBitmap(changeBitmap);
-                showChangeBitmapInfo(changeBitmap);
+
+                ClickSoXiao();
             }
         });
 
@@ -248,6 +251,16 @@ public class ImageDealFragment extends BaseFragment {
 
 
 
+    }
+
+    @SingleClick
+    private void ClickSoXiao() {
+        LogUtil.e("我被点击了 suoxiao");
+
+        String s = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test550.png";
+        Bitmap changeBitmap = ImageUtils.getBitmap(new File(s), 275, 275);
+        iv_change_image.setImageBitmap(changeBitmap);
+        showChangeBitmapInfo(changeBitmap);
     }
 
     private void showChangeBitmapInfo(Bitmap bitmap) {

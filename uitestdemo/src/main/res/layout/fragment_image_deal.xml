@@ -169,6 +169,21 @@
 
 
 
+        <TextView
+            android:id="@+id/tv_compress_pic"
+            android:layout_marginLeft="10dp"
+            android:text="图片压缩处理"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+
+
+
+
 
 
 

@@ -8,6 +8,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
+
 //apply plugin: 'walle'
 //
 //walle {
@@ -48,6 +49,7 @@ android {
 dependencies {
 //    api rootProject.ext.deps["support-v4"]
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation project(path: ':trackpoint')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     annotationProcessor "com.neenbedankt.gradle.plugins:android-apt:1.8"

@@ -15,7 +15,8 @@ include ':app',
         ':nicevideoplayer',
         ':uitestdemo',
         ':rlayoutlibrary',
-        ':kotlintestdemo'
+        ':kotlintestdemo',
+        ':trackpoint'
 //  ':nettestdemo', ':aroutertestdemo',, ':nettestdemo', ':aroutertestdemo', ':uitestdemo', ':sdktestdemo',':mvplibrary'':module_wanandroid',  , ':uitestdemo' , ':gank' ,
 //':commonservice',
 //, ':bmobim'     , , ':trackpoint'   ':skinlibrary',
