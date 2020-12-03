@@ -2,3 +2,19 @@
 <network-security-config>
 <base-config cleartextTrafficPermitted="true" />
 </network-security-config>
+
+
+<!--  配置https charles 抓包工具-->
+<!--    https://www.cnblogs.com/wx2017/archive/2004/01/13/10777030.html-->
+
+<!--    &lt;!&ndash;需要抓包时替换&ndash;&gt;-->
+<!--<network-security-config>-->
+<!--<domain-config>-->
+<!--    &lt;!&ndash;domains改为请求域名&ndash;&gt;-->
+<!--    <domain includeSubdomains="true">qianfan1.qianfanapi.com</domain>-->
+<!--    <trust-anchors>-->
+<!--        <certificates src="@raw/charles" />-->
+<!--    </trust-anchors>-->
+<!--</domain-config>-->
+<!--</network-security-config>-->
+
