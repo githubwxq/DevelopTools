@@ -74,7 +74,7 @@ public abstract class BaseApp extends Application implements Thread.UncaughtExce
                 StrictMode.setVmPolicy(builder.build());
             }
             //百度初始化
-            BaiduMapManager.getInstance().initBaidu(this);
+//            BaiduMapManager.getInstance().initBaidu(this);
         }
     }
     private void closeAndroidPDialog(){

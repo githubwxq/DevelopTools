@@ -1,3 +1,4 @@
+include ':huanxing'
 include ':qrlibrary'
 include ':app',
         ':commonlibrary',

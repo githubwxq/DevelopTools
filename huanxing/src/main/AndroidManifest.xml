@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wxq.developtools">
-
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-
-
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 、、个推权限添加 -->
-    <!-- 个推SDK权限配置开始 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 支持iBeancon 需要蓝牙权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 支持个推3.0 电子围栏功能 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 浮动通知权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 自定义权限 -->
-    <uses-permission android:name="getui.permission.GetuiService.${applicationId}" />
-
-<!--    <permission-->
-<!--        android:name="getui.permission.GetuiService.${applicationId}"-->
-<!--        android:protectionLevel="normal" />-->
-
+    package="com.example.huanxing">
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 start-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -40,165 +15,27 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 end-->
-
-
-
-
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
+        android:name=".HuanXingApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/common_baseStyle"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
-        >
-
-
-        <activity android:name=".activity.SplashActivity"
-            android:theme="@style/SplashAppTheme">
+    >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.wxq.developtools.activity.KlookLoginActivity"/>
-        <activity android:name="com.wxq.developtools.activity.RegisterActivity"/>
 
-
-        <activity android:name=".activity.ChangePwdActivity" />
-        <activity android:name=".activity.AccountDetailActivity" />
-        <activity android:name=".activity.CityProductSearchListActivity" />
-        <activity android:name=".activity.CertificateActivity" />
-        <activity android:name=".activity.PublishCommentActivity" />
-        <activity android:name=".activity.AddPeopleActivity" />
-        <activity android:name=".activity.PeopleListActivity" />
-        <activity android:name=".activity.ConfirmAndPayActivity" />
-        <activity android:name=".activity.ConfirmOrderActivity" />
-        <activity android:name=".activity.ProductActivity" />
-        <activity android:name=".activity.ShopCarListActivity" />
-        <activity
-            android:name=".activity.CustomerServiceActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activity.CityActivity" />
-        <activity
-            android:name=".activity.KLookMainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".activity.MyOrderActivity" />
-        <activity android:name=".activity.MyCollectionActivity" />
-        <activity android:name=".activity.EditPersonActivity" />
-        <activity
-            android:name=".MvpMainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait" />
-
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="b0988fe00f9010eb67ac04e20e9df79c" />
-
-        <service android:name=".LocalService" />
-        <service
-            android:name=".RemoteService"
-            android:process=":remoteprocess" />
-        <service
-            android:name=".JobHandleService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <activity
-            android:name=".wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:scheme="com.wxq.developtools" />
-            </intent-filter>
-        </activity> <!-- //个推相关配置 -->
-        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
-        <service
-            android:name=".GeTuiIntentService"
-            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 配置SDK核心服务 -->
-        <!-- process必须指定为":pushservice"，切勿随意更改 -->
-        <service
-            android:name=".GeTuiPushService"
-            android:exported="true"
-            android:label="PushService"
-            android:process=":pushservice" />
-
-
-
-<!--        、、升级更新-->
-        <activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|locale"
-            android:theme="@android:style/Theme.Translucent" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
-        </provider>
-
-
-
-        <meta-data
-            android:name="android.max_aspect"
-            android:value="2.4" />
-        <!--适配华为（huawei）刘海屏-->
-        <meta-data
-            android:name="android.notch_support"
-            android:value="true"/>
-        <!--适配小米（xiaomi）刘海屏-->
-        <meta-data
-            android:name="notch.config"
-            android:value="portrait|landscape" />
-
-<!--       // 适配-->
-        <meta-data
-            android:name="design_width_in_dp"
-            android:value="375"/>
-        <meta-data
-            android:name="design_height_in_dp"
-            android:value="677"/>
-        <provider
-            android:name="me.jessyan.autosize.InitProvider"
-            android:authorities="${applicationId}.autosize-init-provider"
-            android:exported="false"
-            android:multiprocess="true"/>
-
-
-<!-- /百度地图配置ak-->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="HbIjSh9qQ612BwLlGhCucjPO5vGXxOyP" >
-
-
-        </meta-data>
 
 
         <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中 start-->
@@ -345,8 +182,6 @@
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
         <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中 end-->
-
-
 
     </application>
 

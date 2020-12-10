@@ -82,8 +82,8 @@ dependencies {
     annotationProcessor  rootProject.ext.deps["arouter-compiler"]
     //dagger
     compileOnly rootProject.ext.deps["javax.annotation-api"]
-    api rootProject.ext.deps["dagger"]
-    annotationProcessor rootProject.ext.deps["dagger-compiler"]
+//    api rootProject.ext.deps["dagger"]
+//    annotationProcessor rootProject.ext.deps["dagger-compiler"]
     //greendao
     api rootProject.ext.deps["greendao"]
     api rootProject.ext.deps["GreenDaoUpgradeHelper"]

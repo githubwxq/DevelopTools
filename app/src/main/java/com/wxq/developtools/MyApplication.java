@@ -9,6 +9,7 @@ import com.tencent.bugly.beta.Beta;
 import com.tencent.smtt.sdk.QbSdk;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.PushAgent;
 import com.wxq.commonlibrary.base.BaseApp;
 import com.wxq.commonlibrary.util.ActivityUtils;
 import com.wxq.commonlibrary.util.BuglyUtils;
@@ -52,6 +53,7 @@ public class MyApplication extends BaseApp {
 // 参数五：Push推送业务的secret 填充Umeng Message Secret对应信息（需替换）
         UMConfigure.init(this, "5f4d9bae636b2b13182a1793", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "1582c3153e7b3fca5a82f030a773d04e");
 
+        PushAgent mpu=PushAgent.getInstance(this);
     }
 
     @Override

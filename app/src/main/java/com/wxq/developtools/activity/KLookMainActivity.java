@@ -30,6 +30,8 @@ import com.wxq.commonlibrary.base.BasePresenter;
 import com.wxq.commonlibrary.http.common.LogUtil;
 import com.wxq.commonlibrary.map.baidu.BaiduMapManager;
 import com.wxq.commonlibrary.map.baidu.LocationListener;
+import com.wxq.commonlibrary.permission.PermissionPageUtils;
+import com.wxq.commonlibrary.util.PermissionUtils;
 import com.wxq.commonlibrary.util.UIHandler;
 //import com.wxq.developtools.GeTuiIntentService;
 //import com.wxq.developtools.GeTuiPushService;
@@ -111,7 +113,10 @@ public class KLookMainActivity extends BaseActivity {
 //      String cid=  PushManager.getInstance().getClientid(getApplicationContext());
 //
 //      initGeTui();
-      initUmengPush();
+
+        PermissionPageUtils permissionPageUtils = new PermissionPageUtils(this);
+        permissionPageUtils.jumpToNotificaitonPage();
+        initUmengPush();
 
 
 
