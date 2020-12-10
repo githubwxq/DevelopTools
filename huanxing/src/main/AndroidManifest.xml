@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.huanxing">
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 start-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,6 +17,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- 以下为需要的基本权限，需要自行添加至您的AndroidManifest文件中 end-->
     <application
+        tools:replace="android:allowBackup"
         android:allowBackup="true"
         android:name=".HuanXingApplication"
         android:icon="@mipmap/ic_launcher"
@@ -35,7 +37,10 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name=".MipushTestActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
 
 
         <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中 start-->

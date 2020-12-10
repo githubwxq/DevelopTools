@@ -1,13 +1,35 @@
 package com.example.huanxing;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.RemoteViews;
+
+import androidx.core.app.NotificationCompat;
 
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
+import com.umeng.message.UTrack;
+import com.umeng.message.UmengMessageHandler;
+import com.umeng.message.UmengNotificationClickHandler;
+import com.umeng.message.entity.UMessage;
 import com.wxq.commonlibrary.base.BaseApp;
+import com.wxq.commonlibrary.model.AppConfig;
+import com.wxq.commonlibrary.util.LogUtils;
+import com.wxq.commonlibrary.util.StringUtils;
+
+import org.android.agoo.xiaomi.MiPushRegistar;
 
 public class HuanXingApplication  extends BaseApp {
+    private final static String TAG = "HuanXingApplication";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -35,6 +57,82 @@ public class HuanXingApplication  extends BaseApp {
                 Log.e("2222","注册失败：-------->  " + "s:" + s + ",s1:" + s1);
             }
         });
+
+
+
+
+        /*
+         *该Handler是在IntentService中被调用，故 1.
+         * 如果需启动Activity，需添加Intent.FLAG_ACTIVITY_NEW_TASK 2.
+         * IntentService里的onHandleIntent方法是并不处于主线程中，因此，如果需调用到主线程，需如下所示;
+         * 或者可以直接启动Service
+         * */
+        UmengMessageHandler messageHandler = new UmengMessageHandler() {
+            @Override
+            public void dealWithCustomMessage(final Context context, final UMessage msg) {
+                new Handler(context.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            LogUtils.e("dealWithCustomMessage",
+                                    "==============收到友盟推送===============");
+
+                            UTrack.getInstance(context)
+                                    .trackMsgClick(msg);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public Notification getNotification(Context context, UMessage uMessage) {
+                return super.getNotification(context, uMessage);
+            }
+        };
+        mPushAgent.setMessageHandler(messageHandler);
+
+        UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
+            @Override
+            public void dealWithCustomAction(Context context, UMessage msg) {
+//                super.dealWithCustomAction(context, msg);
+                LogUtils.e(TAG, "dealWithCustomAction===》" + "收到友盟推送");
+
+            }
+
+            @Override
+            public void launchApp(Context context, UMessage msg) {
+                LogUtils.e(TAG, "launchApp===》" + "收到友盟推送");
+                super.launchApp(context, msg);
+            }
+
+            @Override
+            public void openUrl(Context context, UMessage msg) {
+                LogUtils.e(TAG, "openUrl===》" + "收到友盟推送");
+                super.openUrl(context, msg);
+            }
+
+            @Override
+            public void openActivity(Context context, UMessage msg) {
+                LogUtils.e(TAG, "openActivity===》" + "收到友盟推送");
+                super.openActivity(context, msg);
+            }
+
+            @Override
+            public void handleMessage(Context context, UMessage uMessage) {
+                LogUtils.e(TAG, "handleMessage===》" + "收到友盟推送");
+                super.handleMessage(context, uMessage);
+            }
+        };
+
+        mPushAgent.setNotificationClickHandler(notificationClickHandler);
+        mPushAgent.setDisplayNotificationNumber(3);
+//        Log.e(TAG, "mPushAgent register");
+
+
+
+
 
 
 

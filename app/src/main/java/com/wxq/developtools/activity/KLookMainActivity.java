@@ -116,7 +116,7 @@ public class KLookMainActivity extends BaseActivity {
 
         PermissionPageUtils permissionPageUtils = new PermissionPageUtils(this);
         permissionPageUtils.jumpToNotificaitonPage();
-        initUmengPush();
+//        initUmengPush();
 
 
 
@@ -144,87 +144,87 @@ public class KLookMainActivity extends BaseActivity {
 
     }
 
-    private void initUmengPush() {
-        PushAgent mPushAgent = PushAgent.getInstance(this);
-        mPushAgent.setResourcePackageName("com.wxq.developtools");
-        mPushAgent.setNotificaitonOnForeground(false);
-//注册推送服务，每次调用register方法都会回调该接口
-        mPushAgent.register(new IUmengRegisterCallback() {
-
-            @Override
-            public void onSuccess(String deviceToken) {
-                //注册成功会返回deviceToken deviceToken是推送消息的唯一标志
-                Log.i(TAG,"注册成功：deviceToken：-------->  " + deviceToken);
-
-                mPushAgent.setMessageHandler(new UmengMessageHandler(){
-                    @Override
-                    public void dealWithCustomMessage(Context context, UMessage uMessage) {
-                        Log.e(TAG,"收到：-------->  " +",s1:" + uMessage);
-                        super.dealWithCustomMessage(context, uMessage);
-                    }
-
-                    @Override
-                    public Notification getNotification(Context context, UMessage uMessage) {
-                        Log.e(TAG,"getNotification" +",s1:" + uMessage);
-                        return super.getNotification(context, uMessage);
-                    }
-                });
-
-                mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
-                    @Override
-                    public void handleMessage(Context context, UMessage uMessage) {
-                        Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
-                        super.handleMessage(context, uMessage);
-                    }
-                    @Override
-                    public void dealWithCustomAction(Context context, UMessage msg) {
-//                super.dealWithCustomAction(context, msg);
-                        Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
-                    }
-                });
-
-                mPushAgent.setDisplayNotificationNumber(3);
-
-            }
-
-            @Override
-            public void onFailure(String s, String s1) {
-                Log.e(TAG,"注册失败：-------->  " + "s:" + s + ",s1:" + s1);
-            }
-        });
-
-
-        mPushAgent.setMessageHandler(new UmengMessageHandler(){
-            @Override
-            public void dealWithCustomMessage(Context context, UMessage uMessage) {
-                Log.e(TAG,"收到：-------->  " +",s1:" + uMessage);
-                super.dealWithCustomMessage(context, uMessage);
-            }
-
-            @Override
-            public Notification getNotification(Context context, UMessage uMessage) {
-                Log.e(TAG,"getNotification" +",s1:" + uMessage);
-                return super.getNotification(context, uMessage);
-            }
-        });
-
-        mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
-            @Override
-            public void handleMessage(Context context, UMessage uMessage) {
-                Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
-                super.handleMessage(context, uMessage);
-            }
-            @Override
-            public void dealWithCustomAction(Context context, UMessage msg) {
-//                super.dealWithCustomAction(context, msg);
-                Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
-            }
-        });
-
-        mPushAgent.setDisplayNotificationNumber(3);
-
-
-    }
+//    private void initUmengPush() {
+//        PushAgent mPushAgent = PushAgent.getInstance(this);
+//        mPushAgent.setResourcePackageName("com.wxq.developtools");
+//        mPushAgent.setNotificaitonOnForeground(false);
+////注册推送服务，每次调用register方法都会回调该接口
+//        mPushAgent.register(new IUmengRegisterCallback() {
+//
+//            @Override
+//            public void onSuccess(String deviceToken) {
+//                //注册成功会返回deviceToken deviceToken是推送消息的唯一标志
+//                Log.i(TAG,"注册成功：deviceToken：-------->  " + deviceToken);
+//
+//                mPushAgent.setMessageHandler(new UmengMessageHandler(){
+//                    @Override
+//                    public void dealWithCustomMessage(Context context, UMessage uMessage) {
+//                        Log.e(TAG,"收到：-------->  " +",s1:" + uMessage);
+//                        super.dealWithCustomMessage(context, uMessage);
+//                    }
+//
+//                    @Override
+//                    public Notification getNotification(Context context, UMessage uMessage) {
+//                        Log.e(TAG,"getNotification" +",s1:" + uMessage);
+//                        return super.getNotification(context, uMessage);
+//                    }
+//                });
+//
+//                mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
+//                    @Override
+//                    public void handleMessage(Context context, UMessage uMessage) {
+//                        Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
+//                        super.handleMessage(context, uMessage);
+//                    }
+//                    @Override
+//                    public void dealWithCustomAction(Context context, UMessage msg) {
+////                super.dealWithCustomAction(context, msg);
+//                        Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
+//                    }
+//                });
+//
+//                mPushAgent.setDisplayNotificationNumber(3);
+//
+//            }
+//
+//            @Override
+//            public void onFailure(String s, String s1) {
+//                Log.e(TAG,"注册失败：-------->  " + "s:" + s + ",s1:" + s1);
+//            }
+//        });
+//
+//
+//        mPushAgent.setMessageHandler(new UmengMessageHandler(){
+//            @Override
+//            public void dealWithCustomMessage(Context context, UMessage uMessage) {
+//                Log.e(TAG,"收到：-------->  " +",s1:" + uMessage);
+//                super.dealWithCustomMessage(context, uMessage);
+//            }
+//
+//            @Override
+//            public Notification getNotification(Context context, UMessage uMessage) {
+//                Log.e(TAG,"getNotification" +",s1:" + uMessage);
+//                return super.getNotification(context, uMessage);
+//            }
+//        });
+//
+//        mPushAgent.setNotificationClickHandler(new UmengNotificationClickHandler(){
+//            @Override
+//            public void handleMessage(Context context, UMessage uMessage) {
+//                Log.e(TAG,"收到：handleMessage " +",s1:" + uMessage);
+//                super.handleMessage(context, uMessage);
+//            }
+//            @Override
+//            public void dealWithCustomAction(Context context, UMessage msg) {
+////                super.dealWithCustomAction(context, msg);
+//                Log.e(TAG,"dealWithCustomAction" +",s1:" + msg);
+//            }
+//        });
+//
+//        mPushAgent.setDisplayNotificationNumber(3);
+//
+//
+//    }
 
     private static final String TAG = "GetuiSdkDemo";
 //    private void initGeTui() {

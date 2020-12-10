@@ -89,7 +89,8 @@ dependencies {
 
 
 
-
+    implementation 'com.umeng.umsdk:xiaomi-push:3.7.0'
+    implementation 'com.umeng.umsdk:xiaomi-umengaccs:1.1.4'
 
 
 
