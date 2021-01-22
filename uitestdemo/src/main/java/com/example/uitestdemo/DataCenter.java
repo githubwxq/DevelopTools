@@ -138,6 +138,7 @@ public class DataCenter {
             List<ItemBean> button = new ArrayList<>();
             button.add(new ItemBean("二维码扫描", QrDetailFragment.newInstance()));
             button.add(new ItemBean("二维码生成", QRCodeProduceFragment.newInstance()));
+            button.add(new ItemBean("二维码识别本地相册图片", QRCodeProduceFragment.newInstance()));
             return button;
         }
 
