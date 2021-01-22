@@ -14,6 +14,7 @@ import com.example.uitestdemo.fragment.components.image.ImageDealFragment;
 import com.example.uitestdemo.fragment.components.popupwindow.EasyPopupFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QRCodeProduceFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QrDetailFragment;
+import com.example.uitestdemo.fragment.components.qrcode.QrdiscernFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
 
 import java.util.ArrayList;
@@ -138,7 +139,7 @@ public class DataCenter {
             List<ItemBean> button = new ArrayList<>();
             button.add(new ItemBean("二维码扫描", QrDetailFragment.newInstance()));
             button.add(new ItemBean("二维码生成", QRCodeProduceFragment.newInstance()));
-            button.add(new ItemBean("二维码识别本地相册图片", QRCodeProduceFragment.newInstance()));
+            button.add(new ItemBean("二维码识别本地相册图片", QrdiscernFragment.newInstance()));
             return button;
         }
 

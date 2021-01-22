@@ -7,6 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tv_choose_pic"
         android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
