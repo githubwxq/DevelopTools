@@ -1,15 +1,20 @@
 package com.example.uitestdemo.fragment.components.flowview;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.uitestdemo.R;
+import com.hjq.permissions.OnPermission;
+import com.hjq.permissions.XXPermissions;
 import com.juziwl.uilibrary.floatview.xfloatview.permission.FloatWindowPermission;
 import com.juziwl.uilibrary.floatview.xfloatview.service.AppMonitorService;
 import com.wxq.commonlibrary.base.BaseFragment;
 import com.wxq.commonlibrary.base.BasePresenter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -47,12 +52,23 @@ public class FlowViewFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_open:
-                FloatWindowPermission.getInstance().applyFloatWindowPermission(getContext());
-                AppMonitorService.start(getContext(), null);
-                gotoHome(getActivity());
+                String[] permission = new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW};
+                XXPermissions.with(getActivity()).permission(permission).request(new OnPermission() {
+                    @Override
+                    public void hasPermission(List<String> granted, boolean all) {
+                        FloatViewInstance.getInstance(mContext).showFloatingView();
+
+                    }
+
+                    @Override
+                    public void noPermission(List<String> denied, boolean quick) {
+                        showToast("请打开悬浮窗");
+                    }
+                });
+
                 break;
             case R.id.tv_close:
-                AppMonitorService.stop(getContext());
+                FloatViewInstance.getInstance(mContext).destroyFloatingView();
                 break;
         }
     }

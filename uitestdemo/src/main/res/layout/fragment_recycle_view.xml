@@ -6,7 +6,7 @@
     tools:context=".fragment.ComponentFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.juziwl.uilibrary.recycler.PullRefreshRecycleView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -114,8 +114,8 @@ public class KLookMainActivity extends BaseActivity {
 //
 //      initGeTui();
 
-        PermissionPageUtils permissionPageUtils = new PermissionPageUtils(this);
-        permissionPageUtils.jumpToNotificaitonPage();
+//        PermissionPageUtils permissionPageUtils = new PermissionPageUtils(this);
+//        permissionPageUtils.jumpToNotificaitonPage();
 //        initUmengPush();
 
 

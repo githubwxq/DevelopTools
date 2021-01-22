@@ -286,6 +286,8 @@ dependencies {
 
     api project(':baidulibrary')
 
+    api 'com.hjq:xxpermissions:8.2'
+
 
 }
 

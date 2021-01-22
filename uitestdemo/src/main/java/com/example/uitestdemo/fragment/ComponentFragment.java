@@ -2,6 +2,8 @@ package com.example.uitestdemo.fragment;
 
 import android.view.View;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.uitestdemo.DataCenter;
@@ -22,8 +24,8 @@ import butterknife.BindView;
 
 public class ComponentFragment extends BaseFragment {
 
-    @BindView(R.id.recycle)
-    PullRefreshRecycleView recycle;
+
+    RecyclerView recycle;
 
     public static ComponentFragment newInstance() {
         ComponentFragment fragment = new ComponentFragment();
@@ -43,6 +45,7 @@ public class ComponentFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
+        recycle=mRootView.findViewById(R.id.recycle);
         List<String> itemBeans = new ArrayList<>();
 
 
@@ -50,13 +53,13 @@ public class ComponentFragment extends BaseFragment {
             itemBeans.add(s);
         }
 
+        recycle.setLayoutManager(new XGridLayoutManager(getActivity(), 3));
 
-
-        recycle.setRefreshEnable(false)
-                .setLoadMoreEnable(false)
-                .setLayoutManager(new XGridLayoutManager(getActivity(), 3))
-                .addItemDecoration(new GridDividerItemDecoration(getActivity(), 3, DensityUtil.dip2px(getActivity(), 3)))
-                .setAdapter(new BaseQuickAdapter<String, BaseViewHolder>(R.layout.layout_widget_item, itemBeans) {
+//        recycle.setRefreshEnable(false)
+//                .setLoadMoreEnable(false)
+//                .setLayoutManager(new XGridLayoutManager(getActivity(), 3))
+        recycle .addItemDecoration(new GridDividerItemDecoration(getActivity(), 3, DensityUtil.dip2px(getActivity(), 3)));
+        recycle .setAdapter(new BaseQuickAdapter<String, BaseViewHolder>(R.layout.layout_widget_item, itemBeans) {
                     @Override
                     protected void convert(BaseViewHolder helper, String item) {
                         helper.setText(R.id.item_name, item);
