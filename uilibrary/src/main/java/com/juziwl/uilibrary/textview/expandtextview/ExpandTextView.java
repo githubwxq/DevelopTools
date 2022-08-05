@@ -25,7 +25,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import java.lang.reflect.Field;
 
 public class ExpandTextView extends AppCompatTextView {
-    public static final String ELLIPSIS_STRING = "…";
+    public static final String ELLIPSIS_STRING = new String(new char[]{'\u2026'});
     private static final int DEFAULT_MAX_LINE = 3;
     private static final String DEFAULT_OPEN_SUFFIX = " 展开";
     private static final String DEFAULT_CLOSE_SUFFIX = " 收起";
@@ -318,7 +318,6 @@ public class ExpandTextView extends AppCompatTextView {
             builder.setUseLineSpacingFromFallbacks(true);
             builder.setLineSpacing(getLineSpacingExtra(), getLineSpacingMultiplier());
             return builder.build();
-
 
         }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             return new StaticLayout(spannable, getPaint(), contentWidth, Layout.Alignment.ALIGN_NORMAL,
