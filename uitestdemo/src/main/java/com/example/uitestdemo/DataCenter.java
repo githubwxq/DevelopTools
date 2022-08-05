@@ -6,6 +6,7 @@ import com.example.uitestdemo.fragment.components.button.ButtonStyleFragment;
 import com.example.uitestdemo.fragment.components.button.ShadowWeightFragment;
 import com.example.uitestdemo.fragment.components.dialog.PayDialogFragment;
 import com.example.uitestdemo.fragment.components.edit.VerifyCodeEditTextFragment;
+import com.example.uitestdemo.fragment.components.expandtextview.ExpandTextViewFragment;
 import com.example.uitestdemo.fragment.components.flowlayout.FlowLayoutFragment;
 import com.example.uitestdemo.fragment.components.flowview.FlowViewFragment;
 import com.example.uitestdemo.fragment.components.guideview.GuideCaseViewStyleFragment;
@@ -16,6 +17,7 @@ import com.example.uitestdemo.fragment.components.qrcode.QRCodeProduceFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QrDetailFragment;
 import com.example.uitestdemo.fragment.components.qrcode.QrdiscernFragment;
 import com.example.uitestdemo.fragment.components.scrollingmarquee.MarqueeViewFragment;
+import com.juziwl.uilibrary.textview.expandtextview.ExpandTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class DataCenter {
         componentList.add("悬浮框");
         componentList.add("引导页");
         componentList.add("二维码");
+        componentList.add("可以张开的textview");
 
 
 //        componentList.add("图片处理");
@@ -142,6 +145,15 @@ public class DataCenter {
             button.add(new ItemBean("二维码识别本地相册图片", QrdiscernFragment.newInstance()));
             return button;
         }
+
+        if ("可以张开的textview".equals(name)) {
+            List<ItemBean> button = new ArrayList<>();
+            button.add(new ItemBean("可以展开的textview", ExpandTextViewFragment.newInstance()));
+            return button;
+        }
+
+
+
 
 
 

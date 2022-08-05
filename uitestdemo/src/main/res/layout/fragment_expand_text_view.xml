@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".fragment.components.expandtextview.ExpandTextViewFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.juziwl.uilibrary.textview.expandtextview.ExpandTextView
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/expand_textview"
+        android:text="大沙发的发送到发的说法发斯蒂芬" />
+
+
+    <TextView
+        android:id="@+id/tv_single"
+        android:textSize="20sp"
+        android:text="1213131312"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:textSize="20sp"
+        android:text="121313131211111111111111111111111111111111111111111111111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+
+
+</LinearLayout>
