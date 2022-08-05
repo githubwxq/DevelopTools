@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import java.lang.reflect.Field;
@@ -306,6 +307,7 @@ public class ExpandTextView extends AppCompatTextView {
      *
      * @return
      */
+
     private Layout createStaticLayout(SpannableStringBuilder spannable) {
         int contentWidth = initWidth - getPaddingLeft() - getPaddingRight();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -313,6 +315,7 @@ public class ExpandTextView extends AppCompatTextView {
             StaticLayout.Builder builder = StaticLayout.Builder.obtain(spannable, 0, spannable.length(), getPaint(), contentWidth);
             builder.setAlignment(Layout.Alignment.ALIGN_NORMAL);
             builder.setIncludePad(getIncludeFontPadding());
+            builder.setUseLineSpacingFromFallbacks(true);
             builder.setLineSpacing(getLineSpacingExtra(), getLineSpacingMultiplier());
             return builder.build();
 

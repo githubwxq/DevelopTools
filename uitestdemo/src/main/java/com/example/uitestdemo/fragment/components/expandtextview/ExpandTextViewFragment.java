@@ -59,7 +59,7 @@ public class ExpandTextViewFragment extends BaseFragment {
         mContent.initWidth(1080);
         mContent.setMaxLines(3);
         mContent.setHasAnimation(true);
-        mContent.setCloseInNewLine(false);
+        mContent.setCloseInNewLine(true);
 
         mContent.setOpenSuffixColor(getResources().getColor(R.color.teal_200));
         mContent.setCloseSuffixColor(getResources().getColor(R.color.teal_200));
