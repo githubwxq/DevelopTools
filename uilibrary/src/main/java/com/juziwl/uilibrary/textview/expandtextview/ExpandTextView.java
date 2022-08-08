@@ -130,13 +130,13 @@ public class ExpandTextView extends AppCompatTextView {
                     tempLayout = createStaticLayout(tempText2);
 
                 }
-                int lastSpace = mCloseSpannableStr.length() - mOpenSuffixSpan.length();
-                if(lastSpace >= 0 && originalText.length() > lastSpace){
-                    CharSequence redundantChar = originalText.subSequence(lastSpace, lastSpace + mOpenSuffixSpan.length());
-                    int offset = hasEnCharCount(redundantChar) - hasEnCharCount(mOpenSuffixSpan) + 1;
-                    lastSpace = offset <= 0 ? lastSpace : lastSpace - offset;
-                    mCloseSpannableStr = charSequenceToSpannable(originalText.subSequence(0, lastSpace));
-                }
+//                int lastSpace = mCloseSpannableStr.length() - mOpenSuffixSpan.length();
+//                if(lastSpace >= 0 && originalText.length() > lastSpace){
+//                    CharSequence redundantChar = originalText.subSequence(lastSpace, lastSpace + mOpenSuffixSpan.length());
+//                    int offset = hasEnCharCount(redundantChar) - hasEnCharCount(mOpenSuffixSpan) + 1;
+//                    lastSpace = offset <= 0 ? lastSpace : lastSpace - offset;
+//                    mCloseSpannableStr = charSequenceToSpannable(originalText.subSequence(0, lastSpace));
+//                }
                 //计算收起的文本高度
                 mCLoseHeight = tempLayout.getHeight() + getPaddingTop() + getPaddingBottom();
 
