@@ -315,7 +315,9 @@ public class ExpandTextView extends AppCompatTextView {
             StaticLayout.Builder builder = StaticLayout.Builder.obtain(spannable, 0, spannable.length(), getPaint(), contentWidth);
             builder.setAlignment(Layout.Alignment.ALIGN_NORMAL);
             builder.setIncludePad(getIncludeFontPadding());
-            builder.setUseLineSpacingFromFallbacks(true);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                builder.setUseLineSpacingFromFallbacks(true);
+            }
             builder.setLineSpacing(getLineSpacingExtra(), getLineSpacingMultiplier());
             return builder.build();
 

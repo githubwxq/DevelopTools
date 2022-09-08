@@ -66,8 +66,8 @@ fun main(args:Array<String>){
  var newPerson=   NewPerson("wxq",5);
     //变量存储lambda，必须显示指定参数类型
     val getAge = { p: NewPerson -> p.age }
-    people.maxBy(NewPerson::age)
-    println("maxget"+people.maxBy(getAge))//Person(name=jack, age=29)
+//    people.maxBy(NewPerson::age)
+//    println("maxget"+people.maxBy(getAge))//Person(name=jack, age=29)
 
 
 

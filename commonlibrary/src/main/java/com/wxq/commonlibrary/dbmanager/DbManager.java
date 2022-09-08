@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.github.yuweiguocn.library.greendao.MigrationHelper;
+//import com.github.yuweiguocn.library.greendao.MigrationHelper;
 import com.wxq.commonlibrary.base.BaseApp;
 import com.wxq.commonlibrary.dao.DaoMaster;
 import com.wxq.commonlibrary.dao.DaoSession;
@@ -69,7 +69,7 @@ public class DbManager {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             //数据库更新
-            MigrationHelper.migrate(db, UserDao.class);
+//            MigrationHelper.migrate(db, UserDao.class);
         }
     }
 

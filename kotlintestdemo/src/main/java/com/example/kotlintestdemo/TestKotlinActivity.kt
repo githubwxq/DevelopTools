@@ -127,7 +127,7 @@ class TestKotlinActivity : AppCompatActivity() {
         val persons = listOf(Person(17,"daqi"),Person(20,"Bob"))
 //寻找年龄最大的Person对象
 //花括号的代码片段代表lambda表达式，作为参数传递到maxBy()方法中。
-        persons.maxBy( { person: Person -> person.age } )
+//        persons.maxBy( { person: Person -> person.age } )
 
 
 
