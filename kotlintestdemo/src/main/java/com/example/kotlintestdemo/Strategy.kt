@@ -5,6 +5,7 @@ package com.example.kotlintestdemo
 class StrategyA : Strategy{
     override fun action() {
         println("StrategyA")
+
     }
 }
 

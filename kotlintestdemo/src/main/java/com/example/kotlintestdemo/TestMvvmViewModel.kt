@@ -94,7 +94,7 @@ class TestMvvmViewModel(application: Application) : AndroidViewModel(application
                         cancel?.invoke(e)
                     }
                     else -> {
-                        Log.e("error",e.message)
+
 //                        onError(e)
 //                        error?.invoke(e)
                     }

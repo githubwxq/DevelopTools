@@ -44,10 +44,10 @@ android {
     }
 
 
-    dexOptions {
-        maxProcessCount 4
-        javaMaxHeapSize "8g"
-    }
+//    dexOptions {
+//        maxProcessCount 4
+//        javaMaxHeapSize "8g"
+//    }
 
 
 //、、在library中的buildconfig.debug 配置

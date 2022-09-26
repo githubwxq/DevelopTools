@@ -22,7 +22,7 @@ public class CustomMutableLiveData<T extends BaseObservable>
 
             //Trigger LiveData observer on change of any property in object
             setValue(getValue());
-
+            Stringutil.INSTANCE.lettersCount("112");
         }
     };
 

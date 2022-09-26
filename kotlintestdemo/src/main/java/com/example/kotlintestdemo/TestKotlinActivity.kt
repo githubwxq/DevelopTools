@@ -14,8 +14,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlintestdemo.bean.Course
 import kotlinx.android.synthetic.main.activity_test_kotlin.*
-import me.chen_wei.samples.dialog.showDialog
-import kotlin.contracts.Returns
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 
 class TestKotlinActivity : AppCompatActivity() {
 
@@ -45,16 +48,16 @@ class TestKotlinActivity : AppCompatActivity() {
         tv_button2.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
 //                Toast.makeText(TestKotlinActivity.,"onClick",Toast.LENGTH_SHORT).show()
-                showDialog {
-                    cancelOutside = false
-                    title = "Dialog Fragment"
-                    message = "A fragment that displays a dialog window, floating on top of its activity's window. "
-                    rightClicks(key = "Yes") {
-//                        toast("Right Button Clicked!")
-                        Toast.makeText(context, "rightClicks", Toast.LENGTH_SHORT).show()
-                    }
-                    leftClicks {   Toast.makeText(context, "leftClicks", Toast.LENGTH_SHORT).show() }
-                }
+//                showDialog {
+//                    cancelOutside = false
+//                    title = "Dialog Fragment"
+//                    message = "A fragment that displays a dialog window, floating on top of its activity's window. "
+//                    rightClicks(key = "Yes") {
+////                        toast("Right Button Clicked!")
+//                        Toast.makeText(context, "rightClicks", Toast.LENGTH_SHORT).show()
+//                    }
+//                    leftClicks {   Toast.makeText(context, "leftClicks", Toast.LENGTH_SHORT).show() }
+//                }
             }
         })
 //        tv_button.setOnTouchListener(object : OnTouchListener {
@@ -128,6 +131,30 @@ class TestKotlinActivity : AppCompatActivity() {
 //寻找年龄最大的Person对象
 //花括号的代码片段代表lambda表达式，作为参数传递到maxBy()方法中。
 //        persons.maxBy( { person: Person -> person.age } )
+
+
+
+        GlobalScope.launch() {
+
+
+            println("img之前"+Thread().name)
+            //指定Lambda在IO线程执行，withContext方法就是一个挂起函数
+            val img = withContext(Dispatchers.IO) {
+                //网络操作获取照片
+                println("img当前线程"+Thread().name)
+                Thread.sleep(3000)
+                "wxq"
+            }
+            println("img外当前线程"+Thread().name)
+            println("img之后")
+            //返回主线程
+            println(img)
+            println("img外当前线程"+Thread().name)
+            println("img外当前线程"+Thread().name)
+            println("img外当前线程"+Thread().name)
+            println("img外当前线程"+Thread().name)
+        }
+
 
 
 

@@ -91,11 +91,11 @@ android {
 //    }
 
 
-
-    dexOptions {
-        maxProcessCount 4
-        javaMaxHeapSize "8g"
-    }
+//
+//    dexOptions {
+//        maxProcessCount 4
+//        javaMaxHeapSize "8g"
+//    }
 
 //、、在library中的buildconfig.debug 配置
     gradle.startParameter.getTaskNames().each { task ->
@@ -192,7 +192,7 @@ dependencies {
 
     //greendao
     api rootProject.ext.deps["greendao"]
-    api rootProject.ext.deps["GreenDaoUpgradeHelper"]
+//    api rootProject.ext.deps["GreenDaoUpgradeHelper"]
 
     //bmob
 

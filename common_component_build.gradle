@@ -1,5 +1,5 @@
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'com.hujiang.android-aspectjx'
+//apply plugin: 'com.hujiang.android-aspectjx'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion

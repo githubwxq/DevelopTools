@@ -7,11 +7,30 @@ class Test constructor(var num:Int){
 
     init {
 
+
+        val list = listOf("apple, banana, orange")
+        val result = with(StringBuilder()) {
+            append("Start eating fruits.\n")
+            for (fruit in list) {
+                append(fruit).append("\n")
+            }
+            append("Ate all fruits")
+            toString()
+        }
+        println(result)
+
+
     }
 //    init {
 //        num=1000;
 //        print("number=$num")
 //    }
+companion object {
+    fun test2() {
+
+    }
+}
+
 
 }
 
@@ -20,12 +39,13 @@ suspend fun dddd(url: String) = withContext(Dispatchers.IO) {
 }
 
 
+
 fun main(){
     var  test=Test(11111);
 
     val instance1=mysingle;
     val instance2=mysingle;
-
+Test.test2()
     if (instance2===instance1) {
         print("单列")
     }

@@ -6,8 +6,17 @@ package com.example.kotlintestdemo
     var c:Int = 10
 
     fun main(args: Array<String>?){
+        Thread{
+            println("tes111t")
+        }.start()
+
         println("helloworld!")
         println( getScore2("Tom"))   ;
+
+
+
+
+
     }
 
 

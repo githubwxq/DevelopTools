@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.jakewharton.butterknife'
 apply from: "../pgyer.gradle"
 //引入aspectj插件 测试登入，添加埋点之类的
-apply plugin: 'com.hujiang.android-aspectjx'
+//apply plugin: 'com.hujiang.android-aspectjx'
 
 //apply plugin: 'walle'
 //
@@ -88,14 +88,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dexOptions {
-        jumboMode = true
-    }
+//    dexOptions {
+//        jumboMode = true
+//    }
 
-    dexOptions {
-        maxProcessCount 4
-        javaMaxHeapSize "8g"
-    }
+//    dexOptions {
+//        maxProcessCount 4
+//        javaMaxHeapSize "8g"
+//    }
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
